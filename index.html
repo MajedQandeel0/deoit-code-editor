@@ -12,7 +12,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0d0d0d">
+  <meta name="theme-color" content="#0a0a0a">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="color-scheme" content="dark">
   <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo">
@@ -268,7 +268,8 @@
     }
   </script>
 
-  <nav class="topnav">
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="topnav" id="topnav">
     <div class="topnav-inner">
       <a href="/" class="topnav-logo">
         <img src="logo.png" alt="Deoit" width="32" height="32">
@@ -310,92 +311,120 @@
     </div>
   </div>
 
+  <!-- ═══ HERO ═══ -->
   <section class="hero-landing">
+    <!-- Floating glass shapes (from original design) -->
+    <div class="float-shape float-circle" style="top:10%;left:6%;width:80px;height:80px;animation-delay:0s;background:rgba(97,175,239,0.05);border-color:rgba(97,175,239,0.1);"></div>
+    <div class="float-shape float-square" style="top:18%;right:8%;width:60px;height:60px;animation-delay:1.5s;animation-duration:14s;background:rgba(229,192,123,0.05);border-color:rgba(229,192,123,0.1);"></div>
+    <div class="float-shape float-circle" style="top:50%;left:3%;width:50px;height:50px;animation-delay:3s;animation-duration:16s;background:rgba(198,120,221,0.05);border-color:rgba(198,120,221,0.1);"></div>
+    <div class="float-shape float-square" style="top:60%;right:4%;width:45px;height:45px;animation-delay:2s;animation-duration:13s;background:rgba(224,108,117,0.05);border-color:rgba(224,108,117,0.1);"></div>
+    <div class="float-shape float-circle" style="top:78%;left:10%;width:55px;height:55px;animation-delay:4s;animation-duration:18s;background:rgba(152,195,121,0.05);border-color:rgba(152,195,121,0.1);"></div>
+    <div class="float-shape float-square" style="top:35%;right:2%;width:40px;height:40px;animation-delay:1s;animation-duration:15s;background:rgba(217,217,217,0.04);border-color:rgba(217,217,217,0.08);"></div>
     <div class="hero-glow"></div>
-    <div class="hero-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      100% Free &middot; No Sign-up Required
-    </div>
-    <h1>Learn to Code.<br><span class="hero-gradient">Build &amp; Ship.</span></h1>
-    <p class="hero-sub">The free browser-based code editor for HTML, CSS &amp; JavaScript. Write, run, and preview code instantly &mdash; with syntax highlighting, smart autocomplete, and a file explorer. No downloads. No setup.</p>
-    <div class="hero-buttons">
-      <a href="pages/editor" class="btn btn-accent btn-hero">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        Try the Editor
-      </a>
-      <a href="learn" class="btn btn-outline btn-hero">
-        Browse Courses
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
 
-    <div class="hero-editor-mock">
-      <div class="mock-toolbar">
-        <div class="mock-dots">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="mock-tabs">
-          <div class="mock-tab active" data-lang="html">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
-            index.html
-          </div>
-          <div class="mock-tab" data-lang="css">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
-            style.css
-          </div>
-          <div class="mock-tab" data-lang="js">
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zM5.5 5h1v6h-.8l-.1-4.5L4.5 7v-.2l.2-.5zm2.5 0h1.5l.5 3.2.5-3.2H11l-.8 4.8-.1.5-.1.5h-.7l.5-3z"/></svg>
-            script.js
-          </div>
-        </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Free &middot; No Sign-up Required
       </div>
-      <div class="mock-code">
-        <div class="mock-code-inner" id="mockCode">
-          <div class="code-line"><span class="ln">1</span><span class="hl-tag">&lt;!DOCTYPE html&gt;</span></div>
-          <div class="code-line"><span class="ln">2</span><span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-string">"en"</span><span class="hl-tag">&gt;</span></div>
-          <div class="code-line"><span class="ln">3</span><span class="hl-tag">&lt;head&gt;</span></div>
-          <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="hl-tag">&lt;title&gt;</span><span class="hl-text">My Page</span><span class="hl-tag">&lt;/title&gt;</span></div>
-          <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-string">"stylesheet"</span> <span class="hl-attr">href</span>=<span class="hl-string">"style.css"</span><span class="hl-tag">/&gt;</span></div>
-          <div class="code-line"><span class="ln">6</span><span class="hl-tag">&lt;/head&gt;</span></div>
-          <div class="code-line"><span class="ln">7</span><span class="hl-tag">&lt;body&gt;</span></div>
-          <div class="code-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-string">"card"</span><span class="hl-tag">&gt;</span></div>
-          <div class="code-line"><span class="ln">9</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;h1&gt;</span><span class="hl-text">Hello, World!</span><span class="hl-tag">&lt;/h1&gt;</span></div>
-          <div class="code-line"><span class="ln">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;p&gt;</span><span class="hl-text">Welcome to Deoit</span><span class="hl-tag">&lt;/p&gt;</span></div>
-          <div class="code-line"><span class="ln">11</span>&nbsp;&nbsp;<span class="hl-tag">&lt;/div&gt;</span></div>
-          <div class="code-line"><span class="ln">12</span><span class="hl-tag">&lt;/body&gt;</span></div>
-          <div class="code-line"><span class="ln">13</span><span class="hl-tag">&lt;/html&gt;</span></div>
-          <div class="code-line mock-cursor-line"><span class="ln">14</span><span class="mock-cursor"></span></div>
-        </div>
+      <h1>
+        <span class="typing-static">Write, run, and</span>
+        <br>
+        <span class="hero-gradient typing-dynamic"></span><span class="typing-cursor">|</span>
+      </h1>
+      <p class="hero-sub">A free browser-based code editor for HTML, CSS &amp; JavaScript. Syntax highlighting, smart autocomplete, file explorer, and instant preview &mdash; no downloads needed.</p>
+      <div class="hero-buttons">
+        <a href="pages/editor" class="btn btn-accent btn-hero">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Try the Editor
+        </a>
+        <a href="learn" class="btn btn-outline btn-hero">
+          Browse Courses
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-      <div class="mock-preview">
-        <div class="mock-preview-bar">
-          <span class="mock-preview-dot"></span>
-          <span>Preview</span>
+
+      <!-- Code demo with tabs (from original design) -->
+      <div class="hero-editor-mock">
+        <div class="mock-toolbar">
+          <div class="mock-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="mock-tabs">
+            <div class="mock-tab active" data-lang="html">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
+              index.html
+            </div>
+            <div class="mock-tab" data-lang="css">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
+              style.css
+            </div>
+            <div class="mock-tab" data-lang="js">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zM5.5 5h1v6h-.8l-.1-4.5L4.5 7v-.2l.2-.5zm2.5 0h1.5l.5 3.2.5-3.2H11l-.8 4.8-.1.5-.1.5h-.7l.5-3z"/></svg>
+              script.js
+            </div>
+          </div>
         </div>
-        <div class="mock-preview-content">
-          <div class="mock-preview-card">
-            <h2>Hello, World!</h2>
-            <p>Welcome to Deoit</p>
+        <div class="mock-code">
+          <div class="mock-code-inner" id="mockCode">
+            <div class="code-line"><span class="ln">1</span><span class="hl-tag">&lt;!DOCTYPE html&gt;</span></div>
+            <div class="code-line"><span class="ln">2</span><span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-string">"en"</span><span class="hl-tag">&gt;</span></div>
+            <div class="code-line"><span class="ln">3</span><span class="hl-tag">&lt;head&gt;</span></div>
+            <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="hl-tag">&lt;title&gt;</span><span class="hl-text">My Page</span><span class="hl-tag">&lt;/title&gt;</span></div>
+            <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-string">"stylesheet"</span> <span class="hl-attr">href</span>=<span class="hl-string">"style.css"</span><span class="hl-tag">/&gt;</span></div>
+            <div class="code-line"><span class="ln">6</span><span class="hl-tag">&lt;/head&gt;</span></div>
+            <div class="code-line"><span class="ln">7</span><span class="hl-tag">&lt;body&gt;</span></div>
+            <div class="code-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-string">"card"</span><span class="hl-tag">&gt;</span></div>
+            <div class="code-line"><span class="ln">9</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;h1&gt;</span><span class="hl-text">Hello, World!</span><span class="hl-tag">&lt;/h1&gt;</span></div>
+            <div class="code-line"><span class="ln">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;p&gt;</span><span class="hl-text">Welcome to Deoit</span><span class="hl-tag">&lt;/p&gt;</span></div>
+            <div class="code-line"><span class="ln">11</span>&nbsp;&nbsp;<span class="hl-tag">&lt;/div&gt;</span></div>
+            <div class="code-line"><span class="ln">12</span><span class="hl-tag">&lt;/body&gt;</span></div>
+            <div class="code-line"><span class="ln">13</span><span class="hl-tag">&lt;/html&gt;</span></div>
+            <div class="code-line mock-cursor-line"><span class="ln">14</span><span class="mock-cursor"></span></div>
+          </div>
+        </div>
+        <div class="mock-preview">
+          <div class="mock-preview-bar">
+            <span class="mock-preview-dot"></span>
+            <span>Preview</span>
+          </div>
+          <div class="mock-preview-content">
+            <div class="mock-preview-card">
+              <h2>Hello, World!</h2>
+              <p>Welcome to Deoit</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="trusted-bar">
-    <div class="trusted-bar-inner">
-      <span class="trusted-label">Trusted by beginners learning to code</span>
-      <div class="trusted-icons">
-        <a href="learn-html.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-html)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>HTML</a>
-        <a href="learn-css.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-css)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>CSS</a>
-        <a href="learn-js.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-js)"><path d="M1 1h22l-2 20-9 2.5L1 21zm6.3-5.5h10.6l.2-2H8l.1 1.5h8.2l-.4 4-4.3 1.2-4.3-1.2-.3-2.8h2l.1 1 2.5.7 2.5-.7.3-3.7z"/></svg>JavaScript</a>
-        <a href="learn-react.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-react)"><circle cx="12" cy="12" r="2.5"/><g fill="none" stroke="var(--accent-react)" stroke-width="1.2"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g></svg>React</a>
-        <a href="learn-node.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-node)"><path d="M11.5 1.5l-10 6v8l10 6 10-6v-8l-10-6zm0 3l6 3.7v7.6l-6 3.7-6-3.7V8.2l6-3.7z"/></svg>Node.js</a>
-        <a href="learn-tools.html" class="trusted-item"><svg viewBox="0 0 24 24" fill="var(--accent-tools)"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Tools</a>
+  <!-- ═══ STATS BAR ═══ -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-number" data-target="81">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Free Lessons</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="6">0</span>
+        <span class="stat-label">Languages</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="25">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Token Types</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="0">0</span>
+        <span class="stat-label">Price — Free</span>
       </div>
     </div>
   </section>
 
+  <!-- ═══ FEATURES ═══ -->
   <section class="features-landing" id="features">
     <div class="section-inner">
       <div class="section-header">
@@ -404,42 +433,42 @@
         <p>A complete toolkit for learning and building &mdash; right in your browser.</p>
       </div>
       <div class="features-grid-landing">
-        <div class="feature-card-landing">
+        <div class="feature-card-landing" data-delay="0">
           <div class="feature-icon-landing" style="color:var(--accent-html);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
           <h3>Smart Code Editor</h3>
           <p>Write HTML, CSS, and JavaScript with syntax highlighting, autocomplete, auto-closing tags, and intelligent suggestions across 25+ token types.</p>
         </div>
-        <div class="feature-card-landing">
+        <div class="feature-card-landing" data-delay="1">
           <div class="feature-icon-landing" style="color:var(--accent-js);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           </div>
           <h3>Instant Preview</h3>
           <p>Run your code instantly in a live preview window. See HTML, CSS, and JavaScript results in real-time &mdash; no page reloads.</p>
         </div>
-        <div class="feature-card-landing">
+        <div class="feature-card-landing" data-delay="2">
           <div class="feature-icon-landing" style="color:var(--accent-css);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
           </div>
           <h3>File Explorer</h3>
           <p>Create, rename, and organize files and folders with drag-and-drop. Build multi-file projects just like a professional IDE.</p>
         </div>
-        <div class="feature-card-landing">
+        <div class="feature-card-landing" data-delay="3">
           <div class="feature-icon-landing" style="color:var(--accent-react);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           </div>
           <h3>81+ Free Lessons</h3>
           <p>Structured courses covering HTML, CSS, JavaScript, React, and Node.js. Learn at your own pace with interactive code examples.</p>
         </div>
-        <div class="feature-card-landing">
+        <div class="feature-card-landing" data-delay="4">
           <div class="feature-icon-landing" style="color:var(--accent-node);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </div>
           <h3>Cloud Sync</h3>
           <p>Sign in with Google or GitHub to save projects to the cloud. Access your code from any device, anywhere &mdash; always safe.</p>
         </div>
-        <div class="feature-card-landing">
+        <div class="feature-card-landing" data-delay="5">
           <div class="feature-icon-landing" style="color:var(--accent-tools);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           </div>
@@ -450,6 +479,7 @@
     </div>
   </section>
 
+  <!-- ═══ HOW IT WORKS ═══ -->
   <section class="how-section" id="how-it-works">
     <div class="section-inner">
       <div class="section-header">
@@ -479,6 +509,7 @@
     </div>
   </section>
 
+  <!-- ═══ COURSES ═══ -->
   <section class="courses-landing" id="courses">
     <div class="section-inner">
       <div class="section-header">
@@ -539,6 +570,7 @@
     </div>
   </section>
 
+  <!-- ═══ BLOG ═══ -->
   <section class="blog-landing">
     <div class="section-inner">
       <div class="section-header">
@@ -552,16 +584,17 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-html)" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           </div>
           <h3>Bootstrap is Dead in 2026 (Use This Instead)</h3>
-          <p>Bootstrap dominated web development for a decade. Here's what to use instead — and why CSS has caught up.</p>
-          <span class="course-card-link">Read →</span>
+          <p>Bootstrap dominated web development for a decade. Here's what to use instead &mdash; and why CSS has caught up.</p>
+          <span class="course-card-link">Read &rarr;</span>
         </a>
       </div>
       <div style="text-align:center;margin-top:40px;">
-        <a href="blog" class="btn btn-outline btn-big">View All Posts →</a>
+        <a href="blog" class="btn btn-outline btn-big">View All Posts &rarr;</a>
       </div>
     </div>
   </section>
 
+  <!-- ═══ FAQ ═══ -->
   <section class="faq-landing" id="faq">
     <div class="section-inner">
       <div class="section-header">
@@ -598,6 +631,7 @@
     </div>
   </section>
 
+  <!-- ═══ CTA ═══ -->
   <section class="cta-landing">
     <div class="section-inner">
       <h2>Start coding today</h2>
@@ -612,6 +646,7 @@
     </div>
   </section>
 
+  <!-- ═══ FOOTER ═══ -->
   <footer class="footer-landing">
     <div class="footer-inner">
       <div class="footer-top">
@@ -747,6 +782,96 @@ window.addEventListener('unhandledrejection',function(e){
 if(String(e.reason).includes('web3forms')||String(e.reason).includes('securitypolicy'))return;
 fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 Unhandled Promise',message:String(e.reason)+'\nPage: '+location.href})}).catch(function(){});
 });
-</script>
+  </script>
+
+  <!-- Landing page animations & interactions -->
+  <script>
+    (function() {
+      // ─── Navbar scroll effect ───
+      const nav = document.getElementById('topnav');
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y > 50) {
+          nav.classList.add('topnav-scrolled');
+        } else {
+          nav.classList.remove('topnav-scrolled');
+        }
+        lastScroll = y;
+      }, { passive: true });
+
+      // ─── Mobile menu ───
+      const burger = document.getElementById('menuToggle');
+      const mobile = document.getElementById('mobileMenu');
+      if (burger && mobile) {
+        burger.addEventListener('click', () => mobile.classList.toggle('show'));
+        mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobile.classList.remove('show')));
+      }
+
+      // ─── Typing animation ───
+      const words = ['debug code', 'learn HTML', 'build websites', 'master CSS', 'ship projects'];
+      const el = document.querySelector('.typing-dynamic');
+      if (el) {
+        let wordIdx = 0, charIdx = 0, deleting = false;
+        function type() {
+          const word = words[wordIdx];
+          if (!deleting) {
+            el.textContent = word.substring(0, charIdx + 1);
+            charIdx++;
+            if (charIdx === word.length) { setTimeout(() => { deleting = true; type(); }, 2000); return; }
+            setTimeout(type, 80);
+          } else {
+            el.textContent = word.substring(0, charIdx - 1);
+            charIdx--;
+            if (charIdx === 0) { deleting = false; wordIdx = (wordIdx + 1) % words.length; setTimeout(type, 400); return; }
+            setTimeout(type, 40);
+          }
+        }
+        setTimeout(type, 800);
+      }
+
+      // ─── Stat counter animation ───
+      const stats = document.querySelectorAll('.stat-number[data-target]');
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target);
+            if (target === 0) { el.textContent = '0'; return; }
+            let current = 0;
+            const step = Math.max(1, Math.ceil(target / 40));
+            const interval = setInterval(() => {
+              current += step;
+              if (current >= target) { current = target; clearInterval(interval); }
+              el.textContent = current;
+            }, 30);
+            statObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      stats.forEach(s => statObserver.observe(s));
+
+      // ─── Scroll reveal animation ───
+      const reveals = document.querySelectorAll('.feature-card-landing, .course-card-landing, .step-card, .faq-item');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(r => revealObserver.observe(r));
+
+      // ─── Mock tab switching ───
+      const mockTabs = document.querySelectorAll('.mock-tab');
+      mockTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          mockTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
