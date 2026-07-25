@@ -313,78 +313,50 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero-landing">
-    <div class="hero-glow"></div>
-
-    <div class="hero-content">
-      <div class="hero-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        100% Free &middot; No Sign-up Required
-      </div>
-      <h1>
-        <span class="hero-gradient">Write, run, and debug</span>
-        <br>
-        <span class="typing-static typing-dynamic"></span><span class="typing-cursor">|</span>
-      </h1>
-      <p class="hero-sub">A free browser-based code editor for HTML, CSS &amp; JavaScript. Syntax highlighting, smart autocomplete, file explorer, and instant preview &mdash; no downloads needed.</p>
-      <div class="hero-buttons">
-        <a href="pages/editor" class="btn btn-accent btn-hero">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Try the Editor
-        </a>
-        <a href="learn" class="btn btn-outline btn-hero">
-          Browse Courses
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <!-- Code demo with tabs (from original design) -->
-      <div class="hero-editor-mock">
-        <div class="mock-toolbar">
-          <div class="mock-dots">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="mock-tabs">
-            <div class="mock-tab active" data-lang="html">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
-              index.html
-            </div>
-            <div class="mock-tab" data-lang="css">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zm5.4 4l-.3 2h.1l.1-1.1.1-1h.2l-.1 1zm2.8 0h-.2l-.2 1.6h-.1l.1-1.6h-.2l-.2 1.6h-.1l.1-1.6h-.2l.2-2h.3l.2 2zm1.8 0l.3 2h-.2l-.1-.6h-.3l-.1.6h-.2l.3-2zm-3.7 1l.1.7h.4l-.1-.7z"/></svg>
-              style.css
-            </div>
-            <div class="mock-tab" data-lang="js">
-              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 1h14l-1.2 14L7 17 1.2 15zM5.5 5h1v6h-.8l-.1-4.5L4.5 7v-.2l.2-.5zm2.5 0h1.5l.5 3.2.5-3.2H11l-.8 4.8-.1.5-.1.5h-.7l.5-3z"/></svg>
-              script.js
-            </div>
-          </div>
+    <div class="hero-grid">
+      <!-- LEFT: Text -->
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          100% Free &middot; No Sign-up Required
         </div>
-        <div class="mock-code">
-          <div class="mock-code-inner" id="mockCode">
-            <div class="code-line"><span class="ln">1</span><span class="hl-tag">&lt;!DOCTYPE html&gt;</span></div>
-            <div class="code-line"><span class="ln">2</span><span class="hl-tag">&lt;html</span> <span class="hl-attr">lang</span>=<span class="hl-string">"en"</span><span class="hl-tag">&gt;</span></div>
-            <div class="code-line"><span class="ln">3</span><span class="hl-tag">&lt;head&gt;</span></div>
-            <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="hl-tag">&lt;title&gt;</span><span class="hl-text">My Page</span><span class="hl-tag">&lt;/title&gt;</span></div>
-            <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-string">"stylesheet"</span> <span class="hl-attr">href</span>=<span class="hl-string">"style.css"</span><span class="hl-tag">/&gt;</span></div>
-            <div class="code-line"><span class="ln">6</span><span class="hl-tag">&lt;/head&gt;</span></div>
-            <div class="code-line"><span class="ln">7</span><span class="hl-tag">&lt;body&gt;</span></div>
-            <div class="code-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="hl-tag">&lt;div</span> <span class="hl-attr">class</span>=<span class="hl-string">"card"</span><span class="hl-tag">&gt;</span></div>
-            <div class="code-line"><span class="ln">9</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;h1&gt;</span><span class="hl-text">Hello, World!</span><span class="hl-tag">&lt;/h1&gt;</span></div>
-            <div class="code-line"><span class="ln">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-tag">&lt;p&gt;</span><span class="hl-text">Welcome to Deoit</span><span class="hl-tag">&lt;/p&gt;</span></div>
-            <div class="code-line"><span class="ln">11</span>&nbsp;&nbsp;<span class="hl-tag">&lt;/div&gt;</span></div>
-            <div class="code-line"><span class="ln">12</span><span class="hl-tag">&lt;/body&gt;</span></div>
-            <div class="code-line"><span class="ln">13</span><span class="hl-tag">&lt;/html&gt;</span></div>
-            <div class="code-line mock-cursor-line"><span class="ln">14</span><span class="mock-cursor"></span></div>
-          </div>
+        <h1>Write, run, and<br><span class="hero-typed" id="heroTyped"></span><span class="hero-cursor">|</span></h1>
+        <p>A free browser-based code editor for HTML, CSS &amp; JavaScript. Syntax highlighting, autocomplete, file explorer &amp; live preview.</p>
+        <div class="hero-buttons">
+          <a href="pages/editor" class="btn btn-accent btn-hero">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Try the Editor
+          </a>
+          <a href="learn" class="btn btn-outline btn-hero">
+            Browse Courses
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div class="mock-preview">
-          <div class="mock-preview-bar">
-            <span class="mock-preview-dot"></span>
-            <span>Preview</span>
+      </div>
+      <!-- RIGHT: Animated Code Window -->
+      <div class="hero-visual">
+        <div class="hero-window">
+          <div class="hw-bar">
+            <div class="hw-dots"><span></span><span></span><span></span></div>
+            <div class="hw-tabs">
+              <span class="hw-tab active" id="hwTabHtml">index.html</span>
+              <span class="hw-tab" id="hwTabCss">style.css</span>
+              <span class="hw-tab" id="hwTabJs">script.js</span>
+            </div>
           </div>
-          <div class="mock-preview-content">
-            <div class="mock-preview-card">
-              <h2>Hello, World!</h2>
-              <p>Welcome to Deoit</p>
+          <div class="hw-body">
+            <div class="hw-code" id="hwCode"></div>
+            <div class="hw-cursor" id="hwCursor"></div>
+          </div>
+          <div class="hw-preview">
+            <div class="hw-preview-bar"><span class="hw-pdot"></span> Live Preview</div>
+            <div class="hw-preview-body" id="hwPreview">
+              <div class="hw-card">
+                <div class="hw-card-circle"></div>
+                <div class="hw-card-title"></div>
+                <div class="hw-card-text"></div>
+                <div class="hw-card-btn"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -801,26 +773,26 @@ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':
         mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobile.classList.remove('show')));
       }
 
-      // ─── Typing animation ───
+      // ─── Typing animation (hero headline) ───
       const words = ['code', 'learn HTML', 'build websites', 'master CSS', 'ship projects'];
-      const el = document.querySelector('.typing-dynamic');
-      if (el) {
+      const heroTyped = document.getElementById('heroTyped');
+      if (heroTyped) {
         let wordIdx = 0, charIdx = 0, deleting = false;
         function type() {
-          const word = words[wordIdx];
+          const w = words[wordIdx];
           if (!deleting) {
-            el.textContent = word.substring(0, charIdx + 1);
+            heroTyped.textContent = w.substring(0, charIdx + 1);
             charIdx++;
-            if (charIdx === word.length) { setTimeout(() => { deleting = true; type(); }, 2000); return; }
+            if (charIdx === w.length) { setTimeout(() => { deleting = true; type(); }, 2000); return; }
             setTimeout(type, 80);
           } else {
-            el.textContent = word.substring(0, charIdx - 1);
+            heroTyped.textContent = w.substring(0, charIdx - 1);
             charIdx--;
             if (charIdx === 0) { deleting = false; wordIdx = (wordIdx + 1) % words.length; setTimeout(type, 400); return; }
             setTimeout(type, 40);
           }
         }
-        setTimeout(type, 800);
+        setTimeout(type, 600);
       }
 
       // ─── Stat counter animation ───
@@ -856,14 +828,163 @@ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(r => revealObserver.observe(r));
 
-      // ─── Mock tab switching ───
-      const mockTabs = document.querySelectorAll('.mock-tab');
-      mockTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          mockTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
+      // ─── Hero window typing animation ───
+      (function() {
+        var hwCode  = document.getElementById('hwCode');
+        var hwCursor = document.getElementById('hwCursor');
+        var hwTabHtml = document.getElementById('hwTabHtml');
+        var hwTabCss  = document.getElementById('hwTabCss');
+        var hwTabJs   = document.getElementById('hwTabJs');
+        if (!hwCode) return;
+
+        var htmlLines = [
+          '<!DOCTYPE html>',
+          '<html lang="en">',
+          '<head>',
+          '  <title>My App</title>',
+          '  <link rel="stylesheet"',
+          '       href="style.css" />',
+          '</head>',
+          '<body>',
+          '  <div class="card">',
+          '    <h1>Hello World</h1>',
+          '    <p>Welcome to Deoit</p>',
+          '    <button>Click Me</button>',
+          '  </div>',
+          '</body>',
+          '</html>'
+        ];
+        var cssLines = [
+          '.card {',
+          '  max-width: 400px;',
+          '  margin: 40px auto;',
+          '  padding: 32px;',
+          '  background: #fff;',
+          '  border-radius: 12px;',
+          '  box-shadow: 0 8px 30px',
+          '    rgba(0,0,0,0.08);',
+          '  text-align: center;',
+          '}',
+          '.card h1 {',
+          '  color: #1a1a2e;',
+          '  font-size: 24px;',
+          '}'
+        ];
+        var jsLines = [
+          'const btn = document',
+          '  .querySelector("button");',
+          '',
+          'btn.addEventListener("click",',
+          '  () => {',
+          '    alert("Hello from Deoit!");',
+          '    btn.textContent = "Done!";',
+          '  });',
+          '',
+          'console.log("App ready");'
+        ];
+        var allTabs = [hwTabHtml, hwTabCss, hwTabJs];
+        var allSets = [htmlLines, cssLines, jsLines];
+        var currentTab = 0;
+
+        function setTab(idx) {
+          allTabs.forEach(function(t, i) {
+            t.classList.toggle('active', i === idx);
+          });
+        }
+
+        function escapeHtml(s) {
+          return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        function highlightSyntax(code, lang) {
+          var out = escapeHtml(code);
+          if (lang === 'html') {
+            out = out.replace(/&lt;(!--[\s\S]*?--&gt;)/g, '<span class="cmt">$1</span>');
+            out = out.replace(/&lt;(\/?)([\w-]+)/g, '&lt;$1<span class="tag">$2</span>');
+            out = out.replace(/([\w-]+)(=)/g, '<span class="attr">$1</span>$2');
+            out = out.replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
+          } else if (lang === 'css') {
+            out = out.replace(/\/\*[\s\S]*?\*\//g, '<span class="cmt">$&</span>');
+            out = out.replace(/(\.[\w-]+)/g, '<span class="fn">$1</span>');
+            out = out.replace(/([\w-]+)\s*:/g, '<span class="attr">$1</span>:');
+            out = out.replace(/:\s*([^;\n{}]+)/g, ': <span class="str">$1</span>');
+          } else if (lang === 'js') {
+            out = out.replace(/\/\/.*/g, '<span class="cmt">$&</span>');
+            out = out.replace(/\b(const|let|var|function|return|if|else|new)\b/g, '<span class="kw">$1</span>');
+            out = out.replace(/\b(\d+)\b/g, '<span class="num">$1</span>');
+            out = out.replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
+          }
+          return out;
+        }
+
+        function renderCode(lines, lang) {
+          var langMap = { 0: 'html', 1: 'css', 2: 'js' };
+          var result = '';
+          for (var i = 0; i < lines.length; i++) {
+            var num = String(i + 1).padStart(2, ' ');
+            var highlighted = highlightSyntax(lines[i], langMap[lang] || 'html');
+            result += '<span class="ln">' + num + '</span>' + highlighted + '\n';
+          }
+          return result;
+        }
+
+        function positionCursor(lines, line, col) {
+          var lineHeight = 23.75;
+          var charWidth = 7.8;
+          var top  = 18 + line * lineHeight;
+          var left = 44 + col * charWidth;
+          hwCursor.style.top  = top + 'px';
+          hwCursor.style.left = left + 'px';
+        }
+
+        function typeLines(lines, lang, cb) {
+          var lineIdx = 0, charIdx = 0;
+          var allShown = [];
+
+          function tick() {
+            if (lineIdx >= lines.length) { setTimeout(cb, 1200); return; }
+
+            var current = lines[lineIdx];
+            if (charIdx <= current.length) {
+              allShown[lineIdx] = current.substring(0, charIdx);
+              var partial = allShown.slice(0, lineIdx + 1);
+              hwCode.innerHTML = renderCode(partial, lang);
+              positionCursor(partial, lineIdx, charIdx);
+              charIdx++;
+              setTimeout(tick, 25 + Math.random() * 30);
+            } else {
+              lineIdx++;
+              charIdx = 0;
+              setTimeout(tick, 80);
+            }
+          }
+          tick();
+        }
+
+        function run() {
+          setTab(0);
+          hwCode.innerHTML = '';
+          typeLines(htmlLines, 0, function() {
+            setTab(1);
+            hwCode.innerHTML = '';
+            typeLines(cssLines, 1, function() {
+              setTab(2);
+              hwCode.innerHTML = '';
+              typeLines(jsLines, 2, function() {
+                setTimeout(run, 2000);
+              });
+            });
+          });
+        }
+
+        allTabs.forEach(function(tab, i) {
+          tab.addEventListener('click', function() {
+            setTab(i);
+          });
         });
-      });
+
+        setTimeout(run, 800);
+      })();
     })();
   </script>
 </body>
