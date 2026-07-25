@@ -331,58 +331,65 @@ function highlightTree() {
 // ─── SYNTAX HIGHLIGHTING ───
 function highlight(lang, code) {
   let h = esc(code);
+  var _spans = [];
+  function _span(cls, content) {
+    var idx = _spans.length;
+    _spans.push('<span class="' + cls + '">' + content + '</span>');
+    return '\x00' + idx + '\x01';
+  }
   if (lang === 'html') {
-    h = h.replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="hl-comment">$1</span>');
-    h = h.replace(/(&lt;!)(DOCTYPE)(\s+)([\w]+)/i, '<span class="hl-doctype">$1$2</span>$3<span class="hl-tag-special">$4</span>');
-    h = h.replace(/(&amp;)(\w+)(;)/g, '<span class="hl-entity">$1$2$3</span>');
+    h = h.replace(/(&lt;!--[\s\S]*?--&gt;)/g, function(m) { return _span('hl-comment', m); });
+    h = h.replace(/(&lt;!)(DOCTYPE)(\s+)([\w]+)/i, function(m, a, b, c, d) { return _span('hl-doctype', a + b) + c + _span('hl-tag-special', d); });
+    h = h.replace(/(&amp;)(\w+)(;)/g, function(m, a, b, c) { return _span('hl-entity', a + b + c); });
+    h = h.replace(/(\s)(v-[\w-]+|@[\w-]+|:[\w-]+|\[[\w-]+\])/g, function(m, sp, dir) { return sp + _span('hl-attr', dir); });
+    h = h.replace(/(\s)(\w[\w-]*)(\s*=\s*)(&quot;.*?&quot;|&#39;.*?&#39;)/g, function(m, sp, attr, eq, val) { return sp + _span('hl-attr', attr) + eq + _span('hl-string', val); });
     h = h.replace(/(&lt;)(\/?)([\w-]+)/g, function(m, lt, slash, tag) {
-      const special = ['html','head','body','script','style','meta','link','title'];
-      return lt + slash + (special.includes(tag) ? '<span class="hl-tag-special">'+tag+'</span>' : '<span class="hl-tag">'+tag+'</span>');
+      var special = ['html','head','body','script','style','meta','link','title'];
+      return lt + slash + _span(special.indexOf(tag) >= 0 ? 'hl-tag-special' : 'hl-tag', tag);
     });
-    h = h.replace(/(&lt;\/?[\w-]+)([\s>])/g, '$1$2');
-    h = h.replace(/(\s)(v-[\w-]+|@[\w-]+|:[\w-]+|\[[\w-]+\])/g, '$1<span class="hl-attr">$2</span>');
-    h = h.replace(/(\s)(\w[\w-]*)(\s*=\s*)(&quot;.*?&quot;|&#39;.*?&#39;)/g, '$1<span class="hl-attr">$2</span>$3<span class="hl-string">$4</span>');
-    h = h.replace(/\{\{([^}]+)\}\}/g, '<span class="hl-string-interp">{{$1}}</span>');
+    h = h.replace(/\{\{([^}]+)\}\}/g, function(m, content) { return _span('hl-string-interp', '{{' + content + '}}'); });
   } else if (lang === 'css') {
-    h = h.replace(/(\/\*[\s\S]*?\*\/)/g, '<span class="hl-comment">$1</span>');
-    h = h.replace(/(@[\w-]+)/g, '<span class="hl-keyword">$1</span>');
-    h = h.replace(/(!important)\b/g, '<span class="hl-important">$1</span>');
-    h = h.replace(/(#[0-9a-fA-F]{3,8})\b/g, '<span class="hl-value">$1</span>');
-    h = h.replace(/\b(\d+\.?\d*)(px|rem|em|vh|vw|vmin|vmax|%|s|ms|deg|fr|ch|ex)\b/g, '<span class="hl-number">$1</span><span class="hl-unit">$2</span>');
-    h = h.replace(/\b(\d+\.?\d*)\b/g, '<span class="hl-number">$1</span>');
+    h = h.replace(/(\/\*[\s\S]*?\*\/)/g, function(m) { return _span('hl-comment', m); });
+    h = h.replace(/(@[\w-]+)/g, function(m) { return _span('hl-keyword', m); });
+    h = h.replace(/(!important)\b/g, function(m) { return _span('hl-important', m); });
+    h = h.replace(/(#[0-9a-fA-F]{3,8})\b/g, function(m) { return _span('hl-value', m); });
+    h = h.replace(/\b(\d+\.?\d*)(px|rem|em|vh|vw|vmin|vmax|%|s|ms|deg|fr|ch|ex)\b/g, function(m, n, u) { return _span('hl-number', n) + _span('hl-unit', u); });
+    h = h.replace(/\b(\d+\.?\d*)\b/g, function(m) { return _span('hl-number', m); });
     h = h.replace(/([\w-]+)(\s*)(:)(?!:)/g, function(m, prop, sp, col) {
-      const known = ['color','background','margin','padding','font','display','position','width','height','border','flex','grid','transform','transition','animation','box-shadow','text-align','overflow','z-index','opacity','cursor','top','left','right','bottom','gap','grid-template','align-items','justify-content','font-size','font-weight','font-family','line-height','letter-spacing','text-decoration','list-style','min-height','max-width','min-width','max-height','outline','filter','clip-path','object-fit','user-select','pointer-events','white-space','word-break','overflow-wrap','scroll-behavior','appearance','resize'];
-      return (known.includes(prop) ? '<span class="hl-property">'+prop+'</span>' : '<span class="hl-attr">'+prop+'</span>') + sp + col;
+      var known = ['color','background','margin','padding','font','display','position','width','height','border','flex','grid','transform','transition','animation','box-shadow','text-align','overflow','z-index','opacity','cursor','top','left','right','bottom','gap','grid-template','align-items','justify-content','font-size','font-weight','font-family','line-height','letter-spacing','text-decoration','list-style','min-height','max-width','min-width','max-height','outline','filter','clip-path','object-fit','user-select','pointer-events','white-space','word-break','overflow-wrap','scroll-behavior','appearance','resize'];
+      return _span(known.indexOf(prop) >= 0 ? 'hl-property' : 'hl-attr', prop) + sp + col;
     });
-    h = h.replace(/(:)(before|after|hover|focus|active|visited|first-child|last-child|nth-child|first-of-type|last-of-type|checked|disabled|not|where|is|has|root|empty)\b/g, ':<span class="hl-pseudo">$2</span>');
-    h = h.replace(/(::)(before|after|placeholder|selection|scrollbar)/g, '::<span class="hl-pseudo">$2</span>');
-    h = h.replace(/(\.)([\w-]+)/g, '.<span class="hl-selector-class">$2</span>');
-    h = h.replace(/(#)([\w-]+)/g, '#<span class="hl-selector-id">$2</span>');
-    h = h.replace(/\b(rgb|rgba|hsl|hsla|calc|min|max|clamp|var|url|translate|rotate|scale|skew|translateX|translateY)\b(?=\()/g, '<span class="hl-function">$1</span>');
-    h = h.replace(/(&quot;.*?&quot;|&#39;.*?&#39;)/g, '<span class="hl-string">$1</span>');
+    h = h.replace(/(:)(before|after|hover|focus|active|visited|first-child|last-child|nth-child|first-of-type|last-of-type|checked|disabled|not|where|is|has|root|empty)\b/g, function(m, c, p) { return c + _span('hl-pseudo', p); });
+    h = h.replace(/(::)(before|after|placeholder|selection|scrollbar)/g, function(m, c, p) { return c + _span('hl-pseudo', p); });
+    h = h.replace(/(\.)([\w-]+)/g, function(m, dot, cls) { return dot + _span('hl-selector-class', cls); });
+    h = h.replace(/(#)([\w-]+)/g, function(m, hash, id) { return hash + _span('hl-selector-id', id); });
+    h = h.replace(/\b(rgb|rgba|hsl|hsla|calc|min|max|clamp|var|url|translate|rotate|scale|skew|translateX|translateY)\b(?=\()/g, function(m) { return _span('hl-function', m); });
+    h = h.replace(/(&quot;.*?&quot;|&#39;.*?&#39;)/g, function(m) { return _span('hl-string', m); });
   } else if (lang === 'js') {
-    h = h.replace(/(\/\/.*)/g, '<span class="hl-comment">$1</span>');
-    h = h.replace(/(\/\*[\s\S]*?\*\/)/g, '<span class="hl-comment">$1</span>');
-    h = h.replace(/\b(const|let|var)\b/g, '<span class="hl-keyword-control">$1</span>');
-    h = h.replace(/\b(function|return|if|else|for|while|do|switch|case|break|continue|class|import|export|from|try|catch|finally|throw|new|this|typeof|instanceof|async|await|yield|delete|in|of|with|debugger|default|extends|super|static|get|set)\b/g, '<span class="hl-keyword">$1</span>');
-    h = h.replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, '<span class="hl-literal">$1</span>');
-    h = h.replace(/\b(console|Math|JSON|Promise|Array|Object|String|Number|Boolean|Map|Set|Symbol|RegExp|Error|Date|window|document|fetch|localStorage|sessionStorage|setTimeout|setInterval|clearTimeout|clearInterval|parseInt|parseFloat|isNaN|isFinite|require|module|process)\b/g, '<span class="hl-builtin">$1</span>');
-    h = h.replace(/\b(\d+\.?\d*)\b/g, '<span class="hl-number">$1</span>');
+    h = h.replace(/(\/\/.*)/g, function(m) { return _span('hl-comment', m); });
+    h = h.replace(/(\/\*[\s\S]*?\*\/)/g, function(m) { return _span('hl-comment', m); });
     h = h.replace(/`([^`]*)`/g, function(m) {
-      return '`' + m.slice(1,-1).replace(/\$\{([^}]+)\}/g, '<span class="hl-string-interp">${<span class="hl-variable">$1</span>}</span>') + '`';
+      return '`' + m.slice(1,-1).replace(/\$\{([^}]+)\}/g, function(m2, inner) { return _span('hl-string-interp', '${' + _span('hl-variable', inner) + '}'); }) + '`';
     });
-    h = h.replace(/(&quot;.*?&quot;)/g, '<span class="hl-string">$1</span>');
-    h = h.replace(/(&#39;.*?&#39;)/g, '<span class="hl-string">$1</span>');
+    h = h.replace(/(&quot;.*?&quot;)/g, function(m) { return _span('hl-string', m); });
+    h = h.replace(/(&#39;.*?&#39;)/g, function(m) { return _span('hl-string', m); });
+    h = h.replace(/\b(const|let|var)\b/g, function(m) { return _span('hl-keyword-control', m); });
+    h = h.replace(/\b(function|return|if|else|for|while|do|switch|case|break|continue|class|import|export|from|try|catch|finally|throw|new|this|typeof|instanceof|async|await|yield|delete|in|of|with|debugger|default|extends|super|static|get|set)\b/g, function(m) { return _span('hl-keyword', m); });
+    h = h.replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, function(m) { return _span('hl-literal', m); });
+    h = h.replace(/\b(console|Math|JSON|Promise|Array|Object|String|Number|Boolean|Map|Set|Symbol|RegExp|Error|Date|window|document|fetch|localStorage|sessionStorage|setTimeout|setInterval|clearTimeout|clearInterval|parseInt|parseFloat|isNaN|isFinite|require|module|process)\b/g, function(m) { return _span('hl-builtin', m); });
+    h = h.replace(/\b(\d+\.?\d*)\b/g, function(m) { return _span('hl-number', m); });
     h = h.replace(/\b([\w.]+)(\s*\()/g, function(m, name, paren) {
-      if (name.includes('.')) {
-        const parts = name.split('.');
-        const last = parts.pop();
-        return parts.join('.<span class="hl-operator">.</span>') + '.<span class="hl-function">' + last + '</span>' + paren;
+      if (name.indexOf('.') >= 0) {
+        var parts = name.split('.');
+        var last = parts.pop();
+        return parts.join('.' + _span('hl-operator', '.')) + '.' + _span('hl-function', last) + paren;
       }
-      return '<span class="hl-function">' + name + '</span>' + paren;
+      return _span('hl-function', name) + paren;
     });
-    h = h.replace(/(&lt;)([\w]+)(&gt;)/g, '&lt;<span class="hl-tag">$2</span>&gt;');
-    h = h.replace(/\b(this)\b/g, '<span class="hl-keyword">$1</span>');
+    h = h.replace(/(&lt;)([\w]+)(&gt;)/g, function(m, lt, tag, gt) { return lt + _span('hl-tag', tag) + gt; });
+  }
+  for (var i = 0; i < _spans.length; i++) {
+    h = h.replace('\x00' + i + '\x01', _spans[i]);
   }
   return h;
 }
