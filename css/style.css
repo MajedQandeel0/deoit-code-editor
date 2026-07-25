@@ -27,7 +27,7 @@
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
   --shadow: 0 4px 24px rgba(0,0,0,0.07);
   --shadow-lg: 0 16px 48px rgba(0,0,0,0.1);
-  --gradient-accent: linear-gradient(135deg, #4361ee 0%, #7c3aed 50%, #a855f7 100%);
+  --gradient-accent: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
   --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
   --gradient-cool: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
 }
@@ -157,15 +157,15 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
    HERO
    ═══════════════════════════════════════ */
 .hero-landing {
-  padding: 140px 32px 80px; text-align: center;
+  padding: 100px 32px 60px; text-align: center;
   position: relative; overflow: hidden;
-  min-height: 100vh; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-start;
 }
 .hero-glow {
   position: absolute; top: -15%; left: 50%; transform: translateX(-50%);
   width: 900px; height: 900px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(67,97,238,0.06) 0%, rgba(168,85,247,0.03) 40%, transparent 65%);
+  background: radial-gradient(circle, rgba(67,97,238,0.06) 0%, transparent 65%);
   pointer-events: none;
 }
 .hero-content { position: relative; z-index: 1; width: 100%; }
@@ -186,9 +186,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 }
 .typing-static { color: var(--text-primary); }
 .hero-gradient {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 .typing-dynamic {
   color: var(--text-primary);
