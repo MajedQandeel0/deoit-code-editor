@@ -40,31 +40,32 @@ a:hover { color: var(--accent); }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-/* ─── NAV ─── */
+/* ─── NAV (pill style) ─── */
 .blog-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(13,13,13,0.85);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
+  position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 200;
+  width: calc(100% - 32px); max-width: 1100px;
+  background: rgba(20,20,20,0.85);
+  backdrop-filter: blur(24px) saturate(1.5); -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border: 1px solid rgba(255,255,255,0.06); border-radius: 100px;
+  transition: all 0.3s;
 }
 .blog-nav-inner {
-  max-width: 1100px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 32px; height: 60px;
+  padding: 0 20px; height: 48px;
 }
 .blog-nav-logo {
   display: flex; align-items: center; gap: 10px;
-  font-size: 18px; font-weight: 700;
+  font-size: 16px; font-weight: 700; flex-shrink: 0;
 }
-.blog-nav-logo img { border-radius: 6px; }
-.blog-nav-links { display: flex; gap: 24px; }
+.blog-nav-logo img { border-radius: 7px; width: 26px; height: 26px; }
+.blog-nav-links { display: flex; gap: 4px; }
 .blog-nav-links a {
-  font-size: 14px; font-weight: 500; color: var(--text-secondary);
-  transition: color 0.15s; padding: 8px 0;
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  transition: all 0.15s; padding: 7px 14px; border-radius: 100px;
 }
-.blog-nav-links a:hover { color: var(--text-primary); }
-.blog-nav-links a.active { color: var(--text-primary); }
-.blog-nav-actions { display: flex; align-items: center; gap: 8px; }
+.blog-nav-links a:hover { color: var(--text-primary); background: rgba(255,255,255,0.06); }
+.blog-nav-links a.active { color: var(--text-primary); background: rgba(255,255,255,0.08); }
+.blog-nav-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
 /* ─── BUTTONS ─── */
 .btn {
