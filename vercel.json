@@ -13,7 +13,8 @@
     { "source": "/learn/js", "destination": "/learn-js", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/blog/bootstrap-is-dead", "destination": "/blog/bootstrap-is-dead.html" }
+    { "source": "/blog/bootstrap-is-dead", "destination": "/blog/bootstrap-is-dead.html" },
+    { "source": "/favicon.ico", "destination": "/logo.png" }
   ],
   "headers": [
     {
