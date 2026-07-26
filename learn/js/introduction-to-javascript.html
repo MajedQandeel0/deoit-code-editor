@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to JavaScript - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="Introduction to JavaScript - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Learn what JavaScript is and how to use it. Write your first scripts, understand statements, comments, and the console.">
+<meta name="keywords" content="what is javascript, javascript tutorial for beginners, how to use javascript, console log, script tag">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/js/introduction-to-javascript">
+<meta property="og:title" content="Introduction to JavaScript - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Learn what JavaScript is and how to use it. Write your first scripts, understand statements, comments, and the console.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Introduction to JavaScript - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Learn what JavaScript is and how to use it. Write your first scripts, understand statements, comments, and the console.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/js/introduction-to-javascript">
+<link rel="alternate" href="https://deoit.js.org/learn/js/introduction-to-javascript" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/introduction-to-javascript" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JavaScript Course",
+      "item": "https://deoit.js.org/learn-js.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Introduction to JavaScript",
+      "item": "https://deoit.js.org/learn/js/introduction-to-javascript"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Introduction to JavaScript",
+  "description": "Learn what JavaScript is and how to use it. Write your first scripts, understand statements, comments, and the console.",
+  "url": "https://deoit.js.org/learn/js/introduction-to-javascript",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/js/introduction-to-javascript"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "JavaScript Course - Learn JavaScript from Scratch",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "JavaScript Course",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "position": 1,
+  "articleSection": "JavaScript Lesson 1"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-js.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#f7df1e"></span>
+          JavaScript
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/js/introduction-to-javascript" class="sidebar-link active">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to JavaScript</span>
+          </a>
+        <a href="/learn/js/variables-and-data-types" class="sidebar-link ">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Variables & Data Types</span>
+          </a>
+        <a href="/learn/js/functions" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Functions</span>
+          </a>
+        <a href="/learn/js/dom-manipulation" class="sidebar-link ">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">DOM Manipulation</span>
+          </a>
+        <a href="/learn/js/events-and-interactivity" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">Events & Interactivity</span>
+          </a>
+        <a href="/learn/js/arrays-and-loops" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Arrays & Loops</span>
+          </a>
+        <a href="/learn/js/es6-features" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">ES6+ Features</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-js.html">JavaScript</a>
+        <span class="bc-sep">›</span>
+        <span>Introduction to JavaScript</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 1</span>
+        <h1>Introduction to JavaScript</h1>
+        <p class="lesson-desc">What JavaScript is and how to use it.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>What is JavaScript?</h2>
+<p>JavaScript (JS) is a programming language that makes web pages interactive. It runs in the browser and can respond to user actions, manipulate HTML/CSS, and communicate with servers.</p>
+
+<h3>Where JavaScript Runs</h3>
+<ul>
+  <li><strong>Client-side:</strong> In the browser (Chrome, Firefox, Safari, Edge)</li>
+  <li><strong>Server-side:</strong> On the server with Node.js (advanced)</li>
+</ul>
+
+<h3>Adding JavaScript to a Page</h3>
+<h4>1. Inline Script</h4>
+<div class="lesson-code">
+<span class="hl-tag">&lt;script&gt;</span>
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, World!"</span>);
+<span class="hl-tag">&lt;/script&gt;</span>
+</div>
+
+<h4>2. External File (Recommended)</h4>
+<div class="lesson-code">
+<span class="hl-comment">&lt;!-- In HTML, usually before &lt;/body&gt; --&gt;</span>
+<span class="hl-tag">&lt;script</span> <span class="hl-attr">src</span>=<span class="hl-string">"script.js"</span><span class="hl-tag">&gt;&lt;/script&gt;</span>
+</div>
+
+<h3>Your First JavaScript</h3>
+<pre class="lesson-code" >&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;h1 id="demo"&gt;Hello, World!&lt;/h1&gt;
+  &lt;button onclick="sayHello()"&gt;Click Me&lt;/button&gt;
+  &lt;script&gt;
+    function sayHello() {
+      document.getElementById('demo').innerHTML = 'Hello from JavaScript!';
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<h3>Statements</h3>
+<p>JavaScript instructions are called statements. Each statement ends with a semicolon <code>;</code> (optional but recommended).</p>
+
+<div class="lesson-code">
+<span class="hl-comment">// Three statements</span>
+<span class="hl-keyword">let</span> x = <span class="hl-number">5</span>;
+<span class="hl-keyword">let</span> y = <span class="hl-number">10</span>;
+<span class="hl-keyword">let</span> sum = x + y;
+</div>
+
+<h3>Comments</h3>
+<div class="lesson-code">
+<span class="hl-comment">// Single-line comment</span>
+
+<span class="hl-comment">/*
+  Multi-line
+  comment
+*/</span>
+</div>
+
+<h3>Try It</h3>
+<p>Open the <a href="pages/editor" class="lesson-link">Deoit Editor</a>, create a JS file, and type: <code>console.log("Hello!");</code> then click Run. Check the Console panel to see the output!</p>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> Use <code>console.log()</code> often  -  it's the most important debugging tool in JavaScript!
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn-js.html" class="lesson-nav-link prev"><span class="nav-label">← Back to</span><span class="nav-title">JavaScript Course</span></a>
+        <a href="/learn/js/variables-and-data-types" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Variables & Data Types</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

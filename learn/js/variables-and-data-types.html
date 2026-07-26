@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variables & Data Types - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="Variables & Data Types - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Master JavaScript variables and data types. Learn let vs const, strings, numbers, booleans, arrays, objects, and type checking.">
+<meta name="keywords" content="javascript variables, let const var, data types js, string number boolean array object, typeof">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/js/variables-and-data-types">
+<meta property="og:title" content="Variables & Data Types - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Master JavaScript variables and data types. Learn let vs const, strings, numbers, booleans, arrays, objects, and type checking.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Variables & Data Types - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Master JavaScript variables and data types. Learn let vs const, strings, numbers, booleans, arrays, objects, and type checking.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/js/variables-and-data-types">
+<link rel="alternate" href="https://deoit.js.org/learn/js/variables-and-data-types" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/variables-and-data-types" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JavaScript Course",
+      "item": "https://deoit.js.org/learn-js.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Variables & Data Types",
+      "item": "https://deoit.js.org/learn/js/variables-and-data-types"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Variables & Data Types",
+  "description": "Master JavaScript variables and data types. Learn let vs const, strings, numbers, booleans, arrays, objects, and type checking.",
+  "url": "https://deoit.js.org/learn/js/variables-and-data-types",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/js/variables-and-data-types"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "JavaScript Course - Learn JavaScript from Scratch",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "JavaScript Course",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "position": 2,
+  "articleSection": "JavaScript Lesson 2"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-js.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#f7df1e"></span>
+          JavaScript
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/js/introduction-to-javascript" class="sidebar-link ">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to JavaScript</span>
+          </a>
+        <a href="/learn/js/variables-and-data-types" class="sidebar-link active">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Variables & Data Types</span>
+          </a>
+        <a href="/learn/js/functions" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Functions</span>
+          </a>
+        <a href="/learn/js/dom-manipulation" class="sidebar-link ">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">DOM Manipulation</span>
+          </a>
+        <a href="/learn/js/events-and-interactivity" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">Events & Interactivity</span>
+          </a>
+        <a href="/learn/js/arrays-and-loops" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Arrays & Loops</span>
+          </a>
+        <a href="/learn/js/es6-features" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">ES6+ Features</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-js.html">JavaScript</a>
+        <span class="bc-sep">›</span>
+        <span>Variables & Data Types</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 2</span>
+        <h1>Variables & Data Types</h1>
+        <p class="lesson-desc">Storing data with variables and understanding types.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>Variables & Data Types</h2>
+<p>Variables store data values. JavaScript has several data types and three ways to declare variables.</p>
+
+<h3>Declaring Variables</h3>
+<div class="lesson-code">
+<span class="hl-keyword">let</span> name = <span class="hl-string">"Alice"</span>;     <span class="hl-comment">// Can be reassigned</span>
+<span class="hl-keyword">const</span> age = <span class="hl-number">25</span>;         <span class="hl-comment">// Cannot be reassigned (preferred)</span>
+<span class="hl-keyword">var</span> oldWay = <span class="hl-string">"avoid"</span>;  <span class="hl-comment">// Old way, avoid using</span>
+</div>
+
+<h3>When to Use let vs const</h3>
+<ul>
+  <li>Use <strong>const</strong> by default  -  for values that won't change</li>
+  <li>Use <strong>let</strong> when you need to reassign the variable</li>
+  <li>Avoid <strong>var</strong>  -  it has confusing scoping rules</li>
+</ul>
+
+<h3>Data Types</h3>
+<div class="lesson-code">
+<span class="hl-comment">// String: text</span>
+<span class="hl-keyword">const</span> greeting = <span class="hl-string">"Hello"</span>;
+
+<span class="hl-comment">// Number: integer or decimal</span>
+<span class="hl-keyword">const</span> count = <span class="hl-number">42</span>;
+<span class="hl-keyword">const</span> pi = <span class="hl-number">3.14</span>;
+
+<span class="hl-comment">// Boolean: true or false</span>
+<span class="hl-keyword">const</span> isActive = <span class="hl-keyword">true</span>;
+
+<span class="hl-comment">// Array: list of values</span>
+<span class="hl-keyword">const</span> fruits = [<span class="hl-string">"apple"</span>, <span class="hl-string">"banana"</span>, <span class="hl-string">"orange"</span>];
+
+<span class="hl-comment">// Object: key-value pairs</span>
+<span class="hl-keyword">const</span> person = {
+  name: <span class="hl-string">"Alice"</span>,
+  age: <span class="hl-number">25</span>,
+  city: <span class="hl-string">"New York"</span>
+};
+
+<span class="hl-comment">// null: intentional empty value</span>
+<span class="hl-keyword">const</span> empty = <span class="hl-keyword">null</span>;
+
+<span class="hl-comment">// undefined: variable declared but not assigned</span>
+<span class="hl-keyword">let</span> notDefined;
+</div>
+
+<h3>Checking Types</h3>
+<div class="lesson-code">
+<span class="hl-keyword">typeof</span> <span class="hl-string">"Hello"</span>;     <span class="hl-comment">// "string"</span>
+<span class="hl-keyword">typeof</span> <span class="hl-number">42</span>;          <span class="hl-comment">// "number"</span>
+<span class="hl-keyword">typeof</span> <span class="hl-keyword">true</span>;        <span class="hl-comment">// "boolean"</span>
+<span class="hl-keyword">typeof</span> [];           <span class="hl-comment">// "object" (arrays are objects)</span>
+</div>
+
+<h3>Naming Conventions</h3>
+<ul>
+  <li>Use camelCase: <code>firstName</code>, <code>totalPrice</code></li>
+  <li>Start with a letter, underscore, or $</li>
+  <li>Use descriptive names: <code>userAge</code> not <code>ua</code></li>
+</ul>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> Use descriptive variable names. Your future self will thank you when you come back to the code months later!
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn/js/introduction-to-javascript" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Introduction to JavaScript</span></a>
+        <a href="/learn/js/functions" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Functions</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

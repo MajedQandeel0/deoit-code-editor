@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selectors & Colors - CSS Tutorial | Deoit</title>
+<meta name="title" content="Selectors & Colors - Free CSS Lesson | Deoit">
+<meta name="description" content="Master CSS selectors and color systems. Learn element, class, ID, and combined selectors. Work with hex, RGB, HSL, and named colors.">
+<meta name="keywords" content="css selectors, css colors, class selector, id selector, hex colors, rgb hsl, css targeting elements">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/css/selectors-and-colors">
+<meta property="og:title" content="Selectors & Colors - Free CSS Lesson | Deoit">
+<meta property="og:description" content="Master CSS selectors and color systems. Learn element, class, ID, and combined selectors. Work with hex, RGB, HSL, and named colors.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Selectors & Colors - Free CSS Lesson | Deoit">
+<meta name="twitter:description" content="Master CSS selectors and color systems. Learn element, class, ID, and combined selectors. Work with hex, RGB, HSL, and named colors.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/css/selectors-and-colors">
+<link rel="alternate" href="https://deoit.js.org/learn/css/selectors-and-colors" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/css/selectors-and-colors" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "CSS Course",
+      "item": "https://deoit.js.org/learn-css.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Selectors & Colors",
+      "item": "https://deoit.js.org/learn/css/selectors-and-colors"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Selectors & Colors",
+  "description": "Master CSS selectors and color systems. Learn element, class, ID, and combined selectors. Work with hex, RGB, HSL, and named colors.",
+  "url": "https://deoit.js.org/learn/css/selectors-and-colors",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/css/selectors-and-colors"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "CSS Course - Learn CSS from Scratch",
+    "url": "https://deoit.js.org/learn-css.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "CSS Course",
+    "url": "https://deoit.js.org/learn-css.html"
+  },
+  "position": 2,
+  "articleSection": "CSS Lesson 2"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-css.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#2965f1"></span>
+          CSS
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/css/introduction-to-css" class="sidebar-link ">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to CSS</span>
+          </a>
+        <a href="/learn/css/selectors-and-colors" class="sidebar-link active">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Selectors & Colors</span>
+          </a>
+        <a href="/learn/css/box-model-and-spacing" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Box Model & Spacing</span>
+          </a>
+        <a href="/learn/css/flexbox" class="sidebar-link ">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">Flexbox</span>
+          </a>
+        <a href="/learn/css/css-grid" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">CSS Grid</span>
+          </a>
+        <a href="/learn/css/typography-and-fonts" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Typography & Fonts</span>
+          </a>
+        <a href="/learn/css/animations-and-transitions" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">Animations & Transitions</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-css.html">CSS</a>
+        <span class="bc-sep">›</span>
+        <span>Selectors & Colors</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#2965f1">CSS — Lesson 2</span>
+        <h1>Selectors & Colors</h1>
+        <p class="lesson-desc">Targeting elements with selectors and using colors.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>Selectors & Colors</h2>
+<p>Selectors are patterns used to target specific HTML elements. Colors bring your designs to life.</p>
+
+<h3>Basic Selectors</h3>
+<div class="lesson-code">
+<span class="hl-comment">/* Element selector */</span>
+<span class="hl-selector">h1</span> { <span class="hl-prop">color</span>: <span class="hl-value">navy</span>; }
+
+<span class="hl-comment">/* Class selector */</span>
+<span class="hl-selector">.highlight</span> { <span class="hl-prop">background</span>: <span class="hl-value">yellow</span>; }
+
+<span class="hl-comment">/* ID selector */</span>
+<span class="hl-selector">#header</span> { <span class="hl-prop">height</span>: <span class="hl-number">80px</span>; }
+
+<span class="hl-comment">/* Universal selector */</span>
+<span class="hl-selector">*</span> { <span class="hl-prop">margin</span>: <span class="hl-number">0</span>; }
+</div>
+
+<h3>Combined Selectors</h3>
+<div class="lesson-code">
+<span class="hl-comment">/* Descendant: all p inside .card */</span>
+<span class="hl-selector">.card p</span> { ... }
+
+<span class="hl-comment">/* Child: direct children only */</span>
+<span class="hl-selector">.card &gt; p</span> { ... }
+
+<span class="hl-comment">/* Adjacent sibling: p immediately after h2 */</span>
+<span class="hl-selector">h2 + p</span> { ... }
+
+<span class="hl-comment">/* Multiple selectors */</span>
+<span class="hl-selector">h1, h2, h3</span> { ... }
+</div>
+
+<h3>Colors in CSS</h3>
+<h4>Named Colors</h4>
+<p>CSS supports 140+ named colors: <code>red</code>, <code>blue</code>, <code>tomato</code>, <code>rebeccapurple</code>, etc.</p>
+
+<h4>Hex Colors</h4>
+<p>A six-digit code starting with <code>#</code>: <code>#ff0000</code> (red), <code>#00ff00</code> (green), <code>#0000ff</code> (blue).</p>
+
+<h4>RGB / RGBA</h4>
+<div class="lesson-code">
+<span class="hl-selector">.box</span> {
+  <span class="hl-prop">color</span>: <span class="hl-value">rgb(255, 0, 0)</span>;       <span class="hl-comment">/* red */</span>
+  <span class="hl-prop">background</span>: <span class="hl-value">rgba(0, 0, 0, 0.5)</span>;  <span class="hl-comment">/* 50% black */</span>
+}
+</div>
+
+<h4>HSL / HSLA</h4>
+<p>HSL stands for Hue, Saturation, Lightness. Often more intuitive than RGB.</p>
+<div class="lesson-code">
+<span class="hl-selector">.box</span> {
+  <span class="hl-prop">color</span>: <span class="hl-value">hsl(0, 100%, 50%)</span>;      <span class="hl-comment">/* red */</span>
+  <span class="hl-prop">background</span>: <span class="hl-value">hsla(200, 80%, 50%, 0.3)</span>;
+}
+</div>
+
+<h3>Background vs Text Color</h3>
+<div class="lesson-code">
+<span class="hl-selector">.card</span> {
+  <span class="hl-prop">color</span>: <span class="hl-value">#333</span>;               <span class="hl-comment">/* text color */</span>
+  <span class="hl-prop">background-color</span>: <span class="hl-value">#f0f0f0</span>;  <span class="hl-comment">/* background */</span>
+}
+</div>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> Use online tools like Adobe Color or Coolors to find beautiful color palettes. Stick to 2-3 primary colors for a cohesive design.
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn/css/introduction-to-css" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Introduction to CSS</span></a>
+        <a href="/learn/css/box-model-and-spacing" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Box Model & Spacing</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

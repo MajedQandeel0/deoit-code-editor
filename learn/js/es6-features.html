@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ES6+ Features - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="ES6+ Features - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Learn modern ES6+ JavaScript features — arrow functions, template literals, destructuring, spread operator, optional chaining, and more.">
+<meta name="keywords" content="javascript es6, template literals, destructuring, spread operator, optional chaining, arrow functions es6">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/js/es6-features">
+<meta property="og:title" content="ES6+ Features - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Learn modern ES6+ JavaScript features — arrow functions, template literals, destructuring, spread operator, optional chaining, and more.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ES6+ Features - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Learn modern ES6+ JavaScript features — arrow functions, template literals, destructuring, spread operator, optional chaining, and more.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/js/es6-features">
+<link rel="alternate" href="https://deoit.js.org/learn/js/es6-features" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/es6-features" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JavaScript Course",
+      "item": "https://deoit.js.org/learn-js.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ES6+ Features",
+      "item": "https://deoit.js.org/learn/js/es6-features"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ES6+ Features",
+  "description": "Learn modern ES6+ JavaScript features — arrow functions, template literals, destructuring, spread operator, optional chaining, and more.",
+  "url": "https://deoit.js.org/learn/js/es6-features",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/js/es6-features"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "JavaScript Course - Learn JavaScript from Scratch",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "JavaScript Course",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "position": 7,
+  "articleSection": "JavaScript Lesson 7"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-js.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#f7df1e"></span>
+          JavaScript
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/js/introduction-to-javascript" class="sidebar-link ">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to JavaScript</span>
+          </a>
+        <a href="/learn/js/variables-and-data-types" class="sidebar-link ">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Variables & Data Types</span>
+          </a>
+        <a href="/learn/js/functions" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Functions</span>
+          </a>
+        <a href="/learn/js/dom-manipulation" class="sidebar-link ">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">DOM Manipulation</span>
+          </a>
+        <a href="/learn/js/events-and-interactivity" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">Events & Interactivity</span>
+          </a>
+        <a href="/learn/js/arrays-and-loops" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Arrays & Loops</span>
+          </a>
+        <a href="/learn/js/es6-features" class="sidebar-link active">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">ES6+ Features</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-js.html">JavaScript</a>
+        <span class="bc-sep">›</span>
+        <span>ES6+ Features</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 7</span>
+        <h1>ES6+ Features</h1>
+        <p class="lesson-desc">Modern JavaScript features you should know.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>ES6+ Features</h2>
+<p>ES6 (ECMAScript 2015) introduced many powerful features that modern JavaScript developers use every day.</p>
+
+<h3>Arrow Functions</h3>
+<p>Shorter function syntax with lexical <code>this</code> binding.</p>
+<div class="lesson-code">
+<span class="hl-comment">// Traditional</span>
+<span class="hl-keyword">const</span> <span class="hl-function">add</span> = <span class="hl-keyword">function</span>(a, b) { <span class="hl-keyword">return</span> a + b; };
+
+<span class="hl-comment">// Arrow</span>
+<span class="hl-keyword">const</span> <span class="hl-function">add</span> = (a, b) => a + b;
+
+<span class="hl-comment">// Single parameter doesn't need parens</span>
+<span class="hl-keyword">const</span> <span class="hl-function">double</span> = n => n * <span class="hl-number">2</span>;
+</div>
+
+<h3>Template Literals</h3>
+<p>Strings with embedded expressions using backticks <code>``</code>.</p>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> name = <span class="hl-string">"Alice"</span>;
+<span class="hl-keyword">const</span> age = <span class="hl-number">25</span>;
+
+<span class="hl-comment">// Old way</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"My name is "</span> + name + <span class="hl-string">" and I am "</span> + age);
+
+<span class="hl-comment">// With template literals</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">`My name is ${name} and I am ${age}`</span>);
+</div>
+
+<h3>Destructuring</h3>
+<p>Extract values from arrays or objects into variables.</p>
+<div class="lesson-code">
+<span class="hl-comment">// Array destructuring</span>
+<span class="hl-keyword">const</span> [first, second] = [<span class="hl-number">10</span>, <span class="hl-number">20</span>];
+<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(first);  <span class="hl-comment">// 10</span>
+
+<span class="hl-comment">// Object destructuring</span>
+<span class="hl-keyword">const</span> person = { name: <span class="hl-string">"Alice"</span>, age: <span class="hl-number">25</span> };
+<span class="hl-keyword">const</span> { name, age } = person;
+<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(name);  <span class="hl-comment">// "Alice"</span>
+</div>
+
+<h3>Spread Operator (...)</h3>
+<p>Spread arrays or objects into individual elements.</p>
+<div class="lesson-code">
+<span class="hl-comment">// Array spread</span>
+<span class="hl-keyword">const</span> arr1 = [<span class="hl-number">1</span>, <span class="hl-number">2</span>, <span class="hl-number">3</span>];
+<span class="hl-keyword">const</span> arr2 = [...arr1, <span class="hl-number">4</span>, <span class="hl-number">5</span>];  <span class="hl-comment">// [1, 2, 3, 4, 5]</span>
+
+<span class="hl-comment">// Object spread</span>
+<span class="hl-keyword">const</span> defaults = { theme: <span class="hl-string">"dark"</span>, lang: <span class="hl-string">"en"</span> };
+<span class="hl-keyword">const</span> config = { ...defaults, lang: <span class="hl-string">"ar"</span> };
+<span class="hl-comment">// { theme: "dark", lang: "ar" }</span>
+</div>
+
+<h3>Rest Parameters</h3>
+<p>Collect remaining arguments into an array.</p>
+<div class="lesson-code">
+<span class="hl-keyword">function</span> <span class="hl-function">sum</span>(...numbers) {
+  <span class="hl-keyword">return</span> numbers.<span class="hl-function">reduce</span>((total, n) => total + n, <span class="hl-number">0</span>);
+}
+
+<span class="hl-function">sum</span>(<span class="hl-number">1</span>, <span class="hl-number">2</span>, <span class="hl-number">3</span>, <span class="hl-number">4</span>);  <span class="hl-comment">// 10</span>
+</div>
+
+<h3>Optional Chaining (?.)</h3>
+<p>Safely access nested properties without checking each level.</p>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> user = { profile: { name: <span class="hl-string">"Alice"</span> } };
+
+<span class="hl-comment">// Without optional chaining</span>
+<span class="hl-keyword">const</span> name = user &amp;&amp; user.profile &amp;&amp; user.profile.name;
+
+<span class="hl-comment">// With optional chaining</span>
+<span class="hl-keyword">const</span> name = user?.profile?.name;
+</div>
+
+<h3>Nullish Coalescing (??)</h3>
+<p>Use default value only when value is <code>null</code> or <code>undefined</code>.</p>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> value = <span class="hl-number">0</span>;
+<span class="hl-keyword">const</span> result = value ?? <span class="hl-number">10</span>;  <span class="hl-comment">// 0 (not 10, because 0 is not null/undefined)</span>
+
+<span class="hl-comment">// vs || (which treats falsy values as defaults)</span>
+<span class="hl-keyword">const</span> result2 = value || <span class="hl-number">10</span>;  <span class="hl-comment">// 10 (0 is falsy)</span>
+</div>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> Modern JavaScript (ES6+) makes code cleaner and less error-prone. Use these features daily  -  they will become second nature quickly.
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn/js/arrays-and-loops" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Arrays & Loops</span></a>
+        <a href="/learn-js.html" class="lesson-nav-link next"><span class="nav-label">Complete!</span><span class="nav-title">Back to JavaScript Course</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

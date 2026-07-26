@@ -119,4 +119,32 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/privacy"/>
   </url>
+
+  <!-- HTML Lessons -->
+  <url><loc>https://deoit.js.org/learn/html/introduction-to-html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/html/headings-and-paragraphs</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/html/links-and-images</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/html/lists-and-tables</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/html/forms-and-inputs</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/html/semantic-html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/html/html-best-practices</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- CSS Lessons -->
+  <url><loc>https://deoit.js.org/learn/css/introduction-to-css</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/css/selectors-and-colors</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/css/box-model-and-spacing</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/css/flexbox</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/css/css-grid</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/css/typography-and-fonts</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/css/animations-and-transitions</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- JavaScript Lessons -->
+  <url><loc>https://deoit.js.org/learn/js/introduction-to-javascript</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/js/variables-and-data-types</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/js/functions</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/js/dom-manipulation</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/js/events-and-interactivity</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/js/arrays-and-loops</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://deoit.js.org/learn/js/es6-features</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
 </urlset>

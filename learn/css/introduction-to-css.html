@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to CSS - CSS Tutorial | Deoit</title>
+<meta name="title" content="Introduction to CSS - Free CSS Lesson | Deoit">
+<meta name="description" content="Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.">
+<meta name="keywords" content="what is css, introduction to css, css tutorial for beginners, inline internal external css, how to style html">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/css/introduction-to-css">
+<meta property="og:title" content="Introduction to CSS - Free CSS Lesson | Deoit">
+<meta property="og:description" content="Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Introduction to CSS - Free CSS Lesson | Deoit">
+<meta name="twitter:description" content="Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/css/introduction-to-css">
+<link rel="alternate" href="https://deoit.js.org/learn/css/introduction-to-css" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/css/introduction-to-css" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "CSS Course",
+      "item": "https://deoit.js.org/learn-css.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Introduction to CSS",
+      "item": "https://deoit.js.org/learn/css/introduction-to-css"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Introduction to CSS",
+  "description": "Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.",
+  "url": "https://deoit.js.org/learn/css/introduction-to-css",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/css/introduction-to-css"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "CSS Course - Learn CSS from Scratch",
+    "url": "https://deoit.js.org/learn-css.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "CSS Course",
+    "url": "https://deoit.js.org/learn-css.html"
+  },
+  "position": 1,
+  "articleSection": "CSS Lesson 1"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-css.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#2965f1"></span>
+          CSS
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/css/introduction-to-css" class="sidebar-link active">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to CSS</span>
+          </a>
+        <a href="/learn/css/selectors-and-colors" class="sidebar-link ">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Selectors & Colors</span>
+          </a>
+        <a href="/learn/css/box-model-and-spacing" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Box Model & Spacing</span>
+          </a>
+        <a href="/learn/css/flexbox" class="sidebar-link ">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">Flexbox</span>
+          </a>
+        <a href="/learn/css/css-grid" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">CSS Grid</span>
+          </a>
+        <a href="/learn/css/typography-and-fonts" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Typography & Fonts</span>
+          </a>
+        <a href="/learn/css/animations-and-transitions" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">Animations & Transitions</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-css.html">CSS</a>
+        <span class="bc-sep">›</span>
+        <span>Introduction to CSS</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#2965f1">CSS — Lesson 1</span>
+        <h1>Introduction to CSS</h1>
+        <p class="lesson-desc">What CSS is and how to style your first elements.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>What is CSS?</h2>
+<p>CSS (Cascading Style Sheets) is the language used to style HTML elements. It controls colors, fonts, spacing, layout, and more.</p>
+
+<h3>How CSS Works</h3>
+<p>CSS works by selecting HTML elements and applying styles to them. A CSS rule consists of a <strong>selector</strong> and a <strong>declaration block</strong>.</p>
+
+<div class="lesson-code">
+<span class="hl-selector">selector</span> {
+  <span class="hl-prop">property</span>: <span class="hl-value">value</span>;
+  <span class="hl-prop">property</span>: <span class="hl-value">value</span>;
+}
+</div>
+
+<h3>Three Ways to Add CSS</h3>
+<h4>1. Inline CSS</h4>
+<p>Applied directly to an element using the <code>style</code> attribute.</p>
+<div class="lesson-code">
+<span class="hl-tag">&lt;p</span> <span class="hl-attr">style</span>=<span class="hl-string">"color: blue; font-size: 18px;"</span><span class="hl-tag">&gt;</span>Blue text<span class="hl-tag">&lt;/p&gt;</span>
+</div>
+
+<h4>2. Internal CSS</h4>
+<p>Placed inside a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> section.</p>
+<div class="lesson-code">
+<span class="hl-tag">&lt;head&gt;</span>
+  <span class="hl-tag">&lt;style&gt;</span>
+    <span class="hl-selector">p</span> {
+      <span class="hl-prop">color</span>: <span class="hl-value">blue</span>;
+      <span class="hl-prop">font-size</span>: <span class="hl-number">18px</span>;
+    }
+  <span class="hl-tag">&lt;/style&gt;</span>
+<span class="hl-tag">&lt;/head&gt;</span>
+</div>
+
+<h4>3. External CSS (Recommended)</h4>
+<p>CSS is written in a separate <code>.css</code> file and linked via <code>&lt;link&gt;</code>.</p>
+<div class="lesson-code">
+<span class="hl-comment">&lt;!-- In your HTML head --&gt;</span>
+<span class="hl-tag">&lt;link</span> <span class="hl-attr">rel</span>=<span class="hl-string">"stylesheet"</span> <span class="hl-attr">href</span>=<span class="hl-string">"styles.css"</span><span class="hl-tag">&gt;</span>
+</div>
+
+<h3>Your First CSS</h3>
+<pre class="lesson-code" >&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    h1 { color: red; text-align: center; }
+    p { font-size: 18px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, CSS!&lt;/h1&gt;
+  &lt;p&gt;This text is styled with CSS.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<span class="hl-comment">/* Style paragraphs */</span>
+<span class="hl-selector">p</span> {
+  <span class="hl-prop">font-size</span>: <span class="hl-number">16px</span>;
+  <span class="hl-prop">line-height</span>: <span class="hl-number">1.6</span>;
+}
+</div>
+
+<h3>CSS Comments</h3>
+<p>Use <code>/* comment */</code> to add notes in your CSS. Comments are ignored by browsers.</p>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> External CSS is the best practice because it separates content (HTML) from presentation (CSS) and can be reused across multiple pages.
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn-css.html" class="lesson-nav-link prev"><span class="nav-label">← Back to</span><span class="nav-title">CSS Course</span></a>
+        <a href="/learn/css/selectors-and-colors" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Selectors & Colors</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

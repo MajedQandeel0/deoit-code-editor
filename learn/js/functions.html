@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Functions - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="Functions - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Learn JavaScript functions — declaration, parameters, return values, arrow functions, and default parameters. Write reusable code.">
+<meta name="keywords" content="javascript functions, function declaration, arrow functions, parameters return values, es6 functions">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/js/functions">
+<meta property="og:title" content="Functions - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Learn JavaScript functions — declaration, parameters, return values, arrow functions, and default parameters. Write reusable code.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Functions - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Learn JavaScript functions — declaration, parameters, return values, arrow functions, and default parameters. Write reusable code.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/js/functions">
+<link rel="alternate" href="https://deoit.js.org/learn/js/functions" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/functions" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JavaScript Course",
+      "item": "https://deoit.js.org/learn-js.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Functions",
+      "item": "https://deoit.js.org/learn/js/functions"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Functions",
+  "description": "Learn JavaScript functions — declaration, parameters, return values, arrow functions, and default parameters. Write reusable code.",
+  "url": "https://deoit.js.org/learn/js/functions",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/js/functions"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "JavaScript Course - Learn JavaScript from Scratch",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "JavaScript Course",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "position": 3,
+  "articleSection": "JavaScript Lesson 3"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-js.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#f7df1e"></span>
+          JavaScript
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/js/introduction-to-javascript" class="sidebar-link ">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to JavaScript</span>
+          </a>
+        <a href="/learn/js/variables-and-data-types" class="sidebar-link ">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Variables & Data Types</span>
+          </a>
+        <a href="/learn/js/functions" class="sidebar-link active">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Functions</span>
+          </a>
+        <a href="/learn/js/dom-manipulation" class="sidebar-link ">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">DOM Manipulation</span>
+          </a>
+        <a href="/learn/js/events-and-interactivity" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">Events & Interactivity</span>
+          </a>
+        <a href="/learn/js/arrays-and-loops" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Arrays & Loops</span>
+          </a>
+        <a href="/learn/js/es6-features" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">ES6+ Features</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-js.html">JavaScript</a>
+        <span class="bc-sep">›</span>
+        <span>Functions</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 3</span>
+        <h1>Functions</h1>
+        <p class="lesson-desc">Reusable blocks of code.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>Functions</h2>
+<p>Functions are reusable blocks of code that perform specific tasks. They help you organize and reuse your code.</p>
+
+<h3>Function Declaration</h3>
+<div class="lesson-code">
+<span class="hl-comment">// Define a function</span>
+<span class="hl-keyword">function</span> <span class="hl-function">greet</span>() {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello!"</span>);
+}
+
+<span class="hl-comment">// Call (invoke) the function</span>
+<span class="hl-function">greet</span>();  <span class="hl-comment">// Output: Hello!</span>
+</div>
+
+<h3>Parameters & Arguments</h3>
+<div class="lesson-code">
+<span class="hl-comment">// name is a parameter</span>
+<span class="hl-keyword">function</span> <span class="hl-function">greet</span>(name) {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, "</span> + name + <span class="hl-string">"!"</span>);
+}
+
+<span class="hl-comment">// "Alice" is an argument</span>
+<span class="hl-function">greet</span>(<span class="hl-string">"Alice"</span>);  <span class="hl-comment">// Output: Hello, Alice!</span>
+</div>
+
+<h3>Return Values</h3>
+<div class="lesson-code">
+<span class="hl-keyword">function</span> <span class="hl-function">add</span>(a, b) {
+  <span class="hl-keyword">return</span> a + b;
+}
+
+<span class="hl-keyword">const</span> sum = <span class="hl-function">add</span>(<span class="hl-number">5</span>, <span class="hl-number">3</span>);  <span class="hl-comment">// sum = 8</span>
+</div>
+
+<h3>Arrow Functions (ES6)</h3>
+<p>A shorter syntax for writing functions.</p>
+<div class="lesson-code">
+<span class="hl-comment">// Traditional function</span>
+<span class="hl-keyword">const</span> <span class="hl-function">double</span> = <span class="hl-keyword">function</span>(n) {
+  <span class="hl-keyword">return</span> n * <span class="hl-number">2</span>;
+};
+
+<span class="hl-comment">// Arrow function (shorter)</span>
+<span class="hl-keyword">const</span> <span class="hl-function">double</span> = (n) => {
+  <span class="hl-keyword">return</span> n * <span class="hl-number">2</span>;
+};
+
+<span class="hl-comment">// Even shorter (implicit return)</span>
+<span class="hl-keyword">const</span> <span class="hl-function">double</span> = n => n * <span class="hl-number">2</span>;
+</div>
+
+<h3>Default Parameters</h3>
+<div class="lesson-code">
+<span class="hl-keyword">function</span> <span class="hl-function">greet</span>(name = <span class="hl-string">"Guest"</span>) {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, "</span> + name + <span class="hl-string">"!"</span>);
+}
+
+<span class="hl-function">greet</span>();           <span class="hl-comment">// Hello, Guest!</span>
+<span class="hl-function">greet</span>(<span class="hl-string">"Bob"</span>);      <span class="hl-comment">// Hello, Bob!</span>
+</div>
+
+<h3>Why Use Functions?</h3>
+<ul>
+  <li><strong>Reusability:</strong> Write once, use many times</li>
+  <li><strong>Organization:</strong> Break complex code into smaller pieces</li>
+  <li><strong>Readability:</strong> Named functions describe what they do</li>
+  <li><strong>Testing:</strong> Small functions are easy to test</li>
+</ul>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> A function should do one thing and do it well. If a function does too many things, split it into smaller functions.
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn/js/variables-and-data-types" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Variables & Data Types</span></a>
+        <a href="/learn/js/dom-manipulation" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">DOM Manipulation</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

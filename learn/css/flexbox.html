@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox - CSS Tutorial | Deoit</title>
+<meta name="title" content="Flexbox - Free CSS Lesson | Deoit">
+<meta name="description" content="Master CSS Flexbox for modern one-dimensional layouts. Learn flex direction, justify-content, align-items, centering, wrap, and gap.">
+<meta name="keywords" content="css flexbox, flexbox tutorial, flex-direction, justify-content, align-items, flexbox centering, css layout">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/css/flexbox">
+<meta property="og:title" content="Flexbox - Free CSS Lesson | Deoit">
+<meta property="og:description" content="Master CSS Flexbox for modern one-dimensional layouts. Learn flex direction, justify-content, align-items, centering, wrap, and gap.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Flexbox - Free CSS Lesson | Deoit">
+<meta name="twitter:description" content="Master CSS Flexbox for modern one-dimensional layouts. Learn flex direction, justify-content, align-items, centering, wrap, and gap.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/css/flexbox">
+<link rel="alternate" href="https://deoit.js.org/learn/css/flexbox" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/css/flexbox" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "CSS Course",
+      "item": "https://deoit.js.org/learn-css.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Flexbox",
+      "item": "https://deoit.js.org/learn/css/flexbox"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Flexbox",
+  "description": "Master CSS Flexbox for modern one-dimensional layouts. Learn flex direction, justify-content, align-items, centering, wrap, and gap.",
+  "url": "https://deoit.js.org/learn/css/flexbox",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/css/flexbox"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "CSS Course - Learn CSS from Scratch",
+    "url": "https://deoit.js.org/learn-css.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "CSS Course",
+    "url": "https://deoit.js.org/learn-css.html"
+  },
+  "position": 4,
+  "articleSection": "CSS Lesson 4"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-css.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#2965f1"></span>
+          CSS
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/css/introduction-to-css" class="sidebar-link ">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to CSS</span>
+          </a>
+        <a href="/learn/css/selectors-and-colors" class="sidebar-link ">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Selectors & Colors</span>
+          </a>
+        <a href="/learn/css/box-model-and-spacing" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Box Model & Spacing</span>
+          </a>
+        <a href="/learn/css/flexbox" class="sidebar-link active">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">Flexbox</span>
+          </a>
+        <a href="/learn/css/css-grid" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">CSS Grid</span>
+          </a>
+        <a href="/learn/css/typography-and-fonts" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Typography & Fonts</span>
+          </a>
+        <a href="/learn/css/animations-and-transitions" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">Animations & Transitions</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-css.html">CSS</a>
+        <span class="bc-sep">›</span>
+        <span>Flexbox</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#2965f1">CSS — Lesson 4</span>
+        <h1>Flexbox</h1>
+        <p class="lesson-desc">Modern one-dimensional layout system.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>Flexbox</h2>
+<p>Flexbox is a one-dimensional layout system that makes it easy to align and distribute items within a container.</p>
+
+<h3>Setting Up Flexbox</h3>
+<div class="lesson-code">
+<span class="hl-selector">.container</span> {
+  <span class="hl-prop">display</span>: <span class="hl-value">flex</span>;
+}
+</div>
+
+<h3>Main Axis vs Cross Axis</h3>
+<ul>
+  <li><strong>Main axis:</strong> horizontal by default (flex-direction: row)</li>
+  <li><strong>Cross axis:</strong> vertical (perpendicular to main axis)</li>
+</ul>
+
+<h3>Flex Direction</h3>
+<div class="lesson-code">
+<span class="hl-selector">.container</span> {
+  <span class="hl-prop">flex-direction</span>: <span class="hl-value">row</span>;         <span class="hl-comment">/* default: left to right */</span>
+  <span class="hl-prop">flex-direction</span>: <span class="hl-value">column</span>;      <span class="hl-comment">/* top to bottom */</span>
+  <span class="hl-prop">flex-direction</span>: <span class="hl-value">row-reverse</span>;  <span class="hl-comment">/* right to left */</span>
+}
+</div>
+
+<h3>Justify Content (Main Axis)</h3>
+<div class="lesson-code">
+<span class="hl-selector">.container</span> {
+  <span class="hl-prop">justify-content</span>: <span class="hl-value">center</span>;       <span class="hl-comment">/* center items */</span>
+  <span class="hl-prop">justify-content</span>: <span class="hl-value">space-between</span>; <span class="hl-comment">/* equal space between */</span>
+  <span class="hl-prop">justify-content</span>: <span class="hl-value">space-around</span>;  <span class="hl-comment">/* space around each item */</span>
+  <span class="hl-prop">justify-content</span>: <span class="hl-value">flex-end</span>;     <span class="hl-comment">/* align to end */</span>
+}
+</div>
+
+<h3>Align Items (Cross Axis)</h3>
+<div class="lesson-code">
+<span class="hl-selector">.container</span> {
+  <span class="hl-prop">align-items</span>: <span class="hl-value">center</span>;     <span class="hl-comment">/* vertically center */</span>
+  <span class="hl-prop">align-items</span>: <span class="hl-value">stretch</span>;    <span class="hl-comment">/* stretch to fill height */</span>
+  <span class="hl-prop">align-items</span>: <span class="hl-value">flex-start</span>; <span class="hl-comment">/* align to top */</span>
+  <span class="hl-prop">align-items</span>: <span class="hl-value">flex-end</span>;   <span class="hl-comment">/* align to bottom */</span>
+}
+</div>
+
+<h3>Centering with Flexbox</h3>
+<p>The most common flexbox use case: perfectly center an element both horizontally and vertically.</p>
+<div class="lesson-code">
+<span class="hl-selector">.container</span> {
+  <span class="hl-prop">display</span>: <span class="hl-value">flex</span>;
+  <span class="hl-prop">justify-content</span>: <span class="hl-value">center</span>;
+  <span class="hl-prop">align-items</span>: <span class="hl-value">center</span>;
+  <span class="hl-prop">height</span>: <span class="hl-number">100vh</span>;  <span class="hl-comment">/* full viewport height */</span>
+}
+</div>
+
+<h3>Flex Wrap</h3>
+<p>Control whether items wrap to a new line when they overflow.</p>
+<div class="lesson-code">
+<span class="hl-selector">.container</span> {
+  <span class="hl-prop">flex-wrap</span>: <span class="hl-value">wrap</span>;      <span class="hl-comment">/* allow wrapping */</span>
+  <span class="hl-prop">flex-wrap</span>: <span class="hl-value">nowrap</span>;    <span class="hl-comment">/* default: no wrap */</span>
+}
+</div>
+
+<h3>Gap</h3>
+<p>Add spacing between flex items without using margins.</p>
+<div class="lesson-code">
+<span class="hl-selector">.container</span> {
+  <span class="hl-prop">display</span>: <span class="hl-value">flex</span>;
+  <span class="hl-prop">gap</span>: <span class="hl-number">16px</span>;  <span class="hl-comment">/* space between items */</span>
+}
+</div>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> Flexbox is perfect for navigation bars, card layouts, centering content, and arranging items in a row or column.
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn/css/box-model-and-spacing" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Box Model & Spacing</span></a>
+        <a href="/learn/css/css-grid" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">CSS Grid</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

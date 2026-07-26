@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Manipulation - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="DOM Manipulation - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Interact with HTML elements using DOM manipulation. Select, change, create, and remove elements with JavaScript.">
+<meta name="keywords" content="javascript dom, dom manipulation, querySelector, getElementById, addEventListener, create element js">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/js/dom-manipulation">
+<meta property="og:title" content="DOM Manipulation - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Interact with HTML elements using DOM manipulation. Select, change, create, and remove elements with JavaScript.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DOM Manipulation - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Interact with HTML elements using DOM manipulation. Select, change, create, and remove elements with JavaScript.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/js/dom-manipulation">
+<link rel="alternate" href="https://deoit.js.org/learn/js/dom-manipulation" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/dom-manipulation" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JavaScript Course",
+      "item": "https://deoit.js.org/learn-js.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "DOM Manipulation",
+      "item": "https://deoit.js.org/learn/js/dom-manipulation"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DOM Manipulation",
+  "description": "Interact with HTML elements using DOM manipulation. Select, change, create, and remove elements with JavaScript.",
+  "url": "https://deoit.js.org/learn/js/dom-manipulation",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/js/dom-manipulation"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "JavaScript Course - Learn JavaScript from Scratch",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "JavaScript Course",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "position": 4,
+  "articleSection": "JavaScript Lesson 4"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-js.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#f7df1e"></span>
+          JavaScript
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/js/introduction-to-javascript" class="sidebar-link ">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to JavaScript</span>
+          </a>
+        <a href="/learn/js/variables-and-data-types" class="sidebar-link ">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Variables & Data Types</span>
+          </a>
+        <a href="/learn/js/functions" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Functions</span>
+          </a>
+        <a href="/learn/js/dom-manipulation" class="sidebar-link active">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">DOM Manipulation</span>
+          </a>
+        <a href="/learn/js/events-and-interactivity" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">Events & Interactivity</span>
+          </a>
+        <a href="/learn/js/arrays-and-loops" class="sidebar-link ">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Arrays & Loops</span>
+          </a>
+        <a href="/learn/js/es6-features" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">ES6+ Features</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-js.html">JavaScript</a>
+        <span class="bc-sep">›</span>
+        <span>DOM Manipulation</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 4</span>
+        <h1>DOM Manipulation</h1>
+        <p class="lesson-desc">Interacting with HTML elements using JavaScript.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>DOM Manipulation</h2>
+<p>The DOM (Document Object Model) is JavaScript's way of interacting with HTML elements. You can read, change, add, or remove elements on the page.</p>
+
+<h3>Selecting Elements</h3>
+<div class="lesson-code">
+<span class="hl-comment">// By ID</span>
+<span class="hl-keyword">const</span> header = <span class="hl-builtin">document</span>.<span class="hl-function">getElementById</span>(<span class="hl-string">"header"</span>);
+
+<span class="hl-comment">// By class name (returns HTMLCollection)</span>
+<span class="hl-keyword">const</span> cards = <span class="hl-builtin">document</span>.<span class="hl-function">getElementsByClassName</span>(<span class="hl-string">"card"</span>);
+
+<span class="hl-comment">// By tag name</span>
+<span class="hl-keyword">const</span> paragraphs = <span class="hl-builtin">document</span>.<span class="hl-function">getElementsByTagName</span>(<span class="hl-string">"p"</span>);
+
+<span class="hl-comment">// Using CSS selectors (modern, recommended)</span>
+<span class="hl-keyword">const</span> firstBtn = <span class="hl-builtin">document</span>.<span class="hl-function">querySelector</span>(<span class="hl-string">".btn"</span>);
+<span class="hl-keyword">const</span> allBtns = <span class="hl-builtin">document</span>.<span class="hl-function">querySelectorAll</span>(<span class="hl-string">".btn"</span>);
+</div>
+
+<h3>Changing Content</h3>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> title = <span class="hl-builtin">document</span>.<span class="hl-function">querySelector</span>(<span class="hl-string">"h1"</span>);
+
+<span class="hl-comment">// Change text content</span>
+title.<span class="hl-prop">textContent</span> = <span class="hl-string">"New Title"</span>;
+
+<span class="hl-comment">// Change HTML content</span>
+title.<span class="hl-prop">innerHTML</span> = <span class="hl-string">"New &lt;em&gt;Title&lt;/em&gt;"</span>;
+</div>
+
+<h3>Changing Styles</h3>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> box = <span class="hl-builtin">document</span>.<span class="hl-function">querySelector</span>(<span class="hl-string">".box"</span>);
+
+box.<span class="hl-prop">style</span>.<span class="hl-prop">backgroundColor</span> = <span class="hl-string">"red"</span>;
+box.<span class="hl-prop">style</span>.<span class="hl-prop">fontSize</span> = <span class="hl-string">"24px"</span>;
+
+<span class="hl-comment">// Better: use classList</span>
+box.<span class="hl-prop">classList</span>.<span class="hl-function">add</span>(<span class="hl-string">"active"</span>);
+box.<span class="hl-prop">classList</span>.<span class="hl-function">remove</span>(<span class="hl-string">"hidden"</span>);
+box.<span class="hl-prop">classList</span>.<span class="hl-function">toggle</span>(<span class="hl-string">"visible"</span>);
+</div>
+
+<h3>Creating and Removing Elements</h3>
+<div class="lesson-code">
+<span class="hl-comment">// Create a new element</span>
+<span class="hl-keyword">const</span> newPara = <span class="hl-builtin">document</span>.<span class="hl-function">createElement</span>(<span class="hl-string">"p"</span>);
+newPara.<span class="hl-prop">textContent</span> = <span class="hl-string">"I am new!"</span>;
+
+<span class="hl-comment">// Add it to the page</span>
+<span class="hl-builtin">document</span>.<span class="hl-prop">body</span>.<span class="hl-function">appendChild</span>(newPara);
+
+<span class="hl-comment">// Remove an element</span>
+<span class="hl-keyword">const</span> oldEl = <span class="hl-builtin">document</span>.<span class="hl-function">querySelector</span>(<span class="hl-string">".old"</span>);
+oldEl.<span class="hl-function">remove</span>();
+</div>
+
+<h3>Event Listeners</h3>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> button = <span class="hl-builtin">document</span>.<span class="hl-function">querySelector</span>(<span class="hl-string">"button"</span>);
+
+button.<span class="hl-function">addEventListener</span>(<span class="hl-string">"click"</span>, () => {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Button was clicked!"</span>);
+  button.<span class="hl-prop">textContent</span> = <span class="hl-string">"Clicked!"</span>;
+});
+</div>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> Prefer <code>querySelector</code> and <code>querySelectorAll</code>  -  they are versatile and use familiar CSS selector syntax.
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn/js/functions" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Functions</span></a>
+        <a href="/learn/js/events-and-interactivity" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Events & Interactivity</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

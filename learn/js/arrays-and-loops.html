@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrays & Loops - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="Arrays & Loops - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Work with collections of data using JavaScript arrays and loops. Master push, pop, map, filter, forEach, and loop patterns.">
+<meta name="keywords" content="javascript arrays, for loop, forEach map filter, array methods, for of loop, while loop js">
+<meta name="author" content="Majed Qandeel">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0d0d0d">
+<meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+<meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://deoit.js.org/learn/js/arrays-and-loops">
+<meta property="og:title" content="Arrays & Loops - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Work with collections of data using JavaScript arrays and loops. Master push, pop, map, filter, forEach, and loop patterns.">
+<meta property="og:image" content="https://deoit.js.org/logo.png">
+<meta property="og:site_name" content="Deoit">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arrays & Loops - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Work with collections of data using JavaScript arrays and loops. Master push, pop, map, filter, forEach, and loop patterns.">
+<meta name="twitter:image" content="https://deoit.js.org/logo.png">
+<link rel="canonical" href="https://deoit.js.org/learn/js/arrays-and-loops">
+<link rel="alternate" href="https://deoit.js.org/learn/js/arrays-and-loops" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/arrays-and-loops" hreflang="x-default">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="apple-touch-icon" href="../../logo.png">
+<link rel="stylesheet" href="../../css/learn.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://deoit.js.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JavaScript Course",
+      "item": "https://deoit.js.org/learn-js.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Arrays & Loops",
+      "item": "https://deoit.js.org/learn/js/arrays-and-loops"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Arrays & Loops",
+  "description": "Work with collections of data using JavaScript arrays and loops. Master push, pop, map, filter, forEach, and loop patterns.",
+  "url": "https://deoit.js.org/learn/js/arrays-and-loops",
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "author": {
+    "@type": "Person",
+    "name": "Majed Qandeel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Deoit",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://deoit.js.org/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://deoit.js.org/learn/js/arrays-and-loops"
+  },
+  "about": {
+    "@type": "Course",
+    "name": "JavaScript Course - Learn JavaScript from Scratch",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "isPartOf": {
+    "@type": "Course",
+    "name": "JavaScript Course",
+    "url": "https://deoit.js.org/learn-js.html"
+  },
+  "position": 6,
+  "articleSection": "JavaScript Lesson 6"
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn" class="active">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="learn-layout">
+    <aside class="learn-sidebar">
+      <div class="sidebar-header">
+        <a href="/learn-js.html" class="sidebar-course-link">
+          <span class="course-dot" style="background:#f7df1e"></span>
+          JavaScript
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/learn/js/introduction-to-javascript" class="sidebar-link ">
+            <span class="sidebar-num">1</span>
+            <span class="sidebar-title">Introduction to JavaScript</span>
+          </a>
+        <a href="/learn/js/variables-and-data-types" class="sidebar-link ">
+            <span class="sidebar-num">2</span>
+            <span class="sidebar-title">Variables & Data Types</span>
+          </a>
+        <a href="/learn/js/functions" class="sidebar-link ">
+            <span class="sidebar-num">3</span>
+            <span class="sidebar-title">Functions</span>
+          </a>
+        <a href="/learn/js/dom-manipulation" class="sidebar-link ">
+            <span class="sidebar-num">4</span>
+            <span class="sidebar-title">DOM Manipulation</span>
+          </a>
+        <a href="/learn/js/events-and-interactivity" class="sidebar-link ">
+            <span class="sidebar-num">5</span>
+            <span class="sidebar-title">Events & Interactivity</span>
+          </a>
+        <a href="/learn/js/arrays-and-loops" class="sidebar-link active">
+            <span class="sidebar-num">6</span>
+            <span class="sidebar-title">Arrays & Loops</span>
+          </a>
+        <a href="/learn/js/es6-features" class="sidebar-link ">
+            <span class="sidebar-num">7</span>
+            <span class="sidebar-title">ES6+ Features</span>
+          </a>
+      </nav>
+    </aside>
+
+    <main class="learn-main">
+      <nav class="learn-breadcrumbs">
+        <a href="/">Home</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn">Courses</a>
+        <span class="bc-sep">›</span>
+        <a href="/learn-js.html">JavaScript</a>
+        <span class="bc-sep">›</span>
+        <span>Arrays & Loops</span>
+      </nav>
+
+      <div class="lesson-header">
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 6</span>
+        <h1>Arrays & Loops</h1>
+        <p class="lesson-desc">Working with collections of data.</p>
+        <div class="lesson-meta">
+          <span>By Majed Qandeel</span>
+          <span>·</span>
+          <span>Jul 26, 2026</span>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        
+<h2>Arrays & Loops</h2>
+<p>Arrays store collections of data, and loops let you work with each item in the collection.</p>
+
+<h3>Creating Arrays</h3>
+<div class="lesson-code">
+<span class="hl-comment">// Literal syntax (recommended)</span>
+<span class="hl-keyword">const</span> fruits = [<span class="hl-string">"apple"</span>, <span class="hl-string">"banana"</span>, <span class="hl-string">"orange"</span>];
+
+<span class="hl-comment">// Mixed types</span>
+<span class="hl-keyword">const</span> mixed = [<span class="hl-number">1</span>, <span class="hl-string">"hello"</span>, <span class="hl-keyword">true</span>, { name: <span class="hl-string">"Alice"</span> }];
+</div>
+
+<h3>Accessing Array Items</h3>
+<div class="lesson-code">
+fruits[<span class="hl-number">0</span>];  <span class="hl-comment">// "apple"  (first item, index 0)</span>
+fruits[<span class="hl-number">1</span>];  <span class="hl-comment">// "banana"</span>
+fruits[<span class="hl-number">2</span>];  <span class="hl-comment">// "orange"</span>
+fruits.<span class="hl-prop">length</span>;  <span class="hl-comment">// 3</span>
+fruits[fruits.<span class="hl-prop">length</span> - <span class="hl-number">1</span>];  <span class="hl-comment">// "orange" (last item)</span>
+</div>
+
+<h3>Array Methods</h3>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> arr = [<span class="hl-number">1</span>, <span class="hl-number">2</span>, <span class="hl-number">3</span>];
+
+arr.<span class="hl-function">push</span>(<span class="hl-number">4</span>);      <span class="hl-comment">// [1, 2, 3, 4]  (add to end)</span>
+arr.<span class="hl-function">pop</span>();        <span class="hl-comment">// [1, 2, 3]      (remove from end)</span>
+arr.<span class="hl-function">unshift</span>(<span class="hl-number">0</span>);   <span class="hl-comment">// [0, 1, 2, 3]  (add to start)</span>
+arr.<span class="hl-function">shift</span>();      <span class="hl-comment">// [1, 2, 3]      (remove from start)</span>
+arr.<span class="hl-function">indexOf</span>(<span class="hl-number">2</span>);   <span class="hl-comment">// 1              (find index)</span>
+arr.<span class="hl-function">includes</span>(<span class="hl-number">3</span>);  <span class="hl-comment">// true           (check if exists)</span>
+arr.<span class="hl-function">join</span>(<span class="hl-string">", "</span>);   <span class="hl-comment">// "1, 2, 3"      (convert to string)</span>
+</div>
+
+<h3>For Loop</h3>
+<div class="lesson-code">
+<span class="hl-keyword">for</span> (<span class="hl-keyword">let</span> i = <span class="hl-number">0</span>; i &lt; fruits.<span class="hl-prop">length</span>; i++) {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(fruits[i]);
+}
+<span class="hl-comment">// "apple"</span>
+<span class="hl-comment">// "banana"</span>
+<span class="hl-comment">// "orange"</span>
+</div>
+
+<h3>For...of Loop (ES6)</h3>
+<p>Simpler syntax for iterating over arrays.</p>
+<div class="lesson-code">
+<span class="hl-keyword">for</span> (<span class="hl-keyword">const</span> fruit <span class="hl-keyword">of</span> fruits) {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(fruit);
+}
+</div>
+
+<h3>Array Methods: forEach, map, filter</h3>
+<div class="lesson-code">
+<span class="hl-comment">// forEach: do something with each item</span>
+fruits.<span class="hl-function">forEach</span>(fruit => {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"I like "</span> + fruit);
+});
+
+<span class="hl-comment">// map: create a new array by transforming each item</span>
+<span class="hl-keyword">const</span> uppercased = fruits.<span class="hl-function">map</span>(f => f.<span class="hl-function">toUpperCase</span>());
+<span class="hl-comment">// ["APPLE", "BANANA", "ORANGE"]</span>
+
+<span class="hl-comment">// filter: create a new array with items that pass a test</span>
+<span class="hl-keyword">const</span> longNames = fruits.<span class="hl-function">filter</span>(f => f.<span class="hl-prop">length</span> &gt; <span class="hl-number">5</span>);
+<span class="hl-comment">// ["banana", "orange"]</span>
+</div>
+
+<h3>While Loop</h3>
+<div class="lesson-code">
+<span class="hl-keyword">let</span> i = <span class="hl-number">0</span>;
+<span class="hl-keyword">while</span> (i &lt; <span class="hl-number">5</span>) {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(i);
+  i++;
+}
+</div>
+
+<div class="lesson-tip">
+  <strong>Tip:</strong> Prefer <code>for...of</code> for simple iteration and <code>map</code>/<code>filter</code>/<code>forEach</code> for more specific transformations.
+</div>
+        
+      </div>
+
+      <div class="lesson-navigation">
+        <a href="/learn/js/events-and-interactivity" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Events & Interactivity</span></a>
+        <a href="/learn/js/es6-features" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">ES6+ Features</span></a>
+      </div>
+
+      <div class="lesson-cta">
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>
