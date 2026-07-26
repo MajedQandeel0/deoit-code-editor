@@ -16,9 +16,10 @@ function slugify(title) {
 }
 
 function generateMetaDescription(lesson, courseTitle) {
-  const pad = ` Learn ${lesson.title} with interactive code examples on Deoit — a free online code editor for HTML, CSS, and JavaScript.`;
+  const pad = ` Learn ${lesson.title} step by step with interactive code examples on Deoit — a free online code editor for HTML, CSS, and JavaScript.`;
   let d = (lesson.desc || '') + pad;
   if (d.length > 160) d = d.substring(0, 157) + '...';
+  if (d.length < 150) d = (lesson.desc || lesson.title) + ` — Free ${courseTitle} tutorial with code examples on Deoit. Learn step by step.`;
   return d;
 }
 
@@ -33,8 +34,8 @@ function generateLessonPage(course, lesson, courseTitle, courseColor) {
   const desc = generateMetaDescription(lesson, courseTitle);
   const keywords = generateKeywords(lesson, courseTitle);
   const canonicalUrl = `${BASE_URL}/learn/${course}/${slug}`;
-  const pageTitle = `${lesson.title} — Free Tutorial | Deoit`;
-  const metaTitle = `${lesson.title} - Free ${courseTitle} Lesson | Deoit`;
+  const pageTitle = `${lesson.title} — ${courseTitle} Tutorial for Beginners | Deoit`;
+  const metaTitle = `${lesson.title} — Learn ${courseTitle} Free Lesson | Deoit`;
 
   const prevLesson = lesson.id > 1 ? LESSONS[course].lessons.find(l => l.id === lesson.id - 1) : null;
   const nextLesson = LESSONS[course].lessons.find(l => l.id === lesson.id + 1);
