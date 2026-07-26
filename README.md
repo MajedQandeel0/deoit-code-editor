@@ -5,47 +5,53 @@
 <h1 align="center">Deoit</h1>
 
 <p align="center">
-  <strong>Free browser-based code editor for HTML, CSS & JavaScript</strong><br>
-  Write, run, and preview code instantly — no downloads, no setup.
+  <strong>Free, open-source browser-based code editor for HTML, CSS & JavaScript</strong><br>
+  Write, run, and preview code instantly — no downloads, no setup, no sign-up required.
 </p>
 
 <p align="center">
   <a href="https://deoit.js.org">
-    <img src="https://img.shields.io/badge/🌐_Try_it-Deoit-0d0d0d?style=for-the-badge&labelColor=0d0d0d&color=e8e8e8" alt="Try Deoit">
+    <img src="https://img.shields.io/badge/Try_Deoit-deoit.js.org-4361ee?style=for-the-badge&logo=vercel&logoColor=white" alt="Try Deoit">
   </a>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React">
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+  <a href="https://github.com/MajedQandeel0/deoit-code-editor/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
+  </a>
+  <a href="https://github.com/MajedQandeel0/deoit-code-editor">
+    <img src="https://img.shields.io/github/stars/MajedQandeel0/deoit-code-editor?style=for-the-badge&logo=github" alt="GitHub Stars">
+  </a>
+  <a href="https://github.com/MajedQandeel0/deoit-code-editor/fork">
+    <img src="https://img.shields.io/github/forks/MajedQandeel0/deoit-code-editor?style=for-the-badge&logo=github" alt="GitHub Forks">
+  </a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/81+_Lessons-0d0d0d?style=flat-square&labelColor=22c55e&color=22c55e" alt="81+ Lessons">
-  <img src="https://img.shields.io/badge/7_Themes-0d0d0d?style=flat-square&labelColor=61afef&color=61afef" alt="7 Themes">
-  <img src="https://img.shields.io/badge/Zero_Frameworks-0d0d0d?style=flat-square&labelColor=e5c07b&color=e5c07b" alt="Zero Frameworks">
-  <img src="https://img.shields.io/badge/Free_Forever-0d0d0d?style=flat-square&labelColor=98c379&color=98c379" alt="Free Forever">
-  <img src="https://img.shields.io/badge/Mobile_Ready-0d0d0d?style=flat-square&labelColor=c678dd&color=c678dd" alt="Mobile Ready">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Zero_Frameworks-e5c07b?style=flat" alt="Zero Frameworks">
+  <img src="https://img.shields.io/badge/81+_Lessons-22c55e?style=flat" alt="81+ Lessons">
+  <img src="https://img.shields.io/badge/7_Themes-61afef?style=flat" alt="7 Themes">
 </p>
 
 ---
 
 ## What is Deoit?
 
-Deoit is a **free, browser-based code editor** for learning and building with HTML, CSS, and JavaScript. Think of it as CodePen meets free courses — but lighter, faster, and with zero dependencies.
+Deoit is a **free, open-source browser-based code editor** for learning and building with HTML, CSS, and JavaScript. Think of it as CodePen meets free courses — but lighter, faster, and built with zero frameworks.
 
-**No installs. No sign-up required. Just open and code.**
+- **No installs. No sign-up. Just open and code.**
+- **81+ interactive lessons** across 6 topics
+- **MIT License** — use it, fork it, build on it
 
-🔗 **[deoit.js.org](https://deoit.js.org)**
+**[Try it live → deoit.js.org](https://deoit.js.org)**
 
 ---
 
 ## Demo
 
-<!-- Replace with actual GIF/Screenshot -->
-<!-- ![Deoit Editor Demo](demo.gif) -->
-
-> 📸 **[Click here to try it live](https://deoit.js.org/pages/editor)** — it takes 2 seconds to load.
+> **[Click here to try it live](https://deoit.js.org/pages/editor)** — loads in under 2 seconds.
 
 ---
 
@@ -54,9 +60,9 @@ Deoit is a **free, browser-based code editor** for learning and building with HT
 | Feature | Deoit | CodePen | JSFiddle | CodeSandbox |
 |---------|:-----:|:-------:|:--------:|:-----------:|
 | **100% Free** | ✅ | ✅ | ✅ | ❌ |
+| **Open Source (MIT)** | ✅ | ❌ | ❌ | ❌ |
 | **No sign-up needed** | ✅ | ❌ | ✅ | ❌ |
 | **File Explorer** | ✅ | ❌ | ❌ | ✅ |
-| **Cloud Sync** | ✅ | ✅ | ❌ | ✅ |
 | **81+ Free Lessons** | ✅ | ❌ | ❌ | ❌ |
 | **Console Panel** | ✅ | ❌ | ✅ | ✅ |
 | **Zero Frameworks** | ✅ | ❌ | ❌ | ❌ |
@@ -68,36 +74,32 @@ Deoit is a **free, browser-based code editor** for learning and building with HT
 
 ## Features
 
-### 🖊️ Smart Code Editor
+### Smart Code Editor
 - Syntax highlighting for **25+ token types**
 - **Smart autocomplete** with fuzzy matching (HTML tags, CSS properties, JS keywords)
 - **Auto-closing tags** and bracket pairs
 - **HTML5 boilerplate** shortcut (`!` + Tab)
-- **Indent guides** and line numbers
 - **7 themes** — Dark, Light, Dracula, Monokai, Nord, GitHub Dark, One Dark
 
-### 📁 File Explorer
+### File Explorer
 - Create, rename, delete files and folders
 - **Drag-and-drop** reordering
 - Multi-file project support
 - Auto-save to browser + cloud
 
-### ▶️ Live Preview
+### Live Preview
 - **One-click run** in a sandboxed popup
 - Multiple HTML file support
-- Smart file picker dialog
 
-### 📟 Console
+### Console
 - Captures `console.log`, `warn`, `error`, `info`
 - Runtime error catching
-- Resizable panel
 
-### ☁️ Cloud Sync
+### Cloud Sync
 - **Google Sign-In** and **GitHub Sign-In**
 - Auto-save projects to cloud
-- Access from any device
 
-### 📚 81+ Free Lessons
+### 81+ Free Lessons
 - **HTML** (20 lessons) — Tags, forms, semantic HTML
 - **CSS** (17 lessons) — Flexbox, Grid, animations, responsive
 - **JavaScript** (20 lessons) — DOM, async, ES6+
@@ -105,35 +107,29 @@ Deoit is a **free, browser-based code editor** for learning and building with HT
 - **Node.js** (6 lessons) — Modules, HTTP, npm
 - **Developer Tools** (6 lessons) — Git, terminal, devtools
 
-### 📦 Export
-- **Download as ZIP** with all project files
-- **Export as JSON** for backup
-- **Import** projects from JSON
-
 ---
 
 ## Quick Start
 
-### Option 1: Use Online (Recommended)
-👉 **[Open Deoit](https://deoit.js.org/pages/editor)** — zero setup required.
+### Use Online (Recommended)
 
-### Option 2: Run Locally
+**[Open Deoit → deoit.js.org](https://deoit.js.org/pages/editor)**
+
+### Run Locally
 
 ```bash
-git clone https://github.com/deoitplatform/deoit-code-editor.git
-cd code-editor
+git clone https://github.com/MajedQandeel0/deoit-code-editor.git
+cd deoit-code-editor
 npx serve .
 ```
 
 Then open `http://localhost:3000` in your browser.
 
-### Option 3: Use the CLI
+### Use the CLI
 
 ```bash
 npx deoit-cli
 ```
-
-Opens Deoit in your browser instantly.
 
 ---
 
@@ -153,14 +149,6 @@ Add a live code playground to any webpage:
 
 ---
 
-## Browser Extension
-
-Install **"Edit in Deoit"** — right-click any webpage to open its HTML/CSS/JS in Deoit.
-
-> 🔧 Coming soon to Chrome Web Store
-
----
-
 ## Tech Stack
 
 | Layer | Technology |
@@ -168,42 +156,11 @@ Install **"Edit in Deoit"** — right-click any webpage to open its HTML/CSS/JS 
 | Frontend | Vanilla HTML, CSS, JavaScript |
 | Auth | Supabase (Google + GitHub) |
 | Hosting | Vercel |
+| Analytics | Umami (privacy-respecting) |
 | Storage | localStorage + Supabase Cloud |
 | Build | None — zero build step |
 
-**Why vanilla?** No React, no Vue, no build tools. Every edit is instantly deployable. The entire editor runs from a single HTML page.
-
----
-
-## Project Structure
-
-```
-code-editor/
-├── index.html              # Landing page
-├── learn.html              # Course index
-├── learn-html.html         # HTML course
-├── learn-css.html          # CSS course
-├── learn-js.html           # JavaScript course
-├── learn-react.html        # React course
-├── learn-node.html         # Node.js course
-├── learn-tools.html        # Developer tools course
-├── login.html              # Sign-in page
-├── 404.html                # Error page
-├── terms.html              # Terms of Service
-├── privacy.html            # Privacy Policy
-├── css/
-│   ├── style.css           # Landing page styles
-│   ├── editor.css          # Editor styles
-│   ├── learn.css           # Course page styles
-│   └── login.css           # Login styles
-├── js/
-│   ├── editor.js           # Core editor logic (~2000 lines)
-│   ├── auth.js             # Supabase auth
-│   ├── learn.js            # 81 lessons data + rendering
-│   └── script.js           # Landing page interactivity
-└── pages/
-    └── editor.html         # Main editor page
-```
+**Why vanilla?** No React, no Vue, no build tools. Every edit is instantly deployable.
 
 ---
 
@@ -219,25 +176,69 @@ Deoit is perfect for teaching web development:
 
 ---
 
+## Contributing
+
+We welcome contributions! See the [Contributing Guide](CONTRIBUTING.md) for setup instructions, code style rules, and how to submit a Pull Request.
+
+**Quick start:**
+
+```bash
+# Fork → Clone → Branch → Code → PR
+git checkout -b feature/your-feature-name
+# ... make changes ...
+git commit -m "feat: add your short description"
+git push origin feature/your-feature-name
+# Then open a Pull Request on GitHub
+```
+
+Look for issues tagged [`good first issue`](https://github.com/MajedQandeel0/deoit-code-editor/labels/good%20first%20issue) to get started.
+
+---
+
 ## Roadmap
 
-- [ ] Browser Extension ("Edit in Deoit")
-- [ ] Embed Widget (iframe playground)
-- [ ] CLI tool (`npx deoit-cli`)
+- [x] Browser Extension ("Edit in Deoit")
+- [x] Embed Widget (iframe playground)
+- [x] CLI tool (`npx deoit-cli`)
+- [x] Open Source (MIT License)
+- [x] Blog with tutorials
 - [ ] VS Code Extension
 - [ ] Collaborative editing (real-time)
 - [ ] More lessons (TypeScript, Python, Git)
-- [ ] Dark/Light theme auto-detect
 - [ ] Keyboard shortcuts cheat sheet
 
 ---
 
 ## Author
 
-**Majed Qandeel** — [deoit.platform@gmail.com](mailto:deoit.platform@gmail.com)
+**Majed Qandeel** — [deoit.platform@gmail.com](mailto:deoit.platform@gmail.com) — [GitHub](https://github.com/MajedQandeel0)
 
 ---
 
 ## License
 
-All rights reserved. © 2026 Deoit
+[MIT License](LICENSE) — free to use, modify, and distribute.
+
+```
+MIT License
+
+Copyright (c) 2026 Majed Qandeel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
