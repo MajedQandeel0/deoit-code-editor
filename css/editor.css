@@ -582,56 +582,47 @@ body {
   font-size: 14px; margin: 0; max-width: 280px; line-height: 1.6;
 }
 
-/* ─── EDITOR TOAST (sign-in hint) ─── */
-.editor-toast {
-  display: none;
+/* ─── TOAST POPUP (feature gate) ─── */
+.editor-toast-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: rgba(67,97,238,0.1);
-  border-top: 1px solid rgba(67,97,238,0.2);
-  font-size: 12px;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 1px solid rgba(67,97,238,0.25);
+  border-radius: 12px;
+  font-size: 13px;
   color: var(--text-dim);
-  flex-shrink: 0;
-  animation: toastSlideIn .3s ease;
+  z-index: 9999;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(67,97,238,0.08);
+  animation: toastSlideRight .35s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 380px;
 }
-.editor-toast svg { color: #4361ee; flex-shrink: 0; }
-.editor-toast-btn {
-  padding: 4px 12px;
+.editor-toast-popup svg { color: #4361ee; flex-shrink: 0; }
+.editor-toast-popup span { line-height: 1.4; }
+.editor-toast-popup a {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
   background: #4361ee;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 11px;
+  color: #fff !important;
+  border-radius: 6px;
+  font-size: 12px;
   font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
+  white-space: nowrap;
   flex-shrink: 0;
   transition: background .2s;
 }
-.editor-toast-btn:hover { background: #3651d4; }
-.editor-toast-close {
-  margin-left: auto;
-  background: none;
-  border: none;
-  color: var(--text-dim);
-  font-size: 16px;
-  cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 4px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.editor-toast-close:hover { background: rgba(255,255,255,0.06); }
-.logged-in .editor-toast { display: none !important; }
-.logged-out .editor-toast { display: flex; }
-@keyframes toastSlideIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+.editor-toast-popup a:hover { background: #3651d4; }
+@keyframes toastSlideRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 @media (max-width: 600px) {
-  .editor-toast { font-size: 11px; padding: 6px 10px; gap: 6px; }
-  .editor-toast-btn { padding: 3px 8px; font-size: 10px; }
+  .editor-toast-popup { bottom: 16px; right: 16px; left: 16px; max-width: none; font-size: 12px; }
 }
 
 /* ─── SIDEBAR OVERLAY (mobile) ─── */

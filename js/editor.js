@@ -159,6 +159,21 @@ button {
 };
 
 // ─── HELPERS ───
+function showToast(msg) {
+  var existing = document.querySelector('.editor-toast-popup');
+  if (existing) existing.remove();
+  var t = document.createElement('div');
+  t.className = 'editor-toast-popup';
+  t.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>' + msg + '</span><a href="../login">Sign In</a>';
+  document.body.appendChild(t);
+  setTimeout(function() { if (t.parentNode) { t.style.opacity = '0'; t.style.transform = 'translateX(40px)'; t.style.transition = 'all .3s ease'; setTimeout(function() { if (t.parentNode) t.remove(); }, 300); } }, 5000);
+}
+function showWelcomeToast() {
+  if (!getUser() && !localStorage.getItem('deoit_welcome_seen')) {
+    setTimeout(function() { showToast('Sign in to save projects & unlock all features'); }, 2000);
+    localStorage.setItem('deoit_welcome_seen', '1');
+  }
+}
 function findById(node, id) {
   if (node.id === id) return node;
   if (node.children) for (const c of node.children) { const f = findById(c, id); if (f) return f; }
@@ -782,6 +797,10 @@ function sanitizeName(name) {
   return name.replace(/[<>:"\/\\|?*\x00-\x1f]/g, '').replace(/^\.+/, '').replace(/\.+$/, '').trim();
 }
 function showNew(type, parentId) {
+  if (!getUser()) {
+    showToast('Sign in to create files and folders');
+    return;
+  }
   const parent = parentId ? findById(fileSystem, parentId) : fileSystem;
   if (!parent || parent.type!=='folder') return;
   const isFile = type === 'file';
@@ -1967,24 +1986,8 @@ window.addEventListener('load', () => {
   setupDelegation();
   setupSidebarToggle();
   checkAuth();
-  setupEditorToast();
+  showWelcomeToast();
 });
-
-function setupEditorToast() {
-  const toast = document.getElementById('editorToast');
-  const closeBtn = document.getElementById('toastClose');
-  if (!toast) return;
-  if (localStorage.getItem('deoit_toast_dismissed')) { toast.remove(); return; }
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      toast.remove();
-      localStorage.setItem('deoit_toast_dismissed', '1');
-    });
-  }
-  setTimeout(() => {
-    if (toast.parentNode) { toast.remove(); localStorage.setItem('deoit_toast_dismissed', '1'); }
-  }, 8000);
-}
 
 function setupSidebarToggle() {
   const toggle = document.getElementById('sidebarToggle');
