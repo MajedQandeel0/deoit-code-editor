@@ -1,9 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
-const lessonsCode = fs.readFileSync(path.join(__dirname, 'js', 'lessons.js'), 'utf8');
-const fn = new Function(lessonsCode.replace('const LESSONS', 'var LESSONS') + '; return LESSONS;');
-const LESSONS = fn();
+const LESSONS = require('./js/lessons.js');
 
 const BASE_URL = 'https://deoit.js.org';
 
@@ -224,7 +221,9 @@ ${JSON.stringify(articleJsonLd, null, 2)}
     <p>&copy; 2026 Deoit · Built by <a href="${BASE_URL}"><strong>Majed Qandeel</strong></a></p>
   </footer>
   <script>
+    var _fbSent=0;var _MAX_FB=3;
     function reportFeedback(type) {
+      if(_fbSent>=_MAX_FB){var msg=document.getElementById('feedbackMsg');msg.style.display='block';msg.innerHTML='<span style="color:#98c379">Thanks for the feedback!</span>';return;}
       var msg = document.getElementById('feedbackMsg');
       var form = document.getElementById('errorForm');
       msg.style.display = 'block';
@@ -232,12 +231,13 @@ ${JSON.stringify(articleJsonLd, null, 2)}
         form.style.display = 'block';
         msg.innerHTML = '<span style="color:#e5c07b">Please describe the error below:</span>';
       } else if (type === 'helpful') {
-        msg.innerHTML = '<span style="color:#98c379">Thanks for the feedback! 🎉</span>';
+        msg.innerHTML = '<span style="color:#98c379">Thanks for the feedback!</span>';
         form.style.display = 'none';
       } else {
         msg.innerHTML = '<span style="color:#e06c75">Sorry to hear that. Please describe what was wrong:</span>';
         form.style.display = 'block';
       }
+      _fbSent++;
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -254,6 +254,8 @@ ${JSON.stringify(articleJsonLd, null, 2)}
       var desc = document.getElementById('errorDesc').value;
       var msg = document.getElementById('feedbackMsg');
       if (!desc.trim()) { msg.innerHTML = '<span style="color:#e06c75">Please describe the issue.</span>'; return; }
+      if(_fbSent>=_MAX_FB){msg.innerHTML='<span style="color:#98c379">Thanks for the feedback!</span>';document.getElementById('errorForm').style.display='none';return;}
+      _fbSent++;
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -265,7 +267,7 @@ ${JSON.stringify(articleJsonLd, null, 2)}
           from_name: 'Deoit Error Report'
         })
       });
-      msg.innerHTML = '<span style="color:#98c379">Thanks for reporting! We\\'ll look into it. ✅</span>';
+      msg.innerHTML = '<span style="color:#98c379">Thanks for reporting!</span>';
       document.getElementById('errorForm').style.display = 'none';
     }
   </script>

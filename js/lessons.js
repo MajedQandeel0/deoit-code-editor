@@ -3797,3 +3797,4 @@ date.<span class="hl-function">toISOString</span>();  <span class="hl-comment">/
         `
       }
 );
+if (typeof module !== 'undefined') module.exports = LESSONS;

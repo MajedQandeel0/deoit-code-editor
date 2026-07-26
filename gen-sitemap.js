@@ -1,6 +1,5 @@
 const fs = require('fs');
-const code = fs.readFileSync(__dirname + '/js/lessons.js', 'utf8').replace('const LESSONS', 'var LESSONS');
-eval(code);
+const LESSONS = require('./js/lessons.js');
 
 function slugify(t) {
   return t.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');

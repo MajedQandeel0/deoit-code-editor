@@ -32,45 +32,46 @@ var VERSION = '1.0.0';
 
 function openBrowser(targetUrl) {
   var platform = process.platform;
-  var cmd;
+  var execFile = require('child_process').execFile;
+  var args;
+
+  if (!/^https?:\/\/.+/.test(targetUrl)) return;
 
   if (platform === 'win32') {
-    cmd = 'start "" "' + targetUrl + '"';
+    execFile('cmd', ['/c', 'start', '""', targetUrl]);
   } else if (platform === 'darwin') {
-    cmd = 'open "' + targetUrl + '"';
+    execFile('open', [targetUrl]);
   } else {
-    cmd = 'xdg-open "' + targetUrl + '"';
+    execFile('xdg-open', [targetUrl]);
   }
+  console.log('\x1b[32m✓ Opening Deoit in your browser...\x1b[0m');
+  console.log('  \x1b[90m' + targetUrl + '\x1b[0m\n');
+}
 
-  require('child_process').exec(cmd, function(err) {
-    if (err) {
-      console.log('\x1b[33m⚠ Could not open browser automatically.\x1b[0m');
-      console.log('  Open this URL manually: \x1b[4m' + targetUrl + '\x1b[0m\n');
-    } else {
-      console.log('\x1b[32m✓ Opening Deoit in your browser...\x1b[0m');
-      console.log('  \x1b[90m' + targetUrl + '\x1b[0m\n');
-    }
-  });
+function sanitizeName(name) {
+  return String(name).replace(/[^a-zA-Z0-9_\-.]/g, '').substring(0, 50);
 }
 
 function createProject(name) {
   var fs = require('fs');
   var path = require('path');
-  var dir = path.join(process.cwd(), name);
+  var safeName = sanitizeName(name);
+  if (!safeName) { console.log('\x1b[31m✗ Invalid project name.\x1b[0m'); return; }
+  var dir = path.join(process.cwd(), safeName);
 
   if (fs.existsSync(dir)) {
-    console.log('\x1b[33m⚠ Folder "' + name + '" already exists.\x1b[0m');
+    console.log('\x1b[33m⚠ Folder "' + safeName + '" already exists.\x1b[0m');
     console.log('  Opening Deoit anyway...\n');
     openBrowser(DEOIT_URL);
     return;
   }
 
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>' + name + '</title>\n  <link rel="stylesheet" href="style.css">\n</head>\n<body>\n  <h1>Hello, World!</h1>\n  <script src="script.js"><\/script>\n</body>\n</html>');
-  fs.writeFileSync(path.join(dir, 'style.css'), '/* ' + name + ' styles */\n\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: system-ui, sans-serif;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  background: #0d0d0d;\n  color: #e8e8e8;\n}');
-  fs.writeFileSync(path.join(dir, 'script.js'), '// ' + name + '\n\nconsole.log("Hello from Deoit!");');
+  fs.writeFileSync(path.join(dir, 'index.html'), '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>' + safeName + '</title>\n  <link rel="stylesheet" href="style.css">\n</head>\n<body>\n  <h1>Hello, World!</h1>\n  <script src="script.js"><\/script>\n</body>\n</html>');
+  fs.writeFileSync(path.join(dir, 'style.css'), '/* ' + safeName + ' styles */\n\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: system-ui, sans-serif;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  background: #0d0d0d;\n  color: #e8e8e8;\n}');
+  fs.writeFileSync(path.join(dir, 'script.js'), '// ' + safeName + '\n\nconsole.log("Hello from Deoit!");');
 
-  console.log('\x1b[32m✓ Created project "' + name + '"\x1b[0m');
+  console.log('\x1b[32m✓ Created project "' + safeName + '"\x1b[0m');
   console.log('  \x1b[90m' + dir + '\x1b[0m\n');
   console.log('  Files created:');
   console.log('    \x1b[36mindex.html\x1b[0m');
@@ -89,11 +90,12 @@ function showEmbedCode() {
   // Try to copy to clipboard
   var copied = false;
   try {
+    var execFileSync = require('child_process').execFileSync;
     if (process.platform === 'win32') {
-      require('child_process').execSync('echo ' + JSON.stringify(embedCode) + ' | clip', { stdio: 'ignore' });
+      execFileSync('cmd', ['/c', 'clip'], { input: embedCode, stdio: ['pipe', 'ignore', 'ignore'] });
       copied = true;
     } else if (process.platform === 'darwin') {
-      require('child_process').execSync('echo ' + JSON.stringify(embedCode) + ' | pbcopy', { stdio: 'ignore' });
+      execFileSync('pbcopy', [], { input: embedCode, stdio: ['pipe', 'ignore', 'ignore'] });
       copied = true;
     }
   } catch(e) {}

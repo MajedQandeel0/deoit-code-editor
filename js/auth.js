@@ -29,6 +29,11 @@ function signInGithub() {
 
 function signOut() {
   _currentSupabaseUser = null;
+  localStorage.removeItem('deoit_project');
+  localStorage.removeItem('deoit_try_code');
+  localStorage.removeItem('deoit_welcome_seen');
+  localStorage.removeItem('deoit_sidebar_w');
+  localStorage.removeItem('deoit_console_h');
   return _supabase.auth.signOut();
 }
 
