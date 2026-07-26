@@ -174,6 +174,27 @@ function showWelcomeToast() {
     localStorage.setItem('deoit_welcome_seen', '1');
   }
 }
+function setupLoginTooltips() {
+  if (getUser()) return;
+  var selectors = '[data-action="export"],[data-action="import"],[data-action="download-zip"],[data-action="settings"],[data-action="new-file"],[data-action="new-folder"]';
+  document.querySelectorAll(selectors).forEach(function(el) {
+    el.addEventListener('mouseenter', function(e) {
+      if (getUser()) return;
+      var tip = document.createElement('div');
+      tip.className = 'login-hover-tip';
+      tip.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" width="12" height="12"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Sign in to use this';
+      var rect = el.getBoundingClientRect();
+      tip.style.position = 'fixed';
+      tip.style.top = (rect.bottom + 6) + 'px';
+      tip.style.left = Math.min(rect.left, window.innerWidth - 180) + 'px';
+      document.body.appendChild(tip);
+      el._loginTip = tip;
+    });
+    el.addEventListener('mouseleave', function() {
+      if (el._loginTip) { el._loginTip.remove(); el._loginTip = null; }
+    });
+  });
+}
 function findById(node, id) {
   if (node.id === id) return node;
   if (node.children) for (const c of node.children) { const f = findById(c, id); if (f) return f; }
@@ -1987,6 +2008,7 @@ window.addEventListener('load', () => {
   setupSidebarToggle();
   checkAuth();
   showWelcomeToast();
+  setupLoginTooltips();
 });
 
 function setupSidebarToggle() {
