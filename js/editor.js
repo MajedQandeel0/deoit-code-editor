@@ -117,36 +117,83 @@ const defaultProject = {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test</title>
+  <title>My First Page</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello!</h1>
-  <p>This is <strong>Deoit</strong> editor.</p>
-  <button onclick="sayHi()">Click</button>
+  <div class="container">
+    <h1>Welcome to <span class="highlight">Deoit</span></h1>
+    <p>Edit this code and click <strong>Run</strong> to see changes instantly.</p>
+    <div class="card">
+      <h3>Getting Started</h3>
+      <ul>
+        <li>Edit <code>index.html</code> — your page structure</li>
+        <li>Edit <code>style.css</code> — your styles</li>
+        <li>Edit <code>script.js</code> — your logic</li>
+      </ul>
+    </div>
+    <button onclick="greet()">Try Me!</button>
+    <p class="tip">Tip: Sign in to save projects and create more files.</p>
+  </div>
   <script src="script.js"><\/script>
 </body>
 </html>` },
-    { id: 'f_css', name: 'style.css', type: 'file', content: `body {
-  font-family: sans-serif;
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #111;
-  color: #d9d9d9;
+    { id: 'f_css', name: 'style.css', type: 'file', content: `* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f0f23, #1a1a3e);
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-h1 { color: #d9d9d9; }
+
+.container {
+  max-width: 500px;
+  padding: 40px;
+  text-align: center;
+}
+
+h1 { font-size: 2rem; margin-bottom: 12px; }
+.highlight { color: #4361ee; }
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.card h3 { margin-bottom: 10px; color: #4361ee; }
+.card ul { padding-left: 20px; line-height: 1.8; }
+.card code { background: rgba(67,97,238,0.15); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+
 button {
-  padding: 10px 24px;
-  background: #d9d9d9;
-  color: #111;
+  padding: 12px 32px;
+  background: #4361ee;
+  color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-}` },
-    { id: 'f_js', name: 'script.js', type: 'file', content: `function sayHi() {
-  alert('Welcome to Deoit!');
-  console.log('It works!');
+  transition: transform 0.2s, background 0.2s;
+}
+button:hover { background: #3651d4; transform: scale(1.05); }
+
+.tip { margin-top: 20px; font-size: 13px; color: #888; }` },
+    { id: 'f_js', name: 'script.js', type: 'file', content: `function greet() {
+  const el = document.querySelector('.highlight');
+  if (el) {
+    el.style.transition = 'color 0.3s';
+    el.style.color = '#e5c07b';
+    setTimeout(() => { el.style.color = '#4361ee'; }, 1000);
+  }
+  console.log('Welcome to Deoit! Start editing to see changes.');
 }` },
     {
       id: 'f_components', name: 'components', type: 'folder',
@@ -1967,7 +2014,20 @@ window.addEventListener('load', () => {
   setupDelegation();
   setupSidebarToggle();
   checkAuth();
+  setupWelcomeBanner();
 });
+
+function setupWelcomeBanner() {
+  const banner = document.getElementById('welcomeBanner');
+  const dismiss = document.getElementById('welcomeDismiss');
+  if (!banner || !dismiss) return;
+  if (localStorage.getItem('deoit_welcomed')) { banner.remove(); return; }
+  banner.style.display = 'block';
+  dismiss.addEventListener('click', () => {
+    banner.style.display = 'none';
+    localStorage.setItem('deoit_welcomed', '1');
+  });
+}
 
 function setupSidebarToggle() {
   const toggle = document.getElementById('sidebarToggle');
