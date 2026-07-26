@@ -1,0 +1,42 @@
+# Deoit — Free Online Code Editor
+
+> Deoit is a free, browser-based code editor for HTML, CSS, and JavaScript with syntax highlighting, autocomplete, file explorer, and live preview. No sign-up required.
+
+## What is Deoit?
+
+Deoit is an online code editor that lets you write, run, and debug HTML, CSS, and JavaScript directly in your browser. It's designed for web development beginners and professionals who want a fast, free alternative to desktop editors.
+
+### Key Features
+- Syntax highlighting for HTML, CSS, JavaScript, TypeScript, JSON, Markdown
+- Smart autocomplete with 500+ built-in keywords
+- File explorer with multi-file project support
+- Live preview panel (no page refresh)
+- 81+ free lessons covering HTML, CSS, JavaScript, Node.js, React, and dev tools
+- Chrome extension for quick access
+- Embeddable widget for blogs and documentation
+- PWA support (installable as desktop app)
+- Dark theme editor interface
+- No sign-up, no ads, no tracking
+
+## Primary Pages
+
+- [Home](https://deoit.js.org/) — Landing page and overview
+- [Code Editor](https://deoit.js.org/pages/editor) — The main online code editor
+- [Courses](https://deoit.js.org/learn) — Free web development courses
+- [Blog](https://deoit.js.org/blog) — Tutorials and web development articles
+- [Chrome Extension](https://deoit.js.org/extension) — Browser extension for quick access
+- [Embed Widget](https://deoit.js.org/embed) — Embeddable code editor for websites
+
+## Blog Articles
+
+- [Bootstrap is Dead in 2026](https://deoit.js.org/blog/bootstrap-is-dead) — Why Bootstrap lost and what to use instead
+- [Learn HTML in 7 Days](https://deoit.js.org/blog/learn-html-7-days) — Complete beginner guide to HTML
+
+## Author
+
+Majed Qandeel — Web developer and creator of Deoit.
+
+## Contact
+
+Website: https://deoit.js.org
+Blog: https://deoit.js.org/blog

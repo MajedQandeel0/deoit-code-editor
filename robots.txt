@@ -10,6 +10,7 @@ Allow: /learn-node.html
 Allow: /learn-tools.html
 Allow: /blog
 Allow: /blog/bootstrap-is-dead
+Allow: /blog/learn-html-7-days
 Allow: /embed
 Allow: /privacy
 Allow: /terms
@@ -21,21 +22,21 @@ Disallow: /admin
 Disallow: /_vercel/
 
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: anthropic-ai
-Disallow: /
+Allow: /
 
 User-agent: Bytespider
-Disallow: /
+Allow: /
 
 Sitemap: https://deoit.js.org/sitemap.xml

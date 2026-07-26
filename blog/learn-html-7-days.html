@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn HTML in 7 Days: The Complete Beginner Guide (2026) | Deoit Blog</title>
+  <meta name="description" content="Learn HTML from scratch in just 7 days. A step-by-step beginner guide with real examples, daily exercises, and a free online editor to practice. No experience needed.">
+  <meta name="keywords" content="learn html, html tutorial for beginners, html in 7 days, learn html fast, html beginner guide, learn to code html, html course free, how to learn html">
+  <meta name="author" content="Majed Qandeel">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deoit.js.org/blog/learn-html-7-days">
+  <meta property="og:title" content="Learn HTML in 7 Days: The Complete Beginner Guide (2026)">
+  <meta property="og:description" content="Learn HTML from scratch in just 7 days. Step-by-step guide with real examples and a free online editor to practice.">
+  <meta property="og:image" content="https://deoit.js.org/blog/learn-html-cover.png">
+  <meta property="og:site_name" content="Deoit">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learn HTML in 7 Days: The Complete Beginner Guide (2026)">
+  <meta name="twitter:description" content="Learn HTML from scratch in just 7 days. Free guide with practice exercises.">
+  <meta name="twitter:image" content="https://deoit.js.org/blog/learn-html-cover.png">
+  <link rel="canonical" href="https://deoit.js.org/blog/learn-html-7-days">
+  <link rel="alternate" href="https://deoit.js.org/blog/learn-html-7-days" hreflang="en">
+  <link rel="alternate" href="https://deoit.js.org/blog/learn-html-7-days" hreflang="x-default">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../logo.png">
+  <link rel="stylesheet" href="../css/blog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Learn HTML in 7 Days: The Complete Beginner Guide (2026)",
+    "description": "Learn HTML from scratch in just 7 days. A step-by-step beginner guide with real examples and a free online editor to practice.",
+    "url": "https://deoit.js.org/blog/learn-html-7-days",
+    "datePublished": "2026-07-25",
+    "dateModified": "2026-07-25",
+    "author": { "@type": "Person", "name": "Majed Qandeel" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Deoit",
+      "logo": { "@type": "ImageObject", "url": "https://deoit.js.org/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://deoit.js.org/blog/learn-html-7-days" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://deoit.js.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://deoit.js.org/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Learn HTML in 7 Days", "item": "https://deoit.js.org/blog/learn-html-7-days" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Learn HTML in 7 Days",
+    "description": "A 7-day step-by-step plan to learn HTML from complete beginner to building your first website.",
+    "totalTime": "P7D",
+    "step": [
+      { "@type": "HowToStep", "name": "Day 1", "text": "Understand what HTML is and write your first web page." },
+      { "@type": "HowToStep", "name": "Day 2", "text": "Master text formatting: headings, paragraphs, bold, italic, and links." },
+      { "@type": "HowToStep", "name": "Day 3", "text": "Add images, lists, and tables to your pages." },
+      { "@type": "HowToStep", "name": "Day 4", "text": "Build forms that collect user input." },
+      { "@type": "HowToStep", "name": "Day 5", "text": "Learn semantic HTML and accessibility." },
+      { "@type": "HowToStep", "name": "Day 6", "text": "Work with HTML5 media, audio, and video." },
+      { "@type": "HowToStep", "name": "Day 7", "text": "Build a complete multi-page website from scratch." }
+    ]
+  }
+  </script>
+  <style>
+    .post-content .day-card {
+      background: rgba(255,255,255,0.03); border: 1px solid #252525;
+      border-radius: 14px; padding: 28px 32px; margin: 32px 0;
+      position: relative;
+    }
+    .day-card .day-label {
+      display: inline-block; padding: 4px 14px; border-radius: 100px;
+      background: rgba(67,97,238,0.12); color: #61afef;
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 12px;
+    }
+    .day-card h3 { margin-bottom: 12px; font-size: 22px; }
+    .post-content .concept-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      margin: 16px 0;
+    }
+    .concept-item {
+      background: rgba(255,255,255,0.03); border: 1px solid #1e1e1e;
+      border-radius: 10px; padding: 14px 18px; font-size: 14px;
+      color: #9a9a9a; display: flex; align-items: center; gap: 10px;
+    }
+    .concept-item code {
+      background: rgba(67,97,238,0.1); color: #61afef;
+      padding: 2px 8px; border-radius: 4px; font-size: 13px;
+      font-family: var(--font-mono);
+    }
+    .post-content .tip-box {
+      background: rgba(152,195,121,0.06); border: 1px solid rgba(152,195,121,0.2);
+      border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+    }
+    .tip-box .tip-title {
+      font-weight: 700; color: #98c379; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tip-box p { color: #9a9a9a; font-size: 14px; margin: 0; }
+    .post-content .roadmap {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px;
+      margin: 24px 0;
+    }
+    .roadmap-day {
+      background: rgba(255,255,255,0.03); border: 1px solid #252525;
+      border-radius: 10px; padding: 14px 8px; text-align: center;
+      font-size: 12px; color: #9a9a9a; transition: all 0.2s;
+    }
+    .roadmap-day:hover { border-color: #61afef; color: #e8e8e8; }
+    .roadmap-day .day-num {
+      display: block; font-size: 20px; font-weight: 800;
+      color: #e8e8e8; margin-bottom: 4px;
+    }
+    @media (max-width: 768px) {
+      .concept-grid { grid-template-columns: 1fr; }
+      .roadmap { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .roadmap { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn">Courses</a>
+        <a href="/blog" class="active">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="post-hero">
+    <a href="/blog" class="post-back">← Back to Blog</a>
+    <span class="post-tag">Tutorial</span>
+    <h1 class="post-title">Learn HTML in 7 Days: The Complete Beginner Guide (2026)</h1>
+    <div class="post-meta">
+      <span>Majed Qandeel</span>
+      <span>·</span>
+      <span>Jul 25, 2026</span>
+      <span>·</span>
+      <span>12 min read</span>
+    </div>
+  </div>
+
+  <article class="post-content">
+
+    <p>HTML is the backbone of every website on the internet. Every page you've ever visited — from Google to Netflix to this blog post — is built with HTML.</p>
+
+    <p>And here's the thing: <strong>you can learn it in a week.</strong> Not in a month. Not in a semester. In 7 days, you can go from zero knowledge to building your own websites.</p>
+
+    <p>This guide gives you a day-by-day plan. Each day covers specific concepts, with real code examples you can practice directly in the <a href="https://deoit.js.org/pages/editor" target="_blank" rel="noopener">Deoit online editor</a> — no downloads, no setup.</p>
+
+    <h2>The 7-Day Roadmap</h2>
+
+    <div class="roadmap">
+      <div class="roadmap-day"><span class="day-num">1</span>First Page</div>
+      <div class="roadmap-day"><span class="day-num">2</span>Text & Links</div>
+      <div class="roadmap-day"><span class="day-num">3</span>Media & Lists</div>
+      <div class="roadmap-day"><span class="day-num">4</span>Forms</div>
+      <div class="roadmap-day"><span class="day-num">5</span>Semantics</div>
+      <div class="roadmap-day"><span class="day-num">6</span>HTML5 APIs</div>
+      <div class="roadmap-day"><span class="day-num">7</span>Full Website</div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-title">How to Use This Guide</div>
+      <p>Don't just read — <strong>write the code yourself.</strong> Open the <a href="https://deoit.js.org/pages/editor" target="_blank" rel="noopener">Deoit editor</a> in another tab, type each example, and see it work. That's how real learning happens.</p>
+    </div>
+
+    <!-- ═══ DAY 1 ═══ -->
+    <div class="day-card">
+      <span class="day-label">Day 1</span>
+      <h3>What is HTML & Your First Page</h3>
+
+      <p>HTML stands for <strong>HyperText Markup Language</strong>. It's not a programming language — it's a <em>markup</em> language. That means it describes the structure of content using tags.</p>
+
+      <p>Think of it like this: if your website is a house, HTML is the walls, doors, and windows. CSS is the paint and furniture. JavaScript is the electricity.</p>
+
+      <h3>Your First HTML File</h3>
+
+      <p>Every HTML file follows the same skeleton:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;This is my first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <div class="concept-grid">
+        <div class="concept-item"><code>&lt;!DOCTYPE html&gt;</code> Tells the browser this is HTML5</div>
+        <div class="concept-item"><code>&lt;html&gt;</code> The root of the entire page</div>
+        <div class="concept-item"><code>&lt;head&gt;</code> Hidden info (title, meta, links)</div>
+        <div class="concept-item"><code>&lt;body&gt;</code> Everything visible on screen</div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">Practice Exercise</div>
+        <p>Open the <a href="https://deoit.js.org/pages/editor" target="_blank" rel="noopener">Deoit editor</a>, type the code above, and click "Run". Change "Hello, World!" to your name and run it again.</p>
+      </div>
+    </div>
+
+    <!-- ═══ DAY 2 ═══ -->
+    <div class="day-card">
+      <span class="day-label">Day 2</span>
+      <h3>Text, Headings & Links</h3>
+
+      <p>Now that you have a page, let's make it readable. HTML gives you tools to structure text and connect pages together.</p>
+
+      <h3>Headings</h3>
+      <p>There are 6 heading levels — <code>&lt;h1&gt;</code> is the biggest (usually the page title), <code>&lt;h6&gt;</code> is the smallest:</p>
+
+<pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;h2&gt;Section Title&lt;/h2&gt;
+&lt;h3&gt;Sub-section Title&lt;/h3&gt;</code></pre>
+
+      <h3>Paragraphs & Formatting</h3>
+
+<pre><code>&lt;p&gt;This is a normal paragraph.&lt;/p&gt;
+&lt;p&gt;This word is &lt;strong&gt;bold&lt;/strong&gt; and this is &lt;em&gt;italic&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;This is &lt;mark&gt;highlighted&lt;/mark&gt; and this is &lt;code&gt;inline code&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Line&lt;br&gt;breaks use the &amp;lt;br&amp;gt; tag.&lt;/p&gt;</code></pre>
+
+      <h3>Links</h3>
+      <p>Links are what make the web a <em>web</em>. The <code>&lt;a&gt;</code> tag (anchor) connects pages:</p>
+
+<pre><code>&lt;a href="https://google.com"&gt;Visit Google&lt;/a&gt;
+&lt;a href="about.html"&gt;About Page&lt;/a&gt;
+&lt;a href="#section2"&gt;Jump to Section 2&lt;/a&gt;</code></pre>
+
+      <div class="concept-grid">
+        <div class="concept-item"><code>&lt;h1&gt; to &lt;h6&gt;</code> Heading sizes (h1 biggest)</div>
+        <div class="concept-item"><code>&lt;p&gt;</code> Paragraph of text</div>
+        <div class="concept-item"><code>&lt;strong&gt;</code> Bold / important text</div>
+        <div class="concept-item"><code>&lt;em&gt;</code> Italic / emphasized text</div>
+        <div class="concept-item"><code>&lt;a href&gt;</code> Hyperlink to another page</div>
+        <div class="concept-item"><code>&lt;br&gt;</code> Line break (self-closing)</div>
+      </div>
+    </div>
+
+    <!-- ═══ DAY 3 ═══ -->
+    <div class="day-card">
+      <span class="day-label">Day 3</span>
+      <h3>Images, Lists & Tables</h3>
+
+      <p>Your pages need more than text. Let's add visual content and organized data.</p>
+
+      <h3>Images</h3>
+
+<pre><code>&lt;img src="photo.jpg" alt="A sunset over the ocean" width="600"&gt;
+
+&lt;!-- Images are self-closing — no &lt;/img&gt; needed --&gt;</code></pre>
+
+      <p>The <code>alt</code> attribute is <strong>mandatory</strong>. It describes the image for screen readers and shows when the image fails to load.</p>
+
+      <h3>Lists</h3>
+
+<pre><code>&lt;!-- Unordered (bullet) list --&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered (numbered) list --&gt;
+&lt;ol&gt;
+  &lt;li&gt;First, learn HTML&lt;/li&gt;
+  &lt;li&gt;Then, learn CSS&lt;/li&gt;
+  &lt;li&gt;Finally, learn JavaScript&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+      <h3>Tables</h3>
+
+<pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Language&lt;/th&gt;
+      &lt;th&gt;Purpose&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HTML&lt;/td&gt;
+      &lt;td&gt;Structure&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CSS&lt;/td&gt;
+      &lt;td&gt;Style&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JavaScript&lt;/td&gt;
+      &lt;td&gt;Behavior&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+      <div class="tip-box">
+        <div class="tip-title">Practice Exercise</div>
+        <p>Build a "My Favorite Foods" page with an ordered list of 5 foods, each with a description. Add a table comparing their prices.</p>
+      </div>
+    </div>
+
+    <!-- ═══ DAY 4 ═══ -->
+    <div class="day-card">
+      <span class="day-label">Day 4</span>
+      <h3>Forms & User Input</h3>
+
+      <p>Forms are how websites collect information — from login pages to search bars to contact forms. This is where HTML gets interactive.</p>
+
+<pre><code>&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="name"&gt;Your Name&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" placeholder="John Doe" required&gt;
+
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" placeholder="john@example.com" required&gt;
+
+  &lt;label for="msg"&gt;Message&lt;/label&gt;
+  &lt;textarea id="msg" name="message" rows="4"&gt;&lt;/textarea&gt;
+
+  &lt;label for="lang"&gt;Favorite Language&lt;/label&gt;
+  &lt;select id="lang" name="language"&gt;
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+    &lt;option value="css"&gt;CSS&lt;/option&gt;
+    &lt;option value="js"&gt;JavaScript&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+      <div class="concept-grid">
+        <div class="concept-item"><code>&lt;input&gt;</code> Text, email, password, number...</div>
+        <div class="concept-item"><code>&lt;textarea&gt;</code> Multi-line text input</div>
+        <div class="concept-item"><code>&lt;select&gt;</code> Dropdown menu</div>
+        <div class="concept-item"><code>&lt;label&gt;</code> Label for accessibility</div>
+        <div class="concept-item"><code>required</code> Field must be filled</div>
+        <div class="concept-item"><code>placeholder</code> Hint text inside input</div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-title">Key Rule</div>
+        <p>Always use <code>&lt;label&gt;</code> with your inputs. Without them, your form is inaccessible to screen readers and harder to use on mobile. The <code>for</code> attribute must match the input's <code>id</code>.</p>
+      </div>
+    </div>
+
+    <!-- ═══ DAY 5 ═══ -->
+    <div class="day-card">
+      <span class="day-label">Day 5</span>
+      <h3>Semantic HTML & Accessibility</h3>
+
+      <p>So far you've built pages that <em>work</em>. Today you'll learn to build pages that are <strong>meaningful</strong>.</p>
+
+      <p>Semantic HTML means using tags that describe <em>what the content is</em>, not just how it looks. Instead of wrapping everything in <code>&lt;div&gt;</code>, you use specific tags:</p>
+
+<pre><code>&lt;header&gt;
+  &lt;nav&gt;
+    &lt;a href="/"&gt;Home&lt;/a&gt;
+    &lt;a href="/about"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Blog Post Title&lt;/h1&gt;
+    &lt;time datetime="2026-07-25"&gt;July 25, 2026&lt;/time&gt;
+    &lt;p&gt;Article content here...&lt;/p&gt;
+  &lt;/article&gt;
+
+  &lt;aside&gt;
+    &lt;h2&gt;Related Posts&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Post 1&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&amp;copy; 2026 My Website&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+      <div class="concept-grid">
+        <div class="concept-item"><code>&lt;header&gt;</code> Top section of a page</div>
+        <div class="concept-item"><code>&lt;nav&gt;</code> Navigation links</div>
+        <div class="concept-item"><code>&lt;main&gt;</code> Main content area</div>
+        <div class="concept-item"><code>&lt;article&gt;</code> Self-contained content</div>
+        <div class="concept-item"><code>&lt;section&gt;</code> Thematic grouping</div>
+        <div class="concept-item"><code>&lt;footer&gt;</code> Bottom section</div>
+        <div class="concept-item"><code>&lt;aside&gt;</code> Sidebar / tangential content</div>
+        <div class="concept-item"><code>&lt;figure&gt;</code> Image with caption</div>
+      </div>
+
+      <h3>Why This Matters</h3>
+      <ul>
+        <li><strong>SEO:</strong> Search engines understand semantic pages better — they rank higher</li>
+        <li><strong>Accessibility:</strong> Screen readers use these tags to navigate pages</li>
+        <li><strong>Maintainability:</strong> Your code reads like a document outline, not a pile of divs</li>
+      </ul>
+    </div>
+
+    <!-- ═══ DAY 6 ═══ -->
+    <div class="day-card">
+      <span class="day-label">Day 6</span>
+      <h3>HTML5 Media & Modern Features</h3>
+
+      <p>HTML5 gave us native media support, no plugins required. Let's use it.</p>
+
+      <h3>Video & Audio</h3>
+
+<pre><code>&lt;!-- Video player --&gt;
+&lt;video controls width="600" poster="thumbnail.jpg"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Your browser does not support video.
+&lt;/video&gt;
+
+&lt;!-- Audio player --&gt;
+&lt;audio controls&gt;
+  &lt;source src="podcast.mp3" type="audio/mpeg"&gt;
+  Your browser does not support audio.
+&lt;/audio&gt;</code></pre>
+
+      <h3>Other Useful HTML5 Features</h3>
+
+<pre><code>&lt;!-- Details / Accordion (no JS needed) --&gt;
+&lt;details&gt;
+  &lt;summary&gt;Click to expand&lt;/summary&gt;
+  &lt;p&gt;Hidden content appears here!&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;!-- Dialog box --&gt;
+&lt;dialog id="myModal"&gt;
+  &lt;p&gt;This is a native modal!&lt;/p&gt;
+  &lt;button onclick="this.closest('dialog').close()"&gt;Close&lt;/button&gt;
+&lt;/dialog&gt;
+
+&lt;!-- Progress bar --&gt;
+&lt;progress value="70" max="100"&gt;70%&lt;/progress&gt;
+
+&lt;!-- Mark text --&gt;
+&lt;p&gt;You scored &lt;mark&gt;95%&lt;/mark&gt; on the test.&lt;/p&gt;</code></pre>
+
+      <div class="tip-box">
+        <div class="tip-title">Fun Fact</div>
+        <p>The <code>&lt;details&gt;</code> and <code>&lt;dialog&gt;</code> elements work without any JavaScript. Native HTML can do more than most beginners realize — and it's faster and more accessible than custom solutions.</p>
+      </div>
+    </div>
+
+    <!-- ═══ DAY 7 ═══ -->
+    <div class="day-card">
+      <span class="day-label">Day 7</span>
+      <h3>Build a Complete Website</h3>
+
+      <p>Everything you've learned in 6 days comes together. Today you'll build a real, multi-page website.</p>
+
+      <h3>Project: Personal Portfolio</h3>
+
+      <p>Build a 3-page website with:</p>
+
+      <ul>
+        <li><strong>index.html</strong> — Home page with hero, about section, and contact form</li>
+        <li><strong>projects.html</strong> — Grid of project cards with images</li>
+        <li><strong>contact.html</strong> — Full contact form with validation</li>
+      </ul>
+
+      <h3>Page Structure</h3>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My Portfolio&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;a href="index.html"&gt;Home&lt;/a&gt;
+      &lt;a href="projects.html"&gt;Projects&lt;/a&gt;
+      &lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section id="hero"&gt;
+      &lt;h1&gt;Hi, I'm a Web Developer&lt;/h1&gt;
+      &lt;p&gt;I build things for the web.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="about"&gt;
+      &lt;h2&gt;About Me&lt;/h2&gt;
+      &lt;p&gt;I learned HTML in 7 days. Here's my story.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="contact"&gt;
+      &lt;h2&gt;Get In Touch&lt;/h2&gt;
+      &lt;form&gt;
+        &lt;input type="text" placeholder="Your name" required&gt;
+        &lt;input type="email" placeholder="Email" required&gt;
+        &lt;textarea rows="4" placeholder="Message"&gt;&lt;/textarea&gt;
+        &lt;button type="submit"&gt;Send&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2026 My Portfolio&lt;/p&gt;
+  &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <div class="tip-box">
+        <div class="tip-title">Next Steps</div>
+        <p>Once your HTML structure is done, add <strong>CSS</strong> to make it beautiful, and <strong>JavaScript</strong> to make it interactive. Try the <a href="https://deoit.js.org/learn" target="_blank" rel="noopener">Deoit courses</a> to continue learning.</p>
+      </div>
+    </div>
+
+    <h2>Your HTML Cheat Sheet</h2>
+
+    <p>Here's everything you learned in one place:</p>
+
+    <table class="comparison-table">
+      <thead>
+        <tr><th>Category</th><th>Tags</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Document</strong></td><td><code>&lt;!DOCTYPE&gt; &lt;html&gt; &lt;head&gt; &lt;body&gt;</code></td><td>Page skeleton</td></tr>
+        <tr><td><strong>Text</strong></td><td><code>&lt;h1&gt;-&lt;h6&gt; &lt;p&gt; &lt;strong&gt; &lt;em&gt;</code></td><td>Content formatting</td></tr>
+        <tr><td><strong>Links</strong></td><td><code>&lt;a href&gt;</code></td><td>Navigation between pages</td></tr>
+        <tr><td><strong>Media</strong></td><td><code>&lt;img&gt; &lt;video&gt; &lt;audio&gt;</code></td><td>Images and media playback</td></tr>
+        <tr><td><strong>Lists</strong></td><td><code>&lt;ul&gt; &lt;ol&gt; &lt;li&gt;</code></td><td>Ordered and unordered lists</td></tr>
+        <tr><td><strong>Tables</strong></td><td><code>&lt;table&gt; &lt;tr&gt; &lt;td&gt; &lt;th&gt;</code></td><td>Tabular data</td></tr>
+        <tr><td><strong>Forms</strong></td><td><code>&lt;form&gt; &lt;input&gt; &lt;textarea&gt; &lt;button&gt;</code></td><td>User input</td></tr>
+        <tr><td><strong>Semantic</strong></td><td><code>&lt;header&gt; &lt;nav&gt; &lt;main&gt; &lt;article&gt; &lt;footer&gt;</code></td><td>Meaningful structure</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Common Mistakes Beginners Make</h2>
+
+    <ol>
+      <li><strong>Skipping the <code>&lt;!DOCTYPE html&gt;</code></strong> — Without it, the browser renders in "quirks mode" and things break.</li>
+      <li><strong>Using <code>&lt;br&gt;</code> for spacing</strong> — Use CSS margins and padding instead. <code>&lt;br&gt;</code> is for line breaks within a paragraph, not for adding space between elements.</li>
+      <li><strong>Nesting elements wrong</strong> — Tags must close in the right order. <code>&lt;p&gt;&lt;strong&gt;text&lt;/p&gt;&lt;/strong&gt;</code> is wrong. <code>&lt;p&gt;&lt;strong&gt;text&lt;/strong&gt;&lt;/p&gt;</code> is right.</li>
+      <li><strong>Ignoring <code>alt</code> text on images</strong> — Every <code>&lt;img&gt;</code> needs an <code>alt</code> attribute. It's not optional.</li>
+      <li><strong>Using <code>&lt;div&gt;</code> for everything</strong> — Use semantic tags. A <code>&lt;div&gt;</code> says nothing about its content. A <code>&lt;nav&gt;</code> says "this is navigation".</li>
+    </ol>
+
+    <h2>What to Learn Next</h2>
+
+    <p>HTML is just the beginning. Here's the natural progression:</p>
+
+    <ol>
+      <li><strong>CSS</strong> — Make your pages beautiful (colors, layouts, animations)</li>
+      <li><strong>JavaScript</strong> — Make your pages interactive (clicks, forms, API calls)</li>
+      <li><strong>Responsive Design</strong> — Make pages work on all screen sizes</li>
+      <li><strong>Git & GitHub</strong> — Save and share your code</li>
+    </ol>
+
+    <p>The <a href="https://deoit.js.org/learn" target="_blank" rel="noopener">Deoit courses section</a> has free lessons for all of these. And the <a href="https://deoit.js.org/pages/editor" target="_blank" rel="noopener">editor</a> lets you practice everything directly in your browser.</p>
+
+    <blockquote>
+      <strong>The best way to learn HTML is to build things.</strong><br>
+      Not watch tutorials. Not read documentation. Build. Break it. Fix it. Build again.
+    </blockquote>
+
+  </article>
+
+  <div class="post-cta">
+    <div class="post-cta-box">
+      <h3>Start Building Today</h3>
+      <p>Open the Deoit Editor — a free, browser-based code editor for HTML, CSS, and JavaScript. No sign-up, no downloads.</p>
+      <div class="post-cta-buttons">
+        <a href="https://deoit.js.org/pages/editor" class="btn btn-accent">Open Editor →</a>
+        <a href="https://deoit.js.org/learn" class="btn btn-ghost">Browse Courses</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>
