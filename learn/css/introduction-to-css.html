@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Introduction to CSS - CSS Tutorial | Deoit</title>
 <meta name="title" content="Introduction to CSS - Free CSS Lesson | Deoit">
-<meta name="description" content="Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.">
-<meta name="keywords" content="what is css, introduction to css, css tutorial for beginners, inline internal external css, how to style html">
+<meta name="description" content="What CSS is and how to style your first elements.">
+<meta name="keywords" content="introduction css, css tutorial, css lesson, introduction to css, deoit">
 <meta name="author" content="Majed Qandeel">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#0d0d0d">
@@ -15,13 +15,13 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://deoit.js.org/learn/css/introduction-to-css">
 <meta property="og:title" content="Introduction to CSS - Free CSS Lesson | Deoit">
-<meta property="og:description" content="Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.">
+<meta property="og:description" content="What CSS is and how to style your first elements.">
 <meta property="og:image" content="https://deoit.js.org/logo.png">
 <meta property="og:site_name" content="Deoit">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Introduction to CSS - Free CSS Lesson | Deoit">
-<meta name="twitter:description" content="Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.">
+<meta name="twitter:description" content="What CSS is and how to style your first elements.">
 <meta name="twitter:image" content="https://deoit.js.org/logo.png">
 <link rel="canonical" href="https://deoit.js.org/learn/css/introduction-to-css">
 <link rel="alternate" href="https://deoit.js.org/learn/css/introduction-to-css" hreflang="en">
@@ -43,12 +43,18 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "CSS Course",
-      "item": "https://deoit.js.org/learn-css.html"
+      "name": "Courses",
+      "item": "https://deoit.js.org/learn"
     },
     {
       "@type": "ListItem",
       "position": 3,
+      "name": "CSS Course",
+      "item": "https://deoit.js.org/learn-css"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
       "name": "Introduction to CSS",
       "item": "https://deoit.js.org/learn/css/introduction-to-css"
     }
@@ -58,9 +64,9 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "TechArticle",
   "headline": "Introduction to CSS",
-  "description": "Learn what CSS is and how to style your first HTML elements. Understand inline, internal, and external CSS with practical examples.",
+  "description": "What CSS is and how to style your first elements.",
   "url": "https://deoit.js.org/learn/css/introduction-to-css",
   "datePublished": "2026-07-26",
   "dateModified": "2026-07-26",
@@ -80,18 +86,13 @@
     "@type": "WebPage",
     "@id": "https://deoit.js.org/learn/css/introduction-to-css"
   },
+  "proficiencyLevel": "Beginner",
+  "dependencies": "CSS",
   "about": {
     "@type": "Course",
-    "name": "CSS Course - Learn CSS from Scratch",
-    "url": "https://deoit.js.org/learn-css.html"
-  },
-  "isPartOf": {
-    "@type": "Course",
     "name": "CSS Course",
-    "url": "https://deoit.js.org/learn-css.html"
-  },
-  "position": 1,
-  "articleSection": "CSS Lesson 1"
+    "url": "https://deoit.js.org/learn-css"
+  }
 }
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
@@ -105,29 +106,34 @@
         <a href="/pages/editor">Editor</a>
         <a href="/learn" class="active">Courses</a>
         <a href="/blog">Blog</a>
+        <a href="/search">Search</a>
       </div>
-      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+      <div class="blog-nav-actions">
+        <a href="/search" class="nav-search-btn" title="Search">🔍</a>
+        <a href="/pages/editor" class="btn btn-accent">Open Editor</a>
+      </div>
     </div>
   </nav>
 
   <div class="learn-layout">
     <aside class="learn-sidebar">
       <div class="sidebar-header">
-        <a href="/learn-css.html" class="sidebar-course-link">
+        <a href="/learn-css" class="sidebar-course-link">
           <span class="course-dot" style="background:#2965f1"></span>
           CSS
         </a>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:4px">15 lessons</p>
       </div>
       <nav class="sidebar-nav">
         <a href="/learn/css/introduction-to-css" class="sidebar-link active">
             <span class="sidebar-num">1</span>
             <span class="sidebar-title">Introduction to CSS</span>
           </a>
-        <a href="/learn/css/selectors-and-colors" class="sidebar-link ">
+        <a href="/learn/css/selectors-colors" class="sidebar-link ">
             <span class="sidebar-num">2</span>
             <span class="sidebar-title">Selectors & Colors</span>
           </a>
-        <a href="/learn/css/box-model-and-spacing" class="sidebar-link ">
+        <a href="/learn/css/box-model-spacing" class="sidebar-link ">
             <span class="sidebar-num">3</span>
             <span class="sidebar-title">Box Model & Spacing</span>
           </a>
@@ -139,13 +145,45 @@
             <span class="sidebar-num">5</span>
             <span class="sidebar-title">CSS Grid</span>
           </a>
-        <a href="/learn/css/typography-and-fonts" class="sidebar-link ">
+        <a href="/learn/css/typography-fonts" class="sidebar-link ">
             <span class="sidebar-num">6</span>
             <span class="sidebar-title">Typography & Fonts</span>
           </a>
-        <a href="/learn/css/animations-and-transitions" class="sidebar-link ">
+        <a href="/learn/css/animations-transitions" class="sidebar-link ">
             <span class="sidebar-num">7</span>
             <span class="sidebar-title">Animations & Transitions</span>
+          </a>
+        <a href="/learn/css/display-property" class="sidebar-link ">
+            <span class="sidebar-num">8</span>
+            <span class="sidebar-title">Display Property</span>
+          </a>
+        <a href="/learn/css/css-position" class="sidebar-link ">
+            <span class="sidebar-num">9</span>
+            <span class="sidebar-title">CSS Position</span>
+          </a>
+        <a href="/learn/css/css-units" class="sidebar-link ">
+            <span class="sidebar-num">10</span>
+            <span class="sidebar-title">CSS Units</span>
+          </a>
+        <a href="/learn/css/media-queries" class="sidebar-link ">
+            <span class="sidebar-num">11</span>
+            <span class="sidebar-title">Media Queries</span>
+          </a>
+        <a href="/learn/css/css-variables" class="sidebar-link ">
+            <span class="sidebar-num">12</span>
+            <span class="sidebar-title">CSS Variables</span>
+          </a>
+        <a href="/learn/css/pseudo-classes-pseudo-elements" class="sidebar-link ">
+            <span class="sidebar-num">13</span>
+            <span class="sidebar-title">Pseudo-Classes & Pseudo-Elements</span>
+          </a>
+        <a href="/learn/css/backgrounds-gradients" class="sidebar-link ">
+            <span class="sidebar-num">14</span>
+            <span class="sidebar-title">Backgrounds & Gradients</span>
+          </a>
+        <a href="/learn/css/shadows-effects" class="sidebar-link ">
+            <span class="sidebar-num">15</span>
+            <span class="sidebar-title">Shadows & Effects</span>
           </a>
       </nav>
     </aside>
@@ -156,7 +194,7 @@
         <span class="bc-sep">›</span>
         <a href="/learn">Courses</a>
         <span class="bc-sep">›</span>
-        <a href="/learn-css.html">CSS</a>
+        <a href="/learn-css">CSS</a>
         <span class="bc-sep">›</span>
         <span>Introduction to CSS</span>
       </nav>
@@ -169,6 +207,8 @@
           <span>By Majed Qandeel</span>
           <span>·</span>
           <span>Jul 26, 2026</span>
+          <span>·</span>
+          <span>Lesson 1 of 15</span>
         </div>
       </div>
 
@@ -246,13 +286,27 @@
       </div>
 
       <div class="lesson-navigation">
-        <a href="/learn-css.html" class="lesson-nav-link prev"><span class="nav-label">← Back to</span><span class="nav-title">CSS Course</span></a>
-        <a href="/learn/css/selectors-and-colors" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Selectors & Colors</span></a>
+        <a href="/learn-css" class="lesson-nav-link prev"><span class="nav-label">← Back to</span><span class="nav-title">CSS Course</span></a>
+        <a href="/learn/css/selectors-colors" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Selectors & Colors</span></a>
       </div>
 
       <div class="lesson-cta">
         <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
         <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
+      </div>
+
+      <div class="lesson-feedback">
+        <div class="feedback-bar">
+          <span>Was this lesson helpful?</span>
+          <button onclick="reportFeedback('helpful')" class="feedback-btn yes">👍 Yes</button>
+          <button onclick="reportFeedback('not-helpful')" class="feedback-btn no">👎 No</button>
+          <button onclick="reportFeedback('error')" class="feedback-btn err">⚠️ Found an error</button>
+        </div>
+        <div id="feedbackMsg" class="feedback-msg" style="display:none"></div>
+        <div class="error-form" id="errorForm" style="display:none">
+          <textarea id="errorDesc" placeholder="Describe the error or issue you found..." rows="3"></textarea>
+          <button onclick="submitError()" class="btn btn-accent">Submit Report</button>
+        </div>
       </div>
     </main>
   </div>
@@ -260,5 +314,51 @@
   <footer class="blog-footer">
     <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
   </footer>
+  <script>
+    function reportFeedback(type) {
+      var msg = document.getElementById('feedbackMsg');
+      var form = document.getElementById('errorForm');
+      msg.style.display = 'block';
+      if (type === 'error') {
+        form.style.display = 'block';
+        msg.innerHTML = '<span style="color:#e5c07b">Please describe the error below:</span>';
+      } else if (type === 'helpful') {
+        msg.innerHTML = '<span style="color:#98c379">Thanks for the feedback! 🎉</span>';
+        form.style.display = 'none';
+      } else {
+        msg.innerHTML = '<span style="color:#e06c75">Sorry to hear that. Please describe what was wrong:</span>';
+        form.style.display = 'block';
+      }
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_KEY',
+          subject: '[Deoit Feedback] ' + type + ' - Introduction to CSS',
+          page: window.location.pathname,
+          type: type,
+          from_name: 'Deoit Lesson Feedback'
+        })
+      });
+    }
+    function submitError() {
+      var desc = document.getElementById('errorDesc').value;
+      var msg = document.getElementById('feedbackMsg');
+      if (!desc.trim()) { msg.innerHTML = '<span style="color:#e06c75">Please describe the issue.</span>'; return; }
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_KEY',
+          subject: '[Deoit Error Report] Introduction to CSS',
+          page: window.location.pathname,
+          error_description: desc,
+          from_name: 'Deoit Error Report'
+        })
+      });
+      msg.innerHTML = '<span style="color:#98c379">Thanks for reporting! We\'ll look into it. ✅</span>';
+      document.getElementById('errorForm').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Deoit - Find Lessons, Tutorials & Guides | Deoit</title>
+<meta name="description" content="Search through 59+ free coding lessons on HTML, CSS, and JavaScript. Find tutorials, code examples, and guides on Deoit.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="css/learn.css">
+<style>
+  .search-page{max-width:720px;margin:0 auto;padding:80px 24px 60px}
+  .search-page h1{font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:8px;background:linear-gradient(180deg,#fff 30%,#888 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .search-page .sub{color:var(--text-secondary);font-size:15px;margin-bottom:32px}
+  .search-box{position:relative;margin-bottom:32px}
+  .search-box input{
+    width:100%;padding:16px 20px 16px 48px;font-size:16px;font-family:var(--font-sans);
+    background:var(--bg-card);border:1px solid var(--border-strong);border-radius:14px;
+    color:var(--text-primary);outline:none;transition:border-color .2s;
+  }
+  .search-box input:focus{border-color:var(--accent)}
+  .search-box input::placeholder{color:var(--text-muted)}
+  .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:18px}
+  .search-results{display:flex;flex-direction:column;gap:8px}
+  .search-result{
+    display:block;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);
+    border-radius:12px;transition:all .2s;text-decoration:none;
+  }
+  .search-result:hover{border-color:var(--border-strong);transform:translateY(-2px);background:rgba(255,255,255,.04)}
+  .result-tag{display:inline-block;padding:2px 10px;border-radius:100px;font-size:10px;font-weight:700;text-transform:uppercase;margin-bottom:8px}
+  .result-tag.html{background:rgba(228,77,38,.15);color:#e06c75}
+  .result-tag.css{background:rgba(41,101,241,.15);color:#61afef}
+  .result-tag.js{background:rgba(247,223,30,.15);color:#e5c07b}
+  .result-tag.blog{background:rgba(152,195,121,.15);color:#98c379}
+  .result-tag.page{background:rgba(198,120,225,.15);color:#c678dd}
+  .result-title{font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:4px}
+  .result-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+  .result-url{font-size:11px;color:var(--text-muted);margin-top:6px;font-family:var(--font-mono)}
+  .no-results{text-align:center;padding:40px 0;color:var(--text-muted);font-size:15px}
+  .search-count{font-size:13px;color:var(--text-muted);margin-bottom:16px}
+</style>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn">Courses</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="search-page">
+    <h1>Search Deoit</h1>
+    <p class="sub">Find lessons, tutorials, and code examples across HTML, CSS, and JavaScript.</p>
+    
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search for anything... (e.g. flexbox, array, form validation)" autofocus>
+    </div>
+    <div class="search-count" id="searchCount"></div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <script>
+  const PAGES = [
+    {t:"Introduction to HTML",d:"What is HTML and how the web works. Learn the basic structure of an HTML document.",u:"/learn/html/introduction-to-html",c:"html"},
+    {t:"Headings & Paragraphs",d:"Structuring text content with headings, paragraphs, line breaks, and horizontal rules.",u:"/learn/html/headings-paragraphs",c:"html"},
+    {t:"Links & Images",d:"Adding hyperlinks, images, alt text, and figure elements to your pages.",u:"/learn/html/links-images",c:"html"},
+    {t:"Lists & Tables",d:"Organizing data with ordered lists, unordered lists, description lists, and HTML tables.",u:"/learn/html/lists-tables",c:"html"},
+    {t:"Forms & Inputs",d:"Building interactive forms with all input types, validation, and accessibility.",u:"/learn/html/forms-inputs",c:"html"},
+    {t:"Semantic HTML",d:"Using header, nav, main, article, section, and footer for better structure and SEO.",u:"/learn/html/semantic-html",c:"html"},
+    {t:"HTML Best Practices",d:"Writing clean, maintainable, and accessible HTML code.",u:"/learn/html/html-best-practices",c:"html"},
+    {t:"Doctype & Character Encoding",d:"HTML5 doctype, charset UTF-8, and why they matter for rendering.",u:"/learn/html/doctype-character-encoding",c:"html"},
+    {t:"HTML Attributes Deep Dive",d:"id, class, data-*, aria-*, tabindex, contenteditable, and global attributes.",u:"/learn/html/html-attributes-deep-dive",c:"html"},
+    {t:"Div, Span & Grouping",d:"When to use div, span, and semantic grouping elements.",u:"/learn/html/div-span-grouping-elements",c:"html"},
+    {t:"Block vs Inline Elements",d:"Understanding block, inline, and inline-block display behavior.",u:"/learn/html/block-vs-inline-elements",c:"html"},
+    {t:"HTML Comments",d:"Comment syntax and best practices for commenting your code.",u:"/learn/html/html-comments",c:"html"},
+    {t:"HTML Entities & Symbols",d:"Special characters, &amp; &lt; &gt; &nbsp; entity codes, and symbols.",u:"/learn/html/html-entities-symbols",c:"html"},
+    {t:"HTML Head & Meta Tags",d:"title, meta description, viewport, open graph, and favicon setup.",u:"/learn/html/html-head-meta-tags",c:"html"},
+    {t:"HTML Tables Advanced",d:"colspan, rowspan, caption, thead/tbody/tfoot for complex tables.",u:"/learn/html/html-tables-advanced",c:"html"},
+    {t:"HTML Forms Validation",d:"required, pattern, min/max, email type, and custom validation.",u:"/learn/html/html-forms-validation",c:"html"},
+    {t:"HTML Media Elements",d:"Image formats, picture element, lazy loading, and responsive images.",u:"/learn/html/html-media-elements",c:"html"},
+    {t:"HTML Audio & Video",d:"audio and video tags, source elements, autoplay, and controls.",u:"/learn/html/html-audio-video",c:"html"},
+    {t:"HTML iframe",d:"Embedding external content with sandbox and security best practices.",u:"/learn/html/html-iframe",c:"html"},
+    {t:"HTML Data Attributes",d:"data-* attributes and accessing them with JavaScript dataset.",u:"/learn/html/html-data-attributes",c:"html"},
+    {t:"HTML SEO Meta Tags",d:"robots, canonical, Open Graph, Twitter cards, and structured data.",u:"/learn/html/html-seo-meta-tags",c:"html"},
+    {t:"HTML Accessibility (a11y)",d:"ARIA roles, labels, screen readers, and keyboard navigation.",u:"/learn/html/html-accessibility-a11y",c:"html"},
+    {t:"HTML Canvas Basics",d:"Canvas element, drawing rectangles, circles, lines, and text.",u:"/learn/html/html-canvas-basics",c:"html"},
+    {t:"HTML SVG Basics",d:"Inline SVG, basic shapes, paths, and styling SVG with CSS.",u:"/learn/html/html-svg-basics",c:"html"},
+    {t:"HTML Email Templates",d:"Table-based layouts, email-safe CSS, and compatibility tips.",u:"/learn/html/html-email-templates",c:"html"},
+    {t:"Introduction to CSS",d:"What CSS is and how to style your first HTML elements.",u:"/learn/css/introduction-to-css",c:"css"},
+    {t:"Selectors & Colors",d:"CSS selectors, class, ID, hex, RGB, HSL color systems.",u:"/learn/css/selectors-colors",c:"css"},
+    {t:"Box Model & Spacing",d:"Margin, padding, border, box-sizing, and spacing best practices.",u:"/learn/css/box-model-spacing",c:"css"},
+    {t:"Flexbox",d:"Modern one-dimensional layout system with justify-content and align-items.",u:"/learn/css/flexbox",c:"css"},
+    {t:"CSS Grid",d:"Two-dimensional layout with grid-template-columns, rows, and areas.",u:"/learn/css/css-grid",c:"css"},
+    {t:"Typography & Fonts",d:"Font families, sizes, weights, line height, and Google Fonts.",u:"/learn/css/typography-fonts",c:"css"},
+    {t:"Animations & Transitions",d:"Keyframes, transforms, transition timing, and GPU-accelerated effects.",u:"/learn/css/animations-transitions",c:"css"},
+    {t:"CSS Display Property",d:"block, inline, inline-block, none, flex, grid display values.",u:"/learn/css/css-display-property",c:"css"},
+    {t:"CSS Position",d:"static, relative, absolute, fixed, sticky positioning and z-index.",u:"/learn/css/css-position",c:"css"},
+    {t:"CSS Overflow",d:"overflow hidden, scroll, auto, and text-overflow ellipsis.",u:"/learn/css/css-overflow",c:"css"},
+    {t:"CSS Units",d:"px, em, rem, %, vw, vh, vmin, vmax, ch, fr units explained.",u:"/learn/css/css-units",c:"css"},
+    {t:"CSS Media Queries",d:"Responsive design with breakpoints and mobile-first approach.",u:"/learn/css/css-media-queries",c:"css"},
+    {t:"CSS Variables",d:"Custom properties, :root, var(), fallback values, and theming.",u:"/learn/css/css-variables",c:"css"},
+    {t:"Pseudo-Classes & Elements",d:":hover, :focus, :nth-child, ::before, ::after, ::placeholder.",u:"/learn/css/css-pseudo-classes",c:"css"},
+    {t:"Backgrounds & Gradients",d:"background-color, image, size, linear-gradient, radial-gradient.",u:"/learn/css/css-backgrounds-gradients",c:"css"},
+    {t:"Shadows & Effects",d:"box-shadow, text-shadow, filter, opacity, and practical examples.",u:"/learn/css/css-shadows-effects",c:"css"},
+    {t:"Introduction to JavaScript",d:"What JavaScript is and how to use it in the browser.",u:"/learn/js/introduction-to-javascript",c:"js"},
+    {t:"Variables & Data Types",d:"let/const, string, number, boolean, array, object, typeof.",u:"/learn/js/variables-data-types",c:"js"},
+    {t:"Functions",d:"Declaration, parameters, return, arrow functions, default params.",u:"/learn/js/functions",c:"js"},
+    {t:"DOM Manipulation",d:"querySelector, textContent, classList, createElement, appendChild.",u:"/learn/js/dom-manipulation",c:"js"},
+    {t:"Events & Interactivity",d:"addEventListener, click, keydown, submit, event delegation.",u:"/learn/js/events-interactivity",c:"js"},
+    {t:"Arrays & Loops",d:"push, pop, map, filter, forEach, for...of, while loops.",u:"/learn/js/arrays-loops",c:"js"},
+    {t:"ES6+ Features",d:"Arrow functions, template literals, destructuring, spread, optional chaining.",u:"/learn/js/es6-features",c:"js"},
+    {t:"String Methods",d:"slice, indexOf, includes, replace, split, trim, match, padStart.",u:"/learn/js/string-methods",c:"js"},
+    {t:"Number & Math Methods",d:"parseInt, toFixed, Math.floor, ceil, random, max, min.",u:"/learn/js/number-math-methods",c:"js"},
+    {t:"JSON & Fetch API",d:"JSON.parse, JSON.stringify, fetch GET/POST, async/await basics.",u:"/learn/js/json-fetch-api",c:"js"},
+    {t:"Date & Time",d:"Date object, formatting, timestamps, countdown timer example.",u:"/learn/js/date-time",c:"js"},
+    {t:"Error Handling & Debugging",d:"try/catch, throw Error, console methods, debugging tips.",u:"/learn/js/error-handling-debugging",c:"js"},
+    {t:"Learn HTML in 7 Days",d:"Complete beginner guide to learning HTML in one week with daily exercises.",u:"/blog/learn-html-7-days",c:"blog"},
+    {t:"Bootstrap is Dead",d:"Why Bootstrap lost to Tailwind CSS and modern CSS frameworks.",u:"/blog/bootstrap-is-dead",c:"blog"},
+    {t:"Free Online Code Editor",d:"Browser-based code editor for HTML, CSS, and JavaScript with live preview.",u:"/pages/editor",c:"page"},
+    {t:"Embed Widget",d:"Embed the Deoit editor into any website with an iframe.",u:"/embed",c:"page"},
+    {t:"Terms of Service",d:"Deoit terms and conditions for using the platform.",u:"/terms",c:"page"},
+    {t:"Privacy Policy",d:"Deoit privacy policy and data handling practices.",u:"/privacy",c:"page"}
+  ];
+
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  const count = document.getElementById('searchCount');
+
+  function search(q) {
+    if (!q || q.length < 2) { results.innerHTML = ''; count.textContent = ''; return; }
+    const terms = q.toLowerCase().split(/\s+/);
+    const matched = PAGES.filter(p => {
+      const text = (p.t + ' ' + p.d + ' ' + p.c).toLowerCase();
+      return terms.every(t => text.includes(t));
+    });
+    count.textContent = matched.length + ' result' + (matched.length !== 1 ? 's' : '') + ' for "' + q + '"';
+    if (!matched.length) { results.innerHTML = '<div class="no-results">No results found. Try different keywords.</div>'; return; }
+    results.innerHTML = matched.map(p => `
+      <a href="${p.u}" class="search-result">
+        <span class="result-tag ${p.c}">${p.c.toUpperCase()}</span>
+        <div class="result-title">${p.t}</div>
+        <div class="result-desc">${p.d}</div>
+        <div class="result-url">${p.u}</div>
+      </a>
+    `).join('');
+  }
+
+  input.addEventListener('input', e => search(e.target.value));
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const q = urlParams.get('q');
+  if (q) { input.value = q; search(q); }
+  </script>
+</body>
+</html>

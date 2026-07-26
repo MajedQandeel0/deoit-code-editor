@@ -3,29 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Functions - JavaScript Tutorial | Deoit</title>
-<meta name="title" content="Functions - Free JavaScript Lesson | Deoit">
-<meta name="description" content="Reusable blocks of code.">
-<meta name="keywords" content="functions, javascript tutorial, javascript lesson, functions, deoit">
+<title>String Methods - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="String Methods - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Working with text using built-in string methods.">
+<meta name="keywords" content="string methods, javascript tutorial, javascript lesson, string methods, deoit">
 <meta name="author" content="Majed Qandeel">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#0d0d0d">
 <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
 <meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://deoit.js.org/learn/js/functions">
-<meta property="og:title" content="Functions - Free JavaScript Lesson | Deoit">
-<meta property="og:description" content="Reusable blocks of code.">
+<meta property="og:url" content="https://deoit.js.org/learn/js/string-methods">
+<meta property="og:title" content="String Methods - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Working with text using built-in string methods.">
 <meta property="og:image" content="https://deoit.js.org/logo.png">
 <meta property="og:site_name" content="Deoit">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Functions - Free JavaScript Lesson | Deoit">
-<meta name="twitter:description" content="Reusable blocks of code.">
+<meta name="twitter:title" content="String Methods - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Working with text using built-in string methods.">
 <meta name="twitter:image" content="https://deoit.js.org/logo.png">
-<link rel="canonical" href="https://deoit.js.org/learn/js/functions">
-<link rel="alternate" href="https://deoit.js.org/learn/js/functions" hreflang="en">
-<link rel="alternate" href="https://deoit.js.org/learn/js/functions" hreflang="x-default">
+<link rel="canonical" href="https://deoit.js.org/learn/js/string-methods">
+<link rel="alternate" href="https://deoit.js.org/learn/js/string-methods" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/string-methods" hreflang="x-default">
 <link rel="icon" type="image/png" href="../../logo.png">
 <link rel="apple-touch-icon" href="../../logo.png">
 <link rel="stylesheet" href="../../css/learn.css">
@@ -55,8 +55,8 @@
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "Functions",
-      "item": "https://deoit.js.org/learn/js/functions"
+      "name": "String Methods",
+      "item": "https://deoit.js.org/learn/js/string-methods"
     }
   ]
 }
@@ -65,9 +65,9 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Functions",
-  "description": "Reusable blocks of code.",
-  "url": "https://deoit.js.org/learn/js/functions",
+  "headline": "String Methods",
+  "description": "Working with text using built-in string methods.",
+  "url": "https://deoit.js.org/learn/js/string-methods",
   "datePublished": "2026-07-26",
   "dateModified": "2026-07-26",
   "author": {
@@ -84,7 +84,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://deoit.js.org/learn/js/functions"
+    "@id": "https://deoit.js.org/learn/js/string-methods"
   },
   "proficiencyLevel": "Beginner",
   "dependencies": "JavaScript",
@@ -133,7 +133,7 @@
             <span class="sidebar-num">2</span>
             <span class="sidebar-title">Variables & Data Types</span>
           </a>
-        <a href="/learn/js/functions" class="sidebar-link active">
+        <a href="/learn/js/functions" class="sidebar-link ">
             <span class="sidebar-num">3</span>
             <span class="sidebar-title">Functions</span>
           </a>
@@ -153,7 +153,7 @@
             <span class="sidebar-num">7</span>
             <span class="sidebar-title">ES6+ Features</span>
           </a>
-        <a href="/learn/js/string-methods" class="sidebar-link ">
+        <a href="/learn/js/string-methods" class="sidebar-link active">
             <span class="sidebar-num">8</span>
             <span class="sidebar-title">String Methods</span>
           </a>
@@ -184,102 +184,114 @@
         <span class="bc-sep">›</span>
         <a href="/learn-js">JavaScript</a>
         <span class="bc-sep">›</span>
-        <span>Functions</span>
+        <span>String Methods</span>
       </nav>
 
       <div class="lesson-header">
-        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 3</span>
-        <h1>Functions</h1>
-        <p class="lesson-desc">Reusable blocks of code.</p>
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 8</span>
+        <h1>String Methods</h1>
+        <p class="lesson-desc">Working with text using built-in string methods.</p>
         <div class="lesson-meta">
           <span>By Majed Qandeel</span>
           <span>·</span>
           <span>Jul 26, 2026</span>
           <span>·</span>
-          <span>Lesson 3 of 12</span>
+          <span>Lesson 8 of 12</span>
         </div>
       </div>
 
       <div class="lesson-content">
         
-<h2>Functions</h2>
-<p>Functions are reusable blocks of code that perform specific tasks. They help you organize and reuse your code.</p>
+<h2>String Methods</h2>
+<p>JavaScript strings have many built-in methods for searching, modifying, and extracting text. Strings are immutable  -  methods always return a new string.</p>
 
-<h3>Function Declaration</h3>
+<h3>Length Property</h3>
 <div class="lesson-code">
-<span class="hl-comment">// Define a function</span>
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span>() {
-  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello!"</span>);
-}
-
-<span class="hl-comment">// Call (invoke) the function</span>
-<span class="hl-function">greet</span>();  <span class="hl-comment">// Output: Hello!</span>
+<span class="hl-keyword">const</span> text = <span class="hl-string">"Hello, World!"</span>;
+text.<span class="hl-prop">length</span>;       <span class="hl-comment">// 13</span>
 </div>
 
-<h3>Parameters & Arguments</h3>
+<h3>Finding Text</h3>
 <div class="lesson-code">
-<span class="hl-comment">// name is a parameter</span>
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span>(name) {
-  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, "</span> + name + <span class="hl-string">"!"</span>);
-}
+<span class="hl-keyword">const</span> msg = <span class="hl-string">"JavaScript is awesome!"</span>;
 
-<span class="hl-comment">// "Alice" is an argument</span>
-<span class="hl-function">greet</span>(<span class="hl-string">"Alice"</span>);  <span class="hl-comment">// Output: Hello, Alice!</span>
+msg.<span class="hl-function">indexOf</span>(<span class="hl-string">"awesome"</span>);      <span class="hl-comment">// 15 (first match)</span>
+msg.<span class="hl-function">indexOf</span>(<span class="hl-string">"x"</span>);            <span class="hl-comment">// -1 (not found)</span>
+msg.<span class="hl-function">lastIndexOf</span>(<span class="hl-string">"a"</span>);       <span class="hl-comment">// 11 (last match)</span>
+msg.<span class="hl-function">includes</span>(<span class="hl-string">"Script"</span>);      <span class="hl-comment">// true</span>
+msg.<span class="hl-function">startsWith</span>(<span class="hl-string">"Java"</span>);     <span class="hl-comment">// true</span>
+msg.<span class="hl-function">endsWith</span>(<span class="hl-string">"!"</span>);          <span class="hl-comment">// true</span>
 </div>
 
-<h3>Return Values</h3>
+<h3>Extracting Parts</h3>
 <div class="lesson-code">
-<span class="hl-keyword">function</span> <span class="hl-function">add</span>(a, b) {
-  <span class="hl-keyword">return</span> a + b;
-}
+<span class="hl-keyword">const</span> str = <span class="hl-string">"Hello, World!"</span>;
 
-<span class="hl-keyword">const</span> sum = <span class="hl-function">add</span>(<span class="hl-number">5</span>, <span class="hl-number">3</span>);  <span class="hl-comment">// sum = 8</span>
+str.<span class="hl-function">slice</span>(<span class="hl-number">0</span>, <span class="hl-number">5</span>);         <span class="hl-comment">// "Hello" (start, end)</span>
+str.<span class="hl-function">slice</span>(<span class="hl-number">7</span>);            <span class="hl-comment">// "World!" (from index to end)</span>
+str.<span class="hl-function">slice</span>(<span class="hl-number">-6</span>);           <span class="hl-comment">// "World!" (negative = from end)</span>
+str.<span class="hl-function">substring</span>(<span class="hl-number">7</span>, <span class="hl-number">12</span>);   <span class="hl-comment">// "World"</span>
 </div>
 
-<h3>Arrow Functions (ES6)</h3>
-<p>A shorter syntax for writing functions.</p>
+<h3>Transforming Text</h3>
 <div class="lesson-code">
-<span class="hl-comment">// Traditional function</span>
-<span class="hl-keyword">const</span> <span class="hl-function">double</span> = <span class="hl-keyword">function</span>(n) {
-  <span class="hl-keyword">return</span> n * <span class="hl-number">2</span>;
-};
+<span class="hl-keyword">const</span> name = <span class="hl-string">"  Alice  "</span>;
 
-<span class="hl-comment">// Arrow function (shorter)</span>
-<span class="hl-keyword">const</span> <span class="hl-function">double</span> = (n) => {
-  <span class="hl-keyword">return</span> n * <span class="hl-number">2</span>;
-};
-
-<span class="hl-comment">// Even shorter (implicit return)</span>
-<span class="hl-keyword">const</span> <span class="hl-function">double</span> = n => n * <span class="hl-number">2</span>;
+name.<span class="hl-function">toUpperCase</span>();       <span class="hl-comment">// "  ALICE  "</span>
+name.<span class="hl-function">toLowerCase</span>();       <span class="hl-comment">// "  alice  "</span>
+name.<span class="hl-function">trim</span>();              <span class="hl-comment">// "Alice"</span>
+name.<span class="hl-function">trimStart</span>();         <span class="hl-comment">// "Alice  "</span>
+name.<span class="hl-function">trimEnd</span>();           <span class="hl-comment">// "  Alice"</span>
 </div>
 
-<h3>Default Parameters</h3>
+<h3>Replacing &amp; Splitting</h3>
 <div class="lesson-code">
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span>(name = <span class="hl-string">"Guest"</span>) {
-  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, "</span> + name + <span class="hl-string">"!"</span>);
-}
+<span class="hl-keyword">const</span> msg = <span class="hl-string">"I love cats"</span>;
 
-<span class="hl-function">greet</span>();           <span class="hl-comment">// Hello, Guest!</span>
-<span class="hl-function">greet</span>(<span class="hl-string">"Bob"</span>);      <span class="hl-comment">// Hello, Bob!</span>
+msg.<span class="hl-function">replace</span>(<span class="hl-string">"cats"</span>, <span class="hl-string">"dogs"</span>);     <span class="hl-comment">// "I love dogs"</span>
+<span class="hl-string">"aabbcc"</span>.<span class="hl-function">replaceAll</span>(<span class="hl-string">"b"</span>, <span class="hl-string">"x"</span>);   <span class="hl-comment">// "aaxxcc"</span>
+
+<span class="hl-comment">// split: string to array</span>
+<span class="hl-string">"apple,banana,orange"</span>.<span class="hl-function">split</span>(<span class="hl-string">","</span>);
+<span class="hl-comment">// ["apple", "banana", "orange"]</span>
+
+[<span class="hl-string">"a"</span>, <span class="hl-string">"b"</span>, <span class="hl-string">"c"</span>].<span class="hl-function">join</span>(<span class="hl-string">"-"</span>);   <span class="hl-comment">// "a-b-c"</span>
 </div>
 
-<h3>Why Use Functions?</h3>
-<ul>
-  <li><strong>Reusability:</strong> Write once, use many times</li>
-  <li><strong>Organization:</strong> Break complex code into smaller pieces</li>
-  <li><strong>Readability:</strong> Named functions describe what they do</li>
-  <li><strong>Testing:</strong> Small functions are easy to test</li>
-</ul>
+<h3>Template Literals</h3>
+<p>Use backticks for strings with embedded expressions and multi-line support.</p>
+
+<div class="lesson-code">
+<span class="hl-keyword">const</span> name = <span class="hl-string">"Alice"</span>;
+<span class="hl-keyword">const</span> age = <span class="hl-number">25</span>;
+
+<span class="hl-comment">// With template literals</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">`Hello, ${name}! Age: ${age}`</span>);
+
+<span class="hl-comment">// Multi-line string</span>
+<span class="hl-keyword">const</span> html = <span class="hl-string">`
+  &lt;h2&gt;Welcome, ${name}&lt;/h2&gt;
+  &lt;p&gt;Age: ${age}&lt;/p&gt;
+`</span>;
+</div>
+
+<h3>Accessing Characters</h3>
+<div class="lesson-code">
+<span class="hl-keyword">const</span> str = <span class="hl-string">"Hello"</span>;
+str[<span class="hl-number">0</span>];                <span class="hl-comment">// "H"</span>
+str.<span class="hl-function">charAt</span>(<span class="hl-number">4</span>);          <span class="hl-comment">// "o"</span>
+str.<span class="hl-function">charCodeAt</span>(<span class="hl-number">0</span>);      <span class="hl-comment">// 72 (Unicode code point)</span>
+</div>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> A function should do one thing and do it well. If a function does too many things, split it into smaller functions.
+  <strong>Tip:</strong> Template literals are the modern way to build strings with variables. They replace messy string concatenation with <code>+</code> and support multi-line text.
 </div>
         
       </div>
 
       <div class="lesson-navigation">
-        <a href="/learn/js/variables-data-types" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Variables & Data Types</span></a>
-        <a href="/learn/js/dom-manipulation" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">DOM Manipulation</span></a>
+        <a href="/learn/js/es6-features" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">ES6+ Features</span></a>
+        <a href="/learn/js/number-math-methods" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">Number & Math Methods</span></a>
       </div>
 
       <div class="lesson-cta">
@@ -326,7 +338,7 @@
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           access_key: 'YOUR_WEB3FORMS_KEY',
-          subject: '[Deoit Feedback] ' + type + ' - Functions',
+          subject: '[Deoit Feedback] ' + type + ' - String Methods',
           page: window.location.pathname,
           type: type,
           from_name: 'Deoit Lesson Feedback'
@@ -342,7 +354,7 @@
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           access_key: 'YOUR_WEB3FORMS_KEY',
-          subject: '[Deoit Error Report] Functions',
+          subject: '[Deoit Error Report] String Methods',
           page: window.location.pathname,
           error_description: desc,
           from_name: 'Deoit Error Report'

@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://deoit.js.org/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/"/>
@@ -17,134 +17,487 @@
   </url>
   <url>
     <loc>https://deoit.js.org/pages/editor</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/pages/editor"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/pages/editor"/>
+    <image:image>
+      <image:loc>https://deoit.js.org/logo.png</image:loc>
+      <image:title>Deoit - Free Online Code Editor</image:title>
+      <image:caption>Deoit online code editor for HTML, CSS, and JavaScript</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://deoit.js.org/learn</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn"/>
   </url>
   <url>
-    <loc>https://deoit.js.org/learn-html.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn-html.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn-html.html"/>
-  </url>
-  <url>
-    <loc>https://deoit.js.org/learn-css.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn-css.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn-css.html"/>
-  </url>
-  <url>
-    <loc>https://deoit.js.org/learn-js.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn-js.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn-js.html"/>
-  </url>
-  <url>
-    <loc>https://deoit.js.org/learn-react.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn-react.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn-react.html"/>
-  </url>
-  <url>
-    <loc>https://deoit.js.org/learn-node.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn-node.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn-node.html"/>
-  </url>
-  <url>
-    <loc>https://deoit.js.org/learn-tools.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn-tools.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn-tools.html"/>
-  </url>
-  <url>
     <loc>https://deoit.js.org/blog</loc>
-    <lastmod>2026-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://deoit.js.org/blog/learn-html-7-days</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/blog"/>
   </url>
   <url>
     <loc>https://deoit.js.org/blog/bootstrap-is-dead</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/blog/bootstrap-is-dead"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/blog/bootstrap-is-dead"/>
   </url>
   <url>
-    <loc>https://deoit.js.org/embed</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://deoit.js.org/blog/learn-html-7-days</loc>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/blog/learn-html-7-days"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/blog/learn-html-7-days"/>
   </url>
   <url>
     <loc>https://deoit.js.org/terms</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/terms"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/terms"/>
   </url>
   <url>
     <loc>https://deoit.js.org/privacy</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/privacy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/privacy"/>
   </url>
-
-  <!-- HTML Lessons -->
-  <url><loc>https://deoit.js.org/learn/html/introduction-to-html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/html/headings-and-paragraphs</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/html/links-and-images</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/html/lists-and-tables</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/html/forms-and-inputs</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/html/semantic-html</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/html/html-best-practices</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- CSS Lessons -->
-  <url><loc>https://deoit.js.org/learn/css/introduction-to-css</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/css/selectors-and-colors</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/css/box-model-and-spacing</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/css/flexbox</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/css/css-grid</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/css/typography-and-fonts</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/css/animations-and-transitions</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- JavaScript Lessons -->
-  <url><loc>https://deoit.js.org/learn/js/introduction-to-javascript</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/js/variables-and-data-types</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/js/functions</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/js/dom-manipulation</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/js/events-and-interactivity</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/js/arrays-and-loops</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://deoit.js.org/learn/js/es6-features</loc><lastmod>2026-07-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
+  <url>
+    <loc>https://deoit.js.org/search</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/search"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/search"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/introduction-to-html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/introduction-to-html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/introduction-to-html"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/headings-paragraphs</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/headings-paragraphs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/headings-paragraphs"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/links-images</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/links-images"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/links-images"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/lists-tables</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/lists-tables"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/lists-tables"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/forms-inputs</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/forms-inputs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/forms-inputs"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/semantic-html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/semantic-html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/semantic-html"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-best-practices</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-best-practices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-best-practices"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/doctype-character-encoding</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/doctype-character-encoding"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/doctype-character-encoding"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-attributes-deep-dive</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-attributes-deep-dive"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-attributes-deep-dive"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/div-span-grouping-elements</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/div-span-grouping-elements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/div-span-grouping-elements"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/block-vs-inline-elements</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/block-vs-inline-elements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/block-vs-inline-elements"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-comments</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-comments"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-comments"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-entities-symbols</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-entities-symbols"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-entities-symbols"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-head-meta-tags</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-head-meta-tags"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-head-meta-tags"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-tables-advanced</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-tables-advanced"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-tables-advanced"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-forms-validation</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-forms-validation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-forms-validation"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-media-elements</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-media-elements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-media-elements"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-audio-video</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-audio-video"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-audio-video"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-iframes</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-iframes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-iframes"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-data-attributes</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-data-attributes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-data-attributes"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-seo-meta-tags</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-seo-meta-tags"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-seo-meta-tags"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-accessibility-a11y</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-accessibility-a11y"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-accessibility-a11y"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-canvas-basics</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-canvas-basics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-canvas-basics"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-svg-basics</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-svg-basics"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-svg-basics"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/html/html-email-templates</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/html/html-email-templates"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/html/html-email-templates"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/introduction-to-css</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/introduction-to-css"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/introduction-to-css"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/selectors-colors</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/selectors-colors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/selectors-colors"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/box-model-spacing</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/box-model-spacing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/box-model-spacing"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/flexbox</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/flexbox"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/flexbox"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/css-grid</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/css-grid"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/css-grid"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/typography-fonts</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/typography-fonts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/typography-fonts"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/animations-transitions</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/animations-transitions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/animations-transitions"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/display-property</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/display-property"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/display-property"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/css-position</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/css-position"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/css-position"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/css-units</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/css-units"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/css-units"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/media-queries</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/media-queries"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/media-queries"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/css-variables</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/css-variables"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/css-variables"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/pseudo-classes-pseudo-elements</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/pseudo-classes-pseudo-elements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/pseudo-classes-pseudo-elements"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/backgrounds-gradients</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/backgrounds-gradients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/backgrounds-gradients"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/css/shadows-effects</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/css/shadows-effects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/css/shadows-effects"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/introduction-to-javascript</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/introduction-to-javascript"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/introduction-to-javascript"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/variables-data-types</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/variables-data-types"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/variables-data-types"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/functions</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/functions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/functions"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/dom-manipulation</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/dom-manipulation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/dom-manipulation"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/events-interactivity</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/events-interactivity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/events-interactivity"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/arrays-loops</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/arrays-loops"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/arrays-loops"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/es6-features</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/es6-features"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/es6-features"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/string-methods</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/string-methods"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/string-methods"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/number-math-methods</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/number-math-methods"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/number-math-methods"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/json-fetch-api</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/json-fetch-api"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/json-fetch-api"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/date-time</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/date-time"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/date-time"/>
+  </url>
+  <url>
+    <loc>https://deoit.js.org/learn/js/error-handling-debugging</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/learn/js/error-handling-debugging"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/learn/js/error-handling-debugging"/>
+  </url>
 </urlset>

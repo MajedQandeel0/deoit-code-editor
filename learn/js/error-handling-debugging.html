@@ -3,29 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Functions - JavaScript Tutorial | Deoit</title>
-<meta name="title" content="Functions - Free JavaScript Lesson | Deoit">
-<meta name="description" content="Reusable blocks of code.">
-<meta name="keywords" content="functions, javascript tutorial, javascript lesson, functions, deoit">
+<title>Error Handling & Debugging - JavaScript Tutorial | Deoit</title>
+<meta name="title" content="Error Handling & Debugging - Free JavaScript Lesson | Deoit">
+<meta name="description" content="Managing errors gracefully and debugging effectively.">
+<meta name="keywords" content="error handling debugging, javascript tutorial, javascript lesson, error handling & debugging, deoit">
 <meta name="author" content="Majed Qandeel">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#0d0d0d">
 <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
 <meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://deoit.js.org/learn/js/functions">
-<meta property="og:title" content="Functions - Free JavaScript Lesson | Deoit">
-<meta property="og:description" content="Reusable blocks of code.">
+<meta property="og:url" content="https://deoit.js.org/learn/js/error-handling-debugging">
+<meta property="og:title" content="Error Handling & Debugging - Free JavaScript Lesson | Deoit">
+<meta property="og:description" content="Managing errors gracefully and debugging effectively.">
 <meta property="og:image" content="https://deoit.js.org/logo.png">
 <meta property="og:site_name" content="Deoit">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Functions - Free JavaScript Lesson | Deoit">
-<meta name="twitter:description" content="Reusable blocks of code.">
+<meta name="twitter:title" content="Error Handling & Debugging - Free JavaScript Lesson | Deoit">
+<meta name="twitter:description" content="Managing errors gracefully and debugging effectively.">
 <meta name="twitter:image" content="https://deoit.js.org/logo.png">
-<link rel="canonical" href="https://deoit.js.org/learn/js/functions">
-<link rel="alternate" href="https://deoit.js.org/learn/js/functions" hreflang="en">
-<link rel="alternate" href="https://deoit.js.org/learn/js/functions" hreflang="x-default">
+<link rel="canonical" href="https://deoit.js.org/learn/js/error-handling-debugging">
+<link rel="alternate" href="https://deoit.js.org/learn/js/error-handling-debugging" hreflang="en">
+<link rel="alternate" href="https://deoit.js.org/learn/js/error-handling-debugging" hreflang="x-default">
 <link rel="icon" type="image/png" href="../../logo.png">
 <link rel="apple-touch-icon" href="../../logo.png">
 <link rel="stylesheet" href="../../css/learn.css">
@@ -55,8 +55,8 @@
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "Functions",
-      "item": "https://deoit.js.org/learn/js/functions"
+      "name": "Error Handling & Debugging",
+      "item": "https://deoit.js.org/learn/js/error-handling-debugging"
     }
   ]
 }
@@ -65,9 +65,9 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Functions",
-  "description": "Reusable blocks of code.",
-  "url": "https://deoit.js.org/learn/js/functions",
+  "headline": "Error Handling & Debugging",
+  "description": "Managing errors gracefully and debugging effectively.",
+  "url": "https://deoit.js.org/learn/js/error-handling-debugging",
   "datePublished": "2026-07-26",
   "dateModified": "2026-07-26",
   "author": {
@@ -84,7 +84,7 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://deoit.js.org/learn/js/functions"
+    "@id": "https://deoit.js.org/learn/js/error-handling-debugging"
   },
   "proficiencyLevel": "Beginner",
   "dependencies": "JavaScript",
@@ -133,7 +133,7 @@
             <span class="sidebar-num">2</span>
             <span class="sidebar-title">Variables & Data Types</span>
           </a>
-        <a href="/learn/js/functions" class="sidebar-link active">
+        <a href="/learn/js/functions" class="sidebar-link ">
             <span class="sidebar-num">3</span>
             <span class="sidebar-title">Functions</span>
           </a>
@@ -169,7 +169,7 @@
             <span class="sidebar-num">11</span>
             <span class="sidebar-title">Date & Time</span>
           </a>
-        <a href="/learn/js/error-handling-debugging" class="sidebar-link ">
+        <a href="/learn/js/error-handling-debugging" class="sidebar-link active">
             <span class="sidebar-num">12</span>
             <span class="sidebar-title">Error Handling & Debugging</span>
           </a>
@@ -184,102 +184,128 @@
         <span class="bc-sep">›</span>
         <a href="/learn-js">JavaScript</a>
         <span class="bc-sep">›</span>
-        <span>Functions</span>
+        <span>Error Handling & Debugging</span>
       </nav>
 
       <div class="lesson-header">
-        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 3</span>
-        <h1>Functions</h1>
-        <p class="lesson-desc">Reusable blocks of code.</p>
+        <span class="lesson-tag" style="background:#f7df1e">JavaScript — Lesson 12</span>
+        <h1>Error Handling & Debugging</h1>
+        <p class="lesson-desc">Managing errors gracefully and debugging effectively.</p>
         <div class="lesson-meta">
           <span>By Majed Qandeel</span>
           <span>·</span>
           <span>Jul 26, 2026</span>
           <span>·</span>
-          <span>Lesson 3 of 12</span>
+          <span>Lesson 12 of 12</span>
         </div>
       </div>
 
       <div class="lesson-content">
         
-<h2>Functions</h2>
-<p>Functions are reusable blocks of code that perform specific tasks. They help you organize and reuse your code.</p>
+<h2>Error Handling &amp; Debugging</h2>
+<p>Errors are inevitable. Learning to handle them gracefully and debug efficiently is a critical skill.</p>
 
-<h3>Function Declaration</h3>
+<h3>Try/Catch/Finally</h3>
 <div class="lesson-code">
-<span class="hl-comment">// Define a function</span>
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span>() {
-  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello!"</span>);
+<span class="hl-keyword">try</span> {
+  <span class="hl-keyword">const</span> data = <span class="hl-builtin">JSON</span>.<span class="hl-function">parse</span>(<span class="hl-string">"invalid json"</span>);
+} <span class="hl-keyword">catch</span> (error) {
+  <span class="hl-builtin">console</span>.<span class="hl-function">error</span>(<span class="hl-string">"Parse failed:"</span>, error.<span class="hl-prop">message</span>);
+} <span class="hl-keyword">finally</span> {
+  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"This always runs"</span>);
+}
+</div>
+
+<h3>Throwing Errors</h3>
+<div class="lesson-code">
+<span class="hl-keyword">function</span> <span class="hl-function">divide</span>(a, b) {
+  <span class="hl-keyword">if</span> (b === <span class="hl-number">0</span>) {
+    <span class="hl-keyword">throw new</span> <span class="hl-builtin">Error</span>(<span class="hl-string">"Cannot divide by zero"</span>);
+  }
+  <span class="hl-keyword">return</span> a / b;
 }
 
-<span class="hl-comment">// Call (invoke) the function</span>
-<span class="hl-function">greet</span>();  <span class="hl-comment">// Output: Hello!</span>
-</div>
-
-<h3>Parameters & Arguments</h3>
-<div class="lesson-code">
-<span class="hl-comment">// name is a parameter</span>
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span>(name) {
-  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, "</span> + name + <span class="hl-string">"!"</span>);
+<span class="hl-keyword">try</span> {
+  <span class="hl-function">divide</span>(<span class="hl-number">10</span>, <span class="hl-number">0</span>);
+} <span class="hl-keyword">catch</span> (e) {
+  <span class="hl-builtin">console</span>.<span class="hl-function">error</span>(e.<span class="hl-prop">message</span>);
 }
-
-<span class="hl-comment">// "Alice" is an argument</span>
-<span class="hl-function">greet</span>(<span class="hl-string">"Alice"</span>);  <span class="hl-comment">// Output: Hello, Alice!</span>
 </div>
 
-<h3>Return Values</h3>
+<h3>Common Error Types</h3>
 <div class="lesson-code">
-<span class="hl-keyword">function</span> <span class="hl-function">add</span>(a, b) {
-  <span class="hl-keyword">return</span> a + b;
+<span class="hl-comment">// ReferenceError: variable not defined</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(nonExistent);
+
+<span class="hl-comment">// TypeError: wrong type used</span>
+<span class="hl-number">42</span>.<span class="hl-function">toUpperCase</span>();  <span class="hl-comment">// numbers don't have this</span>
+
+<span class="hl-comment">// SyntaxError: invalid code</span>
+<span class="hl-builtin">eval</span>(<span class="hl-string">"function 123() {}"</span>);
+
+<span class="hl-comment">// RangeError: value out of range</span>
+(<span class="hl-number">-1</span>).<span class="hl-function">toString</span>(<span class="hl-number">36</span>);
+</div>
+
+<h3>Console Debugging</h3>
+<div class="lesson-code">
+<span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Basic log"</span>);
+<span class="hl-builtin">console</span>.<span class="hl-function">warn</span>(<span class="hl-string">"Warning!"</span>);       <span class="hl-comment">// Yellow</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">error</span>(<span class="hl-string">"Error!"</span>);        <span class="hl-comment">// Red</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">table</span>([{ a: <span class="hl-number">1</span>, b: <span class="hl-number">2</span> }]);  <span class="hl-comment">// Table</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">time</span>(<span class="hl-string">"loop"</span>);
+<span class="hl-comment">// ... code ...</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">timeEnd</span>(<span class="hl-string">"loop"</span>);       <span class="hl-comment">// Elapsed time</span>
+<span class="hl-builtin">console</span>.<span class="hl-function">group</span>(<span class="hl-string">"Step 1"</span>);
+<span class="hl-builtin">console</span>.<span class="hl-function">groupEnd</span>();
+</div>
+
+<h3>The Debugger Keyword</h3>
+<div class="lesson-code">
+<span class="hl-keyword">function</span> <span class="hl-function">problematic</span>(x) {
+  <span class="hl-keyword">const</span> result = x * <span class="hl-number">2</span>;
+  <span class="hl-keyword">debugger</span>;  <span class="hl-comment">// Pauses when DevTools open</span>
+  <span class="hl-keyword">return</span> result + <span class="hl-number">1</span>;
 }
-
-<span class="hl-keyword">const</span> sum = <span class="hl-function">add</span>(<span class="hl-number">5</span>, <span class="hl-number">3</span>);  <span class="hl-comment">// sum = 8</span>
 </div>
 
-<h3>Arrow Functions (ES6)</h3>
-<p>A shorter syntax for writing functions.</p>
-<div class="lesson-code">
-<span class="hl-comment">// Traditional function</span>
-<span class="hl-keyword">const</span> <span class="hl-function">double</span> = <span class="hl-keyword">function</span>(n) {
-  <span class="hl-keyword">return</span> n * <span class="hl-number">2</span>;
-};
+<h3>Graceful Error Handling</h3>
+<pre class="lesson-code" >&lt;div id="output"&gt;&lt;/div&gt;
+&lt;script&gt;
+  function safeJsonParse(str) {
+    try {
+      return { data: JSON.parse(str), error: null };
+    } catch (e) {
+      return { data: null, error: e.message };
+    }
+  }
 
-<span class="hl-comment">// Arrow function (shorter)</span>
-<span class="hl-keyword">const</span> <span class="hl-function">double</span> = (n) => {
-  <span class="hl-keyword">return</span> n * <span class="hl-number">2</span>;
-};
+  const r1 = safeJsonParse('{"name":"Alice"}');
+  const r2 = safeJsonParse("not json");
 
-<span class="hl-comment">// Even shorter (implicit return)</span>
-<span class="hl-keyword">const</span> <span class="hl-function">double</span> = n => n * <span class="hl-number">2</span>;
-</div>
+  document.getElementById("output").innerHTML =
+    "&lt;p&gt;Valid: " + JSON.stringify(r1.data) + "&lt;/p&gt;" +
+    "&lt;p&gt;Invalid: " + r2.error + "&lt;/p&gt;";
+&lt;/script&gt;</pre>
 
-<h3>Default Parameters</h3>
-<div class="lesson-code">
-<span class="hl-keyword">function</span> <span class="hl-function">greet</span>(name = <span class="hl-string">"Guest"</span>) {
-  <span class="hl-builtin">console</span>.<span class="hl-function">log</span>(<span class="hl-string">"Hello, "</span> + name + <span class="hl-string">"!"</span>);
-}
-
-<span class="hl-function">greet</span>();           <span class="hl-comment">// Hello, Guest!</span>
-<span class="hl-function">greet</span>(<span class="hl-string">"Bob"</span>);      <span class="hl-comment">// Hello, Bob!</span>
-</div>
-
-<h3>Why Use Functions?</h3>
+<h3>Common Debugging Tips</h3>
 <ul>
-  <li><strong>Reusability:</strong> Write once, use many times</li>
-  <li><strong>Organization:</strong> Break complex code into smaller pieces</li>
-  <li><strong>Readability:</strong> Named functions describe what they do</li>
-  <li><strong>Testing:</strong> Small functions are easy to test</li>
+  <li>Use <code>debugger</code> keyword to pause execution</li>
+  <li>Check browser Console for errors (F12)</li>
+  <li>Use <code>console.table()</code> to inspect data</li>
+  <li>Read error messages  -  they include file and line number</li>
+  <li>Google the exact error message for solutions</li>
 </ul>
 
 <div class="lesson-tip">
-  <strong>Tip:</strong> A function should do one thing and do it well. If a function does too many things, split it into smaller functions.
+  <strong>Tip:</strong> Don't silently swallow errors. Log them, show user-friendly messages, and consider sending them to error tracking services.
 </div>
         
       </div>
 
       <div class="lesson-navigation">
-        <a href="/learn/js/variables-data-types" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Variables & Data Types</span></a>
-        <a href="/learn/js/dom-manipulation" class="lesson-nav-link next"><span class="nav-label">Next →</span><span class="nav-title">DOM Manipulation</span></a>
+        <a href="/learn/js/date-time" class="lesson-nav-link prev"><span class="nav-label">← Previous</span><span class="nav-title">Date & Time</span></a>
+        <a href="/learn-js" class="lesson-nav-link next"><span class="nav-label">Complete!</span><span class="nav-title">Back to JavaScript Course</span></a>
       </div>
 
       <div class="lesson-cta">
@@ -326,7 +352,7 @@
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           access_key: 'YOUR_WEB3FORMS_KEY',
-          subject: '[Deoit Feedback] ' + type + ' - Functions',
+          subject: '[Deoit Feedback] ' + type + ' - Error Handling & Debugging',
           page: window.location.pathname,
           type: type,
           from_name: 'Deoit Lesson Feedback'
@@ -342,7 +368,7 @@
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           access_key: 'YOUR_WEB3FORMS_KEY',
-          subject: '[Deoit Error Report] Functions',
+          subject: '[Deoit Error Report] Error Handling & Debugging',
           page: window.location.pathname,
           error_description: desc,
           from_name: 'Deoit Error Report'
