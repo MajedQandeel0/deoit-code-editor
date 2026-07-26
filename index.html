@@ -335,32 +335,44 @@
           <span class="oss-license">MIT License</span>
         </a>
       </div>
-      <!-- RIGHT: Animated Code Window -->
+      <!-- RIGHT: Floating Code Cards -->
       <div class="hero-visual">
-        <div class="hero-window">
-          <div class="hw-bar">
-            <div class="hw-dots"><span></span><span></span><span></span></div>
-            <div class="hw-tabs">
-              <span class="hw-tab active" id="hwTabHtml">index.html</span>
-              <span class="hw-tab" id="hwTabCss">style.css</span>
-              <span class="hw-tab" id="hwTabJs">script.js</span>
-            </div>
+        <div class="hero-cards-scene">
+          <!-- Card 1: HTML -->
+          <div class="hero-fcard hfcard-1">
+            <div class="hfcard-head"><span class="hf-dot hf-html"></span>index.html</div>
+            <pre class="hfcode"><span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-str">"hero"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;h1&gt;</span>Hello World<span class="c-tag">&lt;/h1&gt;</span>
+  <span class="c-tag">&lt;p&gt;</span>Welcome to Deoit<span class="c-tag">&lt;/p&gt;</span>
+<span class="c-tag">&lt;/div&gt;</span></pre>
           </div>
-          <div class="hw-body">
-            <div class="hw-code" id="hwCode"></div>
-            <div class="hw-cursor" id="hwCursor"></div>
+          <!-- Card 2: CSS -->
+          <div class="hero-fcard hfcard-2">
+            <div class="hfcard-head"><span class="hf-dot hf-css"></span>style.css</div>
+            <pre class="hfcode"><span class="c-fn">.hero</span> {
+  <span class="c-attr">display</span>: flex;
+  <span class="c-attr">justify-content</span>: center;
+  <span class="c-attr">background</span>: <span class="c-str">linear-gradient</span>(135deg,
+    <span class="c-num">#667eea</span>, <span class="c-num">#764ba2</span>);
+  <span class="c-attr">border-radius</span>: <span class="c-num">16px</span>;
+}</pre>
           </div>
-          <div class="hw-preview">
-            <div class="hw-preview-bar"><span class="hw-pdot"></span> Live Preview</div>
-            <div class="hw-preview-body" id="hwPreview">
-              <div class="hw-card">
-                <div class="hw-card-circle"></div>
-                <div class="hw-card-title"></div>
-                <div class="hw-card-text"></div>
-                <div class="hw-card-btn"></div>
-              </div>
-            </div>
+          <!-- Card 3: JS -->
+          <div class="hero-fcard hfcard-3">
+            <div class="hfcard-head"><span class="hf-dot hf-js"></span>script.js</div>
+            <pre class="hfcode"><span class="c-kw">const</span> app = <span class="c-kw">async</span> () => {
+  <span class="c-kw">const</span> res = <span class="c-kw">await</span> <span class="c-fn">fetch</span>(<span class="c-str">'/api'</span>);
+  <span class="c-kw">const</span> data = <span class="c-kw">await</span> res.<span class="c-fn">json</span>();
+  console.<span class="c-fn">log</span>(data);
+};</pre>
           </div>
+          <!-- Floating badge -->
+          <div class="hero-fcard hfcard-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>Run instantly</span>
+          </div>
+          <!-- Floating accent dot -->
+          <div class="hero-fcard hfcard-dot"></div>
         </div>
       </div>
     </div>
@@ -831,163 +843,6 @@ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':
       }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
       reveals.forEach(r => revealObserver.observe(r));
 
-      // ─── Hero window typing animation ───
-      (function() {
-        var hwCode  = document.getElementById('hwCode');
-        var hwCursor = document.getElementById('hwCursor');
-        var hwTabHtml = document.getElementById('hwTabHtml');
-        var hwTabCss  = document.getElementById('hwTabCss');
-        var hwTabJs   = document.getElementById('hwTabJs');
-        if (!hwCode) return;
-
-        var htmlLines = [
-          '<!DOCTYPE html>',
-          '<html lang="en">',
-          '<head>',
-          '  <title>My App</title>',
-          '  <link rel="stylesheet"',
-          '       href="style.css" />',
-          '</head>',
-          '<body>',
-          '  <div class="card">',
-          '    <h1>Hello World</h1>',
-          '    <p>Welcome to Deoit</p>',
-          '    <button>Click Me</button>',
-          '  </div>',
-          '</body>',
-          '</html>'
-        ];
-        var cssLines = [
-          '.card {',
-          '  max-width: 400px;',
-          '  margin: 40px auto;',
-          '  padding: 32px;',
-          '  background: #fff;',
-          '  border-radius: 12px;',
-          '  box-shadow: 0 8px 30px',
-          '    rgba(0,0,0,0.08);',
-          '  text-align: center;',
-          '}',
-          '.card h1 {',
-          '  color: #1a1a2e;',
-          '  font-size: 24px;',
-          '}'
-        ];
-        var jsLines = [
-          'const btn = document',
-          '  .querySelector("button");',
-          '',
-          'btn.addEventListener("click",',
-          '  () => {',
-          '    alert("Hello from Deoit!");',
-          '    btn.textContent = "Done!";',
-          '  });',
-          '',
-          'console.log("App ready");'
-        ];
-        var allTabs = [hwTabHtml, hwTabCss, hwTabJs];
-        var allSets = [htmlLines, cssLines, jsLines];
-        var currentTab = 0;
-
-        function setTab(idx) {
-          allTabs.forEach(function(t, i) {
-            t.classList.toggle('active', i === idx);
-          });
-        }
-
-        function escapeHtml(s) {
-          return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        }
-
-        function highlightSyntax(code, lang) {
-          var out = escapeHtml(code);
-          if (lang === 'html') {
-            out = out.replace(/&lt;(!--[\s\S]*?--&gt;)/g, '<span class="cmt">$1</span>');
-            out = out.replace(/&lt;(\/?)([\w-]+)/g, '&lt;$1<span class="tag">$2</span>');
-            out = out.replace(/([\w-]+)(=)/g, '<span class="attr">$1</span>$2');
-            out = out.replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
-          } else if (lang === 'css') {
-            out = out.replace(/\/\*[\s\S]*?\*\//g, '<span class="cmt">$&</span>');
-            out = out.replace(/(\.[\w-]+)/g, '<span class="fn">$1</span>');
-            out = out.replace(/([\w-]+)\s*:/g, '<span class="attr">$1</span>:');
-            out = out.replace(/:\s*([^;\n{}]+)/g, ': <span class="str">$1</span>');
-          } else if (lang === 'js') {
-            out = out.replace(/\/\/.*/g, '<span class="cmt">$&</span>');
-            out = out.replace(/\b(const|let|var|function|return|if|else|new)\b/g, '<span class="kw">$1</span>');
-            out = out.replace(/\b(\d+)\b/g, '<span class="num">$1</span>');
-            out = out.replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
-          }
-          return out;
-        }
-
-        function renderCode(lines, lang) {
-          var langMap = { 0: 'html', 1: 'css', 2: 'js' };
-          var result = '';
-          for (var i = 0; i < lines.length; i++) {
-            var num = String(i + 1).padStart(2, ' ');
-            var highlighted = highlightSyntax(lines[i], langMap[lang] || 'html');
-            result += '<span class="ln">' + num + '</span>' + highlighted + '\n';
-          }
-          return result;
-        }
-
-        function positionCursor(lines, line, col) {
-          var lineHeight = 23.75;
-          var charWidth = 7.8;
-          var top  = 18 + line * lineHeight;
-          var left = 44 + col * charWidth;
-          hwCursor.style.top  = top + 'px';
-          hwCursor.style.left = left + 'px';
-        }
-
-        function typeLines(lines, lang, cb) {
-          var lineIdx = 0, charIdx = 0;
-          var allShown = [];
-
-          function tick() {
-            if (lineIdx >= lines.length) { setTimeout(cb, 1200); return; }
-
-            var current = lines[lineIdx];
-            if (charIdx <= current.length) {
-              allShown[lineIdx] = current.substring(0, charIdx);
-              var partial = allShown.slice(0, lineIdx + 1);
-              hwCode.innerHTML = renderCode(partial, lang);
-              positionCursor(partial, lineIdx, charIdx);
-              charIdx++;
-              setTimeout(tick, 25 + Math.random() * 30);
-            } else {
-              lineIdx++;
-              charIdx = 0;
-              setTimeout(tick, 80);
-            }
-          }
-          tick();
-        }
-
-        function run() {
-          setTab(0);
-          hwCode.innerHTML = '';
-          typeLines(htmlLines, 0, function() {
-            setTab(1);
-            hwCode.innerHTML = '';
-            typeLines(cssLines, 1, function() {
-              setTab(2);
-              hwCode.innerHTML = '';
-              typeLines(jsLines, 2, function() {
-                setTimeout(run, 2000);
-              });
-            });
-          });
-        }
-
-        allTabs.forEach(function(tab, i) {
-          tab.addEventListener('click', function() {
-            setTab(i);
-          });
-        });
-
-        setTimeout(run, 800);
-      })();
     })();
   </script>
 </body>
