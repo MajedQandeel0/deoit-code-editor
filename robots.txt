@@ -21,22 +21,32 @@ Disallow: /manifest.json
 Disallow: /admin
 Disallow: /_vercel/
 
-User-agent: GPTBot
+# === AI SEARCH RETRIEVAL (appear in AI answers) ===
+User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# === AI LIVE BROWSING ===
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
+# === AI TRAINING (opt in) ===
+User-agent: GPTBot
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
+# === BLOCK UNWANTED TRAINING ===
 User-agent: Google-Extended
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
+Disallow: /
 
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 Sitemap: https://deoit.js.org/sitemap.xml
