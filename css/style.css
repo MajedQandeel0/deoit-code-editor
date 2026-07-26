@@ -181,15 +181,19 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   letter-spacing: -2.5px; line-height: 1.08;
   margin-bottom: 20px; color: var(--text-primary);
 }
-.hero-typed { color: var(--accent); }
-.hero-cursor {
-  display: inline-block; color: var(--accent);
-  font-weight: 300; animation: blink 0.8s step-end infinite;
-  margin-left: 2px;
+.hero-rotate-wrap {
+  display: inline-block; overflow: hidden; vertical-align: bottom;
+  height: 1.1em; line-height: 1.1;
 }
-@keyframes blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .hero-cursor { animation: none; opacity: 1; }
+.hero-rotate {
+  display: inline-block; color: var(--accent);
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.4s ease;
+}
+.hero-rotate.rotate-out {
+  transform: translateY(-100%); opacity: 0;
+}
+.hero-rotate.rotate-in {
+  transform: translateY(100%); opacity: 0;
 }
 .hero-text p {
   font-size: clamp(15px, 1.8vw, 17px); color: var(--text-secondary);
@@ -646,3 +650,38 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   cursor: pointer; padding: 0 4px; line-height: 1; flex-shrink: 0;
 }
 @media (max-width: 480px) { .pwa-banner { bottom: 12px; left: 12px; right: 12px; max-width: none; } }
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-left {
+  opacity: 0; transform: translateX(-30px);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0; transform: translateX(30px);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale {
+  opacity: 0; transform: scale(0.95);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1; transform: none; transition: none;
+  }
+}
