@@ -7,7 +7,10 @@
       "has": [{ "type": "host", "value": "deoit.vercel.app" }],
       "destination": "https://deoit.js.org/:path",
       "permanent": true
-    }
+    },
+    { "source": "/learn/html", "destination": "/learn-html", "permanent": true },
+    { "source": "/learn/css", "destination": "/learn-css", "permanent": true },
+    { "source": "/learn/js", "destination": "/learn-js", "permanent": true }
   ],
   "rewrites": [
     { "source": "/blog/bootstrap-is-dead", "destination": "/blog/bootstrap-is-dead.html" }
