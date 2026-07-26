@@ -1967,7 +1967,24 @@ window.addEventListener('load', () => {
   setupDelegation();
   setupSidebarToggle();
   checkAuth();
+  setupEditorToast();
 });
+
+function setupEditorToast() {
+  const toast = document.getElementById('editorToast');
+  const closeBtn = document.getElementById('toastClose');
+  if (!toast) return;
+  if (localStorage.getItem('deoit_toast_dismissed')) { toast.remove(); return; }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      toast.remove();
+      localStorage.setItem('deoit_toast_dismissed', '1');
+    });
+  }
+  setTimeout(() => {
+    if (toast.parentNode) { toast.remove(); localStorage.setItem('deoit_toast_dismissed', '1'); }
+  }, 8000);
+}
 
 function setupSidebarToggle() {
   const toggle = document.getElementById('sidebarToggle');
