@@ -16,8 +16,9 @@ function slugify(title) {
 }
 
 function generateMetaDescription(lesson, courseTitle) {
-  let d = lesson.desc || '';
-  if (d.length > 155) d = d.substring(0, 152) + '...';
+  const pad = ` Learn ${lesson.title} with interactive code examples on Deoit — a free online code editor for HTML, CSS, and JavaScript.`;
+  let d = (lesson.desc || '') + pad;
+  if (d.length > 160) d = d.substring(0, 157) + '...';
   return d;
 }
 
@@ -32,7 +33,7 @@ function generateLessonPage(course, lesson, courseTitle, courseColor) {
   const desc = generateMetaDescription(lesson, courseTitle);
   const keywords = generateKeywords(lesson, courseTitle);
   const canonicalUrl = `${BASE_URL}/learn/${course}/${slug}`;
-  const pageTitle = `${lesson.title} - ${courseTitle} Tutorial | Deoit`;
+  const pageTitle = `${lesson.title} — Free Tutorial | Deoit`;
   const metaTitle = `${lesson.title} - Free ${courseTitle} Lesson | Deoit`;
 
   const prevLesson = lesson.id > 1 ? LESSONS[course].lessons.find(l => l.id === lesson.id - 1) : null;
