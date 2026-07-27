@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Positioning: Center, Top, Bottom &amp; More (2026 Guide) | Deoit Blog</title>
+  <meta name="description" content="Master CSS positioning in 2026. Learn how to center elements, place them at the top, bottom, left, or right — using Flexbox, Grid, and position properties with real examples.">
+  <meta name="keywords" content="CSS center div, CSS center element, CSS position top, CSS position bottom, CSS flexbox center, CSS grid center, how to center a div, CSS layout guide, CSS positioning tutorial">
+  <meta name="author" content="Majed Qandeel">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="google-site-verification" content="AJuuF0rsaIv06P5hV9rmSIwmJUU99Laf3kELRWwfoqo" />
+  <meta name="msvalidate.01" content="D4B611868B4A3969DF885DDAB7189672" />
+  
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deoit.js.org/blog/css-positioning-guide">
+  <meta property="og:title" content="CSS Positioning: Center, Top, Bottom & More (2026 Guide)">
+  <meta property="og:description" content="Master CSS positioning. Learn how to center, align, and place elements anywhere on the page with Flexbox, Grid, and position.">
+  <meta property="og:image" content="https://deoit.js.org/logo.png">
+  <meta property="og:site_name" content="Deoit">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Positioning: Center, Top, Bottom & More (2026 Guide)">
+  <meta name="twitter:description" content="Master CSS positioning. Center, align, and place elements anywhere with Flexbox, Grid, and position.">
+  <meta name="twitter:image" content="https://deoit.js.org/logo.png">
+  <link rel="canonical" href="https://deoit.js.org/blog/css-positioning-guide">
+  <link rel="alternate" href="https://deoit.js.org/blog/css-positioning-guide" hreflang="en">
+  <link rel="alternate" href="https://deoit.js.org/blog/css-positioning-guide" hreflang="x-default">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../logo.png">
+  <link rel="stylesheet" href="../css/blog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "CSS Positioning: Center, Top, Bottom & More (2026 Guide)",
+    "description": "Master CSS positioning in 2026. Learn how to center elements, place them at the top, bottom, left, or right with Flexbox, Grid, and position.",
+    "url": "https://deoit.js.org/blog/css-positioning-guide",
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-07-27",
+    "author": { "@type": "Person", "name": "Majed Qandeel" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Deoit",
+      "logo": { "@type": "ImageObject", "url": "https://deoit.js.org/logo.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://deoit.js.org/blog/css-positioning-guide" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://deoit.js.org/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://deoit.js.org/blog" },
+      { "@type": "ListItem", "position": 3, "name": "CSS Positioning Guide", "item": "https://deoit.js.org/blog/css-positioning-guide" }
+    ]
+  }
+  </script>
+  <style>
+    .post-content .position-demo {
+      background: rgba(255,255,255,0.03); border: 1px solid #252525;
+      border-radius: 12px; padding: 24px; margin: 20px 0;
+      position: relative; min-height: 200px; overflow: hidden;
+    }
+    .post-content .position-demo .box {
+      width: 80px; height: 80px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #fff;
+    }
+    .post-content .position-demo .parent {
+      width: 100%; height: 180px; border: 2px dashed #444;
+      border-radius: 10px; position: relative;
+    }
+    .post-content .tip-box {
+      background: rgba(67,97,238,0.08); border: 1px solid rgba(67,97,238,0.2);
+      border-radius: 12px; padding: 20px; margin: 24px 0;
+    }
+    .post-content .tip-box strong { color: #4361ee; }
+    .post-content .method-card {
+      background: rgba(255,255,255,0.03); border: 1px solid #252525;
+      border-radius: 12px; padding: 24px; margin: 20px 0;
+    }
+    .post-content .method-card h3 { margin-top: 0; color: #e8e8e8; }
+    .post-content .method-card .badge {
+      display: inline-block; padding: 3px 10px; border-radius: 100px;
+      font-size: 11px; font-weight: 700; margin-left: 8px; vertical-align: middle;
+    }
+    .post-content .method-card .badge.best { background: rgba(152,195,121,0.15); color: #98c379; }
+    .post-content .method-card .badge.good { background: rgba(97,175,239,0.15); color: #61afef; }
+    .post-content .method-card .badge.legacy { background: rgba(224,108,117,0.15); color: #e06c75; }
+    .post-content .comparison-table {
+      width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px;
+    }
+    .comparison-table th, .comparison-table td {
+      padding: 12px 16px; border: 1px solid #252525; text-align: left;
+    }
+    .comparison-table th { background: rgba(255,255,255,0.05); color: #e8e8e8; font-weight: 700; }
+    .comparison-table td { color: #9a9a9a; }
+    .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+    @media (max-width: 768px) {
+      .comparison-table { font-size: 12px; }
+      .comparison-table th, .comparison-table td { padding: 8px; }
+    }
+  </style>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+</head>
+<body>
+  <nav class="blog-nav">
+    <div class="blog-nav-inner">
+      <a href="/" class="blog-nav-logo"><img src="../logo.png" alt="Deoit" width="28" height="28"><span>Deoit</span></a>
+      <div class="blog-nav-links">
+        <a href="/">Home</a>
+        <a href="/pages/editor">Editor</a>
+        <a href="/learn">Courses</a>
+        <a href="/blog" class="active">Blog</a>
+      </div>
+      <div class="blog-nav-actions"><a href="/pages/editor" class="btn btn-accent">Open Editor</a></div>
+    </div>
+  </nav>
+
+  <div class="post-hero">
+    <a href="/blog" class="post-back">← Back to Blog</a>
+    <span class="post-tag">Tutorial</span>
+    <h1 class="post-title">CSS Positioning: Center, Top, Bottom &amp; More</h1>
+    <div class="post-meta">
+      <span>Majed Qandeel</span>
+      <span>·</span>
+      <span>Jul 27, 2026</span>
+      <span>·</span>
+      <span>10 min read</span>
+    </div>
+  </div>
+
+  <article class="post-content">
+
+    <p>You've been there. A div needs to be centered. A button needs to sit at the bottom of a card. A navbar needs to stick to the top. And somehow, after 20 minutes of Googling, you're still fighting with <code>position: absolute</code> and wondering why nothing works.</p>
+
+    <p>CSS positioning doesn't have to be complicated. In 2026, there are <strong>3 clean ways</strong> to place anything anywhere — and most developers only use one of them correctly.</p>
+
+    <h2>The 3 Methods You Actually Need</h2>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Best For</th>
+          <th>Difficulty</th>
+          <th>Browser Support</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Flexbox</strong></td>
+          <td>Centering, alignment, spacing</td>
+          <td>Easy</td>
+          <td style="color:#98c379">100%</td>
+        </tr>
+        <tr>
+          <td><strong>CSS Grid</strong></td>
+          <td>Complex layouts, 2D positioning</td>
+          <td>Medium</td>
+          <td style="color:#98c379">100%</td>
+        </tr>
+        <tr>
+          <td><strong>position</strong></td>
+          <td>Overlays, sticky, fixed elements</td>
+          <td>Hard</td>
+          <td style="color:#98c379">100%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>1. Center Anything — Flexbox</h2>
+
+    <div class="method-card">
+      <h3>Horizontal + Vertical Center <span class="badge best">Best Method</span></h3>
+      <p>The classic problem: put a div exactly in the middle of its parent.</p>
+
+      <pre><code>.parent {
+  display: flex;
+  justify-content: center;  /* horizontal */
+  align-items: center;      /* vertical */
+  height: 100vh;
+}
+
+.child {
+  width: 200px;
+  height: 200px;
+}</code></pre>
+
+      <p>That's it. <strong>3 lines</strong> and it works every time. No <code>position: absolute</code>, no <code>top: 50%</code>, no <code>transform: translate(-50%, -50%)</code>.</p>
+    </div>
+
+    <div class="tip-box">
+      <strong>Why Flexbox wins:</strong> It handles the centering without removing the element from document flow. The parent and child both participate in the layout. With <code>position: absolute</code>, you lose that.
+    </div>
+
+    <h3>Center Horizontally Only</h3>
+    <pre><code>.parent {
+  display: flex;
+  justify-content: center;
+}
+
+/* Or just use margin auto — works too */
+.child {
+  margin: 0 auto;
+}</code></pre>
+
+    <h3>Center Vertically Only</h3>
+    <pre><code>.parent {
+  display: flex;
+  align-items: center;
+}</code></pre>
+
+    <h3>Center Multiple Items in a Row</h3>
+    <pre><code>.parent {
+  display: flex;
+  justify-content: center;  /* center the row */
+  align-items: center;      /* center vertically */
+  gap: 16px;                /* space between items */
+  flex-wrap: wrap;          /* wrap on small screens */
+}</code></pre>
+
+    <h2>2. Place at Top, Bottom, Left, Right — Flexbox</h2>
+
+    <div class="method-card">
+      <h3>Card with Button at Bottom <span class="badge best">Best Method</span></h3>
+      <p>You have a card with text of varying length. The button should always stick to the bottom.</p>
+
+      <pre><code>.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* pushes button to bottom */
+  height: 300px;
+}
+
+.card-content { flex: 1; }  /* takes remaining space */
+.card-button { margin-top: auto; }</code></pre>
+    </div>
+
+    <h3>Align to Specific Positions</h3>
+    <pre><code>/* Top-left */
+.parent { display: flex; justify-content: flex-start; align-items: flex-start; }
+
+/* Top-right */
+.parent { display: flex; justify-content: flex-end; align-items: flex-start; }
+
+/* Bottom-left */
+.parent { display: flex; justify-content: flex-start; align-items: flex-end; }
+
+/* Bottom-right */
+.parent { display: flex; justify-content: flex-end; align-items: flex-end; }
+
+/* Top-center */
+.parent { display: flex; justify-content: center; align-items: flex-start; }
+
+/* Bottom-center */
+.parent { display: flex; justify-content: center; align-items: flex-end; }</code></pre>
+
+    <h2>3. Complex Layouts — CSS Grid</h2>
+
+    <div class="method-card">
+      <h3>Center with Grid (Even Easier) <span class="badge best">Easiest</span></h3>
+      <pre><code>.parent {
+  display: grid;
+  place-items: center;  /* one line for both axes */
+  height: 100vh;
+}</code></pre>
+
+      <p><code>place-items: center</code> is shorthand for <code>justify-items: center</code> + <code>align-items: center</code>. One line. Done.</p>
+    </div>
+
+    <h3>Grid Layout Positions</h3>
+    <pre><code>.parent {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.header  { grid-area: header; }
+.nav     { grid-area: nav; }
+.main    { grid-area: main; }
+.aside   { grid-area: aside; }
+.footer  { grid-area: footer; }</code></pre>
+
+    <h3>Grid for Overlapping Elements</h3>
+    <pre><code>.parent {
+  display: grid;
+}
+
+.child {
+  grid-area: 1 / 1;  /* both children occupy the same cell */
+}
+
+.overlay {
+  grid-area: 1 / 1;
+  z-index: 1;
+}</code></pre>
+
+    <h2>4. Position Property — When You Actually Need It</h2>
+
+    <div class="method-card">
+      <h3>position: relative <span class="badge good">Useful</span></h3>
+      <p>Moves the element <strong>from its normal position</strong> without removing it from flow.</p>
+      <pre><code>.element {
+  position: relative;
+  top: -10px;     /* move 10px up */
+  left: 20px;     /* move 20px right */
+}</code></pre>
+      <p>Use case: nudging an element slightly, or creating a positioning context for a child.</p>
+    </div>
+
+    <div class="method-card">
+      <h3>position: absolute <span class="badge legacy">Use Carefully</span></h3>
+      <p>Removes the element from document flow. Use only when Flexbox/Grid can't do the job.</p>
+      <pre><code>.parent {
+  position: relative;  /* creates positioning context */
+}
+
+.child {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Center with absolute (old way — Flexbox is better) */
+.center-old {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}</code></pre>
+    </div>
+
+    <div class="tip-box">
+      <strong>Rule of thumb:</strong> If you're using <code>position: absolute</code> to center something, you're doing it wrong. Use Flexbox or Grid instead. <code>position: absolute</code> is for overlays, dropdowns, tooltips, and badges — not for layout.
+    </div>
+
+    <div class="method-card">
+      <h3>position: fixed <span class="badge good">Useful</span></h3>
+      <p>Stays in place even when the user scrolls. Good for navbars and back-to-top buttons.</p>
+      <pre><code>.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+}</code></pre>
+    </div>
+
+    <div class="method-card">
+      <h3>position: sticky <span class="badge best">Best for Scrolling</span></h3>
+      <p>Acts like <code>relative</code> until you scroll past it, then acts like <code>fixed</code>.</p>
+      <pre><code>.sidebar {
+  position: sticky;
+  top: 24px;
+}</code></pre>
+      <p>Use case: sticky table headers, sidebars, floating action buttons that follow the user.</p>
+    </div>
+
+    <h2>5. Common Recipes — Copy & Paste</h2>
+
+    <h3>Center a Modal</h3>
+    <pre><code>.modal-overlay {
+  position: fixed;
+  inset: 0;                    /* shorthand for top/right/bottom/left: 0 */
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #1a1a2e;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+}</code></pre>
+
+    <h3>Navbar Fixed to Top</h3>
+    <pre><code>.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26, 26, 46, 0.9);
+  backdrop-filter: blur(20px);
+  padding: 12px 24px;
+}</code></pre>
+
+    <h3>Sidebar That Follows You</h3>
+    <pre><code>.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 80px;      /* below the navbar */
+  align-self: start;
+  height: fit-content;
+}</code></pre>
+
+    <h3>Badge on Top-Right of Avatar</h3>
+    <pre><code>.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 14px;
+  height: 14px;
+  background: #98c379;
+  border-radius: 50%;
+  border: 2px solid #1a1a2e;
+}</code></pre>
+
+    <h3>Footer at Bottom (Even with Short Content)</h3>
+    <pre><code>body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;   /* pushes footer to bottom */
+}</code></pre>
+
+    <h3>Center Text in a Hero Section</h3>
+    <pre><code>.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 80vh;
+  padding: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+}</code></pre>
+
+    <h2>The Decision Flowchart</h2>
+
+    <div class="method-card">
+      <h3>Which Method Should I Use?</h3>
+      <pre><code>Do you need to CENTER something?
+  ├─ YES → Use Flexbox (justify-content + align-items)
+  │        Or Grid (place-items: center) for one-liner
+  └─ NO → Do you need to PLACE it somewhere specific?
+           ├─ Top/Bottom/Left/Right → Flexbox (align + justify)
+           ├─ Overlay/Dropdown/Tooltip → position: absolute
+           ├─ Fixed navbar/button → position: fixed
+           ├─ Sticky sidebar/header → position: sticky
+           └─ Complex 2D layout → CSS Grid (grid-template-areas)</code></pre>
+    </div>
+
+    <h2>Quick Reference Cheat Sheet</h2>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>I want to...</th>
+          <th>Use this</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Center a div in the page</td>
+          <td><code>display: flex; place-items: center;</code></td>
+        </tr>
+        <tr>
+          <td>Center text horizontally</td>
+          <td><code>text-align: center</code> or <code>justify-content: center</code></td>
+        </tr>
+        <tr>
+          <td>Push footer to bottom</td>
+          <td><code>display: flex; flex-direction: column;</code> + <code>main { flex: 1 }</code></td>
+        </tr>
+        <tr>
+          <td>Button at bottom of card</td>
+          <td><code>justify-content: space-between</code> or <code>margin-top: auto</code></td>
+        </tr>
+        <tr>
+          <td>Fixed navbar</td>
+          <td><code>position: sticky; top: 0;</code></td>
+        </tr>
+        <tr>
+          <td>Modal in center</td>
+          <td><code>position: fixed; inset: 0;</code> + <code>display: flex; place-items: center;</code></td>
+        </tr>
+        <tr>
+          <td>Badge on avatar</td>
+          <td><code>position: absolute; top: -4px; right: -4px;</code></td>
+        </tr>
+        <tr>
+          <td>Sidebar that follows scroll</td>
+          <td><code>position: sticky; top: 80px;</code></td>
+        </tr>
+        <tr>
+          <td>Multi-column layout</td>
+          <td><code>display: grid; grid-template-columns: 200px 1fr 200px;</code></td>
+        </tr>
+        <tr>
+          <td>Overlap two elements</td>
+          <td><code>display: grid;</code> + same <code>grid-area: 1/1;</code></td>
+        </tr>
+        <tr>
+          <td>Back to top button</td>
+          <td><code>position: fixed; bottom: 24px; right: 24px;</code></td>
+        </tr>
+        <tr>
+          <td>Vertically align in a row</td>
+          <td><code>display: flex; align-items: center;</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The Bottom Line</h2>
+
+    <p>CSS positioning in 2026 is simple if you follow this rule:</p>
+
+    <blockquote>
+      <strong>Use Flexbox for alignment. Use Grid for layout. Use position only for overlays.</strong><br>
+      If you're writing <code>position: absolute</code> to center a div, stop. There's a better way.
+    </blockquote>
+
+    <p>The days of fighting with <code>margin: 0 auto</code> + <code>position: relative</code> + <code>transform: translate(-50%, -50%)</code> are over. Modern CSS gives you clean, one-line solutions.</p>
+
+    <p>Want to practice these techniques? Open the <a href="https://deoit.js.org/pages/editor" target="_blank" rel="noopener">Deoit editor</a> and try them yourself. Write the HTML, add the CSS, and see the results instantly.</p>
+
+  </article>
+
+  <div class="post-cta">
+    <div class="post-cta-box">
+      <h3>Practice CSS Positioning</h3>
+      <p>Open the Deoit Editor and try every technique from this guide. Live preview, zero setup.</p>
+      <div class="post-cta-buttons">
+        <a href="https://deoit.js.org/pages/editor" class="btn btn-accent">Open Editor →</a>
+        <a href="/blog" class="btn btn-ghost">← Back to Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="blog-footer">
+    <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
+  </footer>
+</body>
+</html>

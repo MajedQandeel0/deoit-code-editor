@@ -45,6 +45,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/blog"/>
   </url>
   <url>
+    <loc>https://deoit.js.org/blog/css-positioning-guide</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deoit.js.org/blog/css-positioning-guide"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deoit.js.org/blog/css-positioning-guide"/>
+  </url>
+  <url>
     <loc>https://deoit.js.org/blog/bootstrap-is-dead</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
