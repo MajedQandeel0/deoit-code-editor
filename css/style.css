@@ -200,11 +200,37 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   max-width: 460px; line-height: 1.75; margin-bottom: 32px;
 }
 .hero-buttons {
-  display: flex; gap: 12px; flex-wrap: wrap;
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
 }
 .btn-hero {
-  padding: 13px 28px; font-size: 14.5px; border-radius: var(--radius-sm);
+  padding: 14px 32px; font-size: 15px; border-radius: var(--radius-sm);
   gap: 10px;
+}
+.btn-editor-primary {
+  padding: 16px 36px; font-size: 16px; font-weight: 700;
+  border-radius: 14px;
+  background: var(--gradient-accent);
+  box-shadow: 0 4px 24px rgba(67,97,238,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+  transition: all 0.25s cubic-bezier(.4,0,.2,1);
+  position: relative;
+}
+.btn-editor-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(67,97,238,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.hero-btn-badge {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.hero-sub {
+  font-size: 13px; color: var(--text-muted); margin-top: 16px;
+  letter-spacing: 0.3px;
 }
 
 /* ─── Right: Floating Code Cards ─── */
