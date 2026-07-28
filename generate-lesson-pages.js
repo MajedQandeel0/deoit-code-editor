@@ -13,7 +13,7 @@ function slugify(title) {
 }
 
 function generateMetaDescription(lesson, courseTitle) {
-  const pad = ` Learn ${lesson.title} step by step with interactive code examples on Deoit — a free online code editor for HTML, CSS, and JavaScript.`;
+  const pad = ` Learn ${lesson.title} step by step with interactive code examples on Deoit — a browser-based IDE for HTML, CSS, and JavaScript.`;
   let d = (lesson.desc || '') + pad;
   if (d.length > 160) d = d.substring(0, 157) + '...';
   if (d.length < 150) d = (lesson.desc || lesson.title) + ` — Free ${courseTitle} tutorial with code examples on Deoit. Learn step by step.`;
@@ -197,7 +197,7 @@ ${JSON.stringify(articleJsonLd, null, 2)}
       </div>
 
       <div class="lesson-cta">
-        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a free, browser-based code editor.</p>
+        <p>Practice what you learned in the <a href="/pages/editor" target="_blank" rel="noopener">Deoit Editor</a> — a browser-based IDE for HTML, CSS, and JavaScript.</p>
         <a href="/pages/editor" class="btn btn-accent">Open Editor →</a>
       </div>
 

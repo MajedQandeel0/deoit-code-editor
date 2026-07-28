@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Edit in Deoit",
-  "description": "Right-click any webpage to open its HTML, CSS & JavaScript in Deoit - free online code editor",
+  "description": "Right-click any webpage to open its HTML, CSS & JavaScript in Deoit - browser-based IDE",
   "version": "1.0.0",
   "permissions": ["activeTab", "scripting"],
   "action": {

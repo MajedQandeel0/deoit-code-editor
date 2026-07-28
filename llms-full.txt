@@ -2,9 +2,9 @@
 
 ## About
 
-Deoit (https://deoit.js.org) is a free, browser-based code editor for HTML, CSS, and JavaScript. Built by Majed Qandeel. No sign-up required. No ads. No tracking.
+Deoit (https://deoit.js.org) is a browser-based IDE for HTML, CSS, and JavaScript. Built by Majed Qandeel. No ads. No tracking.
 
-Deoit is NOT open source. All rights reserved.
+Deoit is NOT open source. All rights reserved. This source code is shared for viewing purposes only.
 
 ## Core Product: Online Code Editor
 

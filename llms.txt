@@ -1,10 +1,10 @@
-# Deoit — Free Online Code Editor
+# Deoit — Browser-Based IDE
 
-> Deoit is a free, browser-based code editor for HTML, CSS, and JavaScript with syntax highlighting, autocomplete, file explorer, and live preview. No sign-up required.
+> Deoit is a browser-based IDE for HTML, CSS, and JavaScript with syntax highlighting, autocomplete, file explorer, and live preview. No setup required.
 
 ## What is Deoit?
 
-Deoit is an online code editor that lets you write, run, and debug HTML, CSS, and JavaScript directly in your browser. It's designed for web development beginners and professionals who want a fast, free alternative to desktop editors.
+Deoit is a browser-based IDE for building with HTML, CSS, and JavaScript. It features syntax highlighting, smart autocomplete, a file explorer, live preview, and a built-in console — all without any local setup.
 
 ### Key Features
 - Syntax highlighting for HTML, CSS, JavaScript, TypeScript, JSON, Markdown
@@ -21,16 +21,16 @@ Deoit is an online code editor that lets you write, run, and debug HTML, CSS, an
 ## Primary Pages
 
 - [Home](https://deoit.js.org/) — Landing page and overview
-- [Code Editor](https://deoit.js.org/pages/editor) — The main online code editor
+- [Code Editor](https://deoit.js.org/pages/editor) — The main browser-based IDE
 - [Courses](https://deoit.js.org/learn) — Free web development courses
 - [Blog](https://deoit.js.org/blog) — Tutorials and web development articles
 - [Chrome Extension](https://deoit.js.org/extension) — Browser extension for quick access
-- [Embed Widget](https://deoit.js.org/embed) — Embeddable code editor for websites
+- [Embed Widget](https://deoit.js.org/embed) — Embeddable IDE widget for websites
 
 ## Blog Articles
 
 - [Bootstrap is Dead in 2026](https://deoit.js.org/blog/bootstrap-is-dead) — Why Bootstrap lost and what to use instead
-- [Learn HTML in 7 Days](https://deoit.js.org/blog/learn-html-7-days) — Complete beginner guide to HTML
+- [Learn HTML in 7 Days](https://deoit.js.org/blog/learn-html-7-days) — Structured 7-day guide to HTML
 
 ## Author
 

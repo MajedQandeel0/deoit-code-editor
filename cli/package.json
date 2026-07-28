@@ -1,7 +1,7 @@
 {
   "name": "deoit-cli",
   "version": "1.0.0",
-  "description": "Open Deoit - free browser code editor - from your terminal",
+  "description": "Open Deoit - browser-based IDE - from your terminal",
   "main": "index.js",
   "bin": {
     "deoit": "index.js",

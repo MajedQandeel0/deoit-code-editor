@@ -8,7 +8,7 @@
 
 Hey r/webdev!
 
-I've been working on **Deoit** (deoit.js.org) - a free online code editor designed for learning and building with web technologies.
+I've been working on **Deoit** (deoit.js.org) - a browser-based IDE for building with web technologies.
 
 **What it does:**
 - Write HTML, CSS, and JavaScript with syntax highlighting and autocomplete
@@ -21,7 +21,7 @@ I've been working on **Deoit** (deoit.js.org) - a free online code editor design
 
 **Tech stack:** Vanilla JavaScript, no frameworks. Deployed on Vercel.
 
-**Why I built this:** I wanted a lightweight, no-nonsense code editor that works entirely in the browser - perfect for beginners who want to learn web development without installing anything.
+**Why I built this:** I wanted a lightweight, no-nonsense IDE that works entirely in the browser — zero configuration, instant environment, accessible from any device.
 
 Would love to hear your feedback! What features would you like to see?
 
@@ -37,7 +37,7 @@ Would love to hear your feedback! What features would you like to see?
 
 Hi everyone! 👋
 
-I created **Deoit** - a completely free platform for learning web development. Here's what you get:
+I created **Deoit** - a browser-based IDE for web development. Here's what you get:
 
 **The Editor:**
 - Syntax highlighting for HTML, CSS, JavaScript

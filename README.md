@@ -5,8 +5,8 @@
 <h1 align="center">Deoit</h1>
 
 <p align="center">
-  <strong>Free browser-based code editor for HTML, CSS & JavaScript</strong><br>
-  Write, run, and preview code instantly — no downloads, no setup, no sign-up required.
+  <strong>Browser-based IDE for HTML, CSS & JavaScript</strong><br>
+  Build, run, and preview projects instantly — no local setup required.
 </p>
 
 <p align="center">
@@ -20,41 +20,25 @@
   <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/81+_Lessons-22c55e?style=flat" alt="81+ Lessons">
   <img src="https://img.shields.io/badge/7_Themes-61afef?style=flat" alt="7 Themes">
-  <img src="https://img.shields.io/badge/Zero_Frameworks-e5c07b?style=flat" alt="Zero Frameworks">
+  <img src="https://img.shields.io/badge/Zero_Frameworks-22c55e?style=flat" alt="Zero Frameworks">
 </p>
 
 ---
 
 ## What is Deoit?
 
-Deoit is a **free browser-based code editor** for learning and building with HTML, CSS, and JavaScript. Think of it as CodePen meets free courses — but lighter, faster, and built with zero frameworks.
+Deoit is a **browser-based IDE** for building with HTML, CSS, and JavaScript. Full syntax highlighting, smart autocomplete, multi-file projects, live preview, and a built-in console — all running in the browser with zero configuration.
 
-- **No installs. No sign-up. Just open and code.**
-- **81+ interactive lessons** across 6 topics
+- **No local setup. No toolchain. Just open and build.**
+- **81+ reference lessons** across 6 topics
 
 **[Try it live → deoit.js.org](https://deoit.js.org)**
 
 ---
 
-## Why Deoit?
-
-| Feature | Deoit | CodePen | JSFiddle | CodeSandbox |
-|---------|:-----:|:-------:|:--------:|:-----------:|
-| **100% Free** | ✅ | ✅ | ✅ | ❌ |
-| **No sign-up needed** | ✅ | ❌ | ✅ | ❌ |
-| **File Explorer** | ✅ | ❌ | ❌ | ✅ |
-| **81+ Free Lessons** | ✅ | ❌ | ❌ | ❌ |
-| **Console Panel** | ✅ | ❌ | ✅ | ✅ |
-| **Zero Frameworks** | ✅ | ❌ | ❌ | ❌ |
-| **Mobile Friendly** | ✅ | ❌ | ❌ | ❌ |
-| **Offline Support** | ✅ | ❌ | ❌ | ❌ |
-| **Export as ZIP** | ✅ | ✅ | ❌ | ✅ |
-
----
-
 ## Features
 
-### Smart Code Editor
+### Advanced Code Editor
 - Syntax highlighting for **25+ token types**
 - **Smart autocomplete** with fuzzy matching (HTML tags, CSS properties, JS keywords)
 - **Auto-closing tags** and bracket pairs
@@ -79,13 +63,13 @@ Deoit is a **free browser-based code editor** for learning and building with HTM
 - **Google Sign-In** and **GitHub Sign-In**
 - Auto-save projects to cloud
 
-### 81+ Free Lessons
-- **HTML** (20 lessons) — Tags, forms, semantic HTML
-- **CSS** (17 lessons) — Flexbox, Grid, animations, responsive
-- **JavaScript** (20 lessons) — DOM, async, ES6+
-- **React** (12 lessons) — Components, hooks, state
-- **Node.js** (6 lessons) — Modules, HTTP, npm
-- **Developer Tools** (6 lessons) — Git, terminal, devtools
+### 81+ Reference Lessons
+- **HTML** (25 lessons) — Tags, forms, semantic HTML, media, SVG
+- **CSS** (17 lessons) — Flexbox, Grid, animations, responsive, variables
+- **JavaScript** (20 lessons) — DOM, async, ES6+, classes, modules
+- **React** (12 lessons) — Components, hooks, state, props, Router
+- **Node.js** (6 lessons) — Modules, HTTP, npm, Express
+- **Developer Tools** (6 lessons) — Git, terminal, devtools, VS Code
 
 ---
 
@@ -93,7 +77,7 @@ Deoit is a **free browser-based code editor** for learning and building with HTM
 
 ### Use Online (Recommended)
 
-**[Open Deoit → deoit.js.org](https://deoit.js.org/pages/editor)**
+**[Open Deoit → deoit.js.org/pages/editor](https://deoit.js.org/pages/editor)**
 
 ### Run Locally
 
@@ -136,18 +120,6 @@ Add a live code playground to any webpage:
 
 ---
 
-## For Educators
-
-Deoit is perfect for teaching web development:
-
-- **No student sign-ups** — just share the link
-- **81 structured lessons** — ready to use as curriculum
-- **"Try it Yourself"** — students jump from lesson to editor instantly
-- **Works on any device** — Chromebooks, tablets, phones
-- **Free forever** — no premium plans, no ads
-
----
-
 ## Contact
 
 For questions or feedback:
@@ -158,4 +130,4 @@ For questions or feedback:
 
 ## License
 
-All rights reserved. &copy; 2026 Deoit
+All rights reserved. &copy; 2026 Deoit. This source code is shared for viewing purposes only. No permission is granted to copy, modify, distribute, or use this code without explicit written permission from the author.

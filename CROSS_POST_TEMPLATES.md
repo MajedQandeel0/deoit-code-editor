@@ -121,7 +121,7 @@ Want to see what vanilla HTML, CSS, and JavaScript can actually build? Open the 
 
 *Originally published at [deoit.js.org/blog](https://deoit.js.org/blog/bootstrap-is-dead)*
 
-*Built [Deoit](https://deoit.js.org) — a free browser-based code editor for HTML, CSS & JavaScript.*
+*Built [Deoit](https://deoit.js.org) — a browser-based IDE for HTML, CSS & JavaScript.*
 
 ---
 

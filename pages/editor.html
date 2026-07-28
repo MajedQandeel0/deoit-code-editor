@@ -13,10 +13,10 @@
   
   
   <!-- Primary Meta Tags -->
-  <title>Deoit — Free Online Code Editor for HTML, CSS & JS</title>
-  <meta name="title" content="Deoit — Free Online Code Editor | HTML, CSS & JS">
-  <meta name="description" content="Write, test, and preview HTML, CSS, and JavaScript in real time. Deoit is a free browser-based code editor with syntax highlighting, autocomplete, and live preview.">
-  <meta name="keywords" content="online code editor, HTML editor, CSS editor, JavaScript editor, web development, code playground, live preview, syntax highlighting, autocomplete, free code editor, learn to code, browser IDE, front-end editor">
+  <title>Deoit — Browser-Based IDE for HTML, CSS & JS</title>
+  <meta name="title" content="Deoit — Browser-Based IDE for HTML, CSS & JS">
+  <meta name="description" content="Build, test, and preview HTML, CSS, and JavaScript in real time. Deoit is a browser-based IDE with syntax highlighting, autocomplete, file explorer, and live preview.">
+  <meta name="keywords" content="browser IDE, HTML editor, CSS editor, JavaScript editor, web development, code playground, live preview, syntax highlighting, autocomplete, front-end IDE, prototyping tool">
   <meta name="author" content="Majed Qandeel">
   <meta name="robots" content="index, follow"> <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -142,31 +142,38 @@
         }
       }, {
         "@type": "Question",
-        "name": "Do I need to install anything to use Deoit?",
+        "name": "Is Deoit free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Deoit runs entirely in your browser. There is nothing to download or install. Just open the website and start coding."
+          "text": "Yes, Deoit is free. No subscriptions, no ads, no hidden fees. You can start building instantly without signing up."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do I need to install anything?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Deoit runs entirely in your browser. Nothing to download or install."
         }
       }, {
         "@type": "Question",
         "name": "Does Deoit support JavaScript?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Deoit supports HTML, CSS, and JavaScript with syntax highlighting, autocomplete, and live preview for all three."
+          "text": "Yes. Full support for HTML, CSS, and JavaScript with syntax highlighting, autocomplete, and live preview."
         }
       }, {
         "@type": "Question",
-        "name": "Can I save my work in Deoit?",
+        "name": "Can I save my work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Deoit auto-saves your code to your browser's local storage. You can also export your project as a ZIP file or import existing projects."
+          "text": "Yes. Auto-saves to browser localStorage. Export as ZIP or JSON. Sign in for cloud sync."
         }
       }, {
         "@type": "Question",
-        "name": "How does Deoit compare to CodePen and JSFiddle?",
+        "name": "Does Deoit have a file explorer?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Deoit offers a full file explorer, multi-file project support, import/export, auto-save, and a built-in console - features not available on CodePen or JSFiddle. It is completely free to use."
+          "text": "Yes. Full file explorer with folder support, drag-and-drop, rename, delete, and multi-file project management."
         }
       }]
     }
@@ -174,7 +181,7 @@
 </head>
 
 <body class="logged-out">
-  <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Deoit — Free Online Code Editor</h1>
+  <h1 style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">Deoit — Browser-Based IDE</h1>
   <div class="editor-app"> <!-- Toolbar -->
     <header class="toolbar">
       <div class="toolbar-left">
@@ -310,20 +317,13 @@
     }
   </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
-  <script type="text/javascript">    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "xsyc54e0xf");</script>
 <script>
-var _errFired=0;var _MAX_ERR=5;function _safeStr(s){return String(s||'').substring(0,200).replace(/[<>"'&]/g,'');}
-document.addEventListener('securitypolicyviolation',function(e){
-if(_errFired>=_MAX_ERR)return;_errFired++;
-fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 Security: '+_safeStr(e.violatedDirective),message:'Blocked: '+_safeStr(e.blockedURI)+'\nPage: '+location.href})}).catch(function(){});
-});
-window.addEventListener('error',function(e){
-if(_errFired>=_MAX_ERR)return;if(e.message&&!e.message.includes('ResizeObserver')&&!e.message.includes('Script error')){_errFired++;fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 JS Error',message:_safeStr(e.message)+'\nPage: '+location.href})}).catch(function(){});}
-});
-window.addEventListener('unhandledrejection',function(e){
-if(_errFired>=_MAX_ERR)return;var r=String(e.reason||'');if(r.includes('web3forms')||r.includes('securitypolicy'))return;_errFired++;
-fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'🚨 Unhandled Promise',message:_safeStr(r)+'\nPage: '+location.href})}).catch(function(){});
-});
+var _errBatch=[],_errTimer=null,_MAX_ERR=5;function _safeStr(s){return String(s||'').substring(0,200).replace(/[<>"'&]/g,'');}
+function _flushErrors(){if(_errBatch.length===0)return;var b=_errBatch.slice();_errBatch=[];fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({access_key:'547008e9-7c97-4e4f-8587-9fceefc5e3ac',subject:'Deoit Error Report ('+b.length+')',message:b.join('\n---\n')})}).catch(function(){});}
+function _trackErr(subject,msg){if(_errBatch.length>=_MAX_ERR)return;_errBatch.push('['+subject+'] '+_safeStr(msg));if(!_errTimer){_errTimer=setTimeout(function(){_errTimer=null;_flushErrors();},5000);}}
+document.addEventListener('securitypolicyviolation',function(e){_trackErr('CSP',e.violatedDirective+': '+e.blockedURI);});
+window.addEventListener('error',function(e){if(e.message&&!e.message.includes('ResizeObserver')&&!e.message.includes('Script error')){_trackErr('JS',e.message);}});
+window.addEventListener('unhandledrejection',function(e){var r=String(e.reason||'');if(!r.includes('web3forms'))_trackErr('Promise',r);});
 </script>
 </body>
 
