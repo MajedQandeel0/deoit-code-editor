@@ -532,8 +532,11 @@ function renderTabs() {
     tab.className = `tab${f.id === activeTabId ? ' active' : ''}`;
     tab.dataset.id = f.id;
     tab.draggable = true;
-    const dc = f.lang==='html'?'var(--hl-tag)':f.lang==='css'?'var(--hl-attr)':'var(--hl-entity)';
-    tab.innerHTML = `<span class="tab-dot" style="background:${dc}"></span>${esc(f.name)}
+    var langSvg = '<svg class="tab-lang-icon" viewBox="0 0 16 16" width="16" height="16"><path fill="#888" d="M6 1h4l5 5v9a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1l4-1zm0 1.5L3.5 4H12L9.5 2.5H6zM3 5v8h10V5H3z"/></svg>';
+    if (f.lang === 'html') langSvg = '<svg class="tab-lang-icon" viewBox="0 0 16 16" width="16" height="16"><path fill="#e44d26" d="M2 1l1.2 12.6L8 15l4.8-1.4L14 1H2zm10.4 4.5l.2-2H4.8l.4 4h6.4l-.3 3.4L8 12.1l-3.3-1.2-.2-2.4h-2l.3 4L8 14.2l5-1.8.8-8.9H6.4l-.2-2h7.6z"/></svg>';
+    else if (f.lang === 'css') langSvg = '<svg class="tab-lang-icon" viewBox="0 0 16 16" width="16" height="16"><path fill="#264de4" d="M2 1l1.2 12.6L8 15l4.8-1.4L14 1H2zm11.2 3.5l-.2 2H6.7l.2 2h5.9l-.5 5.5L8 13.8l-4.3-1.8-.3-3h2.1l.2 2L8 11.2l2.3-.8.3-3H4.3L4 4.5h9.2z"/></svg>';
+    else if (f.lang === 'js' || f.lang === 'jsx' || f.lang === 'ts') langSvg = '<svg class="tab-lang-icon" viewBox="0 0 16 16" width="16" height="16"><path fill="#f0db4f" d="M1 1h14v14H1V1zm7.3 11.9c.6.9 1.3 1.6 2.7 1.6 1.1 0 1.9-.6 1.9-1.4 0-.9-.7-1.3-2-1.7l-.6-.2c-1.7-.7-2.9-1.6-2.9-3.5 0-1.7 1.3-3 3.4-3 1.5 0 2.6.5 3.4 1.9l-1.9 1.2c-.4-.7-.8-1-1.5-1-.7 0-1.1.4-1.1.9 0 .7.4 1 1.6 1.4l.6.2c2.1.9 3.3 1.8 3.3 3.8 0 2.2-1.7 3.4-4 3.4-2.3 0-3.6-1-4.5-2.4l2-1.2z"/></svg>';
+    tab.innerHTML = `${langSvg}${esc(f.name)}
       <button class="tab-close" data-action="close-tab" data-id="${escAttr(f.id)}">&#10005;</button>`;
     tab.addEventListener('dragstart', e => {
       e.dataTransfer.setData('text/plain', f.id);
