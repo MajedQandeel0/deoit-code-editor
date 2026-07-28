@@ -43,7 +43,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin> <!-- Styles -->
-  <link rel="stylesheet" href="../css/editor.css"> <!-- Schema.org JSON-LD -->
+  <link rel="stylesheet" href="../css/editor.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "@codemirror/state": "https://cdn.jsdelivr.net/npm/@codemirror/state@6.5.2/+esm",
+      "@codemirror/view": "https://cdn.jsdelivr.net/npm/@codemirror/view@6.36.5/+esm",
+      "@codemirror/basic-setup": "https://cdn.jsdelivr.net/npm/@codemirror/basic-setup@6.0.0/+esm",
+      "@codemirror/lang-html": "https://cdn.jsdelivr.net/npm/@codemirror/lang-html@6.4.9/+esm",
+      "@codemirror/lang-css": "https://cdn.jsdelivr.net/npm/@codemirror/lang-css@6.3.1/+esm",
+      "@codemirror/lang-javascript": "https://cdn.jsdelivr.net/npm/@codemirror/lang-javascript@6.2.2/+esm",
+      "@codemirror/theme-one-dark": "https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@6.1.2/+esm"
+    }
+  }
+  </script> <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -272,10 +285,8 @@
         <div class="tabs-bar" id="tabsBar"></div> <!-- Single Editor (fills all remaining space) -->
         <div class="editor-single"> <span id="editorFilename" style="display:none"></span> <span id="editorLangBadge" style="display:none"></span>
           <div class="editor-wrap">
-            <div class="editor-gutter" id="editorGutter"></div>
-            <div class="editor-input-area">
-              <pre class="code-highlight" id="codeHighlight"></pre>
-              <div class="indent-guides" id="indentGuides"></div> <textarea id="editorCode" placeholder="Open a file from the explorer..." spellcheck="false"></textarea>
+            <div class="editor-input-area" id="editorInputArea">
+              <textarea id="editorCode" placeholder="Open a file from the explorer..." spellcheck="false"></textarea>
               <div class="suggest-box" id="suggestBox"></div>
             </div>
           </div>
@@ -308,6 +319,7 @@
   <script src="../js/auth.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
   <script src="../js/editor.js" defer></script>
+  <script type="module" src="../js/cm6-setup.js"></script>
 
   <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
   <script defer src="/_vercel/insights/script.js"></script>

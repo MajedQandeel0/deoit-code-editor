@@ -1,6 +1,16 @@
 // ─── FRAME BUSTING ───
 if (top !== self) { top.location.href = self.location.href; }
 
+// ─── CM6 BRIDGE HELPERS ───
+function _cmContent() { return window.__cmGetContent ? window.__cmGetContent() : editorCode.value; }
+function _cmSetContent(t) { if (window.__cmSetContent) window.__cmSetContent(t); else editorCode.value = t || ''; }
+function _cmCursor() {
+  if (window.__cmGetCursor) return window.__cmGetCursor();
+  var t = editorCode.value, pos = editorCode.selectionStart;
+  return { line: t.substring(0,pos).split('\n').length, col: pos - t.substring(0,pos).lastIndexOf('\n') };
+}
+function _cmIsActive() { return !!window.__cmEditor; }
+
 // ─── AUTH LOCK ───
 function stringToColor(s) {
   var colors = ['#3b82f6','#8b5cf6','#ec4899','#f59e0b','#10b981','#06b6d4','#ef4444','#14b8a6','#f97316','#6366f1'];
@@ -76,7 +86,7 @@ document.addEventListener('click', function(e) {
 
 // ─── DOM REFS ───
 const editorCode = document.getElementById('editorCode');
-const editorGutter = document.getElementById('editorGutter');
+var editorGutter = document.getElementById('editorGutter');
 const editorFilename = document.getElementById('editorFilename');
 const editorLangBadge = document.getElementById('editorLangBadge');
 const codeHighlight = document.getElementById('codeHighlight');
@@ -431,25 +441,26 @@ function highlight(lang, code) {
 }
 
 function renderGuides() {
-  const container = document.getElementById('indentGuides');
+  if (_cmIsActive()) return;
+  var container = document.getElementById('indentGuides');
   if (!container) return;
   container.innerHTML = '';
-  const code = editorCode.value;
+  var code = editorCode.value;
   if (!code) return;
-  const lines = code.split('\n').slice(0, 200);
-  const style = getComputedStyle(codeHighlight);
-  const lh = parseFloat(style.lineHeight) || 22;
-  const ch = 7.8;
-  const levels = lines.map(l => { const m = l.match(/^(\s*)/); return m ? Math.floor(m[1].length / 2) : 0; });
-  const max = levels.length ? Math.max(...levels) : 0;
+  var lines = code.split('\n').slice(0, 200);
+  var style = getComputedStyle(codeHighlight);
+  var lh = parseFloat(style.lineHeight) || 22;
+  var ch = 7.8;
+  var levels = lines.map(function(l) { var m = l.match(/^(\s*)/); return m ? Math.floor(m[1].length / 2) : 0; });
+  var max = levels.length ? Math.max.apply(null, levels) : 0;
   if (max < 1) return;
-  for (let lvl = 1; lvl <= max; lvl++) {
-    let s = -1;
-    for (let i = 0; i < lines.length; i++) {
+  for (var lvl = 1; lvl <= max; lvl++) {
+    var s = -1;
+    for (var i = 0; i < lines.length; i++) {
       if (levels[i] >= lvl) { if (s === -1) s = i; }
       else {
         if (s !== -1 && i - s > 1) {
-          const g = document.createElement('div'); g.className = 'guide';
+          var g = document.createElement('div'); g.className = 'guide';
           g.style.left = (lvl * 2 * ch - 4) + 'px';
           g.style.top = (s * lh) + 'px';
           g.style.height = ((i - s) * lh) + 'px';
@@ -458,7 +469,7 @@ function renderGuides() {
       }
     }
     if (s !== -1 && lines.length - s > 1) {
-      const g = document.createElement('div'); g.className = 'guide';
+      var g = document.createElement('div'); g.className = 'guide';
       g.style.left = (lvl * 2 * ch - 4) + 'px';
       g.style.top = (s * lh) + 'px';
       g.style.height = ((lines.length - s) * lh) + 'px';
@@ -468,7 +479,8 @@ function renderGuides() {
 }
 
 function updateHighlight() {
-  const lang = fileLang(editorFilename.textContent === 'No file open' ? '' : editorFilename.textContent);
+  if (_cmIsActive() || !codeHighlight) return;
+  var lang = fileLang(editorFilename.textContent === 'No file open' ? '' : editorFilename.textContent);
   codeHighlight.innerHTML = highlight(lang, editorCode.value) + '\n';
   renderGuides();
 }
@@ -476,7 +488,7 @@ function updateHighlight() {
 // ─── UPDATE EDITOR ───
 function updateEditor(file) {
   if (!file) {
-    editorCode.value = '';
+    _cmSetContent('');
     editorFilename.textContent = 'No file open';
     editorLangBadge.textContent = '--';
     editorLangBadge.className = 'lang-badge-h';
@@ -484,11 +496,12 @@ function updateEditor(file) {
     updateHighlight();
     return;
   }
-  editorCode.value = file.content || '';
+  _cmSetContent(file.content || '');
   editorFilename.textContent = file.name;
-  const lang = fileLang(file.name);
+  var lang = fileLang(file.name);
   editorLangBadge.textContent = lang.toUpperCase();
   editorLangBadge.className = 'lang-badge-h' + (lang !== 'other' ? ' ' + lang : '');
+  if (window.__cmSetLang) window.__cmSetLang(lang);
   updateGutter();
   updateHighlight();
 }
@@ -616,17 +629,18 @@ function closeCurrent() { if (activeTabId) closeTab(activeTabId); }
 // ─── SAVE CURRENT ───
 function saveCurrent() {
   if (activeTabId) {
-    const f = findById(fileSystem, activeTabId);
-    if (f) { f.content = editorCode.value; save(); }
+    var f = findById(fileSystem, activeTabId);
+    if (f) { f.content = _cmContent(); save(); }
   }
 }
 
 // ─── GUTTER ───
 function updateGutter() {
-  const lines = editorCode.value.split('\n');
+  if (_cmIsActive() || !editorGutter) return;
+  var lines = editorCode.value.split('\n');
   editorGutter.innerHTML = '';
-  for (let i = 1; i <= lines.length; i++) {
-    const s = document.createElement('span'); s.className='line-num'; s.textContent=i; editorGutter.appendChild(s);
+  for (var i = 1; i <= lines.length; i++) {
+    var s = document.createElement('span'); s.className='line-num'; s.textContent=i; editorGutter.appendChild(s);
   }
 }
 
@@ -803,16 +817,15 @@ function resetAll() {
 
 // ─── STATUS ───
 function updateStatus() {
-  const t = editorCode.value, pos = editorCode.selectionStart;
-  const line = t.substring(0,pos).split('\n').length, col = pos - t.substring(0,pos).lastIndexOf('\n');
-  statusLines.textContent = `Ln ${line}, Col ${col}`;
-  statusChars.textContent = `${t.length} chars`;
-  const stats = countAll(fileSystem);
-  statusFile.textContent = `${stats.f} files, ${stats.c} chars total`;
-  const parts = [];
-  if (activeHtmlId) { const f=findById(fileSystem,activeHtmlId); if(f) parts.push(f.name); }
-  if (activeCssId) { const f=findById(fileSystem,activeCssId); if(f) parts.push(f.name); }
-  if (activeJsId) { const f=findById(fileSystem,activeJsId); if(f) parts.push(f.name); }
+  var cursor = _cmCursor(), content = _cmContent();
+  statusLines.textContent = 'Ln ' + cursor.line + ', Col ' + cursor.col;
+  statusChars.textContent = content.length + ' chars';
+  var stats = countAll(fileSystem);
+  statusFile.textContent = stats.f + ' files, ' + stats.c + ' chars total';
+  var parts = [];
+  if (activeHtmlId) { var f=findById(fileSystem,activeHtmlId); if(f) parts.push(f.name); }
+  if (activeCssId) { var f=findById(fileSystem,activeCssId); if(f) parts.push(f.name); }
+  if (activeJsId) { var f=findById(fileSystem,activeJsId); if(f) parts.push(f.name); }
   statusLang.textContent = parts.length ? parts.join(' \u2022 ') : 'No files open';
 }
 
@@ -1141,6 +1154,7 @@ suggestBox.addEventListener('click', e => {
 // ─── EVENTS ───
 let _inputTimer = null;
 editorCode.addEventListener('input', function() {
+  if (_cmIsActive()) return;
   if (_inputTimer) cancelAnimationFrame(_inputTimer);
   _inputTimer = requestAnimationFrame(function() {
     _inputTimer = null;
@@ -1151,8 +1165,9 @@ editorCode.addEventListener('input', function() {
   });
 });
 editorCode.addEventListener('scroll', function() {
-  editorGutter.scrollTop = this.scrollTop;
-  codeHighlight.scrollTop = this.scrollTop;
+  if (_cmIsActive()) return;
+  if (editorGutter) editorGutter.scrollTop = this.scrollTop;
+  if (codeHighlight) codeHighlight.scrollTop = this.scrollTop;
   const g = document.getElementById('indentGuides');
   if (g) g.style.transform = 'translateY(-' + this.scrollTop + 'px)';
 });
@@ -1163,6 +1178,7 @@ editorCode.addEventListener('keyup', function(e) {
   if (e.key.length === 1 || e.key === 'Backspace') { suggestIndex = -1; showSuggestions(); }
 });
 editorCode.addEventListener('keydown', function(e) {
+  if (_cmIsActive()) return;
   if (suggestBox.classList.contains('show')) {
     const items = suggestBox.querySelectorAll('.suggest-item');
     if (e.key === 'ArrowDown') {
@@ -1615,6 +1631,7 @@ function applySettings() {
   document.getElementById('consoleBody').style.fontSize = s.consoleFontSize + 'px';
   document.getElementById('consoleBody').style.fontFamily = FONTS[s.consoleFontFamily] || FONTS.jetbrains;
   if (s.consoleHeight) document.documentElement.style.setProperty('--console-h', s.consoleHeight + 'px');
+  if (window.__cmApplySettings) window.__cmApplySettings(s);
 }
 
 const _sections = [

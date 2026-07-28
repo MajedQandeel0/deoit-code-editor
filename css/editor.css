@@ -308,67 +308,35 @@ body {
 
 /* ─── EDITOR WRAP ─── */
 .editor-wrap {
-  display: grid;
-  grid-template-columns: 55px 1fr;
-  overflow: hidden; min-height: 0;
+  display: flex; flex-direction: column;
+  overflow: hidden; min-height: 0; height: 100%;
   background: var(--bg-editor);
 }
-
-.editor-gutter {
-  background: var(--bg-gutter);
-  padding: 16px 0;
-  text-align: right; padding-right: 12px;
-  font-family: var(--font-mono); font-size: calc(var(--editor-font-size) - 1px); line-height: var(--editor-line-height);
-  color: var(--text-muted); user-select: none;
-  overflow: hidden; border-right: 1px solid var(--border-light);
-}
-.editor-gutter .line-num { display: block; font-size: 14px; color: #444; }
 
 /* ─── INPUT AREA ─── */
 .editor-input-area {
-  position: relative; overflow: hidden;
+  position: relative; overflow: hidden; height: 100%; flex: 1; min-height: 0;
   background: var(--bg-editor);
 }
+.editor-input-area textarea { display: none; }
 
-.editor-input-area .code-highlight {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  padding: 16px 18px; font-family: var(--font-mono); font-size: var(--editor-font-size);
-  line-height: var(--editor-line-height); letter-spacing: var(--editor-letter-spacing);
-  white-space: pre; overflow: hidden;
-  pointer-events: none; z-index: 1; color: var(--text);
-  tab-size: var(--editor-tab-size);
-  font-variant-ligatures: var(--font-ligatures, normal);
-}
-
-.editor-input-area .indent-guides {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  pointer-events: none; z-index: 1; overflow: hidden;
-  padding: 16px 18px;
-}
-.editor-input-area .indent-guides .guide {
-  position: absolute; width: 1px; background: rgba(255,255,255,0.06);
-}
-
-.editor-input-area textarea {
-  width: 100%; height: 100%; background: transparent; color: transparent;
-  border: none; outline: none; resize: none; padding: 16px 18px;
-  font-family: var(--font-mono); font-size: var(--editor-font-size);
-  line-height: var(--editor-line-height); letter-spacing: var(--editor-letter-spacing);
-  tab-size: var(--editor-tab-size); position: absolute; top: 0; left: 0; z-index: 2;
-  white-space: pre; overflow: auto; caret-color: var(--accent);
-  font-variant-ligatures: var(--font-ligatures, normal);
-  caret-shape: var(--editor-caret-shape, bar);
-  -webkit-caret-shape: var(--editor-caret-shape, bar);
-}
-.editor-input-area textarea::selection { background: rgba(217,217,217,0.15); }
-.editor-input-area textarea::placeholder { color: var(--text-muted); }
-
-/* setting-driven overrides */
-.editor-word-wrap .code-highlight,
-.editor-word-wrap textarea { white-space: pre-wrap !important; }
-.editor-no-gutter .editor-gutter { display: none; }
-.editor-no-gutter .editor-wrap { grid-template-columns: 1fr; }
-.editor-no-indent-guides .indent-guides { display: none; }
+/* ─── CodeMirror 6 ─── */
+.editor-input-area .cm-editor { height: 100%; }
+.editor-input-area .cm-scroller { overflow: auto; font-family: var(--font-mono); font-size: var(--editor-font-size); line-height: var(--editor-line-height); }
+.editor-input-area .cm-gutters { background: var(--bg-gutter); border-right: 1px solid var(--border-light); }
+.editor-input-area .cm-activeLineGutter { background: rgba(255,255,255,0.03); }
+.editor-input-area .cm-cursor { border-left-color: var(--accent) !important; }
+.editor-input-area .cm-selectionBackground { background: rgba(217,217,217,0.12) !important; }
+.editor-input-area .cm-focused .cm-selectionBackground { background: rgba(217,217,217,0.15) !important; }
+.editor-input-area .cm-matchingBracket { background: rgba(255,255,255,0.08); outline: 1px solid rgba(255,255,255,0.15); }
+.editor-input-area .cm-foldPlaceholder { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); }
+.editor-input-area .cm-tooltip { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 13px; }
+.editor-input-area .cm-tooltip-autocomplete ul li { color: var(--text-dim); padding: 4px 8px; }
+.editor-input-area .cm-tooltip-autocomplete ul li[aria-selected] { background: rgba(255,255,255,0.08); color: var(--text); }
+.editor-input-area .cm-completionLabel { color: var(--text-dim); }
+.editor-no-gutter .cm-gutters { display: none; }
+.editor-word-wrap .cm-content { white-space: pre-wrap !important; }
+.editor-no-indent-guides .cm-indentationMarker { display: none; }
 
 /* ─── SYNTAX HIGHLIGHTING ─── */
 .hl-comment { color: var(--hl-comment); font-style: italic; }
