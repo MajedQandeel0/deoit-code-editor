@@ -34,7 +34,6 @@
   <link rel="alternate" href="https://deoit.js.org/pages/editor" hreflang="x-default" />
   <link rel="canonical" href="https://deoit.js.org/pages/editor"> <!-- Icons & PWA -->
   <link rel="icon" type="image/png" href="../logo.png">
-  <link rel="icon" type="image/png" href="../logo-48.png" sizes="48x48">
   <link rel="apple-touch-icon" href="../logo.png">
   <link rel="manifest" href="../manifest.json"> <!-- Preload -->
   <link rel="preload" href="../css/editor.css" as="style">
@@ -268,47 +267,16 @@
           </a>
         </div>
       </aside>
-        <div class="resize-bar resize-bar-v" data-resize="sidebar" title="Drag to resize sidebar"></div> <!-- Main Content -->
-      <div class="main-content" id="mainContent">
-        <!-- Search Panel -->
-        <div class="search-panel" id="searchPanel" hidden>
-          <div class="search-panel-header">
-            <div class="search-panel-inputs">
-              <div class="search-input-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input type="text" id="searchInput" placeholder="Search in project..." spellcheck="false">
-              </div>
-              <div class="search-input-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M3 16v5h5"/><path d="M16 21h5v-5"/></svg>
-                <input type="text" id="searchReplaceInput" placeholder="Replace with..." spellcheck="false">
-              </div>
-            </div>
-            <div class="search-panel-actions">
-              <button class="search-btn" id="searchPrevBtn" title="Previous match"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="15 18 9 12 15 6"/></svg></button>
-              <button class="search-btn" id="searchNextBtn" title="Next match"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="9 18 15 12 9 6"/></svg></button>
-              <span class="search-count" id="searchCount">0 results</span>
-              <button class="search-btn" id="searchReplaceAllBtn" title="Replace all">Replace All</button>
-              <button class="search-btn search-close" id="searchCloseBtn" title="Close">&times;</button>
-            </div>
-          </div>
-          <div class="search-panel-results" id="searchResults"></div>
-        </div>
-        <!-- Tabs -->
-        <div class="tabs-bar" id="tabsBar"></div> <!-- Breadcrumbs -->
-        <div class="breadcrumb-bar" id="breadcrumbBar" hidden></div>
-        <!-- Single Editor (fills all remaining space) -->
-        <div class="editor-single" id="editorSingle"> <span id="editorFilename" style="display:none"></span> <span id="editorLangBadge" style="display:none"></span>
-          <div class="editor-wrap" id="editorWrap">
+      <div class="resize-bar resize-bar-v" data-resize="sidebar" title="Drag to resize sidebar"></div> <!-- Main Content -->
+      <div class="main-content" id="mainContent"> <!-- Tabs -->
+        <div class="tabs-bar" id="tabsBar"></div> <!-- Single Editor (fills all remaining space) -->
+        <div class="editor-single"> <span id="editorFilename" style="display:none"></span> <span id="editorLangBadge" style="display:none"></span>
+          <div class="editor-wrap">
             <div class="editor-gutter" id="editorGutter"></div>
             <div class="editor-input-area">
               <pre class="code-highlight" id="codeHighlight"></pre>
               <div class="indent-guides" id="indentGuides"></div> <textarea id="editorCode" placeholder="Open a file from the explorer..." spellcheck="false"></textarea>
               <div class="suggest-box" id="suggestBox"></div>
-              <div class="multi-cursor-overlay" id="multiCursorOverlay"></div>
-            </div>
-            <div class="minimap-wrap" id="minimapWrap">
-              <canvas class="minimap-canvas" id="minimapCanvas"></canvas>
-              <div class="minimap-viewport" id="minimapViewport"></div>
             </div>
           </div>
         </div>
@@ -335,17 +303,6 @@
     </footer>
   </div>
   <div id="dialogContainer"></div>
-  <!-- Command Palette -->
-  <div class="cmd-palette-overlay" id="cmdPalette" hidden>
-    <div class="cmd-palette">
-      <div class="cmd-palette-header">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-        <input type="text" class="cmd-palette-input" id="cmdInput" placeholder="Type a command..." spellcheck="false" autocomplete="off">
-      </div>
-      <div class="cmd-palette-results" id="cmdResults"></div>
-      <div class="cmd-palette-footer"> <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> navigate</span> <span><kbd>Enter</kbd> select</span> <span><kbd>Esc</kbd> close</span> </div>
-    </div>
-  </div>
   <div class="context-menu" id="contextMenu"></div> <input type="file" id="importInput" accept=".json" style="display:none">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js" defer integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
   <script src="../js/auth.js" defer></script>
