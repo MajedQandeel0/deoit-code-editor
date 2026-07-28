@@ -1117,7 +1117,10 @@ editorCode.addEventListener('input', function() {
   });
 });
 editorCode.addEventListener('scroll', function() {
-  /* scroll sync handled by CM5 */
+  editorGutter.scrollTop = this.scrollTop;
+  codeHighlight.scrollTop = this.scrollTop;
+  const g = document.getElementById('indentGuides');
+  if (g) g.style.transform = 'translateY(-' + this.scrollTop + 'px)';
 });
 editorCode.addEventListener('click', updateStatus);
 editorCode.addEventListener('keyup', function(e) {
@@ -2043,7 +2046,7 @@ function openCommandPalette() {
 
 function closeCommandPalette() {
   cmdOverlay.hidden = true;
-  if (window.__cmEditor) window.__cmEditor.focus(); else editorCode.focus();
+  editorCode.focus();
 }
 
 function filterCmdResults(query) {
@@ -2230,7 +2233,7 @@ function openSearch() {
 function closeSearch() {
   document.getElementById('searchPanel').hidden = true;
   clearSearchHighlight();
-  if (window.__cmEditor) window.__cmEditor.focus(); else editorCode.focus();
+  editorCode.focus();
 }
 
 function doSearch() {
@@ -2354,16 +2357,9 @@ document.getElementById('searchCloseBtn').addEventListener('click', closeSearch)
 // ═══════════════════════════════════════════════════════════════════
 
 function goToLine() {
-  var cm = window.__cmEditor;
-  var ta = editorCode;
-  var total, cur;
-  if (cm) {
-    total = cm.lineCount();
-    cur = cm.getCursor().line + 1;
-  } else {
-    total = ta.value.split('\n').length;
-    cur = ta.value.substring(0, ta.selectionStart).split('\n').length;
-  }
+  const ta = editorCode;
+  const total = ta.value.split('\n').length;
+  const cur = ta.value.substring(0, ta.selectionStart).split('\n').length;
   const overlay = document.createElement('div');
   overlay.className = 'dialog-overlay';
   overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:2500;';
@@ -2376,23 +2372,17 @@ function goToLine() {
   const input = overlay.querySelector('#gotoInput');
   input.focus();
   input.select();
-  function close() { overlay.remove(); if (window.__cmEditor) window.__cmEditor.focus(); else editorCode.focus(); }
+  function close() { overlay.remove(); editorCode.focus(); }
   overlay.querySelector('#gotoCancel').addEventListener('click', close);
   overlay.querySelector('#gotoConfirm').addEventListener('click', () => {
     const line = parseInt(input.value);
     if (line >= 1 && line <= total) {
-      if (cm) {
-        cm.setCursor(line - 1);
-        var h = cm.defaultTextHeight();
-        cm.scrollIntoView({line: line - 1, ch: 0}, h * 8);
-      } else {
-        const lines = ta.value.split('\n');
-        let pos = 0;
-        for (let i = 1; i < line; i++) pos += lines[i - 1].length + 1;
-        ta.selectionStart = ta.selectionEnd = pos;
-        ta.focus();
-        ta.scrollTop = (line - 1) * 22 - 100;
-      }
+      const lines = ta.value.split('\n');
+      let pos = 0;
+      for (let i = 1; i < line; i++) pos += lines[i - 1].length + 1;
+      ta.selectionStart = ta.selectionEnd = pos;
+      ta.focus();
+      ta.scrollTop = (line - 1) * 22 - 100;
     }
     close();
   });
@@ -2400,6 +2390,7 @@ function goToLine() {
     if (e.key === 'Enter') overlay.querySelector('#gotoConfirm').click();
     if (e.key === 'Escape') close();
   });
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -2434,7 +2425,7 @@ function showShortcuts() {
     </div>
   </div>`;
   document.body.appendChild(overlay);
-  function close() { overlay.remove(); if (window.__cmEditor) window.__cmEditor.focus(); else editorCode.focus(); }
+  function close() { overlay.remove(); editorCode.focus(); }
   overlay.querySelector('#shortcutsClose').addEventListener('click', close);
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', function _onEsc(e) { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', _onEsc); } });
@@ -2703,8 +2694,19 @@ window.addEventListener('resize', function() {
   }
 });
 
-// ─── CM5 Sync ───
-// Minimap viewport from CM5 scroll
+// ─── CM6 Sync ───
+// Poll CM cursor position for status bar
+setInterval(function() {
+  if (activeTabId && window.__cmGetCursor) {
+    updateStatus();
+  }
+}, 200);
+
+// Disable custom suggestion box (CM6 handles autocomplete)
+window.showSuggestions = function() {};
+window._suggestions = [];
+
+// Fix minimap viewport to read from CM6 scroll
 const _origUpdateMinimapViewport = updateMinimapViewport;
 updateMinimapViewport = function() {
   var vp = document.getElementById('minimapViewport');
@@ -2712,7 +2714,7 @@ updateMinimapViewport = function() {
   if (!vp || !canvas) return;
   var cm = window.__cmEditor;
   if (cm) {
-    var sd = cm.getScrollerElement();
+    var sd = cm.scrollDOM;
     var scrollH = sd.scrollHeight;
     var visible = sd.clientHeight;
     var scrollT = sd.scrollTop;
@@ -2726,31 +2728,29 @@ updateMinimapViewport = function() {
   }
 };
 
-// Minimap scroll sync with CM5
+// Sync settings with CM6
+const _origApplySettings = applySettings;
+applySettings = function(s) {
+  _origApplySettings(s);
+  if (window.__CMView && window.__cmEditor) {
+    var View = window.__CMView;
+    var cm = window.__cmEditor;
+    if (s.wordWrap) {
+      cm.dispatch({ effects: window.__lineWrapCompartment.reconfigure(View.EditorView.lineWrapping) });
+    } else {
+      cm.dispatch({ effects: window.__lineWrapCompartment.reconfigure([]) });
+    }
+  }
+};
+
+// Minimap scroll sync with CM6
 var _cmScrollCheck = null;
 function setupCMScrollSync() {
   var cm = window.__cmEditor;
-  if (cm) {
-    cm.on('scroll', function() { updateMinimapViewport(); });
+  if (cm && cm.scrollDOM) {
+    cm.scrollDOM.addEventListener('scroll', function() { updateMinimapViewport(); });
   } else if (!_cmScrollCheck) {
     _cmScrollCheck = setTimeout(setupCMScrollSync, 500);
   }
 }
 setupCMScrollSync();
-
-// Disable custom suggestion box (CM5 handles autocomplete)
-window.showSuggestions = function() {};
-window._suggestions = [];
-
-// Sync settings with CM5
-const _origApplySettings = applySettings;
-applySettings = function(s) {
-  _origApplySettings(s);
-  var cm = window.__cmEditor;
-  if (cm) {
-    cm.setOption('lineWrapping', s.wordWrap);
-    cm.setOption('tabSize', s.tabSize);
-    cm.setOption('lineNumbers', s.lineNumbers);
-    cm.setOption('indentUnit', s.tabSize);
-  }
-};
