@@ -300,8 +300,9 @@
         <div class="editor-single" id="editorSingle"> <span id="editorFilename" style="display:none"></span> <span id="editorLangBadge" style="display:none"></span>
           <div class="editor-wrap" id="editorWrap">
             <div class="editor-input-area" id="editorInputArea">
-              <textarea id="editorCode" placeholder="Open a file from the explorer..." spellcheck="false" style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;"></textarea>
+              <textarea id="editorCode" placeholder="Open a file from the explorer..." spellcheck="false"></textarea>
               <div id="editorCm"></div>
+              <div class="suggest-box" id="suggestBox"></div>
             </div>
             <div class="minimap-wrap" id="minimapWrap">
               <canvas class="minimap-canvas" id="minimapCanvas"></canvas>
@@ -347,8 +348,34 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js" defer integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
   <script src="../js/auth.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/lib/codemirror.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/theme/one-dark.min.css" media="print" onload="this.media='all'">
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/lib/codemirror.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/mode/xml/xml.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/mode/css/css.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/mode/javascript/javascript.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/edit/closebrackets.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/edit/matchbrackets.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/selection/active-line.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/fold/foldcode.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/fold/foldgutter.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/fold/brace-fold.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/fold/xml-fold.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/fold/comment-fold.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/hint/show-hint.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/hint/xml-hint.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/hint/html-hint.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/hint/css-hint.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/hint/javascript-hint.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/search/search.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/search/searchcursor.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/dialog/dialog.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/dialog/dialog.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/hint/show-hint.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.18/addon/fold/foldgutter.min.css" media="print" onload="this.media='all'">
   <script src="../js/editor.js" defer></script>
-  <script src="../js/cm-setup.js" defer></script>
+  <script src="../js/cm5-setup.js" defer></script>
 
   <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
   <script defer src="/_vercel/insights/script.js"></script>
