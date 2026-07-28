@@ -1,10 +1,14 @@
 import { EditorState, Compartment } from '@codemirror/state'
-import { EditorView, keymap } from '@codemirror/view'
-import { basicSetup } from '@codemirror/basic-setup'
+import { EditorView, keymap, lineNumbers, highlightActiveLineGutter, highlightSpecialChars, drawSelection, rectangularSelection, crosshairCursor, highlightActiveLine } from '@codemirror/view'
+import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirror/commands'
+import { syntaxHighlighting, defaultHighlightStyle, bracketMatching, foldGutter, indentOnInput, foldKeymap } from '@codemirror/language'
 import { html } from '@codemirror/lang-html'
 import { css } from '@codemirror/lang-css'
 import { javascript } from '@codemirror/lang-javascript'
 import { oneDark } from '@codemirror/theme-one-dark'
+import { autocompletion, closeBrackets, completionKeymap } from '@codemirror/autocomplete'
+import { lintKeymap } from '@codemirror/lint'
+import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
 
 var langComp = new Compartment()
 var wrapComp = new Compartment()
@@ -26,10 +30,34 @@ function init() {
   view = new EditorView({
     doc: doc,
     extensions: [
-      basicSetup,
+      lineNumbers(),
+      highlightActiveLineGutter(),
+      highlightSpecialChars(),
+      history(),
+      drawSelection(),
+      EditorState.allowMultipleSelections.of(true),
+      bracketMatching(),
+      closeBrackets(),
+      autocompletion(),
+      rectangularSelection(),
+      crosshairCursor(),
+      highlightActiveLine(),
+      highlightSelectionMatches(),
+      foldGutter(),
+      indentOnInput(),
+      syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
       oneDark,
       langComp.of(getLang('html')),
       wrapComp.of([]),
+      keymap.of([
+        ...defaultKeymap,
+        ...searchKeymap,
+        ...historyKeymap,
+        ...foldKeymap,
+        ...completionKeymap,
+        ...lintKeymap,
+        indentWithTab,
+      ]),
       keymap.of([
         { key: 'Ctrl-Enter', run: function() { if (typeof window.runCode === 'function') window.runCode(); return true } },
         { key: 'Cmd-Enter', run: function() { if (typeof window.runCode === 'function') window.runCode(); return true } },
