@@ -275,7 +275,7 @@ body {
 }
 .tab:hover .tab-close { opacity: 1; }
 .tab .tab-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
-.tab .tab-lang-icon { width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.tab .tab-lang-icon { width: 16px; height: 16px; flex-shrink: 0; object-fit: contain; }
 
 /* ─── EDITOR SINGLE ─── */
 .editor-single {
