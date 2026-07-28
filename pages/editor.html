@@ -299,9 +299,12 @@
         <!-- Single Editor (fills all remaining space) -->
         <div class="editor-single" id="editorSingle"> <span id="editorFilename" style="display:none"></span> <span id="editorLangBadge" style="display:none"></span>
           <div class="editor-wrap" id="editorWrap">
-            <div class="editor-input-area" id="editorInputArea">
-              <textarea id="editorCode" placeholder="Open a file from the explorer..." spellcheck="false" style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;"></textarea>
-              <div id="editorCm"></div>
+            <div class="editor-gutter" id="editorGutter"></div>
+            <div class="editor-input-area">
+              <pre class="code-highlight" id="codeHighlight"></pre>
+              <div class="indent-guides" id="indentGuides"></div> <textarea id="editorCode" placeholder="Open a file from the explorer..." spellcheck="false"></textarea>
+              <div class="suggest-box" id="suggestBox"></div>
+              <div class="multi-cursor-overlay" id="multiCursorOverlay"></div>
             </div>
             <div class="minimap-wrap" id="minimapWrap">
               <canvas class="minimap-canvas" id="minimapCanvas"></canvas>
@@ -348,7 +351,6 @@
   <script src="../js/auth.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer integrity="sha384-+mbV2IY1Zk/X1p/nWllGySJSUN8uMs+gUAN10Or95UBH0fpj6GfKgPmgC5EXieXG" crossorigin="anonymous"></script>
   <script src="../js/editor.js" defer></script>
-  <script src="../js/cm-setup.js" defer></script>
 
   <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
   <script defer src="/_vercel/insights/script.js"></script>

@@ -275,7 +275,7 @@ body {
 }
 .tab:hover .tab-close { opacity: 1; }
 .tab .tab-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
-.tab .tab-icon { display: inline-flex; align-items: center; flex-shrink: 0; min-width: 14px; }
+.tab .tab-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
 /* ─── EDITOR SINGLE ─── */
 .editor-single {
@@ -308,31 +308,67 @@ body {
 
 /* ─── EDITOR WRAP ─── */
 .editor-wrap {
+  display: grid;
+  grid-template-columns: 48px 1fr;
   overflow: hidden; min-height: 0;
   background: var(--bg-editor);
 }
 
+.editor-gutter {
+  background: var(--bg-gutter);
+  padding: 14px 0;
+  font-family: var(--font-mono); font-size: calc(var(--editor-font-size) - 1px); line-height: var(--editor-line-height);
+  color: var(--text-muted); user-select: none;
+  overflow: hidden; border-right: 1px solid var(--border-light);
+}
+.editor-gutter > div { padding-right: 10px; }
+.editor-gutter .line-num { font-size: 12px; color: #444; text-align: right; flex: 1; }
+
 /* ─── INPUT AREA ─── */
 .editor-input-area {
-  position: relative; overflow: hidden; width: 100%; height: 100%;
+  position: relative; overflow: hidden;
   background: var(--bg-editor);
 }
 
-#editorCm {
+.editor-input-area .code-highlight {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  overflow: hidden;
+  padding: 14px 14px; font-family: var(--font-mono); font-size: var(--editor-font-size);
+  line-height: var(--editor-line-height); letter-spacing: var(--editor-letter-spacing);
+  white-space: pre; overflow: hidden;
+  pointer-events: none; z-index: 1; color: var(--text);
+  tab-size: var(--editor-tab-size);
+  font-variant-ligatures: var(--font-ligatures, normal);
 }
-#editorCm .cm-editor { height: 100%; }
-#editorCm .cm-scroller { overflow: auto; font-family: var(--font-mono); }
-#editorCm .cm-content { font-family: var(--font-mono); font-size: var(--editor-font-size, 14px); line-height: var(--editor-line-height, 1.6); padding: 14px 0; }
-#editorCm .cm-gutters { background: var(--bg-gutter); border-right: 1px solid var(--border-light); }
-#editorCm .cm-activeLineGutter { background: rgba(255,255,255,0.03); }
-#editorCm .cm-selectionBackground { background: rgba(217,217,217,0.12) !important; }
-#editorCm .cm-cursor { border-left-color: var(--accent) !important; }
-#editorCm .cm-foldGutter .cm-gutterElement { cursor: pointer; font-size: 11px; color: var(--text-muted); padding: 0 4px; }
-#editorCm .cm-foldGutter .cm-gutterElement:hover { color: var(--text); }
 
-.editor-input-area textarea { position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0; }
+.editor-input-area .indent-guides {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 1; overflow: hidden;
+  padding: 14px 14px;
+}
+.editor-input-area .indent-guides .guide {
+  position: absolute; width: 1px; background: rgba(255,255,255,0.06);
+}
+
+.editor-input-area textarea {
+  width: 100%; height: 100%; background: transparent; color: transparent;
+  border: none; outline: none; resize: none; padding: 14px 14px;
+  font-family: var(--font-mono); font-size: var(--editor-font-size);
+  line-height: var(--editor-line-height); letter-spacing: var(--editor-letter-spacing);
+  tab-size: var(--editor-tab-size); position: absolute; top: 0; left: 0; z-index: 2;
+  white-space: pre; overflow: auto; caret-color: var(--accent);
+  font-variant-ligatures: var(--font-ligatures, normal);
+  caret-shape: var(--editor-caret-shape, bar);
+  -webkit-caret-shape: var(--editor-caret-shape, bar);
+}
+.editor-input-area textarea::selection { background: rgba(217,217,217,0.15); }
+.editor-input-area textarea::placeholder { color: var(--text-muted); }
+
+/* setting-driven overrides */
+.editor-word-wrap .code-highlight,
+.editor-word-wrap textarea { white-space: pre-wrap !important; }
+.editor-no-gutter .editor-gutter { display: none; }
+.editor-no-gutter .editor-wrap { grid-template-columns: 1fr; }
+.editor-no-indent-guides .indent-guides { display: none; }
 
 /* ─── SYNTAX HIGHLIGHTING ─── */
 .hl-comment { color: var(--hl-comment); font-style: italic; }
@@ -635,7 +671,8 @@ body {
 @media (max-width: 480px) {
   .toolbar-logo span { display: none; }
   .toolbar-btn.run { padding: 6px 12px; }
-  .tab-icon { display: inline-flex; }
+  .editor-gutter { display: none; }
+  .editor-wrap { grid-template-columns: 1fr; }
   .panel-body { font-size: 11px; }
   .panel-tab { font-size: 9px; padding: 0 6px; min-height: 32px; }
   .st-grid { max-height: 75vh; }
@@ -813,7 +850,28 @@ body {
 .search-result-item .result-line { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .search-result-item .result-match { background: rgba(229,192,123,0.3); border-radius: 2px; padding: 0 1px; }
 
-/* Multi-cursor & folding handled by CM6 */
+/* ─── MULTI-CURSOR OVERLAY ─── */
+.multi-cursor-overlay {
+  position: absolute; inset: 0; pointer-events: none; z-index: 3;
+  overflow: hidden;
+}
+.cursor-mark {
+  position: absolute; width: 2px; background: var(--accent);
+  animation: cursorBlink 1s step-end infinite;
+}
+.cursor-mark.block { width: 7px; height: 15px; background: rgba(217,217,217,0.2); }
+
+/* ─── CODE FOLDING ─── */
+.editor-gutter .fold-btn {
+  width: 14px; height: 14px;
+  background: rgba(255,255,255,0.04); border: none; border-radius: 3px;
+  color: var(--text-muted); cursor: pointer; font-size: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: 0.1s; flex-shrink: 0;
+}
+.editor-gutter .fold-btn:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+.editor-gutter .fold-btn.folded { opacity: 0.6; }
+.fold-highlight { background: rgba(255,255,255,0.03); }
 
 /* ─── RESPONSIVE: COMMAND PALETTE ─── */
 @media (max-width: 600px) {
