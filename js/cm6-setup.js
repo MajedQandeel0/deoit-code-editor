@@ -5,14 +5,47 @@ import { syntaxHighlighting, defaultHighlightStyle, bracketMatching, foldGutter,
 import { html } from '@codemirror/lang-html'
 import { css } from '@codemirror/lang-css'
 import { javascript } from '@codemirror/lang-javascript'
-import { oneDark } from '@codemirror/theme-one-dark'
 import { autocompletion, closeBrackets, completionKeymap } from '@codemirror/autocomplete'
 import { lintKeymap } from '@codemirror/lint'
 import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
 
 var langComp = new Compartment()
 var wrapComp = new Compartment()
+var cursorComp = new Compartment()
 var view = null
+
+var baseTheme = EditorView.theme({
+  '&': {
+    backgroundColor: 'var(--bg-editor)',
+    color: 'var(--text)',
+    height: '100%'
+  },
+  '.cm-scroller': {
+    fontFamily: 'var(--font-mono, monospace)'
+  },
+  '.cm-gutters': {
+    backgroundColor: 'var(--bg-gutter, #090909)',
+    borderRight: '1px solid var(--border-light, #1a1a1a)'
+  },
+  '.cm-activeLineGutter': {
+    backgroundColor: 'rgba(255,255,255,0.03)'
+  },
+  '.cm-activeLine': {
+    backgroundColor: 'rgba(255,255,255,0.03)'
+  }
+}, { dark: true })
+
+function getCursorExt(blinking) {
+  var rate = 1200
+  var extra = []
+  if (blinking === 'solid') { rate = 0; extra.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } })) }
+  if (blinking === 'smooth') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-smooth-blink 1.2s ease-in-out infinite' }, '@keyframes cm-smooth-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } } }))
+  if (blinking === 'phase') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-phase-blink 1.5s ease-in-out infinite' }, '@keyframes cm-phase-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.2 } } }))
+  if (blinking === 'expand') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-expand-blink 1s ease-in-out infinite' }, '@keyframes cm-expand-blink': { '0%, 100%': { transform: 'scaleY(1)' }, '50%': { transform: 'scaleY(0.3)' } } }))
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReduced) { rate = 0; extra.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } })) }
+  return [EditorView.cursorBlinkRate.of(rate)].concat(extra)
+}
 
 function getLang(lang) {
   if (lang === 'html') return html()
@@ -26,10 +59,12 @@ function init() {
 
   var ta = document.getElementById('editorCode')
   var doc = ta ? ta.value : ''
+  var settings = typeof window.loadSettings === 'function' ? window.loadSettings() : {}
 
   view = new EditorView({
     doc: doc,
     extensions: [
+      baseTheme,
       lineNumbers(),
       highlightActiveLineGutter(),
       highlightSpecialChars(),
@@ -46,9 +81,9 @@ function init() {
       foldGutter(),
       indentOnInput(),
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
-      oneDark,
       langComp.of(getLang('html')),
       wrapComp.of([]),
+      cursorComp.of(getCursorExt(settings.cursorBlinking)),
       keymap.of([
         ...defaultKeymap,
         ...searchKeymap,
@@ -90,7 +125,10 @@ function init() {
   }
   window.__cmApplySettings = function(s) {
     if (!view) return
-    view.dispatch({ effects: wrapComp.reconfigure(s && s.wordWrap ? [EditorView.lineWrapping] : []) })
+    view.dispatch({ effects: [
+      wrapComp.reconfigure(s && s.wordWrap ? [EditorView.lineWrapping] : []),
+      cursorComp.reconfigure(getCursorExt(s && s.cursorBlinking))
+    ] })
     document.documentElement.style.setProperty('--editor-font-size', (s && s.fontSize || 16) + 'px')
   }
 
