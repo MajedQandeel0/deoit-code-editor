@@ -430,48 +430,9 @@ function highlight(lang, code) {
   return h;
 }
 
-function renderGuides() {
-  const container = document.getElementById('indentGuides');
-  if (!container) return;
-  container.innerHTML = '';
-  const code = editorCode.value;
-  if (!code) return;
-  const lines = code.split('\n').slice(0, 200);
-  const style = getComputedStyle(codeHighlight);
-  const lh = parseFloat(style.lineHeight) || 22;
-  const ch = 7.8;
-  const levels = lines.map(l => { const m = l.match(/^(\s*)/); return m ? Math.floor(m[1].length / 2) : 0; });
-  const max = levels.length ? Math.max(...levels) : 0;
-  if (max < 1) return;
-  for (let lvl = 1; lvl <= max; lvl++) {
-    let s = -1;
-    for (let i = 0; i < lines.length; i++) {
-      if (levels[i] >= lvl) { if (s === -1) s = i; }
-      else {
-        if (s !== -1 && i - s > 1) {
-          const g = document.createElement('div'); g.className = 'guide';
-          g.style.left = (lvl * 2 * ch - 4) + 'px';
-          g.style.top = (s * lh) + 'px';
-          g.style.height = ((i - s) * lh) + 'px';
-          container.appendChild(g); s = -1;
-        } else { s = -1; }
-      }
-    }
-    if (s !== -1 && lines.length - s > 1) {
-      const g = document.createElement('div'); g.className = 'guide';
-      g.style.left = (lvl * 2 * ch - 4) + 'px';
-      g.style.top = (s * lh) + 'px';
-      g.style.height = ((lines.length - s) * lh) + 'px';
-      container.appendChild(g);
-    }
-  }
-}
+function renderGuides() { /* handled by CM6 */ }
 
-function updateHighlight() {
-  const lang = fileLang(editorFilename.textContent === 'No file open' ? '' : editorFilename.textContent);
-  codeHighlight.innerHTML = highlight(lang, editorCode.value) + '\n';
-  renderGuides();
-}
+function updateHighlight() { /* handled by CM6 */ }
 
 // ─── UPDATE EDITOR ───
 function updateEditor(file) {
@@ -532,9 +493,11 @@ function renderTabs() {
     tab.className = `tab${f.id === activeTabId ? ' active' : ''}`;
     tab.dataset.id = f.id;
     tab.draggable = true;
-    const dc = f.lang==='html'?'var(--hl-tag)':f.lang==='css'?'var(--hl-attr)':'var(--hl-entity)';
-    tab.innerHTML = `<span class="tab-dot" style="background:${dc}"></span>${esc(f.name)}
-      <button class="tab-close" data-action="close-tab" data-id="${escAttr(f.id)}">&#10005;</button>`;
+    var icon = f.lang==='html' ? '<svg viewBox="0 0 24 24" width="14" height="14"><path fill="#E44D26" d="M4 2h16l-1.5 17L12 22l-6.5-3L4 2z"/><path fill="#F16529" d="M12 5v12.5l4.5-2 .8-8.5H12z"/><path fill="#fff" d="M12 10.5H9.5l-.2-2H12V7H7l.4 4.5H12v-1zm0 4l-2.2-.6-.2-1.5H8.5l.3 2.5L12 15.5v-1z"/></svg>' :
+      f.lang==='css' ? '<svg viewBox="0 0 24 24" width="14" height="14"><path fill="#264DE4" d="M4 2h16l-1.5 17L12 22l-6.5-3L4 2z"/><path fill="#2965F1" d="M12 5v12.5l4.5-2 .8-8.5H12z"/><path fill="#fff" d="M12 10.5H9.5l-.2-2H12V7H7l.4 4.5H12v-1zm0 4l-2.2-.6-.2-1.5H8.5l.3 2.5L12 15.5v-1z"/></svg>' :
+      f.lang==='js' ? '<svg viewBox="0 0 24 24" width="14" height="14"><path fill="#F0DB4F" d="M4 2h16v20H4V2z"/><path fill="#323330" d="M18.5 17.3c-.2-.9-.9-1.6-2.9-2.3-.7-.3-1.5-.5-1.7-.9-.1-.3-.1-.4 0-.6.1-.5.8-.7 1.4-.5.4.1.7.4.9.8l1.7-.9c-.3-.5-.6-.8-1-1.1-.8-.7-2.1-.9-3.3-.5-1.2.4-2 1.4-1.8 2.7.2 1.4 1.7 2.1 3.1 2.6.7.3 1.2.5 1.2.9.1.5-.6.9-1.3.8-.6-.1-.9-.4-1.1-.8l-1.7.9c.3.7.8 1.2 1.6 1.5 1.4.5 3.5.2 3.9-1.6.1-.2.2-.7.1-1.3zM12.1 10h-1.5v4.9c0 1-.3 1.4-.9 1.7-.4.2-1 .1-1.3 0-.1 0-.3-.2-.4-.3l-1.6 1c.3.4.5.7.9 1 .9.7 2.7.8 4 .2.9-.4 1.5-1.1 1.6-2.2.1-.4.1-.8.1-2.5V10z"/></svg>' :
+      '<svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 4h12l2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6l2-2z" fill="#607d8b"/><path d="M14 4v6h6l-6-6z" fill="#90a4ae"/></svg>';
+    tab.innerHTML = '<span class="tab-icon" style="display:inline-flex;vertical-align:middle;">' + icon + '</span><span style="vertical-align:middle;">' + esc(f.name) + '</span><button class="tab-close" data-action="close-tab" data-id="' + escAttr(f.id) + '">&#10005;</button>';
     tab.addEventListener('dragstart', e => {
       e.dataTransfer.setData('text/plain', f.id);
       e.dataTransfer.effectAllowed = 'move';
@@ -614,31 +577,17 @@ function closeCurrent() { if (activeTabId) closeTab(activeTabId); }
 function saveCurrent() {
   if (activeTabId) {
     const f = findById(fileSystem, activeTabId);
-    if (f) { f.content = editorCode.value; save(); }
+    if (f) {
+      f.content = window.__cmGetContent ? window.__cmGetContent() : editorCode.value;
+      save();
+    }
   }
 }
 
 // ─── GUTTER ───
-function updateGutter() {
-  const lines = editorCode.value.split('\n');
-  editorGutter.innerHTML = '';
-  const foldRanges = getFoldRanges(editorCode.value);
-  for (let i = 1; i <= lines.length; i++) {
-    const wrap = document.createElement('div'); wrap.style.cssText = 'display:flex;align-items:center;gap:2px;';
-    const isFoldStart = foldRanges.some(r => r.start === i - 1);
-    if (isFoldStart) {
-      const btn = document.createElement('button');
-      btn.className = 'fold-btn';
-      btn.textContent = isFolded(i - 1) ? '▶' : '▼';
-      btn.dataset.line = i - 1;
-      btn.addEventListener('click', function(e) { e.stopPropagation(); toggleFold(parseInt(this.dataset.line)); });
-      wrap.appendChild(btn);
-    } else {
-      const sp = document.createElement('span'); sp.style.cssText = 'display:inline-block;width:14px;'; wrap.appendChild(sp);
-    }
-    const s = document.createElement('span'); s.className='line-num'; s.textContent=i; wrap.appendChild(s);
-    editorGutter.appendChild(wrap);
-  }
+function updateGutter() { /* handled by CM6 */
+  var el = document.getElementById('editorGutter');
+  if (el) el.innerHTML = '';
 }
 
 // ─── RUN CONFIG ───
@@ -814,12 +763,18 @@ function resetAll() {
 
 // ─── STATUS ───
 function updateStatus() {
-  const t = editorCode.value, pos = editorCode.selectionStart;
-  const line = t.substring(0,pos).split('\n').length, col = pos - t.substring(0,pos).lastIndexOf('\n');
-  statusLines.textContent = `Ln ${line}, Col ${col}`;
-  statusChars.textContent = `${t.length} chars`;
+  var cur = window.__cmGetCursor ? window.__cmGetCursor() : null;
+  if (cur) {
+    statusLines.textContent = 'Ln ' + cur.line + ', Col ' + cur.col;
+  } else {
+    const t = editorCode.value, pos = editorCode.selectionStart;
+    const line = t.substring(0,pos).split('\n').length, col = pos - t.substring(0,pos).lastIndexOf('\n');
+    statusLines.textContent = 'Ln ' + line + ', Col ' + col;
+  }
+  var t = window.__cmGetContent ? window.__cmGetContent() : editorCode.value;
+  statusChars.textContent = t.length + ' chars';
   const stats = countAll(fileSystem);
-  statusFile.textContent = `${stats.f} files, ${stats.c} chars total`;
+  statusFile.textContent = stats.f + ' files, ' + stats.c + ' chars total';
   const parts = [];
   if (activeHtmlId) { const f=findById(fileSystem,activeHtmlId); if(f) parts.push(f.name); }
   if (activeCssId) { const f=findById(fileSystem,activeCssId); if(f) parts.push(f.name); }
@@ -2694,12 +2649,18 @@ defaultSettings = function() {
   return { ..._origDefaults(), showMinimap: false };
 };
 
-// Update breadcrumbs and minimap when file opens
+// Update breadcrumbs, minimap, and CM6 when file opens
 const _origUpdateEditor = updateEditor;
 updateEditor = function(file) {
   _origUpdateEditor(file);
   updateBreadcrumbs();
   renderMinimap();
+  if (file) {
+    if (window.__cmSetContent) window.__cmSetContent(file.content || '');
+    if (window.__cmSetLang) window.__cmSetLang(fileLang(file.name));
+  } else {
+    if (window.__cmSetContent) window.__cmSetContent('');
+  }
 };
 
 // Minimap refresh on code input (additional listener, doesn't replace existing)
@@ -2732,3 +2693,64 @@ window.addEventListener('resize', function() {
     window._minimapResizeTimer = setTimeout(initMinimap, 200);
   }
 });
+
+// ─── CM6 Sync ───
+// Poll CM cursor position for status bar
+setInterval(function() {
+  if (activeTabId && window.__cmGetCursor) {
+    updateStatus();
+  }
+}, 200);
+
+// Disable custom suggestion box (CM6 handles autocomplete)
+window.showSuggestions = function() {};
+window._suggestions = [];
+
+// Fix minimap viewport to read from CM6 scroll
+const _origUpdateMinimapViewport = updateMinimapViewport;
+updateMinimapViewport = function() {
+  var vp = document.getElementById('minimapViewport');
+  var canvas = document.getElementById('minimapCanvas');
+  if (!vp || !canvas) return;
+  var cm = window.__cmEditor;
+  if (cm) {
+    var sd = cm.scrollDOM;
+    var scrollH = sd.scrollHeight;
+    var visible = sd.clientHeight;
+    var scrollT = sd.scrollTop;
+    var ratio = canvas.height / scrollH;
+    var viewH = visible * ratio;
+    var viewT = scrollT * ratio;
+    vp.style.top = viewT + 'px';
+    vp.style.height = Math.max(8, viewH) + 'px';
+  } else {
+    _origUpdateMinimapViewport();
+  }
+};
+
+// Sync settings with CM6
+const _origApplySettings = applySettings;
+applySettings = function(s) {
+  _origApplySettings(s);
+  if (window.__CMView && window.__cmEditor) {
+    var View = window.__CMView;
+    var cm = window.__cmEditor;
+    if (s.wordWrap) {
+      cm.dispatch({ effects: window.__lineWrapCompartment.reconfigure(View.EditorView.lineWrapping) });
+    } else {
+      cm.dispatch({ effects: window.__lineWrapCompartment.reconfigure([]) });
+    }
+  }
+};
+
+// Minimap scroll sync with CM6
+var _cmScrollCheck = null;
+function setupCMScrollSync() {
+  var cm = window.__cmEditor;
+  if (cm && cm.scrollDOM) {
+    cm.scrollDOM.addEventListener('scroll', function() { updateMinimapViewport(); });
+  } else if (!_cmScrollCheck) {
+    _cmScrollCheck = setTimeout(setupCMScrollSync, 500);
+  }
+}
+setupCMScrollSync();
