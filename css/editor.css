@@ -308,52 +308,62 @@ body {
 
 /* ─── EDITOR WRAP ─── */
 .editor-wrap {
-  display: flex; flex-direction: row;
-  overflow: hidden; min-height: 0; height: 100%;
+  overflow: hidden; min-height: 0;
   background: var(--bg-editor);
 }
-.editor-input-area { flex: 1; min-width: 0; }
 
 /* ─── INPUT AREA ─── */
 .editor-input-area {
-  position: relative; overflow: hidden; height: 100%;
+  position: relative; overflow: hidden; width: 100%; height: 100%;
   background: var(--bg-editor);
 }
 
-.editor-input-area textarea { display: none; }
-
-.editor-input-area .CodeMirror {
-  height: 100% !important;
-  font-family: var(--font-mono);
+#editorCm {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  overflow: hidden;
+}
+#editorCm .CodeMirror {
+  height: 100%; font-family: var(--font-mono);
   font-size: var(--editor-font-size, 14px);
   line-height: var(--editor-line-height, 1.6);
 }
-.editor-input-area .CodeMirror-gutters {
+#editorCm .CodeMirror-gutters {
   background: var(--bg-gutter);
   border-right: 1px solid var(--border-light);
 }
-.editor-input-area .CodeMirror-activeline-background { background: rgba(255,255,255,0.03); }
-.editor-input-area .CodeMirror-cursor { border-left-color: var(--accent) !important; }
-.editor-input-area .CodeMirror-selected { background: rgba(217,217,217,0.12) !important; }
-.editor-input-area .CodeMirror-foldgutter-open,
-.editor-input-area .CodeMirror-foldgutter-folded {
+#editorCm .CodeMirror-activeline-background { background: rgba(255,255,255,0.03); }
+#editorCm .CodeMirror-cursor { border-left-color: var(--accent) !important; }
+#editorCm .CodeMirror-selected { background: rgba(217,217,217,0.12) !important; }
+#editorCm .CodeMirror-foldgutter-open, #editorCm .CodeMirror-foldgutter-folded {
   cursor: pointer; color: var(--text-muted);
 }
-.editor-input-area .CodeMirror-foldgutter-open:hover,
-.editor-input-area .CodeMirror-foldgutter-folded:hover {
+#editorCm .CodeMirror-foldgutter-open:hover, #editorCm .CodeMirror-foldgutter-folded:hover {
   color: var(--text);
 }
-.editor-input-area .CodeMirror-hints {
+#editorCm .CodeMirror-hints {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: 13px;
 }
-.editor-input-area .CodeMirror-hint { color: var(--text-dim); padding: 4px 8px; }
-.editor-input-area .CodeMirror-hint-active { background: rgba(255,255,255,0.08); color: var(--text); }
+#editorCm .CodeMirror-hint { color: var(--text-dim); padding: 4px 8px; }
+#editorCm .CodeMirror-hint-active { background: rgba(255,255,255,0.08); color: var(--text); }
 .CodeMirror-dialog { background: var(--surface); border-bottom: 1px solid var(--border); padding: 4px 12px; font-size: 13px; }
 .CodeMirror-dialog input { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 2px 6px; border-radius: 4px; }
+
+.editor-input-area textarea {
+  width: 100%; height: 100%; background: transparent; color: transparent;
+  border: none; outline: none; resize: none; padding: 14px 14px;
+  font-family: var(--font-mono); font-size: var(--editor-font-size);
+  line-height: var(--editor-line-height);
+  tab-size: var(--editor-tab-size);
+  white-space: pre; overflow: auto; caret-color: var(--accent);
+  caret-shape: var(--editor-caret-shape, bar);
+  -webkit-caret-shape: var(--editor-caret-shape, bar);
+}
+.editor-input-area textarea::selection { background: rgba(217,217,217,0.15); }
+.editor-input-area textarea::placeholder { color: var(--text-muted); }
 
 /* ─── SYNTAX HIGHLIGHTING ─── */
 .hl-comment { color: var(--hl-comment); font-style: italic; }

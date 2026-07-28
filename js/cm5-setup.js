@@ -22,10 +22,12 @@
 
   function initEditor() {
     var ta = document.getElementById('editorCode');
-    if (!ta) { setTimeout(initEditor, 100); return; }
+    var container = document.getElementById('editorCm');
+    if (!ta || !container) return;
     if (typeof CodeMirror === 'undefined') { setTimeout(initEditor, 200); return; }
 
-    cmEditor = CodeMirror.fromTextArea(ta, {
+    cmEditor = CodeMirror(container, {
+      value: ta.value || '',
       mode: 'htmlmixed',
       theme: 'one-dark',
       indentUnit: 2,
@@ -39,30 +41,44 @@
       foldGutter: true,
       gutters: ['CodeMirror-foldgutter', 'CodeMirror-linenumbers'],
       extraKeys: {
-        'Ctrl-S': function() { if (typeof saveCurrent === 'function') saveCurrent(); if (typeof runCode === 'function') runCode(); },
-        'Cmd-S': function() { if (typeof saveCurrent === 'function') saveCurrent(); if (typeof runCode === 'function') runCode(); },
-        'Ctrl-Enter': function() { if (typeof runCode === 'function') runCode(); },
-        'Cmd-Enter': function() { if (typeof runCode === 'function') runCode(); },
+        'Ctrl-S': function() { saveCurrent(); runCode(); },
+        'Cmd-S': function() { saveCurrent(); runCode(); },
+        'Ctrl-Enter': function() { runCode(); },
+        'Cmd-Enter': function() { runCode(); },
         'Ctrl-/': function(cm) { cm.toggleComment({ indent: true }); },
         'Cmd-/': function(cm) { cm.toggleComment({ indent: true }); },
-        'Ctrl-G': function() { if (typeof goToLine === 'function') goToLine(); },
-        'Cmd-G': function() { if (typeof goToLine === 'function') goToLine(); },
+        'Ctrl-D': function(cm) { cm.findNext(); },
+        'Cmd-D': function(cm) { cm.findNext(); },
+        'Ctrl-G': function(cm) {
+          var line = prompt('Go to line:');
+          if (line) { var n = parseInt(line); if (n > 0) cm.setCursor(n - 1); }
+        },
         'Ctrl-Shift-P': function() { if (typeof openCommandPalette === 'function') openCommandPalette(); },
         'Alt-Up': function(cm) { cm.swapLine(cm.getCursor().line, cm.getCursor().line - 1); },
         'Alt-Down': function(cm) { cm.swapLine(cm.getCursor().line, cm.getCursor().line + 1); },
-        'Ctrl-Shift-K': function(cm) { cm.removeLine(cm.getCursor().line); }
+        'Ctrl-Shift-K': function(cm) { cm.removeLine(cm.getCursor().line); },
+        'Tab': function(cm) { cm.replaceSelection('  '); }
+      },
+      hintOptions: {
+        hint: function(editor) {
+          var mode = editor.getOption('mode');
+          if (mode === 'css') return CodeMirror.hint.css(editor);
+          if (mode === 'javascript') return CodeMirror.hint.javascript(editor);
+          return CodeMirror.hint.html(editor);
+        }
       }
     });
 
     cmEditor.on('change', function() {
-      if (typeof updateStatus === 'function') updateStatus();
+      var ta = document.getElementById('editorCode');
+      if (ta) ta.value = cmEditor.getValue();
     });
 
     cmEditor.on('cursorActivity', function() {
-      if (typeof updateStatus === 'function') updateStatus();
+      updateStatus();
     });
 
-    // Auto-complete hint
+    // Auto-complete on typing
     cmEditor.on('inputRead', function(cm, change) {
       if (change.text.length > 0) {
         var ch = change.text[0];
@@ -74,18 +90,19 @@
 
     window.__cmEditor = cmEditor;
 
+    // Apply pending content
     if (pendingContent !== null) {
       cmEditor.setValue(pendingContent);
       pendingContent = null;
     }
 
-    // Sync with existing settings
+    // Sync settings
     if (typeof loadSettings === 'function') {
       var s = loadSettings();
       if (s) {
         cmEditor.setOption('lineWrapping', s.wordWrap);
-        cmEditor.setOption('tabSize', s.tabSize || 2);
-        cmEditor.setOption('lineNumbers', s.lineNumbers !== false);
+        cmEditor.setOption('tabSize', s.tabSize);
+        cmEditor.setOption('lineNumbers', s.lineNumbers);
         cmEditor.setOption('indentUnit', s.tabSize || 2);
       }
     }
@@ -94,6 +111,6 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initEditor);
   } else {
-    setTimeout(initEditor, 50);
+    setTimeout(initEditor, 100);
   }
 })();
