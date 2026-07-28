@@ -1231,24 +1231,20 @@ editorCode.addEventListener('keydown', function(e) {
     }
   }
   if (e.key === 'Enter' && (e.ctrlKey||e.metaKey)) { e.preventDefault(); runCode(); }
-  // Auto-indent on Enter after { [ (
-  if (e.key === 'Enter' && !(e.ctrlKey||e.metaKey)) {
+  // Auto-indent on Enter: preserve previous line indent, add extra for opening braces
+  if (e.key === 'Enter' && !(e.ctrlKey||e.metaKey) && !e.shiftKey) {
+    e.preventDefault();
     const ta = this, pos = ta.selectionStart, text = ta.value;
-    if (pos > 0 && (text[pos - 1] === '{' || text[pos - 1] === '(' || text[pos - 1] === '[')) {
-      const restLine = text.substring(pos).split('\n')[0];
-      if (restLine.trim() === '') {
-        e.preventDefault();
-        const lineStart = text.lastIndexOf('\n', pos - 1) + 1;
-        const curLine = text.substring(lineStart, pos);
-        const indentMatch = curLine.match(/^(\s*)/);
-        const currentIndent = indentMatch ? indentMatch[1] : '';
-        const nextIndent = currentIndent + '  ';
-        ta.value = text.substring(0, pos) + '\n' + nextIndent + text.substring(pos);
-        ta.dispatchEvent(new Event('input'));
-        ta.selectionStart = ta.selectionEnd = pos + 1 + nextIndent.length;
-        return;
-      }
-    }
+    const lineStart = text.lastIndexOf('\n', pos) + 1;
+    const curLine = text.substring(lineStart, pos);
+    const indentMatch = curLine.match(/^(\s*)/);
+    const currentIndent = indentMatch ? indentMatch[1] : '';
+    var nextIndent = currentIndent;
+    if (/\{\s*$/.test(curLine) || /\(\s*$/.test(curLine) || /\[\s*$/.test(curLine)) nextIndent += '  ';
+    ta.value = text.substring(0, pos) + '\n' + nextIndent + text.substring(pos);
+    ta.dispatchEvent(new Event('input'));
+    ta.selectionStart = ta.selectionEnd = pos + 1 + nextIndent.length;
+    return;
   }
   if (e.key === 's' && (e.ctrlKey||e.metaKey)) { e.preventDefault(); saveCurrent(); runCode(); }
 });
