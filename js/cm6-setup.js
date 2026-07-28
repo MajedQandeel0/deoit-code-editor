@@ -36,15 +36,14 @@ var baseTheme = EditorView.theme({
 }, { dark: true })
 
 function getCursorExt(blinking) {
-  var rate = 1200
   var extra = []
-  if (blinking === 'solid') { rate = 0; extra.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } })) }
+  if (blinking === 'solid' || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    extra.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } }))
+  }
   if (blinking === 'smooth') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-smooth-blink 1.2s ease-in-out infinite' }, '@keyframes cm-smooth-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } } }))
   if (blinking === 'phase') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-phase-blink 1.5s ease-in-out infinite' }, '@keyframes cm-phase-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.2 } } }))
   if (blinking === 'expand') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-expand-blink 1s ease-in-out infinite' }, '@keyframes cm-expand-blink': { '0%, 100%': { transform: 'scaleY(1)' }, '50%': { transform: 'scaleY(0.3)' } } }))
-  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (prefersReduced) { rate = 0; extra.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } })) }
-  return [EditorView.cursorBlinkRate.of(rate)].concat(extra)
+  return extra
 }
 
 function getLang(lang) {
