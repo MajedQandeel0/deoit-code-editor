@@ -1,5 +1,5 @@
 import { EditorState, Compartment } from '@codemirror/state'
-import { EditorView, ViewPlugin, keymap, lineNumbers, highlightActiveLineGutter, highlightSpecialChars, drawSelection, rectangularSelection, crosshairCursor, highlightActiveLine } from '@codemirror/view'
+import { EditorView, keymap, lineNumbers, highlightActiveLineGutter, highlightSpecialChars, drawSelection, rectangularSelection, crosshairCursor, highlightActiveLine } from '@codemirror/view'
 import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirror/commands'
 import { syntaxHighlighting, defaultHighlightStyle, bracketMatching, foldGutter, indentOnInput, foldKeymap } from '@codemirror/language'
 import { html } from '@codemirror/lang-html'
@@ -11,8 +11,8 @@ import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
 
 var langComp = new Compartment()
 var wrapComp = new Compartment()
-var cursorComp = new Compartment()
 var view = null
+var cursorInterval = null
 
 var baseTheme = EditorView.theme({
   '&': {
@@ -35,30 +35,19 @@ var baseTheme = EditorView.theme({
   }
 }, { dark: true })
 
-function getCursorExt(blinking) {
+function startCursorFix(blinking) {
+  if (cursorInterval) { clearInterval(cursorInterval); cursorInterval = null }
   var dur = 1200
   var isSolid = blinking === 'solid' || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  var out = []
-  if (blinking === 'smooth') out.push(EditorView.theme({ '@keyframes cm-smooth-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } } }))
-  if (blinking === 'phase') out.push(EditorView.theme({ '@keyframes cm-phase-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.2 } } }))
-  if (blinking === 'expand') out.push(EditorView.theme({ '@keyframes cm-expand-blink': { '0%, 100%': { transform: 'scaleY(1)' }, '50%': { transform: 'scaleY(0.3)' } } }))
-  out.push(ViewPlugin.fromClass(class {
-    constructor(v) {
-      this.v = v
-      var self = this
-      this.ob = new MutationObserver(function() { self.fix() })
-      this.ob.observe(v.dom, { childList: true, subtree: true })
-      this.fix()
-    }
-    destroy() { this.ob.disconnect() }
-    fix() {
-      if (this.v.dom) this.v.dom.querySelectorAll('.cm-cursor').forEach(function(el) {
-        var a = isSolid ? 'none' : (blinking === 'smooth' ? 'cm-smooth-blink ' + dur + 'ms ease-in-out infinite' : blinking === 'phase' ? 'cm-phase-blink ' + dur + 'ms ease-in-out infinite' : blinking === 'expand' ? 'cm-expand-blink ' + dur + 'ms ease-in-out infinite' : 'cm-blink ' + dur + 'ms steps(1) infinite')
-        el.style.setProperty('animation', a, 'important')
-      })
-    }
-  }))
-  return out
+  var anim
+  if (isSolid) { anim = 'none' }
+  else if (blinking === 'smooth') { anim = 'cm-smooth-blink ' + dur + 'ms ease-in-out infinite' }
+  else if (blinking === 'phase') { anim = 'cm-phase-blink ' + dur + 'ms ease-in-out infinite' }
+  else if (blinking === 'expand') { anim = 'cm-expand-blink ' + dur + 'ms ease-in-out infinite' }
+  else { anim = 'cm-blink ' + dur + 'ms steps(1) infinite' }
+  cursorInterval = setInterval(function() {
+    document.querySelectorAll('.cm-cursor').forEach(function(el) { el.style.setProperty('animation', anim, 'important') })
+  }, 200)
 }
 
 function getLang(lang) {
@@ -97,7 +86,6 @@ function init() {
       syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
       langComp.of(getLang('html')),
       wrapComp.of([]),
-      cursorComp.of(getCursorExt(settings.cursorBlinking)),
       keymap.of([
         ...defaultKeymap,
         ...searchKeymap,
@@ -140,12 +128,13 @@ function init() {
   window.__cmApplySettings = function(s) {
     if (!view) return
     view.dispatch({ effects: [
-      wrapComp.reconfigure(s && s.wordWrap ? [EditorView.lineWrapping] : []),
-      cursorComp.reconfigure(getCursorExt(s && s.cursorBlinking))
+      wrapComp.reconfigure(s && s.wordWrap ? [EditorView.lineWrapping] : [])
     ] })
+    startCursorFix(s && s.cursorBlinking)
     document.documentElement.style.setProperty('--editor-font-size', (s && s.fontSize || 16) + 'px')
   }
 
+  startCursorFix(settings.cursorBlinking)
   if (typeof window.loadSettings === 'function') {
     window.__cmApplySettings(window.loadSettings())
   }
