@@ -1,5 +1,5 @@
 import { EditorState, Compartment } from '@codemirror/state'
-import { EditorView, keymap, lineNumbers, highlightActiveLineGutter, highlightSpecialChars, drawSelection, rectangularSelection, crosshairCursor, highlightActiveLine } from '@codemirror/view'
+import { EditorView, ViewPlugin, keymap, lineNumbers, highlightActiveLineGutter, highlightSpecialChars, drawSelection, rectangularSelection, crosshairCursor, highlightActiveLine } from '@codemirror/view'
 import { defaultKeymap, history, historyKeymap, indentWithTab } from '@codemirror/commands'
 import { syntaxHighlighting, defaultHighlightStyle, bracketMatching, foldGutter, indentOnInput, foldKeymap } from '@codemirror/language'
 import { html } from '@codemirror/lang-html'
@@ -36,14 +36,26 @@ var baseTheme = EditorView.theme({
 }, { dark: true })
 
 function getCursorExt(blinking) {
-  var extra = []
-  if (blinking === 'solid' || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
-    extra.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } }))
+  var dur = 1200
+  var isSolid = blinking === 'solid' || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  var out = []
+  if (isSolid) {
+    out.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } }))
+  } else if (blinking === 'smooth') {
+    out.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-smooth-blink 1.2s ease-in-out infinite' }, '@keyframes cm-smooth-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } } }))
+  } else if (blinking === 'phase') {
+    out.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-phase-blink 1.5s ease-in-out infinite' }, '@keyframes cm-phase-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.2 } } }))
+  } else if (blinking === 'expand') {
+    out.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-expand-blink 1s ease-in-out infinite' }, '@keyframes cm-expand-blink': { '0%, 100%': { transform: 'scaleY(1)' }, '50%': { transform: 'scaleY(0.3)' } } }))
   }
-  if (blinking === 'smooth') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-smooth-blink 1.2s ease-in-out infinite' }, '@keyframes cm-smooth-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } } }))
-  if (blinking === 'phase') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-phase-blink 1.5s ease-in-out infinite' }, '@keyframes cm-phase-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.2 } } }))
-  if (blinking === 'expand') extra.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-expand-blink 1s ease-in-out infinite' }, '@keyframes cm-expand-blink': { '0%, 100%': { transform: 'scaleY(1)' }, '50%': { transform: 'scaleY(0.3)' } } }))
-  return extra
+  out.push(ViewPlugin.fromClass(class {
+    constructor(v) { this.v = v; this.fix() }
+    update(u) { this.fix() }
+    fix() {
+      if (this.v.dom) this.v.dom.querySelectorAll('.cm-cursor').forEach(function(el) { el.style.setProperty('animation-duration', (isSolid ? 10 : dur) + 'ms', 'important') })
+    }
+  }))
+  return out
 }
 
 function getLang(lang) {
