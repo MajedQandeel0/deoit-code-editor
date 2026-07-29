@@ -1312,7 +1312,28 @@
   }
 
   function initGamification() {
-    // Insert gamification dashboard into sidebar
+    // ── Replace sidebar header with level badge ──
+    var sidebarHeader = document.querySelector('.sidebar-header');
+    if (sidebarHeader) {
+      var data = getXPData();
+      var xp = data.xp;
+      var level = getLevel(xp);
+      sidebarHeader.innerHTML =
+        '<div style="display:flex;align-items:center;gap:10px">' +
+          '<div class="gamification-level-badge" style="width:36px;height:36px">' +
+            '<span class="gamification-level-num">' + level + '</span>' +
+          '</div>' +
+          '<div style="flex:1;min-width:0">' +
+            '<div data-level-label style="font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--text-primary)">Level ' + level + '</div>' +
+            '<div class="gamification-xp-row" style="margin-top:4px">' +
+              '<div class="gamification-xp-bar-wrap" style="flex:1;height:3px"><div class="gamification-xp-bar" style="width:' + (getLevelXP(xp) / XP_PER_LEVEL * 100) + '%"></div></div>' +
+              '<span class="gamification-xp-text" style="font-size:9px">' + xp + ' XP</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+
+    // ── Insert gamification dashboard into sidebar ──
     var sidebar = document.querySelector('.learn-sidebar, .l-sidebar');
     if (!sidebar) return;
 
@@ -1388,15 +1409,28 @@
   }
 
   function updateGamificationUI() {
-    var dash = document.querySelector('.gamification-dash');
-    if (!dash) return;
-
     var data = getXPData();
     var xp = data.xp;
     var level = getLevel(xp);
     var levelXp = getLevelXP(xp);
     var streak = getStreakData();
     var achList = getAchievements();
+
+    // Update sidebar header level
+    var hdr = document.querySelector('.sidebar-header');
+    if (hdr) {
+      var n = hdr.querySelector('.gamification-level-num');
+      if (n) n.textContent = level;
+      var ll = hdr.querySelector('[data-level-label]');
+      if (ll) ll.textContent = 'Level ' + level;
+      var xb = hdr.querySelector('.gamification-xp-bar');
+      if (xb) xb.style.width = (levelXp / XP_PER_LEVEL * 100) + '%';
+      var xt = hdr.querySelector('.gamification-xp-text');
+      if (xt) xt.textContent = xp + ' XP';
+    }
+
+    var dash = document.querySelector('.gamification-dash');
+    if (!dash) return;
 
     // Update level badge & XP bar
     var badge = dash.querySelector('.gamification-level-num');
