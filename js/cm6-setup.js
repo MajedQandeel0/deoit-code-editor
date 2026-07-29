@@ -12,7 +12,6 @@ import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
 var langComp = new Compartment()
 var wrapComp = new Compartment()
 var view = null
-var cursorInterval = null
 
 var baseTheme = EditorView.theme({
   '&': {
@@ -34,21 +33,6 @@ var baseTheme = EditorView.theme({
     backgroundColor: 'rgba(255,255,255,0.03)'
   }
 }, { dark: true })
-
-function startCursorFix(blinking) {
-  if (cursorInterval) { clearInterval(cursorInterval); cursorInterval = null }
-  var dur = 1200
-  var isSolid = blinking === 'solid' || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  var anim
-  if (isSolid) { anim = 'none' }
-  else if (blinking === 'smooth') { anim = 'cm-smooth-blink ' + dur + 'ms ease-in-out infinite' }
-  else if (blinking === 'phase') { anim = 'cm-phase-blink ' + dur + 'ms ease-in-out infinite' }
-  else if (blinking === 'expand') { anim = 'cm-expand-blink ' + dur + 'ms ease-in-out infinite' }
-  else { anim = 'cm-blink ' + dur + 'ms steps(1) infinite' }
-  cursorInterval = setInterval(function() {
-    document.querySelectorAll('.cm-cursorLayer').forEach(function(el) { el.style.setProperty('animation', anim, 'important') })
-  }, 200)
-}
 
 function getLang(lang) {
   if (lang === 'html') return html()
@@ -130,11 +114,9 @@ function init() {
     view.dispatch({ effects: [
       wrapComp.reconfigure(s && s.wordWrap ? [EditorView.lineWrapping] : [])
     ] })
-    startCursorFix(s && s.cursorBlinking)
     document.documentElement.style.setProperty('--editor-font-size', (s && s.fontSize || 16) + 'px')
   }
 
-  startCursorFix(settings.cursorBlinking)
   if (typeof window.loadSettings === 'function') {
     window.__cmApplySettings(window.loadSettings())
   }

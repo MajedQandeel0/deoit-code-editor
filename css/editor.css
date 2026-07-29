@@ -652,8 +652,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-  .editor-input-area .cm-cursorLayer { animation-duration: 1.2s !important; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .toast-wrap, .toast-wrap *, .toast-wrap *::before, .toast-wrap *::after,
+  .login-hover-tip, .login-hover-tip *,
+  [class*="slide"], [class*="fade"], [class*="animate"] { animation-duration: 0.01ms !important; }
 }
 
 .login-hover-tip {
