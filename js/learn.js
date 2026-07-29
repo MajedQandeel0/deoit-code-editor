@@ -1312,100 +1312,24 @@
   }
 
   function initGamification() {
-    // ── Replace sidebar header with level badge ──
     var sidebarHeader = document.querySelector('.sidebar-header');
-    if (sidebarHeader) {
-      var data = getXPData();
-      var xp = data.xp;
-      var level = getLevel(xp);
-      sidebarHeader.innerHTML =
-        '<div style="display:flex;align-items:center;gap:10px">' +
-          '<div class="gamification-level-badge" style="width:36px;height:36px">' +
-            '<span class="gamification-level-num">' + level + '</span>' +
-          '</div>' +
-          '<div style="flex:1;min-width:0">' +
-            '<div data-level-label style="font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--text-primary)">Level ' + level + '</div>' +
-            '<div class="gamification-xp-row" style="margin-top:4px">' +
-              '<div class="gamification-xp-bar-wrap" style="flex:1;height:3px"><div class="gamification-xp-bar" style="width:' + (getLevelXP(xp) / XP_PER_LEVEL * 100) + '%"></div></div>' +
-              '<span class="gamification-xp-text" style="font-size:9px">' + xp + ' XP</span>' +
-            '</div>' +
-          '</div>' +
-        '</div>';
-    }
-
-    // ── Insert gamification dashboard into sidebar ──
-    var sidebar = document.querySelector('.learn-sidebar, .l-sidebar');
-    if (!sidebar) return;
-
-    // Don't add if already present
-    if (sidebar.querySelector('.gamification-dash')) return;
-
-    var dash = document.createElement('div');
-    dash.className = 'gamification-dash';
-
+    if (!sidebarHeader) return;
     var data = getXPData();
     var xp = data.xp;
     var level = getLevel(xp);
-    var levelXp = getLevelXP(xp);
-    var streak = getStreakData();
-
-    var collapseKey = 'deoit_gami_collapsed';
-    function isCollapsed() { var v = storage().getItem(collapseKey); return v === null || v === 'true'; }
-
-    dash.innerHTML =
-      '<div class="gamification-toggle">' +
-        '<div class="gamification-header">' +
-          '<div class="gamification-level-badge">' +
-            '<span class="gamification-level-num">' + level + '</span>' +
-          '</div>' +
-          '<div class="gamification-info">' +
-            '<div class="gamification-level-label">Level ' + level + '</div>' +
-            '<div class="gamification-xp-row">' +
-              '<div class="gamification-xp-bar-wrap"><div class="gamification-xp-bar" style="width:' + (levelXp / XP_PER_LEVEL * 100) + '%"></div></div>' +
-              '<span class="gamification-xp-text">' + xp + ' XP</span>' +
-            '</div>' +
+    sidebarHeader.innerHTML =
+      '<div style="display:flex;align-items:center;gap:10px">' +
+        '<div class="gamification-level-badge" style="width:36px;height:36px">' +
+          '<span class="gamification-level-num">' + level + '</span>' +
+        '</div>' +
+        '<div style="flex:1;min-width:0">' +
+          '<div data-level-label style="font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--text-primary)">Level ' + level + '</div>' +
+          '<div class="gamification-xp-row" style="margin-top:4px">' +
+            '<div class="gamification-xp-bar-wrap" style="flex:1;height:3px"><div class="gamification-xp-bar" style="width:' + (getLevelXP(xp) / XP_PER_LEVEL * 100) + '%"></div></div>' +
+            '<span class="gamification-xp-text" style="font-size:9px">' + xp + ' XP</span>' +
           '</div>' +
         '</div>' +
-        '<button class="gamification-collapse-btn" aria-label="Toggle details">' +
-          '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>' +
-        '</button>' +
-      '</div>' +
-      '<div class="gamification-body">' +
-        '<div class="gamification-stats">' +
-          '<div class="gamification-stat"><span class="gamification-stat-value">' + streak.count + '</span><span class="gamification-stat-label">Day Streak</span></div>' +
-          '<div class="gamification-stat"><span class="gamification-stat-value">' + getTotalCompleted() + '</span><span class="gamification-stat-label">Done</span></div>' +
-          '<div class="gamification-stat"><span class="gamification-stat-value">' + getAchievements().length + '</span><span class="gamification-stat-label">Badges</span></div>' +
-        '</div>' +
-        '<div class="gamification-achieve-title">Badges</div><div class="gamification-achieve-list">' + (function () {
-          var achList = getAchievements();
-          var allIds = Object.keys(ACHIEVEMENT_DEFS);
-          var html = '';
-          allIds.forEach(function (id) {
-            var def = ACHIEVEMENT_DEFS[id];
-            var unlocked = achList.indexOf(id) !== -1;
-            html += '<div class="gamification-achieve-item' + (unlocked ? '' : ' locked') + '" title="' + def.desc + '"><span class="gamification-achieve-icon">' + (unlocked ? def.icon : '\u{1F512}') + '</span><span class="gamification-achieve-name">' + def.name + '</span></div>';
-          });
-          return html;
-        })() + '</div>' +
       '</div>';
-
-    // Apply collapsed state
-    if (isCollapsed()) dash.classList.add('collapsed');
-
-    // Toggle handler
-    dash.querySelector('.gamification-collapse-btn').addEventListener('click', function () {
-      var nowCollapsed = !dash.classList.contains('collapsed');
-      dash.classList.toggle('collapsed', nowCollapsed);
-      storage().setItem(collapseKey, nowCollapsed ? 'true' : 'false');
-    });
-
-    // Insert into sidebar (before course progress)
-    var progressBar = sidebar.querySelector('.course-progress-bar');
-    if (progressBar) {
-      sidebar.insertBefore(dash, progressBar);
-    } else {
-      sidebar.appendChild(dash);
-    }
   }
 
   function updateGamificationUI() {
@@ -1413,55 +1337,16 @@
     var xp = data.xp;
     var level = getLevel(xp);
     var levelXp = getLevelXP(xp);
-    var streak = getStreakData();
-    var achList = getAchievements();
-
-    // Update sidebar header level
     var hdr = document.querySelector('.sidebar-header');
-    if (hdr) {
-      var n = hdr.querySelector('.gamification-level-num');
-      if (n) n.textContent = level;
-      var ll = hdr.querySelector('[data-level-label]');
-      if (ll) ll.textContent = 'Level ' + level;
-      var xb = hdr.querySelector('.gamification-xp-bar');
-      if (xb) xb.style.width = (levelXp / XP_PER_LEVEL * 100) + '%';
-      var xt = hdr.querySelector('.gamification-xp-text');
-      if (xt) xt.textContent = xp + ' XP';
-    }
-
-    var dash = document.querySelector('.gamification-dash');
-    if (!dash) return;
-
-    // Update level badge & XP bar
-    var badge = dash.querySelector('.gamification-level-num');
-    if (badge) badge.textContent = level;
-
-    var label = dash.querySelector('.gamification-level-label');
-    if (label) label.textContent = 'Level ' + level;
-
-    var xpBar = dash.querySelector('.gamification-xp-bar');
-    if (xpBar) xpBar.style.width = (levelXp / XP_PER_LEVEL * 100) + '%';
-
-    var xpText = dash.querySelector('.gamification-xp-text');
-    if (xpText) xpText.textContent = xp + ' XP';
-
-    // Update stats (only if body is visible, but keep data)
-    var statValues = dash.querySelectorAll('.gamification-stat-value');
-    if (statValues[0]) statValues[0].textContent = streak.count;
-    if (statValues[1]) statValues[1].textContent = getTotalCompleted();
-    if (statValues[2]) statValues[2].textContent = achList.length;
-
-    // Update achievements
-    var achItems = dash.querySelectorAll('.gamification-achieve-item');
-    var allIds = Object.keys(ACHIEVEMENT_DEFS);
-    achItems.forEach(function (item, i) {
-      var id = allIds[i];
-      if (!id) return;
-      var unlocked = achList.indexOf(id) !== -1;
-      item.classList.toggle('locked', !unlocked);
-      var iconEl = item.querySelector('.gamification-achieve-icon');
-      if (iconEl) iconEl.textContent = unlocked ? ACHIEVEMENT_DEFS[id].icon : '\u{1F512}';
-    });
+    if (!hdr) return;
+    var n = hdr.querySelector('.gamification-level-num');
+    if (n) n.textContent = level;
+    var ll = hdr.querySelector('[data-level-label]');
+    if (ll) ll.textContent = 'Level ' + level;
+    var xb = hdr.querySelector('.gamification-xp-bar');
+    if (xb) xb.style.width = (levelXp / XP_PER_LEVEL * 100) + '%';
+    var xt = hdr.querySelector('.gamification-xp-text');
+    if (xt) xt.textContent = xp + ' XP';
   }
 
   // ─── 16. (renumbered) INITIALIZATION ───

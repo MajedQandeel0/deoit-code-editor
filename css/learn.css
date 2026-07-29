@@ -380,7 +380,6 @@ a{color:inherit;text-decoration:none}
   .lesson-feedback{padding:20px 20px}
   .course-progress-bar{padding:0 20px}
   .lesson-progress{padding:0 20px}
-  .gamification-stats{flex-direction:column;gap:4px}
   .achieve-toast{left:16px;right:16px;bottom:16px;max-width:none}
   .level-up-card{padding:36px 24px}
 }
@@ -604,15 +603,7 @@ a{color:inherit;text-decoration:none}
 /* ══════════════════════════════════════════════
    GAMIFICATION (XP / LEVEL / STREAK / ACHIEVEMENTS)
    ══════════════════════════════════════════════ */
-.gamification-dash{padding:16px 14px;border-top:1px solid var(--border);background:rgba(255,255,255,.01)}
-.gamification-toggle{display:flex;align-items:center;gap:12px}
-.gamification-toggle .gamification-header{flex:1;margin-bottom:0}
-.gamification-collapse-btn{background:none;border:1px solid var(--border);border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-muted);padding:0;flex-shrink:0;transition:all .2s}
-.gamification-collapse-btn:hover{color:var(--text-secondary);border-color:var(--border-strong)}
-.gamification-dash.collapsed .gamification-collapse-btn svg{transform:rotate(180deg)}
 .gamification-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.gamification-body{overflow:hidden;transition:max-height .3s ease,opacity .25s ease;max-height:800px}
-.gamification-dash.collapsed .gamification-body{max-height:0!important;opacity:0;pointer-events:none}
 .gamification-level-badge{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#e5c07b,#d19a66);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px rgba(229,192,123,.2)}
 .gamification-level-num{font-size:16px;font-weight:800;color:#0d0d0d;line-height:1}
 .gamification-info{flex:1;min-width:0}
