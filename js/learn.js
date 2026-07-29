@@ -1329,7 +1329,7 @@
     var streak = getStreakData();
 
     var collapseKey = 'deoit_gami_collapsed';
-    function isCollapsed() { return storage().getItem(collapseKey) === 'true'; }
+    function isCollapsed() { var v = storage().getItem(collapseKey); return v === null || v === 'true'; }
 
     dash.innerHTML =
       '<div class="gamification-toggle">' +
