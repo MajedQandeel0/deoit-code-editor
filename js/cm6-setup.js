@@ -39,20 +39,23 @@ function getCursorExt(blinking) {
   var dur = 1200
   var isSolid = blinking === 'solid' || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   var out = []
-  if (isSolid) {
-    out.push(EditorView.theme({ '.cm-cursor': { animation: 'none !important' } }))
-  } else if (blinking === 'smooth') {
-    out.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-smooth-blink 1.2s ease-in-out infinite' }, '@keyframes cm-smooth-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } } }))
-  } else if (blinking === 'phase') {
-    out.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-phase-blink 1.5s ease-in-out infinite' }, '@keyframes cm-phase-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.2 } } }))
-  } else if (blinking === 'expand') {
-    out.push(EditorView.theme({ '.cm-cursor': { animation: 'cm-expand-blink 1s ease-in-out infinite' }, '@keyframes cm-expand-blink': { '0%, 100%': { transform: 'scaleY(1)' }, '50%': { transform: 'scaleY(0.3)' } } }))
-  }
+  if (blinking === 'smooth') out.push(EditorView.theme({ '@keyframes cm-smooth-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0 } } }))
+  if (blinking === 'phase') out.push(EditorView.theme({ '@keyframes cm-phase-blink': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.2 } } }))
+  if (blinking === 'expand') out.push(EditorView.theme({ '@keyframes cm-expand-blink': { '0%, 100%': { transform: 'scaleY(1)' }, '50%': { transform: 'scaleY(0.3)' } } }))
   out.push(ViewPlugin.fromClass(class {
-    constructor(v) { this.v = v; this.fix() }
-    update(u) { this.fix() }
+    constructor(v) {
+      this.v = v
+      var self = this
+      this.ob = new MutationObserver(function() { self.fix() })
+      this.ob.observe(v.dom, { childList: true, subtree: true })
+      this.fix()
+    }
+    destroy() { this.ob.disconnect() }
     fix() {
-      if (this.v.dom) this.v.dom.querySelectorAll('.cm-cursor').forEach(function(el) { el.style.setProperty('animation-duration', (isSolid ? 10 : dur) + 'ms', 'important') })
+      if (this.v.dom) this.v.dom.querySelectorAll('.cm-cursor').forEach(function(el) {
+        var a = isSolid ? 'none' : (blinking === 'smooth' ? 'cm-smooth-blink ' + dur + 'ms ease-in-out infinite' : blinking === 'phase' ? 'cm-phase-blink ' + dur + 'ms ease-in-out infinite' : blinking === 'expand' ? 'cm-expand-blink ' + dur + 'ms ease-in-out infinite' : 'cm-blink ' + dur + 'ms steps(1) infinite')
+        el.style.setProperty('animation', a, 'important')
+      })
     }
   }))
   return out
