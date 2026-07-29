@@ -383,7 +383,11 @@
           var progress = getProgress();
           var path = getPath();
           if (!progress[path]) progress[path] = {};
-          progress[path].quiz = true;
+          if (!progress[path].quiz) {
+            progress[path].quiz = true;
+            addXP(XP_PER_QUIZ);
+            unlockAchievement('quiz_master');
+          }
           saveProgress(progress);
           updateCompletionUI();
         }
@@ -416,10 +420,17 @@
 
     btn.addEventListener('click', function () {
       var p = progress[path] || {};
+      var wasComplete = p.complete;
       p.complete = !p.complete;
       p.completedAt = p.complete ? new Date().toISOString() : null;
       progress[path] = p;
       saveProgress(progress);
+      // Award XP & update streak when marking complete
+      if (p.complete && !wasComplete) {
+        addXP(XP_PER_LESSON);
+        updateStreak();
+        checkLessonAchievements();
+      }
       updateBtn();
       updateCompletionUI();
       updateCourseProgress();
@@ -659,7 +670,11 @@
           var progress = getProgress();
           var path = getPath();
           if (!progress[path]) progress[path] = {};
-          progress[path].challenge = true;
+          if (!progress[path].challenge) {
+            progress[path].challenge = true;
+            addXP(XP_PER_CHALLENGE);
+            unlockAchievement('challenge_solver');
+          }
           saveProgress(progress);
         } else {
           output.innerHTML = '<div class="ch-result ch-fail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Not quite. Check your code and try again.</div>';
@@ -1134,7 +1149,269 @@
     }
   }
 
-  // ─── 16. INITIALIZATION ───
+  // ─── 17. GAMIFICATION (XP / LEVEL / STREAK / ACHIEVEMENTS) ───
+  var XP_KEY = 'deoit_learn_xp';
+  var STREAK_KEY = 'deoit_learn_streak';
+  var ACHIEVE_KEY = 'deoit_learn_achievements';
+
+  var XP_PER_LESSON = 15;
+  var XP_PER_QUIZ = 10;
+  var XP_PER_CHALLENGE = 20;
+  var XP_PER_LEVEL = 100;
+
+  var ACHIEVEMENT_DEFS = {
+    first_lesson:    { name:'First Steps',       desc:'Complete your first lesson',        icon:'\u{1F331}' },
+    quick_learner:   { name:'Quick Learner',      desc:'Complete 5 lessons',               icon:'\u{1F525}' },
+    dedicated:       { name:'Dedicated',          desc:'Complete 10 lessons',              icon:'\u{1F4AA}' },
+    half_way:        { name:'Half Way',           desc:'Complete 15 lessons',              icon:'\u{1F3C3}' },
+    almost_there:    { name:'Almost There',       desc:'Complete 20 lessons',              icon:'\u{26A1}' },
+    completionist:   { name:'Completionist',      desc:'Complete all 25 HTML lessons',     icon:'\u{1F3C6}' },
+    quiz_master:     { name:'Quiz Master',        desc:'Pass your first quiz',             icon:'\u{1F9E0}' },
+    challenge_solver:{ name:'Challenge Solver',   desc:'Solve your first code challenge',  icon:'\u{1F4BB}' },
+    streak_3:        { name:'On Fire',            desc:'3-day learning streak',            icon:'\u{1F525}' },
+    streak_7:        { name:'Week Warrior',       desc:'7-day learning streak',            icon:'\u{1F4C5}' },
+    streak_30:       { name:'Monthly Master',     desc:'30-day learning streak',           icon:'\u{2B50}' }
+  };
+
+  function getXPData() {
+    try { return JSON.parse(storage().getItem(XP_KEY)) || { xp:0, level:1 }; } catch(e) { return { xp:0, level:1 }; }
+  }
+
+  function saveXPData(d) { storage().setItem(XP_KEY, JSON.stringify(d)); }
+
+  function getLevel(xp) { return Math.floor(xp / XP_PER_LEVEL) + 1; }
+
+  function addXP(amount) {
+    var d = getXPData();
+    var oldLevel = getLevel(d.xp);
+    d.xp += amount;
+    var newLevel = getLevel(d.xp);
+    if (newLevel > oldLevel) showLevelUp(newLevel);
+    saveXPData(d);
+    updateGamificationUI();
+  }
+
+  function getStreakData() {
+    try { return JSON.parse(storage().getItem(STREAK_KEY)) || { count:0, lastDate:null }; } catch(e) { return { count:0, lastDate:null }; }
+  }
+
+  function saveStreakData(d) { storage().setItem(STREAK_KEY, JSON.stringify(d)); }
+
+  function updateStreak() {
+    var s = getStreakData();
+    var today = new Date().toDateString();
+    if (s.lastDate === today) return s.count;
+    var yesterday = new Date(Date.now() - 86400000).toDateString();
+    s.count = (s.lastDate === yesterday) ? s.count + 1 : 1;
+    s.lastDate = today;
+    saveStreakData(s);
+
+    // Check streak achievements
+    checkStreakAchievements(s.count);
+    updateGamificationUI();
+    return s.count;
+  }
+
+  function getAchievements() {
+    try { return JSON.parse(storage().getItem(ACHIEVE_KEY)) || []; } catch(e) { return []; }
+  }
+
+  function unlockAchievement(id) {
+    var list = getAchievements();
+    if (list.indexOf(id) !== -1) return false;
+    list.push(id);
+    storage().setItem(ACHIEVE_KEY, JSON.stringify(list));
+    var def = ACHIEVEMENT_DEFS[id];
+    if (def) showAchievementToast(def);
+    updateGamificationUI();
+    return true;
+  }
+
+  function checkLessonAchievements() {
+    var total = $$('.sidebar-link').length;
+    var done = 0;
+    var progress = getProgress();
+    $$('.sidebar-link').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (!href) return;
+      var p = progress[href.replace(/\/+$/, '')] || {};
+      if (p.complete) done++;
+    });
+    if (done >= 1) unlockAchievement('first_lesson');
+    if (done >= 5) unlockAchievement('quick_learner');
+    if (done >= 10) unlockAchievement('dedicated');
+    if (done >= 15) unlockAchievement('half_way');
+    if (done >= 20) unlockAchievement('almost_there');
+    if (done >= 25) unlockAchievement('completionist');
+  }
+
+  function checkStreakAchievements(count) {
+    if (count >= 3) unlockAchievement('streak_3');
+    if (count >= 7) unlockAchievement('streak_7');
+    if (count >= 30) unlockAchievement('streak_30');
+  }
+
+  function showLevelUp(level) {
+    var existing = document.querySelector('.level-up-overlay');
+    if (existing) existing.remove();
+
+    var overlay = document.createElement('div');
+    overlay.className = 'level-up-overlay';
+
+    var card = document.createElement('div');
+    card.className = 'level-up-card';
+    card.innerHTML = '<div class="level-up-icon">\u{1F389}</div><div class="level-up-title">Level Up!</div><div class="level-up-level">Level ' + level + '</div><div class="level-up-sub">You\'re on fire! Keep learning.</div><button class="level-up-btn">Continue</button>';
+
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(function () { overlay.classList.add('visible'); });
+
+    card.querySelector('.level-up-btn').addEventListener('click', function () {
+      overlay.classList.remove('visible');
+      setTimeout(function () { overlay.remove(); }, 400);
+    });
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) {
+        overlay.classList.remove('visible');
+        setTimeout(function () { overlay.remove(); }, 400);
+      }
+    });
+  }
+
+  function showAchievementToast(def) {
+    var existing = document.querySelector('.achieve-toast');
+    if (existing) existing.remove();
+
+    var toast = document.createElement('div');
+    toast.className = 'achieve-toast';
+    toast.innerHTML = '<div class="achieve-icon">' + def.icon + '</div><div class="achieve-body"><div class="achieve-label">Achievement Unlocked!</div><div class="achieve-name">' + def.name + '</div><div class="achieve-desc">' + def.desc + '</div></div>';
+
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(function () { toast.classList.add('visible'); });
+
+    setTimeout(function () {
+      toast.classList.remove('visible');
+      setTimeout(function () { toast.remove(); }, 400);
+    }, 4000);
+  }
+
+  function getTotalCompleted() {
+    var progress = getProgress();
+    var count = 0;
+    for (var key in progress) {
+      if (progress[key] && progress[key].complete) count++;
+    }
+    return count;
+  }
+
+  function getLevelXP(xp) {
+    return xp % XP_PER_LEVEL;
+  }
+
+  function initGamification() {
+    // Insert gamification dashboard into sidebar
+    var sidebar = document.querySelector('.learn-sidebar, .l-sidebar');
+    if (!sidebar) return;
+
+    // Don't add if already present
+    if (sidebar.querySelector('.gamification-dash')) return;
+
+    var dash = document.createElement('div');
+    dash.className = 'gamification-dash';
+
+    var data = getXPData();
+    var xp = data.xp;
+    var level = getLevel(xp);
+    var levelXp = getLevelXP(xp);
+    var streak = getStreakData();
+
+    dash.innerHTML =
+      '<div class="gamification-header">' +
+        '<div class="gamification-level-badge">' +
+          '<span class="gamification-level-num">' + level + '</span>' +
+        '</div>' +
+        '<div class="gamification-info">' +
+          '<div class="gamification-level-label">Level ' + level + '</div>' +
+          '<div class="gamification-xp-row">' +
+            '<div class="gamification-xp-bar-wrap"><div class="gamification-xp-bar" style="width:' + (levelXp / XP_PER_LEVEL * 100) + '%"></div></div>' +
+            '<span class="gamification-xp-text">' + xp + ' XP</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="gamification-stats">' +
+        '<div class="gamification-stat"><span class="gamification-stat-value">' + streak.count + '</span><span class="gamification-stat-label">Day Streak</span></div>' +
+        '<div class="gamification-stat"><span class="gamification-stat-value">' + getTotalCompleted() + '</span><span class="gamification-stat-label">Done</span></div>' +
+        '<div class="gamification-stat"><span class="gamification-stat-value">' + getAchievements().length + '</span><span class="gamification-stat-label">Badges</span></div>' +
+      '</div>';
+
+    // Add achievements section (show first 4 locked/unlocked)
+    var achList = getAchievements();
+    var allIds = Object.keys(ACHIEVEMENT_DEFS);
+    var achHtml = '<div class="gamification-achieve-title">Badges</div><div class="gamification-achieve-list">';
+    allIds.forEach(function (id) {
+      var def = ACHIEVEMENT_DEFS[id];
+      var unlocked = achList.indexOf(id) !== -1;
+      achHtml += '<div class="gamification-achieve-item' + (unlocked ? '' : ' locked') + '" title="' + def.desc + '"><span class="gamification-achieve-icon">' + (unlocked ? def.icon : '\u{1F512}') + '</span><span class="gamification-achieve-name">' + def.name + '</span></div>';
+    });
+    achHtml += '</div>';
+    dash.innerHTML += achHtml;
+
+    // Insert into sidebar (before course progress)
+    var progressBar = sidebar.querySelector('.course-progress-bar');
+    if (progressBar) {
+      sidebar.insertBefore(dash, progressBar);
+    } else {
+      sidebar.appendChild(dash);
+    }
+  }
+
+  function updateGamificationUI() {
+    var dash = document.querySelector('.gamification-dash');
+    if (!dash) return;
+
+    var data = getXPData();
+    var xp = data.xp;
+    var level = getLevel(xp);
+    var levelXp = getLevelXP(xp);
+    var streak = getStreakData();
+    var achList = getAchievements();
+
+    // Update level badge & XP bar
+    var badge = dash.querySelector('.gamification-level-num');
+    if (badge) badge.textContent = level;
+
+    var label = dash.querySelector('.gamification-level-label');
+    if (label) label.textContent = 'Level ' + level;
+
+    var xpBar = dash.querySelector('.gamification-xp-bar');
+    if (xpBar) xpBar.style.width = (levelXp / XP_PER_LEVEL * 100) + '%';
+
+    var xpText = dash.querySelector('.gamification-xp-text');
+    if (xpText) xpText.textContent = xp + ' XP';
+
+    // Update stats
+    var statValues = dash.querySelectorAll('.gamification-stat-value');
+    if (statValues[0]) statValues[0].textContent = streak.count;
+    if (statValues[1]) statValues[1].textContent = getTotalCompleted();
+    if (statValues[2]) statValues[2].textContent = achList.length;
+
+    // Update achievements
+    var achItems = dash.querySelectorAll('.gamification-achieve-item');
+    var allIds = Object.keys(ACHIEVEMENT_DEFS);
+    achItems.forEach(function (item, i) {
+      var id = allIds[i];
+      if (!id) return;
+      var unlocked = achList.indexOf(id) !== -1;
+      item.classList.toggle('locked', !unlocked);
+      var iconEl = item.querySelector('.gamification-achieve-icon');
+      if (iconEl) iconEl.textContent = unlocked ? ACHIEVEMENT_DEFS[id].icon : '\u{1F512}';
+    });
+  }
+
+  // ─── 16. (renumbered) INITIALIZATION ───
   function init() {
     // Course overview pages must be initialized first (they add elements to DOM)
     initCourseOverview();
@@ -1154,6 +1431,8 @@
     initCourseBar();
     initCertificate();
     initSearch();
+    initGamification();
+    updateGamificationUI();
     updateCompletionUI();
 
     // Add keyboard shortcut hint
