@@ -46,7 +46,7 @@ function startCursorFix(blinking) {
   else if (blinking === 'expand') { anim = 'cm-expand-blink ' + dur + 'ms ease-in-out infinite' }
   else { anim = 'cm-blink ' + dur + 'ms steps(1) infinite' }
   cursorInterval = setInterval(function() {
-    document.querySelectorAll('.cm-cursor').forEach(function(el) { el.style.setProperty('animation', anim, 'important') })
+    document.querySelectorAll('.cm-cursorLayer').forEach(function(el) { el.style.setProperty('animation', anim, 'important') })
   }, 200)
 }
 

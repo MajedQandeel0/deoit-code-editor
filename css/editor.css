@@ -653,7 +653,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-  .editor-input-area .cm-cursor { animation-duration: 1.2s !important; }
+  .editor-input-area .cm-cursorLayer { animation-duration: 1.2s !important; }
 }
 
 .login-hover-tip {
