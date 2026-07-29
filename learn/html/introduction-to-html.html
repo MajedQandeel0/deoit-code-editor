@@ -250,14 +250,30 @@
           <span>·</span>
           <span>Lesson 1 of 25</span>
         </div>
+        <div class="lesson-meta-bar">
+          <span class="diff-badge diff-beginner" id="difficultyBadge" data-level="beginner">Beginner</span>
+          <span class="reading-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span id="readingTime">—</span></span>
+          <button id="bookmarkBtn" aria-label="Bookmark this lesson"></button>
+        </div>
+      </div>
+
+      <div class="course-progress-bar">
+        <progress id="courseProgress" value="0" max="100"></progress>
+        <span class="course-progress-label" id="courseProgressLabel">0/25 lessons</span>
       </div>
 
       <div class="lesson-content">
-        
-<h2>What is HTML?</h2>
+
+<div class="toc-wrap">
+  <h3><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> On this page</h3>
+  <button id="tocToggle">☰ Table of Contents</button>
+  <div id="lessonTOC"></div>
+</div>
+
+<h2 id="what-is-html">What is HTML?</h2>
 <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It describes the structure of a web page using a system of tags and attributes.</p>
 
-<h3>How the Web Works</h3>
+<h3 id="how-the-web-works">How the Web Works</h3>
 <p>When you visit a website, your browser sends a request to a server. The server responds with HTML code, which the browser interprets and displays as a visual page.</p>
 
 <div class="lesson-diagram">
@@ -277,20 +293,20 @@
   </div>
 </div>
 
-<h3>Your First HTML Document</h3>
-<p>Every HTML document follows a basic structure:</p>
+<h3 id="your-first-html-document">Your First HTML Document</h3>
+<p>Every HTML document follows a basic structure. Try it yourself below — edit the code and click <strong>Run</strong>:</p>
 
-<pre class="lesson-code" >&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
+<div class="code-playground" data-lang="html" data-title="Your First HTML Page" data-code="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
   &lt;title&gt;My Page&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;h1&gt;Hello, World!&lt;/h1&gt;
   &lt;p&gt;This is my first web page.&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;"></div>
 
 <ul>
   <li><strong>&lt;!DOCTYPE html&gt;</strong>  -  Declares the document type and HTML version</li>
@@ -300,7 +316,7 @@
   <li><strong>&lt;body&gt;</strong>  -  Contains the visible content of the page</li>
 </ul>
 
-<h3>Common HTML Tags</h3>
+<h3 id="common-html-tags">Common HTML Tags</h3>
 <table>
   <tr><th>Tag</th><th>Description</th><th>Example</th></tr>
   <tr><td>&lt;h1&gt;-&lt;h6&gt;</td><td>Headings (h1 is largest)</td><td>&lt;h1&gt;Title&lt;/h1&gt;</td></tr>
@@ -311,21 +327,37 @@
   <tr><td>&lt;div&gt;</td><td>Block-level container</td><td>&lt;div&gt;Content&lt;/div&gt;</td></tr>
 </table>
 
-<h3>HTML Tags</h3>
+<h3 id="html-tags">HTML Tags</h3>
 <p>HTML tags are keywords surrounded by angle brackets: <code>&lt;tagname&gt;</code>. Most tags come in pairs  -  an opening tag and a closing tag with a forward slash.</p>
 
-<div class="lesson-code">
-<span class="hl-tag">&lt;tagname&gt;</span>content goes here<span class="hl-tag">&lt;/tagname&gt;</span>
-</div>
+<pre>&lt;tagname&gt;content goes here&lt;/tagname&gt;</pre>
 
-<div class="note note-info"><strong>Tip:</strong> Click the <strong>Run</strong> button above to see the HTML code in action right here!</div>
+<div class="note note-info"><strong>Tip:</strong> Modify the code above and click <strong>Run</strong> to see your changes instantly!</div>
 
 <div class="note note-warning"><strong>Note:</strong> HTML is not a programming language  -  it is a <strong>markup language</strong> that structures content. You'll add styling with CSS and interactivity with JavaScript later.</div>
 
-<h3>Try It Yourself</h3>
-<p>Open the <a href="pages/editor" class="lesson-link">Deoit Editor</a> and paste the HTML above. Click <strong>Run</strong> to see your first web page in action!</p>
-        
-      </div>
+<h3 id="try-it-yourself">Try It Yourself</h3>
+<p>Open the <a href="/pages/editor" class="lesson-link">Deoit Editor</a> and build your own page from scratch. Click <strong>Run</strong> to see your first web page in action!</p>
+
+<div class="lesson-takeaways" data-items='["HTML stands for HyperText Markup Language and structures web content", "Every HTML document needs DOCTYPE, html, head, and body elements", "Tags come in pairs: &lt;opening&gt; and &lt;/closing&gt;", "The browser renders HTML into a visual web page", "You can edit and run HTML code directly in this lesson"]'></div>
+
+<div class="lesson-quiz" data-questions='[{"q":"What does HTML stand for?","type":"mcq","options":[{"text":"HyperText Markup Language","correct":true},{"text":"High Tech Modern Language","correct":false},{"text":"Home Tool Markup Language","correct":false},{"text":"Hyper Transfer Markup Language","correct":false}]},{"q":"Which element contains the visible content of a web page?","type":"mcq","options":[{"text":"&lt;head&gt;","correct":false},{"text":"&lt;body&gt;","correct":true},{"text":"&lt;html&gt;","correct":false},{"text":"&lt;title&gt;","correct":false}]},{"q":"HTML is a programming language.","type":"truefalse","answer":1},{"q":"Which tag is used for the largest heading?","type":"mcq","options":[{"text":"&lt;heading&gt;","correct":false},{"text":"&lt;h6&gt;","correct":false},{"text":"&lt;h1&gt;","correct":true},{"text":"&lt;head&gt;","correct":false}]}]'></div>
+
+<div class="code-challenge" data-lang="html" data-instructions="Create a simple HTML page with a heading that says &quot;My First Page&quot; and a paragraph that says &quot;I am learning HTML with Deoit!&quot;" data-starter="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;" data-expected="&lt;h1&gt;My First Page&lt;/h1&gt;"></div>
+
+</div>
+
+<div class="lesson-progress" style="border-top:1px solid var(--border);padding-top:28px;margin-top:0">
+  <button id="markComplete" class="complete-btn"></button>
+</div>
 
       <div class="lesson-navigation">
         <a href="/learn-html" class="lesson-nav-link prev"><span class="nav-label">← Back to</span><span class="nav-title">HTML Course</span></a>
@@ -356,6 +388,7 @@
   <footer class="blog-footer">
     <p>&copy; 2026 Deoit · Built by <a href="https://deoit.js.org"><strong>Majed Qandeel</strong></a></p>
   </footer>
+  <script src="../../js/learn.js"></script>
   <script>
     var _fbSent=0;var _MAX_FB=3;
     function reportFeedback(type) {
