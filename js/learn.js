@@ -1328,36 +1328,55 @@
     var levelXp = getLevelXP(xp);
     var streak = getStreakData();
 
+    var collapseKey = 'deoit_gami_collapsed';
+    function isCollapsed() { return storage().getItem(collapseKey) === 'true'; }
+
     dash.innerHTML =
-      '<div class="gamification-header">' +
-        '<div class="gamification-level-badge">' +
-          '<span class="gamification-level-num">' + level + '</span>' +
-        '</div>' +
-        '<div class="gamification-info">' +
-          '<div class="gamification-level-label">Level ' + level + '</div>' +
-          '<div class="gamification-xp-row">' +
-            '<div class="gamification-xp-bar-wrap"><div class="gamification-xp-bar" style="width:' + (levelXp / XP_PER_LEVEL * 100) + '%"></div></div>' +
-            '<span class="gamification-xp-text">' + xp + ' XP</span>' +
+      '<div class="gamification-toggle">' +
+        '<div class="gamification-header">' +
+          '<div class="gamification-level-badge">' +
+            '<span class="gamification-level-num">' + level + '</span>' +
+          '</div>' +
+          '<div class="gamification-info">' +
+            '<div class="gamification-level-label">Level ' + level + '</div>' +
+            '<div class="gamification-xp-row">' +
+              '<div class="gamification-xp-bar-wrap"><div class="gamification-xp-bar" style="width:' + (levelXp / XP_PER_LEVEL * 100) + '%"></div></div>' +
+              '<span class="gamification-xp-text">' + xp + ' XP</span>' +
+            '</div>' +
           '</div>' +
         '</div>' +
+        '<button class="gamification-collapse-btn" aria-label="Toggle details">' +
+          '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>' +
+        '</button>' +
       '</div>' +
-      '<div class="gamification-stats">' +
-        '<div class="gamification-stat"><span class="gamification-stat-value">' + streak.count + '</span><span class="gamification-stat-label">Day Streak</span></div>' +
-        '<div class="gamification-stat"><span class="gamification-stat-value">' + getTotalCompleted() + '</span><span class="gamification-stat-label">Done</span></div>' +
-        '<div class="gamification-stat"><span class="gamification-stat-value">' + getAchievements().length + '</span><span class="gamification-stat-label">Badges</span></div>' +
+      '<div class="gamification-body">' +
+        '<div class="gamification-stats">' +
+          '<div class="gamification-stat"><span class="gamification-stat-value">' + streak.count + '</span><span class="gamification-stat-label">Day Streak</span></div>' +
+          '<div class="gamification-stat"><span class="gamification-stat-value">' + getTotalCompleted() + '</span><span class="gamification-stat-label">Done</span></div>' +
+          '<div class="gamification-stat"><span class="gamification-stat-value">' + getAchievements().length + '</span><span class="gamification-stat-label">Badges</span></div>' +
+        '</div>' +
+        '<div class="gamification-achieve-title">Badges</div><div class="gamification-achieve-list">' + (function () {
+          var achList = getAchievements();
+          var allIds = Object.keys(ACHIEVEMENT_DEFS);
+          var html = '';
+          allIds.forEach(function (id) {
+            var def = ACHIEVEMENT_DEFS[id];
+            var unlocked = achList.indexOf(id) !== -1;
+            html += '<div class="gamification-achieve-item' + (unlocked ? '' : ' locked') + '" title="' + def.desc + '"><span class="gamification-achieve-icon">' + (unlocked ? def.icon : '\u{1F512}') + '</span><span class="gamification-achieve-name">' + def.name + '</span></div>';
+          });
+          return html;
+        })() + '</div>' +
       '</div>';
 
-    // Add achievements section (show first 4 locked/unlocked)
-    var achList = getAchievements();
-    var allIds = Object.keys(ACHIEVEMENT_DEFS);
-    var achHtml = '<div class="gamification-achieve-title">Badges</div><div class="gamification-achieve-list">';
-    allIds.forEach(function (id) {
-      var def = ACHIEVEMENT_DEFS[id];
-      var unlocked = achList.indexOf(id) !== -1;
-      achHtml += '<div class="gamification-achieve-item' + (unlocked ? '' : ' locked') + '" title="' + def.desc + '"><span class="gamification-achieve-icon">' + (unlocked ? def.icon : '\u{1F512}') + '</span><span class="gamification-achieve-name">' + def.name + '</span></div>';
+    // Apply collapsed state
+    if (isCollapsed()) dash.classList.add('collapsed');
+
+    // Toggle handler
+    dash.querySelector('.gamification-collapse-btn').addEventListener('click', function () {
+      var nowCollapsed = !dash.classList.contains('collapsed');
+      dash.classList.toggle('collapsed', nowCollapsed);
+      storage().setItem(collapseKey, nowCollapsed ? 'true' : 'false');
     });
-    achHtml += '</div>';
-    dash.innerHTML += achHtml;
 
     // Insert into sidebar (before course progress)
     var progressBar = sidebar.querySelector('.course-progress-bar');
@@ -1392,7 +1411,7 @@
     var xpText = dash.querySelector('.gamification-xp-text');
     if (xpText) xpText.textContent = xp + ' XP';
 
-    // Update stats
+    // Update stats (only if body is visible, but keep data)
     var statValues = dash.querySelectorAll('.gamification-stat-value');
     if (statValues[0]) statValues[0].textContent = streak.count;
     if (statValues[1]) statValues[1].textContent = getTotalCompleted();
