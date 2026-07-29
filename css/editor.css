@@ -107,8 +107,8 @@ body {
 }
 .toolbar-btn svg { width: 15px; height: 15px; }
 .toolbar-btn:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-.toolbar-btn.run { background: var(--accent); color: #111; font-weight: 600; }
-.toolbar-btn.run:hover { background: var(--accent-hover); }
+.toolbar-btn.run { background: #4361ee; color: #fff; font-weight: 600; }
+.toolbar-btn.run:hover { background: #3651d4; }
 .toolbar-right { display: flex; align-items: center; gap: 6px; }
 
 /* ─── USER AVATAR ─── */
@@ -428,7 +428,7 @@ body {
   transition: 0.12s;
 }
 .panel-tab svg { opacity: 0.4; width: 12px; height: 12px; }
-.panel-tab.active { color: var(--text); border-bottom-color: var(--accent); }
+.panel-tab.active { color: #4361ee; border-bottom-color: #4361ee; }
 .panel-tab.active svg { opacity: 0.7; }
 .panel-actions {
   display: flex; align-items: center; gap: 4px;
