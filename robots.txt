@@ -5,9 +5,6 @@ Allow: /learn
 Allow: /learn-html.html
 Allow: /learn-css.html
 Allow: /learn-js.html
-Allow: /learn-react.html
-Allow: /learn-node.html
-Allow: /learn-tools.html
 Allow: /blog
 Allow: /blog/bootstrap-is-dead
 Allow: /blog/learn-html-7-days

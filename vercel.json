@@ -16,8 +16,7 @@
     { "source": "/blog/bootstrap-is-dead", "destination": "/blog/bootstrap-is-dead.html" },
     { "source": "/learn-css", "destination": "/learn-css.html" },
     { "source": "/learn-js", "destination": "/learn-js.html" },
-    { "source": "/learn-html", "destination": "/learn-html.html" },
-    { "source": "/favicon.ico", "destination": "/logo.png" }
+    { "source": "/learn-html", "destination": "/learn-html.html" }
   ],
   "headers": [
     {

@@ -11,7 +11,7 @@
   
   
   
-  <title>Sign In - Deoit</title>
+  <title>Sign In — Deoit</title>
   <meta name="title" content="Sign In - Deoit">
   <meta name="description" content="Sign in to Deoit with Google or GitHub to save projects, access all lessons, and unlock the full code editor experience.">
   <meta name="keywords" content="sign in, login, Google sign in, GitHub sign in, code editor login, Deoit account">
@@ -22,12 +22,12 @@
   <meta property="og:site_name" content="Deoit">
   <meta property="og:title" content="Sign In - Deoit">
   <meta property="og:description" content="Sign in to Deoit with Google or GitHub to save projects and unlock the full editor.">
-  <meta property="og:image" content="https://deoit.js.org/logo.png">
+  <meta property="og:image" content="https://deoit.js.org/og-image.png">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sign In - Deoit">
   <meta name="twitter:description" content="Sign in to Deoit to save your code and access all lessons.">
-  <meta name="twitter:image" content="https://deoit.js.org/logo.png">
+  <meta name="twitter:image" content="https://deoit.js.org/og-image.png">
   <link rel="canonical" href="https://deoit.js.org/login">
   <link rel="alternate" href="https://deoit.js.org/login" hreflang="en">
   <link rel="alternate" href="https://deoit.js.org/login" hreflang="x-default">
@@ -52,6 +52,7 @@
     }
   </script>
   <script>if(top!==self){top.location.href=self.location.href}</script>
+<script src="js/seo-engine.js"></script>
 </head>
 <body>
   <a href="/" class="back-link">
@@ -133,10 +134,10 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
-  <script src="js/auth.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js" integrity="sha384-2zrRDgDHSYB/GN3nFW3fsZXoxEhKIr3N2h63Tc6DEOB9JJdFIu8xMJT2Cph/gBil" crossorigin="anonymous"></script>
+  <script defer src="js/auth.js"></script>
   <script>
-    (function() {
+    document.addEventListener('DOMContentLoaded', function() {
       var overlay = document.getElementById('loadingOverlay');
       var loadingText = document.getElementById('loadingText');
 
@@ -175,7 +176,7 @@
 
       btnGoogle.addEventListener('click', function() { doSignIn(signInGoogle, btnGoogle, 'Google'); });
       btnGithub.addEventListener('click', function() { doSignIn(signInGithub, btnGithub, 'GitHub'); });
-    })();
+    });
   </script>
   <script>
     if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function() {}); }

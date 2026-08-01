@@ -110,13 +110,17 @@ function generateLessonPage(course, lesson, courseTitle, courseColor) {
 <meta property="og:url" content="${canonicalUrl}">
 <meta property="og:title" content="${metaTitle}">
 <meta property="og:description" content="${desc}">
-<meta property="og:image" content="${BASE_URL}/logo.png">
+<meta property="og:image" content="${BASE_URL}/og-image.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Deoit — Write, run, and preview HTML, CSS & JavaScript">
 <meta property="og:site_name" content="Deoit">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${metaTitle}">
 <meta name="twitter:description" content="${desc}">
-<meta name="twitter:image" content="${BASE_URL}/logo.png">
+<meta name="twitter:image" content="${BASE_URL}/og-image.png">
+<meta name="twitter:image:alt" content="Deoit — Write, run, and preview HTML, CSS & JavaScript">
 <link rel="canonical" href="${canonicalUrl}">
 <link rel="alternate" href="${canonicalUrl}" hreflang="en">
 <link rel="alternate" href="${canonicalUrl}" hreflang="x-default">
@@ -130,6 +134,7 @@ ${JSON.stringify(breadcrumbJsonLd, null, 2)}
 ${JSON.stringify(articleJsonLd, null, 2)}
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="e41f2e20-74af-4d7a-a757-5eed0348d629"></script>
+<script src="../../js/seo-engine.js"></script>
 </head>
 <body>
   <nav class="blog-nav">
