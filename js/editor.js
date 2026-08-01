@@ -718,7 +718,12 @@ ${bridge}
   if (!iframe) {
     iframe = document.createElement('iframe');
     iframe.id = 'previewFrame';
-    iframe.sandbox = 'allow-scripts allow-forms';
+    // Opaque-origin sandbox: allow-scripts for user code + forms + modals,
+    // but NO allow-same-origin (blocks cookies/localStorage/DOM access),
+    // no allow-top-navigation, no allow-popups (blocks phishing escapes).
+    iframe.sandbox = 'allow-scripts allow-forms allow-modals';
+    iframe.setAttribute('referrerpolicy', 'no-referrer');
+    iframe.title = 'Live preview (sandboxed)';
     iframe.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:9999;background:#fff;';
     const closeBtn = document.createElement('button');
     closeBtn.textContent = 'Close Preview';
@@ -1398,7 +1403,8 @@ function setupDelegation() {
     if (e.source !== preview?.contentWindow) return;
     if (e.data && e.data.type === 'deoit_console') {
       if (e.data.level === 'clear') { clearConsole(); return; }
-      addConsoleEntry(e.data.level || 'log', e.data.args || ['']);
+      const args = Array.isArray(e.data.args) ? e.data.args : [''];
+      addConsoleEntry(String(e.data.level || 'log'), args);
     }
   });
 

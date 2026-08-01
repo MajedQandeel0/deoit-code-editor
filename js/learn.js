@@ -136,6 +136,7 @@
       var iframe = document.createElement('iframe');
       iframe.className = 'cp-iframe';
       iframe.setAttribute('sandbox', 'allow-scripts allow-modals');
+      iframe.setAttribute('referrerpolicy', 'no-referrer');
       iframe.setAttribute('title', 'Live preview');
       previewCol.appendChild(iframe);
 
@@ -550,8 +551,88 @@
       wrapper.appendChild(btn);
     });
   }
-
   // ─── 8. CODE CHALLENGES ───
+
+  /**
+   * Secure JS execution for code challenges.
+   * Runs user code inside an opaque-origin, sandboxed srcdoc iframe with
+   * `allow-scripts` ONLY (no allow-same-origin). The code therefore cannot
+   * access the parent's cookies, localStorage/sessionStorage (incl. Supabase
+   * tokens), DOM, or window. Console output and errors are relayed back via
+   * postMessage; the parent verifies `event.source` before trusting payloads.
+   * A 5s watchdog terminates the frame so infinite loops cannot hang the page.
+   * NOTE: no eval()/new Function() anywhere — user code is injected as a plain
+   * inline <script> inside the isolated frame (CSP keeps 'unsafe-eval' off).
+   */
+  function runJsSandboxed(code, output) {
+    output.innerHTML = '<div class="ch-output-placeholder">Running&hellip;</div>';
+
+    var runner = document.createElement('iframe');
+    runner.setAttribute('sandbox', 'allow-scripts');
+    runner.setAttribute('referrerpolicy', 'no-referrer');
+    runner.setAttribute('title', 'Sandboxed JavaScript runner');
+    runner.style.display = 'none';
+    output.appendChild(runner);
+
+    var settled = false;
+    var origin = window.location.origin;
+
+    function cleanup() {
+      clearTimeout(timer);
+      window.removeEventListener('message', onMsg);
+      if (runner && runner.parentNode) runner.parentNode.removeChild(runner);
+    }
+    function show(logs) {
+      output.innerHTML = '';
+      if (logs && logs.length) {
+        logs.forEach(function (l) {
+          var line = document.createElement('div');
+          line.className = 'ch-output-line';
+          line.textContent = l;
+          output.appendChild(line);
+        });
+      } else {
+        output.innerHTML = '<div class="ch-output-placeholder">Code ran successfully (no output)</div>';
+      }
+    }
+    function onMsg(ev) {
+      if (settled) return;
+      if (ev.source !== runner.contentWindow) return;
+      if (!ev.data || ev.data.type !== 'deoit_ch') return;
+      settled = true;
+      cleanup();
+      if (ev.data.err) {
+        output.innerHTML = '<div class="ch-output-line ch-error">Error: ' + escapeHtml(ev.data.err) + '</div>';
+        return;
+      }
+      show(ev.data.logs || []);
+    }
+    function onTimeout() {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      output.innerHTML = '<div class="ch-output-line ch-error">Error: Script timed out after 5 seconds.</div>';
+    }
+
+    var timer = setTimeout(onTimeout, 5000);
+    window.addEventListener('message', onMsg);
+
+    var safeCode = code.replace(/<\/script/gi, '<\\/script');
+    var bridge =
+      '<script>' +
+        'window.__logs=[];' +
+        '["log","warn","error","info"].forEach(function(k){var o=console[k]||function(){};' +
+        'console[k]=function(){var a=[].slice.call(arguments);' +
+        'window.__logs.push(a.map(function(x){try{return typeof x==="object"?JSON.stringify(x):String(x)}catch(e){return String(x)}}).join(" "));' +
+        'o.apply(console,arguments);}});' +
+        'window.onerror=function(m){window.__err=String(m)};' +
+      '<\/script>' +
+      '<script>' + safeCode + '<\/script>' +
+      '<script>parent.postMessage({type:"deoit_ch",logs:window.__logs,err:window.__err||null},"' + origin + '")<\/script>';
+
+    runner.srcdoc = '<!DOCTYPE html><html><head><meta charset="UTF-8">' + bridge + '</head><body></body></html>';
+  }
+
   function initChallenges() {
     $$('.code-challenge').forEach(function (ch) {
       var instructions = ch.getAttribute('data-instructions') || 'Write your code below:';
@@ -608,49 +689,16 @@
       // ── Run logic ──
       function runChallenge() {
         var code = textarea.value;
-        var iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        ch.appendChild(iframe);
-
         var resultEl = document.createElement('div');
         resultEl.className = 'ch-result';
 
         if (lang === 'js') {
-          try {
-            var logs = [];
-            var originalLog = console.log;
-            console.log = function () {
-              var args = Array.prototype.slice.call(arguments);
-              logs.push(args.map(function (a) { return typeof a === 'object' ? JSON.stringify(a) : String(a); }).join(' '));
-            };
-
-            var result = eval(code);
-
-            console.log = originalLog;
-
-            output.innerHTML = '';
-            if (logs.length) {
-              logs.forEach(function (l) {
-                var line = document.createElement('div');
-                line.className = 'ch-output-line';
-                line.textContent = l;
-                output.appendChild(line);
-              });
-            } else if (result !== undefined) {
-              output.innerHTML = '<div class="ch-output-line">' + escapeHtml(String(result)) + '</div>';
-            } else {
-              output.innerHTML = '<div class="ch-output-placeholder">Code ran successfully (no output)</div>';
-            }
-          } catch (e) {
-            output.innerHTML = '<div class="ch-output-line ch-error">Error: ' + escapeHtml(e.message) + '</div>';
-          }
+          runJsSandboxed(code, output);
         } else {
           // HTML mode
           var srcdoc = code;
-          output.innerHTML = '<iframe class="ch-preview" sandbox="allow-scripts" srcdoc="' + escapeHtml(srcdoc) + '"></iframe>';
+          output.innerHTML = '<iframe class="ch-preview" sandbox="allow-scripts" referrerpolicy="no-referrer" srcdoc="' + escapeHtml(srcdoc) + '"></iframe>';
         }
-
-        if (iframe) iframe.remove();
       }
 
       function checkSolution() {

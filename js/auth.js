@@ -1,6 +1,13 @@
 var _supabase = supabase.createClient(
   'https://oujwlzywbhyntcehgbcx.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im91andsenl3Ymh5bnRjZWhnYmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzMDg0NTYsImV4cCI6MjA5OTg4NDQ1Nn0._kErT8JtI0ifd2MSPg2VI8AhKiql_MvjvD3_8HEXqS8'
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im91andsenl3Ymh5bnRjZWhnYmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzMDg0NTYsImV4cCI6MjA5OTg4NDQ1Nn0._kErT8JtI0ifd2MSPg2VI8AhKiql_MvjvD3_8HEXqS8',
+  {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    }
+  }
 );
 
 var _currentSupabaseUser = null;
@@ -51,4 +58,19 @@ function onAuth(cb) {
 
 function getUser() {
   return _currentSupabaseUser;
+}
+
+/**
+ * Internal-only accessor for the current access token.
+ * The JWT never leaves this module except through authenticated Supabase
+ * calls. Sandboxed preview/runner iframes (opaque origin) cannot reach
+ * localStorage, so the token is unreadable to user code.
+ */
+function getAuthToken() {
+  return _supabase.auth.getSession().then(function(ref) {
+    var session = ref.data && ref.data.session;
+    return session ? session.access_token : null;
+  }).catch(function() {
+    return null;
+  });
 }
