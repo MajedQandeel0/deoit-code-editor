@@ -7,6 +7,10 @@
     "deoit": "index.js",
     "deoit-cli": "index.js"
   },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
   "keywords": [
     "code-editor",
     "online-ide",
